@@ -46,6 +46,7 @@ namespace Cis.Models
 			Field(o => o.Category, type: typeof(StringGraphType));
 			Field(o => o.Servicetype, type: typeof(EnumerationGraphType<Servicetype>)).Description(@"Whether the service is permanent or temporary ");
 			Field(o => o.Noservicedays, type: typeof(IntGraphType)).Description(@"Number of days the service is operating");
+			Field(o => o.Investment, type: typeof(FloatGraphType));
 			// % protected region % [Add any extra GraphQL fields here] off begin
 			// % protected region % [Add any extra GraphQL fields here] end
 
@@ -137,6 +138,7 @@ namespace Cis.Models
 			Field<StringGraphType>("Category");
 			Field<EnumerationGraphType<Servicetype>>("Servicetype").Description = @"Whether the service is permanent or temporary ";
 			Field<IntGraphType>("Noservicedays").Description = @"Number of days the service is operating";
+			Field<FloatGraphType>("Investment");
 
 			// Add entity references
 			Field<IdGraphType>("RegionalAreaId");

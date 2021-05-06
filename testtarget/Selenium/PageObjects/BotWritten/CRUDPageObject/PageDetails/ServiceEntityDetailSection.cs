@@ -55,6 +55,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		private IWebElement CategoryHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Category']"));
 		private IWebElement ServicetypeHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='ServiceType']"));
 		private IWebElement NoservicedaysHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='NoServiceDays']"));
+		private IWebElement InvestmentHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Investment']"));
 
 		// Datepickers
 		public IWebElement CreateAtDatepickerField => _driver.FindElementExt(By.CssSelector("div.created > input[type='date']"));
@@ -70,7 +71,6 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 
 			InitializeSelectors();
 			// % protected region % [Add any extra construction requires] off begin
-
 			// % protected region % [Add any extra construction requires] end
 		}
 
@@ -82,6 +82,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 			selectorDict.Add("CategoryElement", (selector: "//div[contains(@class, 'category')]//input", type: SelectorType.XPath));
 			selectorDict.Add("ServicetypeElement", (selector: "//div[contains(@class, 'servicetype')]//input", type: SelectorType.XPath));
 			selectorDict.Add("NoservicedaysElement", (selector: "//div[contains(@class, 'noservicedays')]//input", type: SelectorType.XPath));
+			selectorDict.Add("InvestmentElement", (selector: "//div[contains(@class, 'investment')]//input", type: SelectorType.XPath));
 
 			// Reference web elements
 			selectorDict.Add("RegionalareaElement", (selector: ".input-group__dropdown.regionalAreaId > .dropdown.dropdown__container", type: SelectorType.CSS));
@@ -101,6 +102,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		private IWebElement CategoryElement => FindElementExt("CategoryElement");
 		private IWebElement ServicetypeElement => FindElementExt("ServicetypeElement");
 		private IWebElement NoservicedaysElement => FindElementExt("NoservicedaysElement");
+		private IWebElement InvestmentElement => FindElementExt("InvestmentElement");
 
 		// Return an IWebElement that can be used to sort an attribute.
 		public IWebElement GetHeaderTile(string attribute)
@@ -111,6 +113,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 				"Category" => CategoryHeaderTitle,
 				"ServiceType" => ServicetypeHeaderTitle,
 				"NoServiceDays" => NoservicedaysHeaderTitle,
+				"Investment" => InvestmentHeaderTitle,
 				_ => throw new Exception($"Cannot find header tile {attribute}"),
 			};
 		}
@@ -128,6 +131,8 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 					return ServicetypeElement;
 				case "Noservicedays":
 					return NoservicedaysElement;
+				case "Investment":
+					return InvestmentElement;
 				default:
 					throw new Exception($"Cannot find input element {attribute}");
 			}
@@ -154,6 +159,9 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 					}
 					SetNoservicedays(noservicedays);
 					break;
+				case "Investment":
+					SetInvestment(Convert.ToDouble(value));
+					break;
 				default:
 					throw new Exception($"Cannot find input element {attribute}");
 			}
@@ -167,6 +175,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 				"Category" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.category > div > p"),
 				"Servicetype" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.servicetype > div > p"),
 				"Noservicedays" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.noservicedays > div > p"),
+				"Investment" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.investment > div > p"),
 				_ => throw new Exception($"No such attribute {attribute}"),
 			};
 		}
@@ -189,6 +198,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 			SetCategory(_serviceEntity.Category);
 			SetServicetype(_serviceEntity.Servicetype);
 			SetNoservicedays(_serviceEntity.Noservicedays);
+			SetInvestment(_serviceEntity.Investment);
 
 			SetRegionalAreaId(_serviceEntity.RegionalAreaId?.ToString());
 			if (_serviceEntity.ServiceCommissioningBodiesIds != null)
@@ -306,6 +316,16 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		private int? GetNoservicedays =>
 			int.Parse(NoservicedaysElement.Text);
 
+		private void SetInvestment (Double? value)
+		{
+			if (value is double doubleValue)
+			{
+				TypingUtils.InputEntityAttributeByClass(_driver, "investment", doubleValue.ToString(), _isFastText);
+			}
+		}
+
+		private Double? GetInvestment =>
+			Convert.ToDouble(InvestmentElement.Text);
 
 		// % protected region % [Add any additional getters and setters of web elements] off begin
 		// % protected region % [Add any additional getters and setters of web elements] end

@@ -58,6 +58,12 @@ namespace APITests.EntityObjects.Models
 		// 
 		[EntityAttribute]
 		public Double? GapScore { get; set; }
+		// 
+		[EntityAttribute]
+		public int? Noservices { get; set; }
+		// 
+		[EntityAttribute]
+		public Double? Totalinvestment { get; set; }
 
 		/// <summary>
 		/// Outgoing one to many reference
@@ -146,6 +152,8 @@ namespace APITests.EntityObjects.Models
 				{"ieo" , Ieo.ToString()},
 				{"ier" , Ier.ToString()},
 				{"gapScore" , GapScore.ToString()},
+				{"noservices" , Noservices.ToString()},
+				{"totalinvestment" , Totalinvestment.ToString()},
 			};
 
 
@@ -193,6 +201,14 @@ namespace APITests.EntityObjects.Models
 			if(GapScore != null) 
 			{
 				entityVar["gapScore"] = GapScore.ToString();
+			}
+			if(Noservices != null) 
+			{
+				entityVar["noservices"] = Noservices;
+			}
+			if(Totalinvestment != null) 
+			{
+				entityVar["totalinvestment"] = Totalinvestment.ToString();
 			}
 			if (ServicesIds != default)
 			{

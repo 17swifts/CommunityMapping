@@ -108,6 +108,16 @@ namespace Cis.Models {
 		public Double? GapScore { get; set; }
 		// % protected region % [Customise GapScore here] end
 
+		// % protected region % [Customise Noservices here] off begin
+		[EntityAttribute]
+		public int? Noservices { get; set; }
+		// % protected region % [Customise Noservices here] end
+
+		// % protected region % [Customise Totalinvestment here] off begin
+		[EntityAttribute]
+		public Double? Totalinvestment { get; set; }
+		// % protected region % [Customise Totalinvestment here] end
+
 		// % protected region % [Add any further attributes here] off begin
 		// % protected region % [Add any further attributes here] end
 
@@ -339,6 +349,22 @@ namespace Cis.Models {
 				 GapScore,
 				 Id);
 			// % protected region % [Override CreateTimelineEventsAsync 'GapScore' case here] end
+			// % protected region % [Override CreateTimelineEventsAsync 'Noservices' case here] off begin
+			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
+				"RegionalAreaEntity",
+				"Noservices",
+				 originalEntity.Noservices,
+				 Noservices,
+				 Id);
+			// % protected region % [Override CreateTimelineEventsAsync 'Noservices' case here] end
+			// % protected region % [Override CreateTimelineEventsAsync 'Totalinvestment' case here] off begin
+			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
+				"RegionalAreaEntity",
+				"Totalinvestment",
+				 originalEntity.Totalinvestment,
+				 Totalinvestment,
+				 Id);
+			// % protected region % [Override CreateTimelineEventsAsync 'Totalinvestment' case here] end
 
 			// % protected region % [Add any further timeline update events here] off begin
 			// % protected region % [Add any further timeline update events here] end

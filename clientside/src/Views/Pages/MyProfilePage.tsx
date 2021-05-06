@@ -59,9 +59,9 @@ class MyProfilePage extends React.Component<MyProfilePageProps> {
 				}
 				<div className="body-content">
 					<div className="layout__horizontal">
-						<h1>
+						<h2>
 							My Profile
-						</h1>
+						</h2>
 					</div>
 				</div>
 			</SecuredPage>

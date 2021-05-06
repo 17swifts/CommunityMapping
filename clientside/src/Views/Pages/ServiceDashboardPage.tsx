@@ -60,7 +60,7 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 				<div className="body-content">
 					<div className="layout__horizontal">
 						<h1>
-							Service Dashboard
+							Analytics Dashboard
 						</h1>
 					</div>
 					{

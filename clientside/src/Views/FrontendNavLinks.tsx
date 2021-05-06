@@ -36,6 +36,7 @@ export function getFrontendNavLinks(pageProps: RouteComponentProps): ILink[][] {
 			{label: "Service  Dashboard", path: '/servicedashboard', icon: "files", iconPos: 'icon-left'},
 			{label: "My Profile", path: '/myprofile', icon: "files", iconPos: 'icon-left'},
 			{label: "My Services", path: '/myservices', icon: "files", iconPos: 'icon-left'},
+			{label: "Services", path: '/services', icon: "files", iconPos: 'icon-left'},
 			// % protected region % [Customise middle nav section here] end
 		],
 		[

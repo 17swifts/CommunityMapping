@@ -51,6 +51,10 @@ namespace Cis.Models
 		public int? Noservicedays { get; set; }
 		// % protected region % [Customise Noservicedays here] end
 
+		// % protected region % [Customise Investment here] off begin
+		public Double? Investment { get; set; }
+		// % protected region % [Customise Investment here] end
+
 
 		// % protected region % [Customise RegionalAreaId here] off begin
 		public Guid? RegionalAreaId { get; set; }
@@ -86,6 +90,7 @@ namespace Cis.Models
 				Category = Category,
 				Servicetype = Servicetype,
 				Noservicedays = Noservicedays,
+				Investment = Investment,
 				RegionalAreaId  = RegionalAreaId,
 				// % protected region % [Add any extra model properties here] off begin
 				// % protected region % [Add any extra model properties here] end
@@ -101,6 +106,7 @@ namespace Cis.Models
 			Category = model.Category;
 			Servicetype = model.Servicetype;
 			Noservicedays = model.Noservicedays;
+			Investment = model.Investment;
 			RegionalAreaId  = model.RegionalAreaId;
 
 			// % protected region % [Add any extra loading data logic here] off begin

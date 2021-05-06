@@ -40,6 +40,7 @@ export interface IServiceEntityAttributes extends IModelAttributes {
 	category: string;
 	servicetype: Enums.servicetype;
 	noservicedays: number;
+	investment: number;
 
 	regionalAreaId?: string;
 	regionalArea?: Models.RegionalAreaEntity | Models.IRegionalAreaEntityAttributes;
@@ -150,13 +151,29 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	public noservicedays: number;
 	// % protected region % [Modify props to the crud options here for attribute 'NoServiceDays'] end
 
+	// % protected region % [Modify props to the crud options here for attribute 'Investment'] off begin
+	@Validators.Numeric()
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'Investment',
+		displayType: 'textfield',
+		order: 50,
+		headerColumn: true,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: AttrUtils.standardiseFloat,
+	})
+	public investment: number;
+	// % protected region % [Modify props to the crud options here for attribute 'Investment'] end
+
 	@observable
 	@attribute()
 	@CRUD({
 		// % protected region % [Modify props to the crud options here for reference 'Regional area'] off begin
 		name: 'Regional area',
 		displayType: 'reference-combobox',
-		order: 50,
+		order: 60,
 		referenceTypeFunc: () => Models.RegionalAreaEntity,
 		// % protected region % [Modify props to the crud options here for reference 'Regional area'] end
 	})
@@ -171,7 +188,7 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 		// % protected region % [Modify props to the crud options here for reference 'Service Commissioning Bodies'] off begin
 		name: 'Service Commissioning Bodies',
 		displayType: 'reference-multicombobox',
-		order: 60,
+		order: 70,
 		isJoinEntity: true,
 		referenceTypeFunc: () => Models.ServiceCommissioningBodiesServices,
 		optionEqualFunc: makeJoinEqualsFunc('serviceCommissioningBodiesId'),
@@ -224,6 +241,9 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 			}
 			if (attributes.noservicedays !== undefined) {
 				this.noservicedays = attributes.noservicedays;
+			}
+			if (attributes.investment !== undefined) {
+				this.investment = attributes.investment;
 			}
 			if (attributes.regionalAreaId !== undefined) {
 				this.regionalAreaId = attributes.regionalAreaId;

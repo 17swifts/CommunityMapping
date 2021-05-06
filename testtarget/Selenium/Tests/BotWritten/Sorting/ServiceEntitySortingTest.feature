@@ -38,4 +38,8 @@ Feature: Sort ServiceEntity
 	Then I assert that NoServiceDays in ServiceEntity of type int is properly sorted in descending
 	When I sort ServiceEntity by NoServiceDays
 	Then I assert that NoServiceDays in ServiceEntity of type int is properly sorted in ascending
+	When I sort ServiceEntity by Investment
+	Then I assert that Investment in ServiceEntity of type double is properly sorted in descending
+	When I sort ServiceEntity by Investment
+	Then I assert that Investment in ServiceEntity of type double is properly sorted in ascending
 

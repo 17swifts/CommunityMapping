@@ -19,6 +19,7 @@ export { default as CommunityProfilePage } from './CommunityProfilePage';
 export { default as ServiceDashboardPage } from './ServiceDashboardPage';
 export { default as MyProfilePage } from './MyProfilePage';
 export { default as MyServicesPage } from './MyServicesPage';
+export { default as ServicesPage } from './ServicesPage';
 export { default as LoginPage } from './LoginPage';
 export { default as RegistrationPage } from './RegistrationPage';
 export { default as RegistrationConfirmPage } from './RegistrationConfirmPage';

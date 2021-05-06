@@ -24,18 +24,18 @@ using SeleniumTests.Setup;
 
 namespace SeleniumTests.PageObjects.BotWritten.UIModeled.Pages
 {
-	public class MyServicesPage : UIModeledPage
+	public class ServicesPage : UIModeledPage
 	{
 		// % protected region % [Override class properties here] off begin
-		public override string Url => baseUrl + "/myservices";
+		public override string Url => baseUrl + "/services";
 		private const string RootSelector = "//div[@class='body-content']";
-		private string MyServicesPageHorizontalLayoutSelector => RootSelector + "//*[@class='layout__horizontal']";
-		private By MyServicesPageHorizontalLayoutBy => By.XPath(MyServicesPageHorizontalLayoutSelector);
-		private By HeadingComponentBy => By.XPath($"{MyServicesPageHorizontalLayoutSelector}//h2[text()='My Services']");
+		private string ServicesPageHorizontalLayoutSelector => RootSelector + "//*[@class='layout__horizontal']";
+		private By ServicesPageHorizontalLayoutBy => By.XPath(ServicesPageHorizontalLayoutSelector);
+		private By HeadingComponentBy => By.XPath($"{ServicesPageHorizontalLayoutSelector}//h2[text()='Services']");
 		private By CrudComponentBy => By.XPath($"{RootSelector}//section[@class='collection-component']");
 		// % protected region % [Override class properties here] end
 		// % protected region % [Override constructor here] off begin
-		public MyServicesPage(ContextConfiguration currentContext) : base(currentContext)
+		public ServicesPage(ContextConfiguration currentContext) : base(currentContext)
 		{
 		}
 		// % protected region % [Override constructor here] end
@@ -43,7 +43,7 @@ namespace SeleniumTests.PageObjects.BotWritten.UIModeled.Pages
 		public override bool ContainsModeledElements()
 		{
 			var validContents = true;
-			validContents &= WaitUtils.elementState(DriverWait, MyServicesPageHorizontalLayoutBy, ElementState.VISIBLE);
+			validContents &= WaitUtils.elementState(DriverWait, ServicesPageHorizontalLayoutBy, ElementState.VISIBLE);
 			validContents &= WaitUtils.elementState(DriverWait, HeadingComponentBy, ElementState.VISIBLE);
 			validContents &= WaitUtils.elementState(DriverWait, CrudComponentBy, ElementState.VISIBLE);
 			return validContents;

@@ -61,9 +61,9 @@ class MyServicesPage extends React.Component<MyServicesPageProps> {
 				}
 				<div className="body-content">
 					<div className="layout__horizontal">
-						<h1>
+						<h2>
 							My Services
-						</h1>
+						</h2>
 					</div>
 					<EntityCRUD
 						{...this.props}

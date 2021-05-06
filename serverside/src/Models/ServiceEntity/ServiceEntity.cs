@@ -74,6 +74,11 @@ namespace Cis.Models {
 		public int? Noservicedays { get; set; }
 		// % protected region % [Customise Noservicedays here] end
 
+		// % protected region % [Customise Investment here] off begin
+		[EntityAttribute]
+		public Double? Investment { get; set; }
+		// % protected region % [Customise Investment here] end
+
 		// % protected region % [Add any further attributes here] off begin
 		// % protected region % [Add any further attributes here] end
 

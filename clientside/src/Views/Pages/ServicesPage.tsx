@@ -15,7 +15,9 @@
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
 import * as React from 'react';
+import { ServiceEntity } from 'Models/Entities';
 import SecuredPage from 'Views/Components/Security/SecuredPage';
+import EntityCRUD from 'Views/Components/CRUD/EntityCRUD';
 import { observer } from 'mobx-react';
 import { RouteComponentProps } from 'react-router';
 import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
@@ -24,14 +26,14 @@ import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation'
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
 
-export interface CommunityProfilePageProps extends RouteComponentProps {
+export interface ServicesPageProps extends RouteComponentProps {
 	// % protected region % [Add any extra props here] off begin
 	// % protected region % [Add any extra props here] end
 }
 
 @observer
 // % protected region % [Add any customisations to default class definition here] off begin
-class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
+class ServicesPage extends React.Component<ServicesPageProps> {
 // % protected region % [Add any customisations to default class definition here] end
 
 	// % protected region % [Add class properties here] off begin
@@ -42,7 +44,7 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 		// % protected region % [Add logic before rendering contents here] end
 
 		let contents = (
-			<SecuredPage>
+			<SecuredPage groups={['Super Administrators']}>
 				{
 				// % protected region % [Alter navigation here] off begin
 				}
@@ -60,21 +62,16 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 				<div className="body-content">
 					<div className="layout__horizontal">
 						<h2>
-							Community Profile
+							Services
 						</h2>
 					</div>
-					{
-					// % protected region % [Add code for 2586c999-ab9b-4685-879f-330ba2c7fab5 here] off begin
-					}
-					{
-					// % protected region % [Add code for 2586c999-ab9b-4685-879f-330ba2c7fab5 here] end
-					}
-					{
-					// % protected region % [Add code for d032cfa9-3e60-4118-a0ae-9acecf71f251 here] off begin
-					}
-					{
-					// % protected region % [Add code for d032cfa9-3e60-4118-a0ae-9acecf71f251 here] end
-					}
+					<EntityCRUD
+						{...this.props}
+						modelType={ServiceEntity}
+						URLExtension="2440f338-578d-4708-8fc0-a96fef11af54"
+						// % protected region % [Add props to crud component 2440f338-578d-4708-8fc0-a96fef11af54 here] off begin
+						// % protected region % [Add props to crud component 2440f338-578d-4708-8fc0-a96fef11af54 here] end
+					/>
 				</div>
 			</SecuredPage>
 		);
@@ -87,5 +84,5 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 }
 
 // % protected region % [Override export here] off begin
-export default CommunityProfilePage;
+export default ServicesPage;
 // % protected region % [Override export here] end

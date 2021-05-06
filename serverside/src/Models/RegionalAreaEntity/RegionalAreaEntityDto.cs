@@ -75,6 +75,14 @@ namespace Cis.Models
 		public Double? GapScore { get; set; }
 		// % protected region % [Customise GapScore here] end
 
+		// % protected region % [Customise Noservices here] off begin
+		public int? Noservices { get; set; }
+		// % protected region % [Customise Noservices here] end
+
+		// % protected region % [Customise Totalinvestment here] off begin
+		public Double? Totalinvestment { get; set; }
+		// % protected region % [Customise Totalinvestment here] end
+
 
 		// % protected region % [Add any extra attributes here] off begin
 		// % protected region % [Add any extra attributes here] end
@@ -111,6 +119,8 @@ namespace Cis.Models
 				Ieo = Ieo,
 				Ier = Ier,
 				GapScore = GapScore,
+				Noservices = Noservices,
+				Totalinvestment = Totalinvestment,
 				// % protected region % [Add any extra model properties here] off begin
 				// % protected region % [Add any extra model properties here] end
 			};
@@ -130,6 +140,8 @@ namespace Cis.Models
 			Ieo = model.Ieo;
 			Ier = model.Ier;
 			GapScore = model.GapScore;
+			Noservices = model.Noservices;
+			Totalinvestment = model.Totalinvestment;
 
 			// % protected region % [Add any extra loading data logic here] off begin
 			// % protected region % [Add any extra loading data logic here] end

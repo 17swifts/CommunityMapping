@@ -44,6 +44,8 @@ export interface IRegionalAreaEntityAttributes extends IModelAttributes {
 	ieo: number;
 	ier: number;
 	gapScore: number;
+	noservices: number;
+	totalinvestment: number;
 
 	servicess: Array<Models.ServiceEntity | Models.IServiceEntityAttributes>;
 	loggedEvents: Array<Models.RegionalAreaTimelineEventsEntity | Models.IRegionalAreaTimelineEventsEntityAttributes>;
@@ -236,13 +238,43 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	public gapScore: number;
 	// % protected region % [Modify props to the crud options here for attribute 'Gap Score'] end
 
+	// % protected region % [Modify props to the crud options here for attribute 'NoServices'] off begin
+	@Validators.Integer()
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'NoServices',
+		displayType: 'textfield',
+		order: 100,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: AttrUtils.standardiseInteger,
+	})
+	public noservices: number;
+	// % protected region % [Modify props to the crud options here for attribute 'NoServices'] end
+
+	// % protected region % [Modify props to the crud options here for attribute 'TotalInvestment'] off begin
+	@Validators.Numeric()
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'TotalInvestment',
+		displayType: 'textfield',
+		order: 110,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: AttrUtils.standardiseFloat,
+	})
+	public totalinvestment: number;
+	// % protected region % [Modify props to the crud options here for attribute 'TotalInvestment'] end
+
 	@observable
 	@attribute({isReference: true})
 	@CRUD({
 		// % protected region % [Modify props to the crud options here for reference 'Services'] off begin
 		name: "Servicess",
 		displayType: 'reference-multicombobox',
-		order: 100,
+		order: 120,
 		referenceTypeFunc: () => Models.ServiceEntity,
 		referenceResolveFunction: makeFetchOneToManyFunc({
 			relationName: 'servicess',
@@ -258,7 +290,7 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 		// % protected region % [Modify props to the crud options here for reference 'Logged Event'] off begin
 		name: "Logged Events",
 		displayType: 'hidden',
-		order: 110,
+		order: 130,
 		referenceTypeFunc: () => Models.RegionalAreaTimelineEventsEntity,
 		referenceResolveFunction: makeFetchOneToManyFunc({
 			relationName: 'loggedEvents',
@@ -319,6 +351,12 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 			}
 			if (attributes.gapScore !== undefined) {
 				this.gapScore = attributes.gapScore;
+			}
+			if (attributes.noservices !== undefined) {
+				this.noservices = attributes.noservices;
+			}
+			if (attributes.totalinvestment !== undefined) {
+				this.totalinvestment = attributes.totalinvestment;
 			}
 			if (attributes.servicess !== undefined && Array.isArray(attributes.servicess)) {
 				for (const model of attributes.servicess) {

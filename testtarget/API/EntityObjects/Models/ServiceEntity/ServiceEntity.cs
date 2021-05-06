@@ -45,6 +45,9 @@ namespace APITests.EntityObjects.Models
 		// Number of days the service is operating
 		[EntityAttribute]
 		public int? Noservicedays { get; set; }
+		// 
+		[EntityAttribute]
+		public Double? Investment { get; set; }
 
 		/// <summary>
 		/// Incoming one to many reference
@@ -145,6 +148,7 @@ namespace APITests.EntityObjects.Models
 				{"category" , Category},
 				{"servicetype" , Servicetype.ToString()},
 				{"noservicedays" , Noservicedays.ToString()},
+				{"investment" , Investment.ToString()},
 			};
 
 			if (RegionalAreaId != default)
@@ -176,6 +180,10 @@ namespace APITests.EntityObjects.Models
 			if(Noservicedays != null) 
 			{
 				entityVar["noservicedays"] = Noservicedays;
+			}
+			if(Investment != null) 
+			{
+				entityVar["investment"] = Investment.ToString();
 			}
 			if (RegionalAreaId  != default)
 			{

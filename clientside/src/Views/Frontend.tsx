@@ -112,6 +112,7 @@ export default class Frontend extends React.Component<RouteComponentProps> {
 										<Route path={`${path}/servicedashboard`} component={Pages.ServiceDashboardPage} />
 										<Route path={`${path}/myprofile`} component={Pages.MyProfilePage} />
 										<Route path={`${path}/myservices`} component={Pages.MyServicesPage} />
+										<Route path={`${path}/services`} component={Pages.ServicesPage} />
 										{
 										// % protected region % [customize the page routes] end
 										}

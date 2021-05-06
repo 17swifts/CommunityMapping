@@ -50,6 +50,8 @@ namespace Cis.Models
 			Field(o => o.Ieo, type: typeof(IntGraphType)).Description(@"The Index of Education and Occupation (IEO) is designed to reflect the educational and occupational level of communities. ");
 			Field(o => o.Ier, type: typeof(IntGraphType)).Description(@"The Index of Economic Resources (IER) focuses on the financial aspects of relative socio-economic advantage and disadvantage, by summarising variables related to income and wealth. ");
 			Field(o => o.GapScore, type: typeof(FloatGraphType));
+			Field(o => o.Noservices, type: typeof(IntGraphType));
+			Field(o => o.Totalinvestment, type: typeof(FloatGraphType));
 			// % protected region % [Add any extra GraphQL fields here] off begin
 			// % protected region % [Add any extra GraphQL fields here] end
 
@@ -155,6 +157,8 @@ namespace Cis.Models
 			Field<IntGraphType>("Ieo").Description = @"The Index of Education and Occupation (IEO) is designed to reflect the educational and occupational level of communities. ";
 			Field<IntGraphType>("Ier").Description = @"The Index of Economic Resources (IER) focuses on the financial aspects of relative socio-economic advantage and disadvantage, by summarising variables related to income and wealth. ";
 			Field<FloatGraphType>("GapScore");
+			Field<IntGraphType>("Noservices");
+			Field<FloatGraphType>("Totalinvestment");
 
 			// Add entity references
 

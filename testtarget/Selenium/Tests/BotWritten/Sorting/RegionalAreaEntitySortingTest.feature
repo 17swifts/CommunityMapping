@@ -58,4 +58,12 @@ Feature: Sort RegionalAreaEntity
 	Then I assert that Gap Score in RegionalAreaEntity of type double is properly sorted in descending
 	When I sort RegionalAreaEntity by Gap Score
 	Then I assert that Gap Score in RegionalAreaEntity of type double is properly sorted in ascending
+	When I sort RegionalAreaEntity by NoServices
+	Then I assert that NoServices in RegionalAreaEntity of type int is properly sorted in descending
+	When I sort RegionalAreaEntity by NoServices
+	Then I assert that NoServices in RegionalAreaEntity of type int is properly sorted in ascending
+	When I sort RegionalAreaEntity by TotalInvestment
+	Then I assert that TotalInvestment in RegionalAreaEntity of type double is properly sorted in descending
+	When I sort RegionalAreaEntity by TotalInvestment
+	Then I assert that TotalInvestment in RegionalAreaEntity of type double is properly sorted in ascending
 

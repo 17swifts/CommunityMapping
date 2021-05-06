@@ -31,7 +31,7 @@ namespace SeleniumTests.PageObjects.BotWritten.UIModeled.Pages
 		private const string RootSelector = "//div[@class='body-content']";
 		private string ServiceDashboardPageHorizontalLayoutSelector => RootSelector + "//*[@class='layout__horizontal']";
 		private By ServiceDashboardPageHorizontalLayoutBy => By.XPath(ServiceDashboardPageHorizontalLayoutSelector);
-		private By HeadingComponentBy => By.XPath($"{ServiceDashboardPageHorizontalLayoutSelector}//h1[text()='Service Dashboard']");
+		private By HeadingComponentBy => By.XPath($"{ServiceDashboardPageHorizontalLayoutSelector}//h1[text()='Analytics Dashboard']");
 		// % protected region % [Override class properties here] end
 		// % protected region % [Override constructor here] off begin
 		public ServiceDashboardPage(ContextConfiguration currentContext) : base(currentContext)
