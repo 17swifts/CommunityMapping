@@ -1,0 +1,232 @@
+/*
+ * @bot-written
+ *
+ * WARNING AND NOTICE
+ * Any access, download, storage, and/or use of this source code is subject to the terms and conditions of the
+ * Full Software Licence as accepted by you before being granted access to this source code and other materials,
+ * the terms of which can be accessed on the Codebots website at https://codebots.com/full-software-licence. Any
+ * commercial use in contravention of the terms of the Full Software Licence may be pursued by Codebots through
+ * licence termination and further legal action, and be required to indemnify Codebots for any loss or damage,
+ * including interest and costs. You are deemed to have accepted the terms of the Full Software Licence on any
+ * access, download, storage, and/or use of this source code.
+ *
+ * BOT WARNING
+ * This file is bot-written.
+ * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
+ */
+/* --------------------------------
+Custom bot input styling
+-------------------------------- */
+
+// % protected region % [update input if required] off begin
+/*This will enable dropdown fields requiring validation to manifest the same border red color as regular errored inputs*/
+.input-group--error{
+	.dropdown__container{
+		.dropdown__control {
+			border-color: $color-support-red;
+		}
+	}
+}
+
+/*Styling of date input */
+
+//applying a white background to all date picker types and a hover effect
+.input-group__date {
+	.enabled {
+		background-color: transparent;
+		color: get-contrasting-text-color($background);
+	}
+	.disabled {
+		background: $grey-0;
+		border: none;
+		color: get-contrasting-text-color($grey-0);
+		&:hover {
+			background: $grey-0;
+			border: none;
+			color: get-contrasting-text-color($grey-0);
+		}
+	}
+}
+
+&.flatpickr-calendar {
+    font-family: $body-font-family !important;
+    font-weight: $text-regular !important;
+    border-radius: 0 !important;
+
+    &:before {
+        border-top-color: $grey-6 !important;
+    }
+
+    &.arrowBottom:after {
+        border-top-color: $grey-6 !important;
+    }
+
+    .flatpickr-months .flatpickr-month {
+        background-color: $grey-6 !important;
+        border-radius: 0 !important;
+    }
+
+    .flatpickr-current-month .flatpickr-monthDropdown-months {
+        background-color: transparent !important;
+    }
+
+    .flatpickr-months {
+
+        .flatpickr-prev-month,
+        .flatpickr-next-month {
+
+            &:hover,
+            &:active,
+            &:focus {
+                color: $color-brand-02 !important;
+
+                svg {
+                    fill: $color-brand-02 !important;
+                }
+            }
+
+            svg {
+
+                &:hover,
+                &:active,
+                &:focus {
+                    fill: $color-brand-02 !important;
+                }
+            }
+        }
+    }
+
+    .numInputWrapper {
+
+        .arrowUp,
+        .arrowDown {
+            border: none !important;
+        }
+    }
+
+    //Inner container
+    .flatpickr-innerContainer {
+        .flatpickr-rContainer .flatpickr-weekdays {
+            background: $grey-6 !important;
+        }
+    }
+
+    .flatpickr-days {
+        border: none !important;
+
+        .dayContainer {
+            background: $grey-6 !important;
+
+            * {
+                color: get-contrasting-text-color($grey-6);
+            }
+        }
+
+        .flatpickr-day {
+            border: none !important;
+            border-radius: 0 !important;
+            font-weight: $text-regular !important;
+
+            &:hover {
+                background-color: $grey-4 !important;
+                border-radius: 0 !important;
+                @include transform-timing(.25s);
+            }
+
+            &:active {
+                border: 1px solid $color-support-orange;
+            }
+
+            &:focus {
+                border: 1px solid $color-brand-02;
+            }
+
+            &.selected {
+                border-radius: 0 !important;
+                background-color: $color-brand-02 !important;
+                color: $color-secondary;
+            }
+
+            &.today {
+                font-weight: $text-bold !important;
+            }
+
+            &.today:not(.selected) {
+                color: $color-brand-02;
+                border: none !important;
+
+                &:after {
+                    content: '';
+                    width: 3px;
+                    height: 3px;
+                    background-color: $color-brand-02;
+                }
+            }
+        }
+    }
+
+    .flatpickr-calendar.hasTime .flatpickr-time {
+        border: none !important;
+        border-radius: 0 !important;
+    }
+
+    .flatpickr-time {
+        background-color: $grey-6 !important;
+        border: none !important;
+        border-radius: 0 !important;
+
+        * {
+            color: get-contrasting-text-color($grey-6);
+        }
+
+        .numInputWrapper {
+            width: max-content;
+
+            .arrowUp,
+            .arrowDown {
+                display: none !important;
+            }
+
+            input[type="number"] {
+                border: none !important;
+
+                &:hover {
+                    color: $color-secondary;
+                }
+
+                &.flatpickr-hour {
+                    display: flex;
+                    margin-left: auto;
+                    margin-right: $space-xxs;
+                }
+
+                &.flatpickr-minute {
+                    display: flex;
+                    margin-right: auto;
+                    margin-left: $space-xxs;
+                    margin-top: 6px;
+                }
+            }
+
+        }
+
+        .flatpickr-time-separator {
+            margin-top: 12px !important;
+        }
+
+        .flatpickr-am-pm {
+            margin-top: 8px;
+
+            &:hover,
+            &:active,
+            &:focus {
+                background-color: $grey-8;
+                color: get-contrasting-text-color($grey-8);
+            }
+        }
+    }
+}
+
+
+/* End of datepicker styles */
+// % protected region % [update input if required] end

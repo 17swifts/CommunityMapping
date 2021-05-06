@@ -1,2 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<csharpbotEntity:EntityModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:csharpbotEntity="http://codebots.com/emf/csharpbot/entity" TargetProject="cis" />
+<csharpbotEntity:EntityModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:csharpbotEntity="http://codebots.com/emf/csharpbot/entity" DatabaseProvider="POSTGRES" TargetProject="cis" Uuid="8ecd60c8-204e-437d-8b2b-5874f66236b3" CreateDockerfile="true">
+	<Entities xsi:type="csharpbotEntity:Entity"  Uuid="5fa56df3-fc9b-455f-a163-bdb7c94534b7" Name="Admin" OrderByDirection="ASCENDING">
+		<Behaviours xsi:type="csharpbotEntity:BehaviourUser"  Uuid="97fb434d-7995-4df8-83e9-6b1bda4f932a"/>
+	</Entities>
+	<Entities xsi:type="csharpbotEntity:Entity"  Uuid="1a612178-01c4-4ded-a0a0-42d1d68c0927" Name="Regional area" OrderByDirection="ASCENDING">
+		<Attributes xsi:type="csharpbotEntity:AttributeString"  Uuid="665a0eaf-a7e0-4c29-a02f-8e3ed31ad3a5" Name="Name" Searchable="true" Unique="true" DatabaseType="VARCHAR">
+			<Validators xsi:type="csharpbotEntity:ValidatorRequired"  Uuid="eaff93b9-9d22-44e9-811f-0ff3c9bd1d24"/>
+		</Attributes>
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="407c75f1-dd4c-444c-b81d-3932be5a6e36" Name="NonIndigenousPopulation" Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="f691d341-f4d8-4270-a558-a3b3ef1daba8" Name="IndigenousPopulation" Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="8f150ceb-f5f7-453f-a7a0-fbf3e070f51e" Name="PPH" DocoDescription="Potentially Preventable Hospitalisations" Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="81553153-5d5c-4cf2-8c12-dfcc06072c99" Name="IRSD" DocoDescription="The Index of Relative Socio-economic Disadvantage (IRSD) is a general socio-economic index that summarises a range of information about the economic and social conditions of people and households within an area. " Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="8feae7cf-86bc-4ee0-a249-5fcc3f77c1a7" Name="IRSAD" DocoDescription="The Index of Relative Socio-economic Advantage and Disadvantage (IRSAD) summarises information about the economic and social conditions of people and households within an area, including both relative advantage and disadvantage measures." Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="10188cf8-ed06-42db-bcd4-03820e96453d" Name="IEO" DocoDescription="The Index of Education and Occupation (IEO) is designed to reflect the educational and occupational level of communities. " Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="2bb0288e-17c7-4598-9de1-06930a72a5f2" Name="IER" DocoDescription="The Index of Economic Resources (IER) focuses on the financial aspects of relative socio-economic advantage and disadvantage, by summarising variables related to income and wealth. " Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeDecimal"  Uuid="9b58f6fe-ad43-465b-9b1c-18433119c319" Name="Gap Score" Searchable="true" Unique="false"/>
+		<Behaviours xsi:type="csharpbotEntity:BehaviourTimeline"  Uuid="5b4df5cc-7ca6-4a37-b6a0-0f93119e348d"/>
+	</Entities>
+	<Entities xsi:type="csharpbotEntity:Entity"  Uuid="905ab383-496b-4e43-97fb-da6847041b4a" Name="Service" OrderByDirection="ASCENDING">
+		<Attributes xsi:type="csharpbotEntity:AttributeString"  Uuid="c36be93a-f731-402d-b5a3-32d2f71c024f" Name="Name" Searchable="true" Unique="false" DatabaseType="VARCHAR">
+			<Validators xsi:type="csharpbotEntity:ValidatorRequired"  Uuid="621ab73f-44ed-46c4-b29e-1a3ae9c83812"/>
+		</Attributes>
+		<Attributes xsi:type="csharpbotEntity:AttributeString"  Uuid="5e9f16d5-3398-416b-bbc9-53f1463ae6e5" Name="Category" Searchable="true" Unique="false" DatabaseType="VARCHAR">
+			<Validators xsi:type="csharpbotEntity:ValidatorRequired"  Uuid="782a22ae-fe63-4b5d-a166-0da6410a8c5f"/>
+		</Attributes>
+		<Attributes xsi:type="csharpbotEntity:AttributeEnum"  Uuid="8cd3a1fa-ea00-49d6-b996-540a11d1e6d8" Name="ServiceType" DocoDescription="Whether the service is permanent or temporary " Searchable="true" Unique="false">
+			<Validators xsi:type="csharpbotEntity:ValidatorRequired"  Uuid="a54d6398-0e11-40cd-b397-edab6415cdaa"/>
+		</Attributes>
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="3c40f553-eeb5-4c4a-8f6c-9d54983db987" Name="NoServiceDays" DocoDescription="Number of days the service is operating" Searchable="false" Unique="false"/>
+	</Entities>
+	<Entities xsi:type="csharpbotEntity:Entity"  Uuid="af844d6d-6624-4095-a2a1-acd3271f8137" Name="Service Commissioning Body" OrderByDirection="ASCENDING">
+		<Behaviours xsi:type="csharpbotEntity:BehaviourUser"  Uuid="0fef176b-60b8-4809-83fe-3907b2f74604"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeString"  Uuid="586cdd52-2aef-45ca-b8fe-9ef7fcacf04d" Name="Name" Searchable="false" Unique="false" DatabaseType="VARCHAR"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeString"  Uuid="c76f47ad-d174-461a-80e4-b4ffc1ac7d5a" Name="Location" Searchable="false" Unique="false" DatabaseType="VARCHAR"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeImage"  Uuid="0ec532cb-fc90-4a30-b757-f1ba8ceb77e9" Name="Profile Image"/>
+	</Entities>
+	<Enumerations xsi:type="csharpbotEntity:Enumeration"  Uuid="dc696af3-277a-4720-962f-ef86ef994e8a" Name="ServiceType">
+		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="c837170c-8e7e-480d-aaa2-ba54bed9fec0" Name="Permanent"/>
+		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="76809f06-8427-41b4-9fdc-481a958390cc" Name="Visiting"/>
+	</Enumerations>
+	<ReferenceEntityEntities xsi:type="csharpbotEntity:ReferenceManyToMany"  Uuid="e7955813-8651-4b0f-a75f-813272bf1994" Name="Services" OppositeName="Service Commissioning Bodies" TargetOptional="true" SourceOptional="true" Source="af844d6d-6624-4095-a2a1-acd3271f8137" Target="905ab383-496b-4e43-97fb-da6847041b4a"/>
+	<ReferenceEntityEntities xsi:type="csharpbotEntity:ReferenceOneToMany"  Uuid="4a9da938-afa4-483b-969a-615717206e0e" Name="Services" OppositeName="Regional area" TargetOptional="true" SourceOptional="true" Source="1a612178-01c4-4ded-a0a0-42d1d68c0927" Target="905ab383-496b-4e43-97fb-da6847041b4a"/>
+	<ReferenceEnums xsi:type="csharpbotEntity:ReferenceEnum"  Source="8cd3a1fa-ea00-49d6-b996-540a11d1e6d8" Target="dc696af3-277a-4720-962f-ef86ef994e8a"/>
+	<Entities xsi:type="csharpbotEntity:Entity"  Uuid="4350469e-259c-48ab-bb0b-8fe9e13ce35a" Name="Metric" OrderByDirection="ASCENDING">
+		<Attributes xsi:type="csharpbotEntity:AttributeString"  Uuid="4cf381df-2322-4ea8-b390-8d3d4e0522a7" Name="Name" Searchable="false" Unique="false" DatabaseType="VARCHAR"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeString"  Uuid="341a8c0f-45f7-48f6-a8ef-dafe427dd2b4" Name="Description" Searchable="false" Unique="false" DatabaseType="VARCHAR"/>
+	</Entities>
+</csharpbotEntity:EntityModel>

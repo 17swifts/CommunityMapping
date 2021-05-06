@@ -1,2 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<reactbotUi:UserInterfaceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:reactbotUi="http://codebots.com/emf/reactbot/ui" TargetProject="cis" />
+<reactbotUi:UserInterfaceModel TargetProject="cis" Uuid="a49f3630-b8dc-4cb9-fe9a-041ad01d0599" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:version="2.0" xmlns:reactbotUi="http://codebots.com/emf/reactbot/ui">
+	<Pages xsi:type="reactbotUi:Page" Uuid="6ea4408d-19f9-4b7b-847b-a8deb5905a9e" Name="Service Profile" IsHomePage="true" />
+	<Layouts xsi:type="reactbotUi:HorizontalStackLayout" Uuid="7a881bda-7e39-40e6-8adb-6cec2f5db830" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="f4294d15-f18a-596a-beb3-ed5b14c3d600" Source="6ea4408d-19f9-4b7b-847b-a8deb5905a9e" Target="7a881bda-7e39-40e6-8adb-6cec2f5db830" Order="0" />
+	<Components xsi:type="reactbotUi:HeadingComponent" Uuid="f6791394-6c71-4cbf-906f-995b456f01d6" Contents="Service Gaps" Level="2" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="fbff2ebb-40c3-57f3-9f64-44ba226aea6a" Source="7a881bda-7e39-40e6-8adb-6cec2f5db830" Target="f6791394-6c71-4cbf-906f-995b456f01d6" Order="0" />
+	<Components xsi:type="reactbotUi:CustomComponent" Uuid="a3ee24ec-0819-4d19-9334-ec3f0a06254f" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="1b931d49-a57e-5a62-89be-21016843cedf" Source="6ea4408d-19f9-4b7b-847b-a8deb5905a9e" Target="a3ee24ec-0819-4d19-9334-ec3f0a06254f" Order="1" />
+	<Layouts xsi:type="reactbotUi:HorizontalStackLayout" Uuid="2c3c1079-de4a-46a9-b187-c612178cda9f" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="a264c838-cec0-5c2d-9721-055b158e8ad4" Source="6ea4408d-19f9-4b7b-847b-a8deb5905a9e" Target="2c3c1079-de4a-46a9-b187-c612178cda9f" Order="2" />
+	<Components xsi:type="reactbotUi:HeadingComponent" Uuid="28c927d4-5166-4fc3-9f41-c8c140e065da" Contents="Compare service gaps" Level="3" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="b55baaff-d433-58c2-9198-f74ad81f9122" Source="2c3c1079-de4a-46a9-b187-c612178cda9f" Target="28c927d4-5166-4fc3-9f41-c8c140e065da" Order="0" />
+	<Components xsi:type="reactbotUi:CustomComponent" Uuid="2540101b-7afe-4f22-ad89-df8d1444df38" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="23497da8-0509-59c0-a2d8-1ad653d4dba0" Source="6ea4408d-19f9-4b7b-847b-a8deb5905a9e" Target="2540101b-7afe-4f22-ad89-df8d1444df38" Order="3" />
+	<Pages xsi:type="reactbotUi:Page" Uuid="5cae6334-9bc6-4e92-b6e9-109a83b6936c" Name="Community Profile" IsHomePage="false" />
+	<Layouts xsi:type="reactbotUi:HorizontalStackLayout" Uuid="32431e49-c22a-45d8-ae8f-05348402d87f" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="4061b0b6-8b74-5f5a-bbd8-2434af047854" Source="5cae6334-9bc6-4e92-b6e9-109a83b6936c" Target="32431e49-c22a-45d8-ae8f-05348402d87f" Order="0" />
+	<Components xsi:type="reactbotUi:HeadingComponent" Uuid="2d7a0c39-2933-4666-8bb7-def9173ca9b1" Contents="Community Profile" Level="1" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="7a28495b-0c6a-5070-8be7-67d3472f1fc5" Source="32431e49-c22a-45d8-ae8f-05348402d87f" Target="2d7a0c39-2933-4666-8bb7-def9173ca9b1" Order="0" />
+	<Components xsi:type="reactbotUi:CustomComponent" Uuid="2586c999-ab9b-4685-879f-330ba2c7fab5" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="af0507de-276a-550b-b984-91bfe7c95449" Source="5cae6334-9bc6-4e92-b6e9-109a83b6936c" Target="2586c999-ab9b-4685-879f-330ba2c7fab5" Order="1" />
+	<Components xsi:type="reactbotUi:CustomComponent" Uuid="d032cfa9-3e60-4118-a0ae-9acecf71f251" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="6d7e4fef-ce07-515a-9739-7ae38acdf74a" Source="5cae6334-9bc6-4e92-b6e9-109a83b6936c" Target="d032cfa9-3e60-4118-a0ae-9acecf71f251" Order="2" />
+	<Pages xsi:type="reactbotUi:Page" Uuid="ca6964ab-6505-4c1b-a34d-2141458a6d80" Name="Service  Dashboard" IsHomePage="false" />
+	<Layouts xsi:type="reactbotUi:HorizontalStackLayout" Uuid="4b66389f-9503-437d-9bcd-aa4bb30f800b" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="451d858e-82b8-5178-91a9-b30c5c4cf593" Source="ca6964ab-6505-4c1b-a34d-2141458a6d80" Target="4b66389f-9503-437d-9bcd-aa4bb30f800b" Order="0" />
+	<Components xsi:type="reactbotUi:HeadingComponent" Uuid="23b709cf-a744-4fd1-bcde-86dfa3304d6c" Contents="Service Dashboard" Level="1" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="589fcf72-ddcf-5291-b061-cdf4aa6309fe" Source="4b66389f-9503-437d-9bcd-aa4bb30f800b" Target="23b709cf-a744-4fd1-bcde-86dfa3304d6c" Order="0" />
+	<Components xsi:type="reactbotUi:CustomComponent" Uuid="a3b19bca-d710-4b91-8d19-45171c92b6d6" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="7490cca2-9f6d-5f0b-8ed4-de6a2232335b" Source="ca6964ab-6505-4c1b-a34d-2141458a6d80" Target="a3b19bca-d710-4b91-8d19-45171c92b6d6" Order="1" />
+	<Pages xsi:type="reactbotUi:Page" Uuid="6cc7b4b2-e189-4ca8-8755-924ba8a27e54" Name="My Profile" IsHomePage="false" />
+	<Layouts xsi:type="reactbotUi:HorizontalStackLayout" Uuid="7ef47c5e-65d5-4946-9b79-ba931efdf5ec" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="483b4f4c-1724-591d-ba77-86b26d171c7a" Source="6cc7b4b2-e189-4ca8-8755-924ba8a27e54" Target="7ef47c5e-65d5-4946-9b79-ba931efdf5ec" Order="0" />
+	<Components xsi:type="reactbotUi:HeadingComponent" Uuid="4f14613d-b676-4804-b749-69b0366b5c2b" Contents="My Profile" Level="1" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="f21a67ef-8a1f-501d-8e4e-2ce7099359f5" Source="7ef47c5e-65d5-4946-9b79-ba931efdf5ec" Target="4f14613d-b676-4804-b749-69b0366b5c2b" Order="0" />
+	<Pages xsi:type="reactbotUi:Page" Uuid="1ad16061-956f-4318-9187-242bb9d290bc" Name="My Services" IsHomePage="false" />
+	<Layouts xsi:type="reactbotUi:HorizontalStackLayout" Uuid="6294673c-5714-457b-8beb-ea50eb7e6226" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="c0d8b181-d595-5ead-ba93-2081c4fbfef9" Source="1ad16061-956f-4318-9187-242bb9d290bc" Target="6294673c-5714-457b-8beb-ea50eb7e6226" Order="0" />
+	<Components xsi:type="reactbotUi:HeadingComponent" Uuid="0ae07dc7-fcdc-4115-a477-429fbd0d35ee" Contents="My Services" Level="1" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="f780ec38-d0c7-5a39-934e-7f648d82e5b6" Source="6294673c-5714-457b-8beb-ea50eb7e6226" Target="0ae07dc7-fcdc-4115-a477-429fbd0d35ee" Order="0" />
+	<Components xsi:type="reactbotUi:CrudComponent" Uuid="13053bdd-361f-49f9-831b-0126368492f2">
+		<Entity href="../entity/cis.csharpbotentity#905ab383-496b-4e43-97fb-da6847041b4a" />
+	</Components>
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="0abf767c-ac65-542c-9fe3-c1f864ea43c3" Source="1ad16061-956f-4318-9187-242bb9d290bc" Target="13053bdd-361f-49f9-831b-0126368492f2" Order="1" />
+</reactbotUi:UserInterfaceModel>

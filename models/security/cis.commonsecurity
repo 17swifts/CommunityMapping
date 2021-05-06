@@ -1,10 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <commonSecurity:Security xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:commonSecurity="http://codebots.com/emf/security">
-  <Authentication/>
-  <Authorization/>
-  <Auditing/>
-  <SecuritySchemes/>
-  <Groups>
-    <Groups Name="Visitors"/>
-  </Groups>
+	<Authentication>
+		<Authentication xsi:type="commonSecurity:LocalAuthentication" Uuid="a430a3fc-5728-4479-9b21-40c8601cf5b0" />
+	</Authentication>
+	<Authorization>
+		<Acl Uuid="b13b57bb-212a-4ba0-9451-cb1d09704e7b" Group="42512763-4fd8-44a7-a92c-b911e864ce65" SecurityScheme="e7955813-8651-4b0f-a75f-813272bf1994" Create="true" Read="true" Update="true" Delete="true" />
+		<Acl Uuid="5b7ff3a2-3fa2-4cb5-9210-5c9c173bef3d" Group="42512763-4fd8-44a7-a92c-b911e864ce65" SecurityScheme="1ad16061-956f-4318-9187-242bb9d290bc" Create="true" Read="true" Update="true" Delete="true" />
+		<Acl Uuid="32c74fbf-ff91-4b3a-bd27-0a1cc6bab831" Group="42512763-4fd8-44a7-a92c-b911e864ce65" SecurityScheme="6cc7b4b2-e189-4ca8-8755-924ba8a27e54" Create="true" Read="true" Update="true" Delete="true" />
+		<Acl Uuid="c86bd131-f238-4968-9a68-9a31fc3f997f" Group="42512763-4fd8-44a7-a92c-b911e864ce65" SecurityScheme="ca6964ab-6505-4c1b-a34d-2141458a6d80" Create="true" Read="true" Update="true" Delete="true" />
+		<Acl Uuid="3749c2bf-7d5e-4b95-8d13-11f8e8f9f8d6" Group="42512763-4fd8-44a7-a92c-b911e864ce65" SecurityScheme="5cae6334-9bc6-4e92-b6e9-109a83b6936c" Create="true" Read="true" Update="true" Delete="true" />
+		<Acl Uuid="8c6df52f-76de-4a70-8d08-e24b41752b1c" Group="42512763-4fd8-44a7-a92c-b911e864ce65" SecurityScheme="6ea4408d-19f9-4b7b-847b-a8deb5905a9e" Create="true" Read="true" Update="true" Delete="true" />
+		<Acl Uuid="a14b06f0-99b9-41f0-b26e-9d6d9a63ff11" Group="42512763-4fd8-44a7-a92c-b911e864ce65" SecurityScheme="af844d6d-6624-4095-a2a1-acd3271f8137" Create="true" Read="true" Update="true" Delete="true" />
+		<Acl Uuid="cbd3f31b-e9e7-4700-acad-4d750ae32662" Group="42512763-4fd8-44a7-a92c-b911e864ce65" SecurityScheme="1a612178-01c4-4ded-a0a0-42d1d68c0927" Create="true" Read="true" Update="true" Delete="true" />
+		<Acl Uuid="90981d9c-5f4c-4630-adfb-e594fa885026" Group="42512763-4fd8-44a7-a92c-b911e864ce65" SecurityScheme="905ab383-496b-4e43-97fb-da6847041b4a" Create="true" Read="true" Update="true" Delete="true" />
+		<Acl Uuid="be5d8449-1c9d-4393-833f-3ccfd4b79177" Group="42512763-4fd8-44a7-a92c-b911e864ce65" SecurityScheme="5fa56df3-fc9b-455f-a163-bdb7c94534b7" Create="true" Read="true" Update="true" Delete="true" />
+		<Acl Uuid="1243fde4-928a-4093-b940-9442d32d6e60" Group="3980059c-9720-4d33-bc03-a241fc7b9e01" SecurityScheme="5cae6334-9bc6-4e92-b6e9-109a83b6936c" Create="false" Read="true" Update="false" Delete="false" />
+		<Acl Uuid="4168a8fe-5217-45ef-ac88-475f40ca6de1" Group="3980059c-9720-4d33-bc03-a241fc7b9e01" SecurityScheme="1a612178-01c4-4ded-a0a0-42d1d68c0927" Create="false" Read="true" Update="false" Delete="false" />
+		<Acl Uuid="b4859ee6-ebd1-483a-86f2-51f9f3c6e5e1" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="e7955813-8651-4b0f-a75f-813272bf1994" Create="false" Read="true" Update="false" Delete="false" />
+		<Acl Uuid="56445097-386b-4901-9220-7d068819ab16" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="1ad16061-956f-4318-9187-242bb9d290bc" Create="false" Read="true" Update="false" Delete="false" />
+		<Acl Uuid="fcfaea76-446e-488e-8a84-9ee754703c8a" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="6cc7b4b2-e189-4ca8-8755-924ba8a27e54" Create="false" Read="true" Update="false" Delete="false" />
+		<Acl Uuid="6093a8d6-e239-4d42-9d5b-59e5343fbbd7" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="ca6964ab-6505-4c1b-a34d-2141458a6d80" Create="false" Read="true" Update="false" Delete="false" />
+		<Acl Uuid="a7895f19-407f-44c0-b2cb-13aac776854a" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="5cae6334-9bc6-4e92-b6e9-109a83b6936c" Create="false" Read="true" Update="false" Delete="false" />
+		<Acl Uuid="10d2963b-b3f4-45be-a897-73c9b7bad2b7" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="6ea4408d-19f9-4b7b-847b-a8deb5905a9e" Create="false" Read="true" Update="false" Delete="false" />
+		<Acl Uuid="1feeae91-7fdc-49fe-8cb3-032f6da3d55e" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="af844d6d-6624-4095-a2a1-acd3271f8137" Create="false" Read="true" Update="false" Delete="false" />
+		<Acl Uuid="7fac6e72-ad74-4e8b-9f5a-aaad1328cfd1" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="1a612178-01c4-4ded-a0a0-42d1d68c0927" Create="false" Read="true" Update="false" Delete="false" />
+		<Acl Uuid="0a075329-6765-4944-85f7-ff832d0ae83b" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="5fa56df3-fc9b-455f-a163-bdb7c94534b7" Create="false" Read="true" Update="false" Delete="false" />
+		<Acl Uuid="1157bd52-3d30-49c9-8da7-d3277187313e" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="905ab383-496b-4e43-97fb-da6847041b4a" Create="false" Read="true" Update="false" Delete="false" />
+</Authorization>
+	<Auditing/>
+	<SecuritySchemes>
+		<SecuritySchemes Uuid="e7955813-8651-4b0f-a75f-813272bf1994" Name="Services ReferenceManyToMany">
+			<Object href="../entity/cis.csharpbotentity#e7955813-8651-4b0f-a75f-813272bf1994"/>
+		</SecuritySchemes>
+		<SecuritySchemes Uuid="1ad16061-956f-4318-9187-242bb9d290bc" Name="My Services Page">
+			<Object href="../ui/cis.reactbotui#1ad16061-956f-4318-9187-242bb9d290bc"/>
+		</SecuritySchemes>
+		<SecuritySchemes Uuid="6cc7b4b2-e189-4ca8-8755-924ba8a27e54" Name="My Profile Page">
+			<Object href="../ui/cis.reactbotui#6cc7b4b2-e189-4ca8-8755-924ba8a27e54"/>
+		</SecuritySchemes>
+		<SecuritySchemes Uuid="ca6964ab-6505-4c1b-a34d-2141458a6d80" Name="Service  Dashboard Page">
+			<Object href="../ui/cis.reactbotui#ca6964ab-6505-4c1b-a34d-2141458a6d80"/>
+		</SecuritySchemes>
+		<SecuritySchemes Uuid="5cae6334-9bc6-4e92-b6e9-109a83b6936c" Name="Community Profile Page">
+			<Object href="../ui/cis.reactbotui#5cae6334-9bc6-4e92-b6e9-109a83b6936c"/>
+		</SecuritySchemes>
+		<SecuritySchemes Uuid="6ea4408d-19f9-4b7b-847b-a8deb5905a9e" Name="Service Profile Page">
+			<Object href="../ui/cis.reactbotui#6ea4408d-19f9-4b7b-847b-a8deb5905a9e"/>
+		</SecuritySchemes>
+		<SecuritySchemes Uuid="af844d6d-6624-4095-a2a1-acd3271f8137" Name="Service Commissioning Body Entity">
+			<Object href="../entity/cis.csharpbotentity#af844d6d-6624-4095-a2a1-acd3271f8137"/>
+		</SecuritySchemes>
+		<SecuritySchemes Uuid="1a612178-01c4-4ded-a0a0-42d1d68c0927" Name="Regional area Entity">
+			<Object href="../entity/cis.csharpbotentity#1a612178-01c4-4ded-a0a0-42d1d68c0927"/>
+		</SecuritySchemes>
+		<SecuritySchemes Uuid="905ab383-496b-4e43-97fb-da6847041b4a" Name="Service Entity">
+			<Object href="../entity/cis.csharpbotentity#905ab383-496b-4e43-97fb-da6847041b4a"/>
+		</SecuritySchemes>
+		<SecuritySchemes Uuid="5fa56df3-fc9b-455f-a163-bdb7c94534b7" Name="Admin Entity">
+			<Object href="../entity/cis.csharpbotentity#5fa56df3-fc9b-455f-a163-bdb7c94534b7"/>
+		</SecuritySchemes>
+</SecuritySchemes>
+	<TwoFactorAuthenticationProviders/>
+	<Groups>
+		<Groups Uuid="3980059c-9720-4d33-bc03-a241fc7b9e01" Name="Visitors" Description="Anonymous users who have not been authenticated" IsSpecialGroup="UNAUTHENTICATED"/>
+		<Groups Uuid="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" Name="Service Commissioning Body" Description="Users who have been created as a Service Commissioning Body entity" IsSpecialGroup="NO">
+			<UserEntities href="../entity/cis.csharpbotentity#af844d6d-6624-4095-a2a1-acd3271f8137"/>
+		</Groups>
+		<Groups Uuid="42512763-4fd8-44a7-a92c-b911e864ce65" Name="Admin" Description="Users who have been created as an Admin entity" IsSpecialGroup="BACKEND_ADMIN">
+			<UserEntities href="../entity/cis.csharpbotentity#5fa56df3-fc9b-455f-a163-bdb7c94534b7"/>
+		</Groups>
+</Groups>
 </commonSecurity:Security>
