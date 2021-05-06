@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modelink threeWay="true" forceExeedL="true" forceExeedM="true" forceExeedR="true">
+  <model path="/codebots.cis.models/ui/cis.reactbotui" position="LEFT" />
+  <model path="/codebots.cis.models/entity/cis.csharpbotentity" position="MIDDLE" />
+  <model path="/codebots.cis.models/security/cis.commonsecurity" position="RIGHT" />
+</modelink>
