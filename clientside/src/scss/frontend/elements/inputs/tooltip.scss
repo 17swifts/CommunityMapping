@@ -44,7 +44,7 @@ Commonly used for inputs that do not make sense. These tooltips display with fur
 		padding: $space-sm;
 		white-space: pre-wrap;
 		cursor: auto;
-		width: convert-rem(200px);
+		max-width: convert-rem(200px);
 	}
 
 	&:hover,

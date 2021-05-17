@@ -14,10 +14,13 @@
 # This file is bot-written.
 # Any changes out side of "protected regions" will be lost next time the bot makes any changes.
 ###
+# % protected region % [Override feature properties here] off begin
 @BotWritten @bulkoptions @ignore
 Feature: RegionalAreaTimelineEventsEntity Bulk Option Selection
 # WARNING: These Tests have been flagged as needing web fixes and are currently ignored
+# % protected region % [Override feature properties here] end
 
+# % protected region % [Override select all here] off begin
 @RegionalAreaTimelineEventsEntity
 Scenario: Select all RegionalAreaTimelineEventsEntitys on current page
 Given I login to the site as a user
@@ -25,7 +28,9 @@ And I navigate to the RegionalAreaTimelineEventsEntity backend page
 When I select all entities on current page
 Then I click the bulk bar cancel button
 Then 0 entities on current page should be selected
+# % protected region % [Override select all here] end
 
+# % protected region % [Override select all on all pages here] off begin
 @RegionalAreaTimelineEventsEntity
 Scenario: I attempt to select all RegionalAreaTimelineEventsEntitys on all pages
 Given I login to the site as a user
@@ -35,3 +40,7 @@ Then The bulk options bar shows up with correct information
 And I select all items in the collection
 Then I click the bulk bar cancel button
 Then 0 entities on current page should be selected
+# % protected region % [Override select all on all pages here] end
+
+# % protected region % [Add any additional tests here] off begin
+# % protected region % [Add any additional tests here] end

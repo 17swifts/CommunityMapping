@@ -14,8 +14,10 @@
 # This file is bot-written.
 # Any changes out side of "protected regions" will be lost next time the bot makes any changes.
 ###
+# % protected region % [Override feature properties here] off begin
 @login @BotWritten
 Feature: Login Valid User
+# % protected region % [Override feature properties here] end
 
 Scenario: Test User Login
 Given I login to the site with username super@example.com and password password then I expect login success

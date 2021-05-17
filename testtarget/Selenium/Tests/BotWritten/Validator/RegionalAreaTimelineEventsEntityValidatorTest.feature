@@ -14,8 +14,10 @@
 # This file is bot-written.
 # Any changes out side of "protected regions" will be lost next time the bot makes any changes.
 ###
+# % protected region % [Override feature properties here] off begin
 @BotWritten @validator
 Feature: RegionalAreaTimelineEventsEntity Validator
+# % protected region % [Override feature properties here] end
 
 Scenario: Violate RegionalAreaTimelineEventsEntity validators
 Given I login to the site as a user

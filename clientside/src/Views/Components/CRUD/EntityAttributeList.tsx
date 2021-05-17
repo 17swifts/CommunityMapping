@@ -92,7 +92,7 @@ class EntityAttributeList<T extends Model> extends React.Component<IEntityCreate
 						? (
 							<div className="crud__header">
 								<h2>{title}</h2>
-								<Button display={Display.Outline} onClick={this.onEdit}>Edit</Button>
+								<Button className="edit" display={Display.Outline} onClick={this.onEdit}>Edit</Button>
 							</div>
 						)
 					: <h2>{title}</h2>}

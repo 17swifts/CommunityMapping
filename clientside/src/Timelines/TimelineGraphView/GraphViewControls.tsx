@@ -15,7 +15,7 @@
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
 import * as React from 'react';
-import {Button} from "../../Views/Components/Button/Button";
+import {Button, Display, Colors} from "../../Views/Components/Button/Button";
 // % protected region % [Add extra imports here] off begin
 // % protected region % [Add extra imports here] end
 
@@ -43,36 +43,43 @@ export default class GraphViewControls extends React.Component<IGraphViewTopBarC
 				<Button
 					onClick={this.props.onJumpToToday}
 					icon={{icon: 'calender', iconPos: 'icon-top'}}
-					className={'btn--solid btn--secondary'}
+					colors={Colors.Secondary}
+					display={Display.Solid}
 					aria-label="jump to today"> Today </Button>
 				<Button
 					onClick={this.props.onZoomBackToDefault}
 					icon={{icon: 'refresh-ccw', iconPos: 'icon-top'}}
-					className={'btn--solid btn--secondary'}
+					colors={Colors.Secondary}
+					display={Display.Solid}
 					aria-label="zoom back to default"> Reset </Button>
 				<Button
 					onClick={this.props.onZoomIn}
 					icon={{icon: 'zoom-in', iconPos: 'icon-top'}}
-					className={'btn--solid btn--secondary'}
+					colors={Colors.Secondary}
+					display={Display.Solid}
 					aria-label="zoom in"> Zoom in </Button>
 				<Button
 					onClick={this.props.onZoomOut}
 					icon={{icon: 'zoom-out', iconPos: 'icon-top'}}
-					className={'btn--solid btn--secondary'}
+					colors={Colors.Secondary}
+					display={Display.Solid}
 					aria-label="zoom out"> Zoom out </Button>
 				<Button
 					onClick={this.props.onPanLeft}
 					icon={{icon: 'arrow-left', iconPos: 'icon-top'}}
-					className={'btn--solid btn--secondary'}
+					colors={Colors.Secondary}
+					display={Display.Solid}
 					aria-label="move left"> View left </Button>
 				<Button
 					onClick={this.props.onPanRight}
 					icon={{icon: 'arrow-right', iconPos: 'icon-top'}}
-					className={'btn--solid btn--secondary'} aria-label="move right"> View right </Button>
+					colors={Colors.Secondary}
+					display={Display.Solid} aria-label="move right"> View right </Button>
 				<Button
 					onClick={() => this.props.onSwitchToListView()}
 					icon={{icon: 'ol-list', iconPos: 'icon-top'}}
-					className={'btn--solid btn--secondary'}
+					colors={Colors.Secondary}
+					display={Display.Solid}
 					aria-label="list view"> List </Button>
 			</>
 		);

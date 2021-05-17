@@ -94,10 +94,10 @@ input[type="radio"] {
 
 		&:after {
 			content: "";
-			background-color: get-contrasting-text-color($background);
+			background-color: $color-primary;
 			border-radius: 50%;
-			width: 75%;
-			height: 75%;
+			width: 84%;
+			height: 78%;
 		}
 	}
 

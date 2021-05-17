@@ -49,12 +49,6 @@ Change and add functions according to your project.
 // Returns black for dark text and white for light text.
 @function get-contrasting-text-color($color) {
 
-    //Exceptional color contrast for the red colour, to force it to return white
-    @if ($color == $color-support-red or $color == $color-brand-02 or $color == $color-brand-02){
-        @return $color-text-light;
-    }
-
-
     $lightContrast: contrast($color, $color-text-light);
     $darkContrast: contrast($color, $color-text-dark);
 

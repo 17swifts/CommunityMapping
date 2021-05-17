@@ -21,10 +21,17 @@ namespace SeleniumTests.Utils
 {
 	internal static class TypingUtils
 	{
+		public static void SetElementValue(IWebDriver driver, string querySelector, string value)
+		{
+			var js = (IJavaScriptExecutor)driver;
+			var script = $@"document.querySelector('{querySelector}').value = '{value}';";
+			js.ExecuteScript(script);
+		}
+
 		public static void InputEntityAttributeByClass(IWebDriver driver, string className, string inputString, bool isFastText)
 		{
-			var Element = driver.FindElementExt(By.XPath($"//div[contains(@class, '{className}')]//input"));
-			KeyboardUtils.DeleteAllFromWebElement(Element);
+			var element = driver.FindElementExt(By.XPath($"//div[contains(@class, '{className}')]//input"));
+			KeyboardUtils.DeleteAllFromWebElement(element);
 
 			if (isFastText)
 			{
@@ -38,7 +45,7 @@ namespace SeleniumTests.Utils
 			}
 			else
 			{
-				Element.SendKeys(inputString);
+				element.SendKeys(inputString);
 			}
 		}
 

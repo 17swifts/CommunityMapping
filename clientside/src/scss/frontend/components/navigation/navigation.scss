@@ -24,7 +24,6 @@ Styling for basic navigation, vertical navigation and horizontal navigation.
 /****** General navigation styling shared amongst all navigation *****/
 // % protected region % [Change generic navigation styles here] off begin
 .nav {
-	background-color: $color-brand-03;
 	display: flex;
 
 	ul {
@@ -39,15 +38,14 @@ Styling for basic navigation, vertical navigation and horizontal navigation.
 
 			//This is for sublinks
 			&.nav__parent-link--active {
-				background-color: $color-primary;
 
 				a {
-					color: get-contrasting-text-color($color-primary);
+					color: $color-primary;
 				}
 			}
 
 			a {
-				color: rgba(get-contrasting-text-color($grey-1), 0.7);
+				color: rgba(get-contrasting-text-color($background), 0.7);
 				text-decoration: none;
 				padding: $space-xxs;
 				display: block;
@@ -64,11 +62,10 @@ Styling for basic navigation, vertical navigation and horizontal navigation.
 			&:focus,
 			&:active,
 			&.active {
-				background-color: $color-primary;
 				@include transform-timing($animation-time);
 
 				a {
-					color: get-contrasting-text-color($color-primary);
+					color: $color-primary;
 					@include transform-timing($animation-time);
 				}
 
@@ -86,9 +83,9 @@ Styling for basic navigation, vertical navigation and horizontal navigation.
 // % protected region % [Change generic navigation styles here] end
 
 /****** Horizontal navigation (usually placed left) *****/
+/****** Note that if you are working on the expanded navigation ie the a tag to expand the nav - go to expanded-navigation.scss ******/
 // % protected region % [Change vertical navigation styles here] off begin
 .nav--vertical {
-	background-color: $color-brand-03;
 	overflow: auto;
 	flex-direction: column;
 	left: 0;

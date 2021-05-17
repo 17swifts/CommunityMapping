@@ -14,8 +14,10 @@
 # This file is bot-written.
 # Any changes out side of "protected regions" will be lost next time the bot makes any changes.
 ###
+# % protected region % [Override feature properties here] off begin
 @BotWritten @bulkDeleteoptions @xunit:collection(DELETE_ALL)
 Feature: Delete all RegionalAreaTimelineEventsEntity on all pages
+# % protected region % [Override feature properties here] end
 	@RegionalAreaTimelineEventsEntity
 	Scenario: Delete all RegionalAreaTimelineEventsEntity on all pages
 	Given I have 10 valid RegionalAreaTimelineEventsEntity entities

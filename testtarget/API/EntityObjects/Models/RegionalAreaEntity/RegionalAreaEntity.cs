@@ -31,6 +31,7 @@ namespace APITests.EntityObjects.Models
 	public class RegionalAreaEntity : BaseEntity
 	{
 		// 
+		[Unique]
 		[Required]
 		[EntityAttribute]
 		public String Name { get; set; }

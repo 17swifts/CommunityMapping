@@ -14,8 +14,10 @@
 # This file is bot-written.
 # Any changes out side of "protected regions" will be lost next time the bot makes any changes.
 ###
+# % protected region % [Override feature properties here] off begin
 @login @BotWritten
 Feature: Login Valid
+# % protected region % [Override feature properties here] end
 
 @success
 Scenario: Login Valid

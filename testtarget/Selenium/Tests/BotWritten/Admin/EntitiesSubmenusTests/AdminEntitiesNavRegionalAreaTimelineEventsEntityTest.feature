@@ -14,9 +14,10 @@
 # This file is bot-written.
 # Any changes out side of "protected regions" will be lost next time the bot makes any changes.
 ###
-
+# % protected region % [Override feature properties here] off begin
 @BotWritten @nav @admin
 Feature: Admin Submenu RegionalAreaTimelineEventsEntity
+# % protected region % [Override feature properties here] end
 
 	@RegionalAreaTimelineEventsEntity
 	Scenario: Admin Submenu RegionalAreaTimelineEventsEntity

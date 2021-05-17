@@ -22,6 +22,10 @@
 	}
 	.ui.selection.dropdown {
 		background: transparent; 
+		color: get-contrasting-text-color($background) !important;
+		>.text:not(.default) {
+			color: get-contrasting-text-color($background) !important;
+		}
 		&.disabled {
 			background: $grey-0;
 			border: none;
@@ -37,7 +41,16 @@
 		}
 		.menu{
 			margin: 0 -2px;
-			min-width: calc(100% + 4px);
+			min-width: calc(100% + 3px);
+			border-top-right-radius: 0;
+			border-top-left-radius: 0;
+			>.item {		
+				color: get-contrasting-text-color($background) !important;
+				border: none;
+				padding: $space-xs $space-sm !important;
+			}
+			.selected.item, .selected {
+			}
 		}
 	}
 	.dropdown__container {
@@ -49,25 +62,41 @@
 		border-radius: $input-radius;
 		color: get-contrasting-text-color($background);
 		font-weight: $text-regular;
-		border: 1px solid $grey-4;
+		border: 2px solid get-contrasting-text-color($background);
 		input {
 			margin-top: 0.25rem;
 		}
+		.ui.selection.active.dropdown{
+			&:hover {
+				border: 2px solid get-contrasting-text-color($background);
+				.menu {
+					border-color: get-contrasting-text-color($background) !important;
+				}
+			}
+		}
+
+		.ui.selection.dropdown .menu, .ui.selection.active.dropdown .menu {
+			background-color: $grey-2;
+			border-radius: 0 !important;
+			border: 2px solid get-contrasting-text-color($background) !important;
+			* {
+				color: get-contrasting-text-color($background);
+			}
+		}
 		&.active, &.active:hover, &:hover, &:focus, .menu {
-			border: convert-rem(2px) solid;
-			border-color: $grey-1 !important;
+			border: 2px solid get-contrasting-text-color($background) !important;
 			@include transform-timing($animation-time);
 			border-radius: $input-radius;
 		}
 
 		&.single {
-			padding: $space-xs $space-xs;
+			padding: $space-xs $space-sm;
 			margin: $space-xs 0;
 		}
 
 		&.multiple {
 			margin: $space-xs 0 0 0;
-			padding: $space-xxs  0 $space-xxs $space-xxs;
+			padding: $space-xxs $space-sm;
 
 			> .default.text {
 				color: get-contrasting-text-color($background);
@@ -91,7 +120,7 @@
 					margin-left: 10px;
 
 					&:before {
-						color: #ffffff;
+						color: get-contrasting-text-color($background);
 					}
 
 					&:hover:before {

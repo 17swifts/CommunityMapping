@@ -14,8 +14,10 @@
 # This file is bot-written.
 # Any changes out side of "protected regions" will be lost next time the bot makes any changes.
 ###
+# % protected region % [Override feature properties here] off begin
 @BotWritten @allUserList
 Feature: All User List Test
+# % protected region % [Override feature properties here] end
 	Scenario: Verify contents of all user page
 	Given I login to the site as a user
 	And I navigate to the all user page

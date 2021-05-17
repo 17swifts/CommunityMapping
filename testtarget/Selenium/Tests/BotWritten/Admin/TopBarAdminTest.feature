@@ -14,8 +14,10 @@
 # This file is bot-written.
 # Any changes out side of "protected regions" will be lost next time the bot makes any changes.
 ###
+# % protected region % [Override feature properties here] off begin
 @BotWritten @admin
 Feature: Admin Topbar
+# % protected region % [Override feature properties here] end
 
 Scenario: Admin Topbar
 	Given I login to the site as a user

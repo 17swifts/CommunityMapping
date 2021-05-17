@@ -95,29 +95,16 @@ Alerts are prompts that require user's actions to confirm a change.
 			color: $hover-state;
 		}
 	}
+	$alert-colors: (info: $grey-2, success: $color-support-green, warning: $color-support-orange, danger: $color-support-red, error: $color-support-red);
 
-	&__info {
-		color: get-contrasting-text-color($grey-2);
-
-		.btn {
-			color: get-contrasting-text-color($grey-2);
+	@each $alert, $color in $alert-colors {
+		&__#{$alert} {
+			background-color: $color;
+			color: get-contrasting-text-color($color);
+			.btn {
+			color: get-contrasting-text-color($color);
+			}
 		}
-	}
-
-	&__success {
-		background-color: $color-support-green;
-	}
-
-	&__warning {
-		background-color: $color-support-orange;
-	}
-
-	&__danger {
-		background-color: $color-support-red;
-	}
-
-	&__error {
-		background-color: $color-support-red;
 	}
 }
 // % protected region % [Change alert and toaster styles here] end

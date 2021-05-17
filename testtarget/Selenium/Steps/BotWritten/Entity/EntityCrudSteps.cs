@@ -77,14 +77,6 @@ namespace SeleniumTests.Steps.BotWritten
 			entityOnPage.EditButton.ClickWithWait(_driverWait);
 		}
 
-
-		[Given(@"I click to create a (.*)")]
-		public void IClickToCreateAnEntity(string entityName)
-		{
-			var page = new GenericEntityPage(entityName, _contextConfiguration);
-			page.ClickCreateButton();
-		}
-
 		[Given("I have (.*) valid (.*) entities")]
 		public void IHaveValidEntities(int numEntities, string entityName)
 		{
@@ -97,29 +89,6 @@ namespace SeleniumTests.Steps.BotWritten
 		{
 			var entityFactory = new EntityFactory(entityName);
 			entityFactory.ConstructAndSave(_testOutputHelper);
-		}
-
-		[When("I create a (.*) (.*)")]
-		public void WhenICreateAValidEntity(string validStr, string entityName)
-		{
-			bool isValid;
-
-			switch(validStr)
-			{
-				case "valid":
-					isValid = true;
-					break;
-				case "invalid":
-					isValid = false;
-					break;
-				default:
-					throw new Exception("Please specify whether a 'valid' or 'invalid' entity is required");
-			}
-
-			var page = new GenericEntityEditPage(entityName, _contextConfiguration);
-			var factory = new EntityDetailFactory(_contextConfiguration);
-			factory.ApplyDetails(entityName, isValid);
-			page.SubmitButton.Click();
 		}
 
 		[When("I delete the first (.*)")]

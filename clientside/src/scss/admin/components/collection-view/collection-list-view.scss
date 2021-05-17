@@ -38,6 +38,45 @@ List view of the collection list.
 		border-collapse: collapse;
 		overflow-x: auto;
 
+		.expand__row {
+			padding: 0;
+			overflow: auto;
+
+			.crud-expand {
+				background-color: $grey-0;
+				width: 100%;
+				max-height: 0;
+				transition: max-height 1s;
+				display: flex;
+				flex-wrap: wrap;
+				flex-direction: row;
+				margin: 0;
+				overflow: hidden;
+				padding: 0 1vw;
+
+				&.active {
+					max-height: 34vh;
+					transition: max-height 1s;
+					overflow-y: scroll;
+					height: auto;
+				}
+
+				.crud-expand__attr {
+					min-width: 10vw;
+					padding-right: 2vw;
+					margin-top: 1vh;
+					margin-bottom: 1vh;
+
+					.expand-attr__value,
+					.expand-attr__header {
+						margin-bottom: 0;
+						margin-top: 0;
+					}
+				}
+			}
+		}
+
+
 		//flexing select all 
 		.collection__header {
 			.collection__list--select-all {

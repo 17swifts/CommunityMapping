@@ -14,10 +14,10 @@
 # This file is bot-written.
 # Any changes out side of "protected regions" will be lost next time the bot makes any changes.
 ###
-
+# % protected region % [Override feature properties here] off begin
 @BotWritten @logout @admin
 Feature: Admin Nav Logout
-
+# % protected region % [Override feature properties here] end
 Scenario: Admin Nav Logout
 Given I login to the site as a user
 	And I assert that the admin bar is on the Admin

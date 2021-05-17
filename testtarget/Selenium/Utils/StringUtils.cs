@@ -14,7 +14,7 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
-
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
@@ -31,6 +31,44 @@ namespace SeleniumTests.Utils
 		{
 			// return table values
 			return table.Rows.Select(row => row.Select(cell => cell.Value).FirstOrDefault()).ToList();
+		}
+		public static double? ToNullableDouble(this string input)
+		{
+			if (string.IsNullOrEmpty(input))
+			{
+				return null;
+			}
+			return Convert.ToDouble(input);
+		}
+
+		public static int? ToNullableInt(this string input)
+		{
+			if (string.IsNullOrEmpty(input))
+			{
+				return null;
+			}
+			return Convert.ToInt32(input);
+		}
+		public static Guid? ToNullableGuid(this string input)
+		{
+			if (string.IsNullOrEmpty(input))
+			{
+				return null;
+			}
+			if (Guid.TryParse(input, out var guid))
+			{
+				return guid;
+			}
+			return null;
+		}
+		public static T ToEnum<T>(this string value)
+		{
+			return (T) Enum.Parse(typeof(T), value.ToSnakeCase(), true);
+		}
+
+		public static string ToSnakeCase(this string value)
+		{
+			return value.Replace(" ", "_");
 		}
 	}
 }

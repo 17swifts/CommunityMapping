@@ -14,8 +14,10 @@
 # This file is bot-written.
 # Any changes out side of "protected regions" will be lost next time the bot makes any changes.
 ###
+# % protected region % [Override feature properties here] off begin
 @BotWritten @loginredirect
 Feature: Unauthorized AdminEntity Redirect
+# % protected region % [Override feature properties here] end
 
 @AdminEntity
 Scenario: Unauthorized AdminEntity Redirect

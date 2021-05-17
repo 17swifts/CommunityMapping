@@ -17,7 +17,7 @@
 import * as React from 'react';
 import SearchForm from "../../Views/Components/SearchForm/SearchForm";
 import {Alignment, ButtonGroup} from 'Views/Components/Button/ButtonGroup';
-import {Button, Display} from 'Views/Components/Button/Button';
+import {Button, Display, Colors} from 'Views/Components/Button/Button';
 import {action, observable, runInAction} from "mobx";
 import {MultiCombobox} from 'Views/Components/Combobox/MultiCombobox';
 import AwesomeDebouncePromise from "awesome-debounce-promise";
@@ -211,7 +211,8 @@ export default class TimelineTopBar extends React.Component<ITimelineTopBarProps
 						<Button
 							onClick={action(() => this.showAdvancedFilters = !this.showAdvancedFilters)}
 							icon={{ icon: "filter", iconPos: "icon-top" }}
-							className="btn--solid btn--primary">
+							colors={Colors.Primary}
+							display={Display.Solid}>
 							Filter
 						</Button>
 					</div>

@@ -60,7 +60,7 @@ a {
 	justify-content: center;
 	align-items: center;
 	white-space: nowrap;
-	font-weight: 500;
+	font-weight: $text-bold;
 	text-decoration: none;
 	line-height: 1;
 	padding: $space-xs;
@@ -73,7 +73,6 @@ a {
 
 	a & {
 		text-decoration: none;
-		color: $black;
 		border-bottom: none;
 
 		&:active,
@@ -113,7 +112,6 @@ a {
 
 /********** STYLE BUTTONS **********/
 // % protected region % [Change color button style here] off begin
-
 /*BUTTON COLORS*/
 //apply styling for solid and outline buttons without color classnames
 .btn--solid {
@@ -122,9 +120,8 @@ a {
 
 	&:hover,
 	&:active {
-		background-color: transparent;
+		background-color: darken-color($color-primary, $color-shades);
 		color: $color-primary;
-		@include inner-box-shadow(convert-rem(0px), convert-rem(0px), convert-rem(0px), convert-rem(1px), $color-primary);
 	}
 }
 .btn--outline {
@@ -145,7 +142,6 @@ a {
 	&:hover,
 	&:active {
 		color: $color-secondary;
-		text-decoration: underline;
 	}
 }
 
@@ -160,7 +156,7 @@ If you have more colours in your application, append to the map such as: `btn--b
 
 @each $btn-name,
 $color in $btn-colors {
-	.btn--solid.#{$btn-name}{
+	.btn--solid.#{$btn-name} {
 		background-color: $color;
 		color: get-contrasting-text-color($color);
 
@@ -191,7 +187,7 @@ $color in $btn-colors {
 
 		&:hover,
 		&:active {
-			text-decoration: underline;
+			text-decoration: darken($color, $color-shades);
 		}
 	}
 }
@@ -209,7 +205,6 @@ $color in $btn-colors {
 
 /********** FEEDBACK/UTILITY BUTTONS **********/
 // % protected region % [Change utility button style here] off begin
-
 /*FEEDBACK/UTILITY BUTTONS
 Like above, each loop goes through the map $utility-btn-colors and assigns the right colours to the right button type. 
 An example to use utility classnames in your buttons: `btn btn--solid btn--success`;
@@ -264,7 +259,7 @@ $color in $utility-btn-colors {
 .btn[disabled] {
 	cursor: not-allowed;
 	background-color: $grey-2;
-	color: get-contrasting-text-color($grey-2);
+	color: transparentize(get-contrasting-text-color($grey-2), 0.3);
 	box-shadow: none;
 	opacity: 0.5;
 	@include inner-box-shadow(convert-rem(0px), convert-rem(0px), convert-rem(0px), convert-rem(1px), $grey-2);
@@ -298,7 +293,7 @@ $color in $utility-btn-colors {
 	&:active,
 	&:focus {
 		background-color: $grey-2;
-		color: get-contrasting-text-color($grey-2);
+		color: transparentize(get-contrasting-text-color($grey-2), 0.3);
 	}
 }
 // % protected region % [Change disabled button style here] end

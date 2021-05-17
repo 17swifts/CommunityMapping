@@ -22,7 +22,6 @@ Found above collection list
 */
 
 // % protected region % [Change search styles here] off begin
-
 .search {
 	display: flex;
 	position: relative;
@@ -30,12 +29,23 @@ Found above collection list
 	align-items: center;
 	height: auto;
 
-	@include input-placeholder {
+	.icon-cross {
+		display: none;
+	}
+
+	.input-group {
 		@include lightning-icon(before, search);
+
+		&:before {
+			position: absolute;
+			top: 1.4rem;
+			left: 1.2rem;
+			z-index: 1;
+		}
 	}
 
 	input[type="text"] {
-		padding: $space-xs;
+		padding: $space-xs $space-xs $space-xs $space-lg;
 		margin: 0;
 		line-height: 1.9;
 

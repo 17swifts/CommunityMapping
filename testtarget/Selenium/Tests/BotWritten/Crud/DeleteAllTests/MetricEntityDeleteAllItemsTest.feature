@@ -14,8 +14,10 @@
 # This file is bot-written.
 # Any changes out side of "protected regions" will be lost next time the bot makes any changes.
 ###
+# % protected region % [Override feature properties here] off begin
 @BotWritten @bulkDeleteoptions @xunit:collection(DELETE_ALL)
 Feature: Delete all MetricEntity on all pages
+# % protected region % [Override feature properties here] end
 	@MetricEntity
 	Scenario: Delete all MetricEntity on all pages
 	Given I have 10 valid MetricEntity entities

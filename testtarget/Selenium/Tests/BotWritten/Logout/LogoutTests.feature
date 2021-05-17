@@ -14,9 +14,10 @@
 # This file is bot-written.
 # Any changes out side of "protected regions" will be lost next time the bot makes any changes.
 ###
-
+# % protected region % [Override feature properties here] off begin
 @logout @BotWritten
 Feature: Logout via url
+# % protected region % [Override feature properties here] end
 
 	# % protected region % [Customize Logout via url scenario here] off begin
 	Scenario: Logout via url

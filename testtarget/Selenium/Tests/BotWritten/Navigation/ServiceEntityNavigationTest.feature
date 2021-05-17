@@ -14,8 +14,10 @@
 # This file is bot-written.
 # Any changes out side of "protected regions" will be lost next time the bot makes any changes.
 ###
+# % protected region % [Override feature properties here] off begin
 @BotWritten @navigation
 Feature: ServiceEntity Navigation Feature
+# % protected region % [Override feature properties here] end
 
 @ServiceEntity
 Scenario: Navigate to ServiceEntity backend page

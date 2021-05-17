@@ -241,7 +241,7 @@ namespace APITests.EntityObjects.Models
 				{
 					Id = Guid.NewGuid(),
 					Data = DataUtils.GetSVGTestFile(),
-					Filename = "testfile.svg"
+					Filename = "RedCircle.svg"
 				};
 			ProfileImageId = ProfileImage.Id;
 			PopulateAttributes();
@@ -259,7 +259,7 @@ namespace APITests.EntityObjects.Models
 				{
 					Id = Guid.NewGuid(),
 					Data = DataUtils.GetSVGTestFile(),
-					Filename = "testfile.svg"
+					Filename = "RedCircle.svg"
 				},
 			};
 

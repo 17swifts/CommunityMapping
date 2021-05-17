@@ -52,22 +52,27 @@ Custom bot input styling
     font-family: $body-font-family !important;
     font-weight: $text-regular !important;
     border-radius: 0 !important;
+    overflow: hidden;
 
     &:before {
-        border-top-color: $grey-6 !important;
+        display: none;
     }
 
-    &.arrowBottom:after {
-        border-top-color: $grey-6 !important;
+    &.arrowBottom:after, &.arrowBottom:after {
+        display: none;
     }
 
     .flatpickr-months .flatpickr-month {
-        background-color: $grey-6 !important;
+        background-color: $grey-2 !important;
         border-radius: 0 !important;
+        * {
+            color: get-contrasting-text-color($grey-2) !important;
+        }
     }
 
     .flatpickr-current-month .flatpickr-monthDropdown-months {
         background-color: transparent !important;
+        box-shadow: none;
     }
 
     .flatpickr-months {
@@ -78,26 +83,27 @@ Custom bot input styling
             &:hover,
             &:active,
             &:focus {
-                color: $color-brand-02 !important;
+                color: get-contrasting-text-color($grey-2) !important;
 
                 svg {
-                    fill: $color-brand-02 !important;
+                    fill: get-contrasting-text-color($grey-2) !important;
                 }
             }
 
             svg {
-
                 &:hover,
                 &:active,
                 &:focus {
-                    fill: $color-brand-02 !important;
+                    fill: get-contrasting-text-color($grey-2) !important;
                 }
             }
         }
     }
 
     .numInputWrapper {
-
+        input {
+            box-shadow: none !important;
+        }
         .arrowUp,
         .arrowDown {
             border: none !important;
@@ -106,8 +112,9 @@ Custom bot input styling
 
     //Inner container
     .flatpickr-innerContainer {
-        .flatpickr-rContainer .flatpickr-weekdays {
-            background: $grey-6 !important;
+        .flatpickr-rContainer .flatpickr-weekdays, .flatpickr-weekday {
+            background: $grey-2 !important;
+            color: get-contrasting-text-color($grey-2);
         }
     }
 
@@ -115,10 +122,10 @@ Custom bot input styling
         border: none !important;
 
         .dayContainer {
-            background: $grey-6 !important;
+            background: $grey-2 !important;
 
             * {
-                color: get-contrasting-text-color($grey-6);
+                color: get-contrasting-text-color($grey-2);
             }
         }
 
@@ -128,23 +135,22 @@ Custom bot input styling
             font-weight: $text-regular !important;
 
             &:hover {
-                background-color: $grey-4 !important;
                 border-radius: 0 !important;
                 @include transform-timing(.25s);
             }
 
             &:active {
-                border: 1px solid $color-support-orange;
+                border: 2px solid $color-primary;
             }
 
             &:focus {
-                border: 1px solid $color-brand-02;
+                border: 2px solid $color-primary;
             }
 
             &.selected {
                 border-radius: 0 !important;
-                background-color: $color-brand-02 !important;
-                color: $color-secondary;
+                background-color: $color-primary !important;
+                color: get-contrasting-text-color($color-primary);
             }
 
             &.today {
@@ -152,15 +158,26 @@ Custom bot input styling
             }
 
             &.today:not(.selected) {
-                color: $color-brand-02;
                 border: none !important;
+                color: get-contrasting-text-color($background);
 
                 &:after {
                     content: '';
                     width: 3px;
                     height: 3px;
-                    background-color: $color-brand-02;
+                    background-color: $color-primary;
                 }
+            }
+
+            &.inRange {
+                background-color: transparentize(get-contrasting-text-color($background), 0.3);
+                box-shadow: -5px 0 0 transparentize(get-contrasting-text-color($background), 0.3), 5px 0 0 transparentize(get-contrasting-text-color($background), 0.3) !important;
+            }
+
+            &.endRange {
+                box-shadow: none !important;
+                background: $color-primary;
+                color: get-contrasting-text-color($color-primary);
             }
         }
     }
@@ -171,12 +188,13 @@ Custom bot input styling
     }
 
     .flatpickr-time {
-        background-color: $grey-6 !important;
+        background-color: $grey-2 !important;
         border: none !important;
         border-radius: 0 !important;
+        max-height: unset !important;
 
         * {
-            color: get-contrasting-text-color($grey-6);
+            color: get-contrasting-text-color($grey-2);
         }
 
         .numInputWrapper {
@@ -191,7 +209,6 @@ Custom bot input styling
                 border: none !important;
 
                 &:hover {
-                    color: $color-secondary;
                 }
 
                 &.flatpickr-hour {
@@ -211,7 +228,7 @@ Custom bot input styling
         }
 
         .flatpickr-time-separator {
-            margin-top: 12px !important;
+            margin-top: 5px ​!important;
         }
 
         .flatpickr-am-pm {

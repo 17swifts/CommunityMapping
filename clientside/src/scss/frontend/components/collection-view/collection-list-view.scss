@@ -22,7 +22,6 @@ List view of the collection list.
 */
 
 // % protected region % [Change collection list view styles here] off begin
-
 .collection__list {
 	@include fadeIn(0.5s);
 	overflow-x: auto;
@@ -38,6 +37,45 @@ List view of the collection list.
 		white-space: nowrap;
 		border-collapse: collapse;
 		overflow-x: auto;
+
+		.expand__row {
+			padding: 0;
+			overflow: auto;
+
+			.crud-expand {
+				background-color: $grey-0;
+				width: 100%;
+				max-height: 0;
+				transition: max-height 1s;
+				display: flex;
+				flex-wrap: wrap;
+				flex-direction: row;
+				margin: 0;
+				overflow: hidden;
+				padding: 0 1vw;
+
+				&.active {
+					max-height: 34vh;
+					transition: max-height 1s;
+					overflow-y: scroll;
+					height: auto;
+				}
+
+				.crud-expand__attr {
+					min-width: 10vw;
+					padding-right: 2vw;
+					margin-top: 1vh;
+					margin-bottom: 1vh;
+
+					.expand-attr__value,
+					.expand-attr__header {
+						margin-bottom: 0;
+						margin-top: 0;
+					}
+				}
+			}
+		}
+
 
 		//flexing select all 
 		.collection__header {
@@ -80,16 +118,13 @@ List view of the collection list.
 				top: auto;
 				box-shadow: convert-rem(2px) convert-rem(4px) convert-rem(7px) convert-rem(-1px);
 			}
-
-			&.list__header--actions {
-				background-color: $grey-0;
-			}
 		}
 
 
 		thead {
 			font-size: $base-font-size;
 			background-color: $grey-0;
+			color: get-contrasting-text-color($grey-0);
 
 			tr {
 				th {
@@ -124,11 +159,6 @@ List view of the collection list.
 
 					a {
 						text-decoration: none;
-					}
-
-					&:last-of-type {
-						text-align: right;
-						padding-right: $space-xxl;
 					}
 
 					label {

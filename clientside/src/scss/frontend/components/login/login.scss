@@ -24,16 +24,17 @@ Login, register and reset password pages
 // % protected region % [Change login, register and reset password styles here] off begin
 .login,
 .reset-password,
-.register,
-.registration {
+.register {
 	display: flex;
 	align-items: flex-start;
 	align-content: center;
 	flex-direction: column;
-	width: 80%;
+	width: 70vw;
+	max-width: 700px;
 	margin: 0 auto;
 	height: 98vh;
 	justify-content: center;
+
 
 	@include media(xs, sm, md) {
 		height: auto;
@@ -104,14 +105,18 @@ Login, register and reset password pages
 				box-sizing: border-box;
 			}
 
-			&:nth-of-type(2) {
-				margin-left: $space-xxxl;
+			&.btn--secondary {
+				margin-left: $space-xl;
 
 				@media screen and (max-width: 620px) {
 					margin-left: 0;
 				}
 			}
 		}
+	}
+
+	>p {
+		margin-top: $space-md;
 	}
 }
 

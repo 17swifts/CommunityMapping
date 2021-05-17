@@ -14,8 +14,10 @@
 # This file is bot-written.
 # Any changes out side of "protected regions" will be lost next time the bot makes any changes.
 ###
+# % protected region % [Override feature properties here] off begin
 @BotWritten @delete
 Feature: Delete MetricEntity Feature
+# % protected region % [Override feature properties here] end
 	@MetricEntity
 	Scenario: I attempt to delete the MetricEntity entity
 	Given I login to the site as a user

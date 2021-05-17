@@ -90,8 +90,7 @@ input[type="checkbox"] {
 	&:active,
 	&:focus {
 		color: $grey-6;
-		border: convert-rem(1px) solid $grey-1;
-		background-color: rgba($grey-1, 0.02);
+		border: convert-rem(3px) solid $color-primary;
 		@include transform-timing($animation-time);
 	}
 	&:checked {

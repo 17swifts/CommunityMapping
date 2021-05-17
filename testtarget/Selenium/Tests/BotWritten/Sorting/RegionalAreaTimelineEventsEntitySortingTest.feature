@@ -14,8 +14,10 @@
 # This file is bot-written.
 # Any changes out side of "protected regions" will be lost next time the bot makes any changes.
 ###
+# % protected region % [Override feature properties here] off begin
 @sorting @BotWritten @ignore
 # WARNING: These Tests have been flagged as unstable and have been ignored until they are updated.
+# % protected region % [Override feature properties here] end
 
 Feature: Sort RegionalAreaTimelineEventsEntity
 	@RegionalAreaTimelineEventsEntity

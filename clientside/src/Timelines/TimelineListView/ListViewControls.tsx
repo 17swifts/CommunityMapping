@@ -15,7 +15,7 @@
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
 import * as React from 'react';
-import {Button} from 'Views/Components/Button/Button';
+import {Button, Display, Colors} from 'Views/Components/Button/Button';
 // % protected region % [Add extra imports here] off begin
 // % protected region % [Add extra imports here] end
 
@@ -36,7 +36,8 @@ export default class ListViewTopBarControls extends React.Component<IListViewTop
 			<Button
 				onClick={this.props.onClick}
 				icon={{icon: 'timeline', iconPos:'icon-left'}}
-				className={"btn--solid btn--secondary"}
+				colors={Colors.Secondary}
+				display={Display.Solid}
 				aria-label="timeline view"/>
 		);
 

@@ -67,7 +67,8 @@ select {
 	border-radius: $input-radius;
 	margin: $space-xxs 0 $space-xs 0;
 	width: auto;
-	border: convert-rem(1px) solid rgba($grey-4, 1);
+	border: none;
+		@include inner-box-shadow(convert-rem(0px), convert-rem(0px), convert-rem(0px), convert-rem(2px), get-contrasting-text-color($background));
 	@include truncate;
 	color: get-contrasting-text-color($background);
 	font-weight: $text-regular;
@@ -85,10 +86,9 @@ select {
 	&:hover,
 	&:active,
 	&:focus {
-		color: $grey-6;
+		color: get-contrasting-text-color($background);
 		background-color: rgba($grey-1, 0.02);
-		@include transform-timing($animation-time);
-		@include inner-box-shadow(convert-rem(0px), convert-rem(0px), convert-rem(0px), convert-rem(1px), $grey-1);
+		@include transform-timing($animation-time);@include inner-box-shadow(convert-rem(0px), convert-rem(0px), convert-rem(0px), convert-rem(2px), $color-primary);
 	}
 }
 // % protected region % [Change standard input styles here] end
@@ -194,7 +194,7 @@ items can be placed within a single grid area, as long as they are contained wit
 		input[type="date"],
 		input[type="email"],
 		textarea,
-		select {
+		select {    
 			@include inner-box-shadow(convert-rem(0px), convert-rem(0px), convert-rem(0px), convert-rem(2px), $color-support-red);
 		}
 
@@ -253,7 +253,7 @@ items can be placed within a single grid area, as long as they are contained wit
 		border: none;
 		position: absolute;
 		right: 0.6rem;
-		bottom: 1.4rem;
+		bottom: 1.9rem;
 		outline: none;
 
 		&:before {

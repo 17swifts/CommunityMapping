@@ -14,9 +14,10 @@
 # This file is bot-written.
 # Any changes out side of "protected regions" will be lost next time the bot makes any changes.
 ###
-
+# % protected region % [Override feature properties here] off begin
 @BotWritten @Filter
 Feature: RegionalAreaTimelineEventsEntity filtered by today's modified Feature
+# % protected region % [Override feature properties here] end
 
 @RegionalAreaTimelineEventsEntity
 Scenario: RegionalAreaTimelineEventsEntity filtered by today's modified

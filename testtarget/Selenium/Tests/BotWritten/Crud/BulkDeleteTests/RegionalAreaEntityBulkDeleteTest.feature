@@ -14,9 +14,10 @@
 # This file is bot-written.
 # Any changes out side of "protected regions" will be lost next time the bot makes any changes.
 ###
-
+# % protected region % [Override feature properties here] off begin
 @BotWritten @bulkDeleteoptions @xunit:collection(BULK_DELETE)
 Feature: Bulk Delete RegionalAreaEntity entities
+# % protected region % [Override feature properties here] end
 	@RegionalAreaEntity
 	Scenario: Bulk Delete RegionalAreaEntity entities
 	Given I have 10 valid RegionalAreaEntity entities

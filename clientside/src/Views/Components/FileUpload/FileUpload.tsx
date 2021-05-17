@@ -26,8 +26,11 @@ import { observer } from 'mobx-react';
 import { Button, Display } from 'Views/Components/Button/Button';
 import { FileUploadPreview } from 'Views/Components/FileUpload/UploadPreview';
 import If from 'Views/Components/If/If';
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
 export interface FileUploadProps<T> {
+	// % protected region % [Override props here] off begin
 	/**
 	 * The model to load the result data into.
 	 */
@@ -126,13 +129,27 @@ export interface FileUploadProps<T> {
 	 * Callback after a file has been cleared. This is not called if onDelete was overwritten.
 	 */
 	onAfterDelete?: () => void;
+	/**
+	 * Should the drop area for files be disabled. If this component is in read only mode then the area will also be 
+	 * disabled.
+	 */
+	disableDropArea?: boolean;
+	/**
+	 * Override to be used for the choose file button text.
+	 */
+	buttonText?: string;
+	// % protected region % [Override props here] end
+
+	// % protected region % [Add any extra props here] off begin
+	// % protected region % [Add any extra props here] end
 }
 
 /**
  * This component provides an interface to load a file from the users device.
  */
 @observer
-export default class FileUpload<T> extends React.Component<FileUploadProps<T>> {
+class FileUpload<T> extends React.Component<FileUploadProps<T>> {
+	// % protected region % [Override class fields here] off begin
 	protected uuid = uuid.v4();
 	protected inputRef: HTMLInputElement | null = null;
 
@@ -141,23 +158,34 @@ export default class FileUpload<T> extends React.Component<FileUploadProps<T>> {
 
 	@observable
 	protected internalErrors: string[] = [];
+	// % protected region % [Override class fields here] end
 
+	// % protected region % [Add any extra class fields here] off begin
+	// % protected region % [Add any extra class fields here] end
+
+	// % protected region % [Override file here] off begin
 	@computed
 	public get file() {
 		return this.props.model[this.props.modelProperty] as File;
-	};
+	}
+	// % protected region % [Override file here] end
 
+	// % protected region % [Override disableDelete here] off begin
 	@computed
 	public get disableDelete() {
 		return this.props.isRequired || this.props.isDisabled || this.props.isReadOnly;
 	}
+	// % protected region % [Override disableDelete here] end
 
+	// % protected region % [Override acceptType here] off begin
 	@computed
 	protected get acceptType() {
 		const { contentType, imageUpload } = this.props;
 		return contentType ?? (imageUpload ? 'image/*' : undefined);
 	}
+	// % protected region % [Override acceptType here] end
 
+	// % protected region % [Override errors here] off begin
 	@computed
 	protected get errors() {
 		const errorsProp = this.props.errors;
@@ -168,7 +196,9 @@ export default class FileUpload<T> extends React.Component<FileUploadProps<T>> {
 		}
 		return this.internalErrors;
 	}
+	// % protected region % [Override errors here] end
 
+	// % protected region % [Override setFile here] off begin
 	@action
 	public setFile = (file: File) => {
 		if (this.props.onChange) {
@@ -188,7 +218,9 @@ export default class FileUpload<T> extends React.Component<FileUploadProps<T>> {
 
 		return true;
 	};
+	// % protected region % [Override setFile here] end
 
+	// % protected region % [Override clearFile here] off begin
 	@action
 	public clearFile = () => {
 		this.internalErrors = [];
@@ -202,7 +234,9 @@ export default class FileUpload<T> extends React.Component<FileUploadProps<T>> {
 		this.props.model[this.props.modelProperty] = undefined;
 		this.props.onAfterDelete?.()
 	};
+	// % protected region % [Override clearFile here] end
 
+	// % protected region % [Override validateContentType here] off begin
 	public validateContentType = (file: File) => {
 		const types = this.acceptType?.split(',').map(x => x.trim());
 
@@ -234,7 +268,9 @@ export default class FileUpload<T> extends React.Component<FileUploadProps<T>> {
 
 		return false;
 	};
+	// % protected region % [Override validateContentType here] end
 
+	// % protected region % [Override onChange here] off begin
 	protected onChange: ChangeEventHandler<HTMLInputElement> = event => {
 		const { files } = event.target;
 		if (files) {
@@ -243,15 +279,23 @@ export default class FileUpload<T> extends React.Component<FileUploadProps<T>> {
 			}
 		}
 	};
+	// % protected region % [Override onChange here] end
 
+	// % protected region % [Override onDragOver here] off begin
 	protected onDragOver = (event: React.DragEvent) => event.preventDefault();
+	// % protected region % [Override onDragOver here] end
 
+	// % protected region % [Override onDragEnter here] off begin
 	@action
 	protected onDragEnter = () => this.isBeingHovered = true;
+	// % protected region % [Override onDragEnter here] end
 
+	// % protected region % [Override onDragLeave here] off begin
 	@action
 	protected onDragLeave = () => this.isBeingHovered = false;
+	// % protected region % [Override onDragLeave here] end
 
+	// % protected region % [Override onDrop here] off begin
 	@action
 	protected onDrop = (event: React.DragEvent) => {
 		event.preventDefault();
@@ -261,12 +305,16 @@ export default class FileUpload<T> extends React.Component<FileUploadProps<T>> {
 			this.setFile(file);
 		}
 	};
+	// % protected region % [Override onDrop here] end
 
+	// % protected region % [Override onClick here] off begin
 	protected onClick = () => {
 		this.inputRef?.focus();
 		this.inputRef?.click();
 	};
+	// % protected region % [Override onClick here] end
 
+	// % protected region % [Override preview here] off begin
 	protected preview = () => {
 		if (typeof this.props.preview === 'function') {
 			return this.props.preview(this.file, this.disableDelete ? undefined : this.clearFile);
@@ -281,7 +329,9 @@ export default class FileUpload<T> extends React.Component<FileUploadProps<T>> {
 		}
 		return null;
 	};
+	// % protected region % [Override preview here] end
 
+	// % protected region % [Override render here] off begin
 	public render() {
 		const {
 			name,
@@ -294,6 +344,8 @@ export default class FileUpload<T> extends React.Component<FileUploadProps<T>> {
 			staticInput,
 			tooltip,
 			subDescription,
+			disableDropArea,
+			buttonText,
 		} = this.props;
 
 		const wrapperId = this.uuid.toString();
@@ -343,18 +395,20 @@ export default class FileUpload<T> extends React.Component<FileUploadProps<T>> {
 							display={Display.Solid}
 							disabled={isDisabled}
 							onClick={this.onClick}>
-							Choose File
+							{buttonText ?? 'Choose File'}
 						</Button>
-						<div
-							className={classNames(
-								'upload__drag-area',
-								this.isBeingHovered ? 'active' : undefined,
-								isDisabled ? 'disabled' : undefined)}
-							onDragOver={this.onDragOver}
-							onDragEnter={this.onDragEnter}
-							onDragLeave={this.onDragLeave}
-							onDrop={this.onDrop}>
-						</div>
+						<If condition={disableDropArea !== true}>
+							<div
+								className={classNames(
+									'upload__drag-area',
+									this.isBeingHovered ? 'active' : undefined,
+									isDisabled ? 'disabled' : undefined)}
+								onDragOver={this.onDragOver}
+								onDragEnter={this.onDragEnter}
+								onDragLeave={this.onDragLeave}
+								onDrop={this.onDrop}>
+							</div>
+						</If>
 					</If>
 				</InputWrapper>
 				<div className="file-preview">
@@ -363,4 +417,12 @@ export default class FileUpload<T> extends React.Component<FileUploadProps<T>> {
 			</div>
 		);
 	}
+	// % protected region % [Override render here] end
+
+	// % protected region % [Add any extra methods here] off begin
+	// % protected region % [Add any extra methods here] end
 }
+
+// % protected region % [Override default export here] off begin
+export default FileUpload;
+// % protected region % [Override default export here] end

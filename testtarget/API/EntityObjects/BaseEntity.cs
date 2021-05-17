@@ -269,7 +269,7 @@ namespace APITests.EntityObjects.Models
 					{
 						property.SetValue(this, DataUtils.RandEmail());
 					}
-					else if (property.HasAttribute(typeof(UuidAttribute)))
+					else if (property.HasAttribute(typeof(UuidAttribute)) || property.HasAttribute(typeof(UniqueAttribute)))
 					{
 						property.SetValue(this, Guid.NewGuid().ToString());
 					}
