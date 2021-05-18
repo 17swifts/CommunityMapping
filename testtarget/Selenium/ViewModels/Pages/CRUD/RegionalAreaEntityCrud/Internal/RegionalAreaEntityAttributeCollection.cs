@@ -26,15 +26,18 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.RegionalAreaEntityCrud.Internal
 	public class RegionalAreaEntityAttributeCollection : Page
 	{
 		// % protected region % [Override class properties here] off begin
-		public AttributeTextField Sa2code => new(By.CssSelector("div.sa2code"), ContextConfiguration);
-		public AttributeTextField Name => new(By.CssSelector("div.name"), ContextConfiguration);
-		public AttributeTextField Nonindigenouspopulation => new(By.CssSelector("div.nonindigenouspopulation"), ContextConfiguration);
-		public AttributeTextField Indigenouspopulation => new(By.CssSelector("div.indigenouspopulation"), ContextConfiguration);
-		public AttributeTextField Pph => new(By.CssSelector("div.pph"), ContextConfiguration);
+		public AttributeTextField Sa2id => new(By.CssSelector("div.sa2id"), ContextConfiguration);
+		public AttributeTextField Sa3id => new(By.CssSelector("div.sa3id"), ContextConfiguration);
+		public AttributeTextField Sa3name => new(By.CssSelector("div.sa3name"), ContextConfiguration);
+		public AttributeTextField Numofpph => new(By.CssSelector("div.numofpph"), ContextConfiguration);
+		public AttributeTextField Percentpphperday => new(By.CssSelector("div.percentpphperday"), ContextConfiguration);
+		public AttributeTextField Sa2name => new(By.CssSelector("div.sa2name"), ContextConfiguration);
+		public AttributeTextField Indigenous => new(By.CssSelector("div.indigenous"), ContextConfiguration);
+		public AttributeTextField Nonindigenous => new(By.CssSelector("div.nonindigenous"), ContextConfiguration);
 		public AttributeTextField Irsd => new(By.CssSelector("div.irsd"), ContextConfiguration);
 		public AttributeTextField Irsad => new(By.CssSelector("div.irsad"), ContextConfiguration);
-		public AttributeTextField Ieo => new(By.CssSelector("div.ieo"), ContextConfiguration);
 		public AttributeTextField Ier => new(By.CssSelector("div.ier"), ContextConfiguration);
+		public AttributeTextField Ieo => new(By.CssSelector("div.ieo"), ContextConfiguration);
 		public AttributeTextField GapScore => new(By.CssSelector("div.gapScore"), ContextConfiguration);
 		public AttributeTextField Noservices => new(By.CssSelector("div.noservices"), ContextConfiguration);
 		public AttributeTextField Totalinvestment => new(By.CssSelector("div.totalinvestment"), ContextConfiguration);

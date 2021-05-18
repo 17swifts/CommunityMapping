@@ -34,33 +34,41 @@ namespace APITests.EntityObjects.Models
 		[Unique]
 		[Required]
 		[EntityAttribute]
-		public int? Sa2code { get; set; }
+		public String Sa2id { get; set; }
 		// 
-		[Unique]
 		[Required]
 		[EntityAttribute]
-		public String Name { get; set; }
+		public String Sa3id { get; set; }
 		// 
 		[EntityAttribute]
-		public int? Nonindigenouspopulation { get; set; }
-		// 
-		[EntityAttribute]
-		public int? Indigenouspopulation { get; set; }
+		public String Sa3name { get; set; }
 		// Potentially Preventable Hospitalisations
 		[EntityAttribute]
-		public int? Pph { get; set; }
+		public int? Numofpph { get; set; }
+		// 
+		[EntityAttribute]
+		public Double? Percentpphperday { get; set; }
+		// 
+		[EntityAttribute]
+		public String Sa2name { get; set; }
+		// 
+		[EntityAttribute]
+		public int? Indigenous { get; set; }
+		// 
+		[EntityAttribute]
+		public int? Nonindigenous { get; set; }
 		// The Index of Relative Socio-economic Disadvantage (IRSD) is a general socio-economic index that summarises a range of information about the economic and social conditions of people and households within an area. 
 		[EntityAttribute]
 		public int? Irsd { get; set; }
 		// The Index of Relative Socio-economic Advantage and Disadvantage (IRSAD) summarises information about the economic and social conditions of people and households within an area, including both relative advantage and disadvantage measures.
 		[EntityAttribute]
 		public int? Irsad { get; set; }
-		// The Index of Education and Occupation (IEO) is designed to reflect the educational and occupational level of communities. 
-		[EntityAttribute]
-		public int? Ieo { get; set; }
 		// The Index of Economic Resources (IER) focuses on the financial aspects of relative socio-economic advantage and disadvantage, by summarising variables related to income and wealth. 
 		[EntityAttribute]
 		public int? Ier { get; set; }
+		// The Index of Education and Occupation (IEO) is designed to reflect the educational and occupational level of communities. 
+		[EntityAttribute]
+		public int? Ieo { get; set; }
 		// 
 		[EntityAttribute]
 		public Double? GapScore { get; set; }
@@ -149,15 +157,18 @@ namespace APITests.EntityObjects.Models
 			var entityVar = new Dictionary<string, string>()
 			{
 				{"id" , Id.ToString()},
-				{"sa2code" , Sa2code.ToString()},
-				{"name" , Name},
-				{"nonindigenouspopulation" , Nonindigenouspopulation.ToString()},
-				{"indigenouspopulation" , Indigenouspopulation.ToString()},
-				{"pph" , Pph.ToString()},
+				{"sa2id" , Sa2id},
+				{"sa3id" , Sa3id},
+				{"sa3name" , Sa3name},
+				{"numofpph" , Numofpph.ToString()},
+				{"percentpphperday" , Percentpphperday.ToString()},
+				{"sa2name" , Sa2name},
+				{"indigenous" , Indigenous.ToString()},
+				{"nonindigenous" , Nonindigenous.ToString()},
 				{"irsd" , Irsd.ToString()},
 				{"irsad" , Irsad.ToString()},
-				{"ieo" , Ieo.ToString()},
 				{"ier" , Ier.ToString()},
+				{"ieo" , Ieo.ToString()},
 				{"gapScore" , GapScore.ToString()},
 				{"noservices" , Noservices.ToString()},
 				{"totalinvestment" , Totalinvestment.ToString()},
@@ -173,25 +184,37 @@ namespace APITests.EntityObjects.Models
 			{
 				["id"] = Id,
 			};
-			if(Sa2code != null) 
+			if(Sa2id != null) 
 			{
-				entityVar["sa2code"] = Sa2code;
+				entityVar["sa2id"] = Sa2id.ToString();
 			}
-			if(Name != null) 
+			if(Sa3id != null) 
 			{
-				entityVar["name"] = Name.ToString();
+				entityVar["sa3id"] = Sa3id.ToString();
 			}
-			if(Nonindigenouspopulation != null) 
+			if(Sa3name != null) 
 			{
-				entityVar["nonindigenouspopulation"] = Nonindigenouspopulation;
+				entityVar["sa3name"] = Sa3name.ToString();
 			}
-			if(Indigenouspopulation != null) 
+			if(Numofpph != null) 
 			{
-				entityVar["indigenouspopulation"] = Indigenouspopulation;
+				entityVar["numofpph"] = Numofpph;
 			}
-			if(Pph != null) 
+			if(Percentpphperday != null) 
 			{
-				entityVar["pph"] = Pph;
+				entityVar["percentpphperday"] = Percentpphperday.ToString();
+			}
+			if(Sa2name != null) 
+			{
+				entityVar["sa2name"] = Sa2name.ToString();
+			}
+			if(Indigenous != null) 
+			{
+				entityVar["indigenous"] = Indigenous;
+			}
+			if(Nonindigenous != null) 
+			{
+				entityVar["nonindigenous"] = Nonindigenous;
 			}
 			if(Irsd != null) 
 			{
@@ -201,13 +224,13 @@ namespace APITests.EntityObjects.Models
 			{
 				entityVar["irsad"] = Irsad;
 			}
-			if(Ieo != null) 
-			{
-				entityVar["ieo"] = Ieo;
-			}
 			if(Ier != null) 
 			{
 				entityVar["ier"] = Ier;
+			}
+			if(Ieo != null) 
+			{
+				entityVar["ieo"] = Ieo;
 			}
 			if(GapScore != null) 
 			{

@@ -48,15 +48,18 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.RegionalAreaEntityCrud
 		// % protected region % [Override set values here] off begin
 		public void SetValues(RegionalAreaEntity regionalAreaEntity)
 		{
-			Sa2code.Value = regionalAreaEntity.Sa2code.ToString();
-			Name.Value = regionalAreaEntity.Name;
-			Nonindigenouspopulation.Value = regionalAreaEntity.Nonindigenouspopulation.ToString();
-			Indigenouspopulation.Value = regionalAreaEntity.Indigenouspopulation.ToString();
-			Pph.Value = regionalAreaEntity.Pph.ToString();
+			Sa2id.Value = regionalAreaEntity.Sa2id;
+			Sa3id.Value = regionalAreaEntity.Sa3id;
+			Sa3name.Value = regionalAreaEntity.Sa3name;
+			Numofpph.Value = regionalAreaEntity.Numofpph.ToString();
+			Percentpphperday.Value = regionalAreaEntity.Percentpphperday.ToString();
+			Sa2name.Value = regionalAreaEntity.Sa2name;
+			Indigenous.Value = regionalAreaEntity.Indigenous.ToString();
+			Nonindigenous.Value = regionalAreaEntity.Nonindigenous.ToString();
 			Irsd.Value = regionalAreaEntity.Irsd.ToString();
 			Irsad.Value = regionalAreaEntity.Irsad.ToString();
-			Ieo.Value = regionalAreaEntity.Ieo.ToString();
 			Ier.Value = regionalAreaEntity.Ier.ToString();
+			Ieo.Value = regionalAreaEntity.Ieo.ToString();
 			GapScore.Value = regionalAreaEntity.GapScore.ToString();
 			Noservices.Value = regionalAreaEntity.Noservices.ToString();
 			Totalinvestment.Value = regionalAreaEntity.Totalinvestment.ToString();
@@ -69,15 +72,18 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.RegionalAreaEntityCrud
 		{
 			var regionalAreaEntity =  new RegionalAreaEntity
 			{
-				Sa2code = Sa2code.Value.ToNullableInt(),
-				Name = Name.Value,
-				Nonindigenouspopulation = Nonindigenouspopulation.Value.ToNullableInt(),
-				Indigenouspopulation = Indigenouspopulation.Value.ToNullableInt(),
-				Pph = Pph.Value.ToNullableInt(),
+				Sa2id = Sa2id.Value,
+				Sa3id = Sa3id.Value,
+				Sa3name = Sa3name.Value,
+				Numofpph = Numofpph.Value.ToNullableInt(),
+				Percentpphperday = Percentpphperday.Value.ToNullableDouble(),
+				Sa2name = Sa2name.Value,
+				Indigenous = Indigenous.Value.ToNullableInt(),
+				Nonindigenous = Nonindigenous.Value.ToNullableInt(),
 				Irsd = Irsd.Value.ToNullableInt(),
 				Irsad = Irsad.Value.ToNullableInt(),
-				Ieo = Ieo.Value.ToNullableInt(),
 				Ier = Ier.Value.ToNullableInt(),
+				Ieo = Ieo.Value.ToNullableInt(),
 				GapScore = GapScore.Value.ToNullableDouble(),
 				Noservices = Noservices.Value.ToNullableInt(),
 				Totalinvestment = Totalinvestment.Value.ToNullableDouble(),

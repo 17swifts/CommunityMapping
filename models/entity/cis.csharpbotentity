@@ -4,22 +4,25 @@
 		<Behaviours xsi:type="csharpbotEntity:BehaviourUser"  Uuid="97fb434d-7995-4df8-83e9-6b1bda4f932a"/>
 	</Entities>
 	<Entities xsi:type="csharpbotEntity:Entity"  Uuid="1a612178-01c4-4ded-a0a0-42d1d68c0927" Name="Regional area" OrderByDirection="ASCENDING">
-		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="00dde034-ec54-4beb-9482-d540392e963f" Name="SA2Code" Searchable="true" Unique="true">
-			<Validators xsi:type="csharpbotEntity:ValidatorRequired"  Uuid="32a2ac3b-acbc-4e9c-9ffc-e78dda5fddf0"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeString"  Uuid="bb44af54-5bdb-4eb8-9a44-234b718c31e0" Name="sa2Id" Searchable="true" Unique="true" DatabaseType="VARCHAR">
+			<Validators xsi:type="csharpbotEntity:ValidatorRequired"  Uuid="7b9075ad-1501-498c-a283-18344e12d13d"/>
 		</Attributes>
-		<Attributes xsi:type="csharpbotEntity:AttributeString"  Uuid="665a0eaf-a7e0-4c29-a02f-8e3ed31ad3a5" Name="Name" Searchable="true" Unique="true" DatabaseType="VARCHAR">
+		<Attributes xsi:type="csharpbotEntity:AttributeString"  Uuid="665a0eaf-a7e0-4c29-a02f-8e3ed31ad3a5" Name="sa3Id" Searchable="true" Unique="false" DatabaseType="VARCHAR">
 			<Validators xsi:type="csharpbotEntity:ValidatorRequired"  Uuid="eaff93b9-9d22-44e9-811f-0ff3c9bd1d24"/>
 		</Attributes>
-		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="407c75f1-dd4c-444c-b81d-3932be5a6e36" Name="NonIndigenousPopulation" Searchable="false" Unique="false"/>
-		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="f691d341-f4d8-4270-a558-a3b3ef1daba8" Name="IndigenousPopulation" Searchable="false" Unique="false"/>
-		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="8f150ceb-f5f7-453f-a7a0-fbf3e070f51e" Name="PPH" DocoDescription="Potentially Preventable Hospitalisations" Searchable="false" Unique="false"/>
-		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="81553153-5d5c-4cf2-8c12-dfcc06072c99" Name="IRSD" DocoDescription="The Index of Relative Socio-economic Disadvantage (IRSD) is a general socio-economic index that summarises a range of information about the economic and social conditions of people and households within an area. " Searchable="false" Unique="false"/>
-		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="8feae7cf-86bc-4ee0-a249-5fcc3f77c1a7" Name="IRSAD" DocoDescription="The Index of Relative Socio-economic Advantage and Disadvantage (IRSAD) summarises information about the economic and social conditions of people and households within an area, including both relative advantage and disadvantage measures." Searchable="false" Unique="false"/>
-		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="10188cf8-ed06-42db-bcd4-03820e96453d" Name="IEO" DocoDescription="The Index of Education and Occupation (IEO) is designed to reflect the educational and occupational level of communities. " Searchable="false" Unique="false"/>
-		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="2bb0288e-17c7-4598-9de1-06930a72a5f2" Name="IER" DocoDescription="The Index of Economic Resources (IER) focuses on the financial aspects of relative socio-economic advantage and disadvantage, by summarising variables related to income and wealth. " Searchable="false" Unique="false"/>
-		<Attributes xsi:type="csharpbotEntity:AttributeDecimal"  Uuid="9b58f6fe-ad43-465b-9b1c-18433119c319" Name="Gap Score" Searchable="true" Unique="false"/>
-		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="e8762e4e-ed88-4104-9dfb-3b5bccb8a0b8" Name="NoServices" Searchable="false" Unique="false"/>
-		<Attributes xsi:type="csharpbotEntity:AttributeDecimal"  Uuid="5a4ba728-de62-4888-a024-e78e77699e1d" Name="TotalInvestment" Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeString"  Uuid="4d3ebb88-720c-4be0-b7c1-f9794881941a" Name="sa3Name" Searchable="true" Unique="false" DatabaseType="VARCHAR"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="8f150ceb-f5f7-453f-a7a0-fbf3e070f51e" Name="numOfPph" DocoDescription="Potentially Preventable Hospitalisations" Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeDecimal"  Uuid="b6bb84d7-0dfd-4a34-b938-5e3f7c8b1c07" Name="percentPphPerDay" Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeString"  Uuid="0dfdce14-4908-424e-a00d-f14c1baec40d" Name="sa2Name" Searchable="true" Unique="false" DatabaseType="VARCHAR"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="f691d341-f4d8-4270-a558-a3b3ef1daba8" Name="indigenous" Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="407c75f1-dd4c-444c-b81d-3932be5a6e36" Name="nonIndigenous" Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="81553153-5d5c-4cf2-8c12-dfcc06072c99" Name="irsd" DocoDescription="The Index of Relative Socio-economic Disadvantage (IRSD) is a general socio-economic index that summarises a range of information about the economic and social conditions of people and households within an area. " Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="8feae7cf-86bc-4ee0-a249-5fcc3f77c1a7" Name="irsad" DocoDescription="The Index of Relative Socio-economic Advantage and Disadvantage (IRSAD) summarises information about the economic and social conditions of people and households within an area, including both relative advantage and disadvantage measures." Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="2bb0288e-17c7-4598-9de1-06930a72a5f2" Name="ier" DocoDescription="The Index of Economic Resources (IER) focuses on the financial aspects of relative socio-economic advantage and disadvantage, by summarising variables related to income and wealth. " Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="10188cf8-ed06-42db-bcd4-03820e96453d" Name="ieo" DocoDescription="The Index of Education and Occupation (IEO) is designed to reflect the educational and occupational level of communities. " Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeDecimal"  Uuid="9b58f6fe-ad43-465b-9b1c-18433119c319" Name="gap Score" Searchable="true" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="e8762e4e-ed88-4104-9dfb-3b5bccb8a0b8" Name="noServices" Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeDecimal"  Uuid="5a4ba728-de62-4888-a024-e78e77699e1d" Name="totalInvestment" Searchable="false" Unique="false"/>
 		<Behaviours xsi:type="csharpbotEntity:BehaviourTimeline"  Uuid="5b4df5cc-7ca6-4a37-b6a0-0f93119e348d"/>
 	</Entities>
 	<Entities xsi:type="csharpbotEntity:Entity"  Uuid="905ab383-496b-4e43-97fb-da6847041b4a" Name="Service" OrderByDirection="ASCENDING">

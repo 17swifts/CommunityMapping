@@ -48,34 +48,49 @@ namespace Cis.Models {
 		public DateTime Modified { get; set; }
 
 		[Required]
-		// % protected region % [Customise Sa2code here] off begin
+		// % protected region % [Customise Sa2id here] off begin
 		[EntityAttribute]
-		public int? Sa2code { get; set; }
-		// % protected region % [Customise Sa2code here] end
+		public String Sa2id { get; set; }
+		// % protected region % [Customise Sa2id here] end
 
 		[Required]
-		// % protected region % [Customise Name here] off begin
+		// % protected region % [Customise Sa3id here] off begin
 		[EntityAttribute]
-		public String Name { get; set; }
-		// % protected region % [Customise Name here] end
+		public String Sa3id { get; set; }
+		// % protected region % [Customise Sa3id here] end
 
-		// % protected region % [Customise Nonindigenouspopulation here] off begin
+		// % protected region % [Customise Sa3name here] off begin
 		[EntityAttribute]
-		public int? Nonindigenouspopulation { get; set; }
-		// % protected region % [Customise Nonindigenouspopulation here] end
-
-		// % protected region % [Customise Indigenouspopulation here] off begin
-		[EntityAttribute]
-		public int? Indigenouspopulation { get; set; }
-		// % protected region % [Customise Indigenouspopulation here] end
+		public String Sa3name { get; set; }
+		// % protected region % [Customise Sa3name here] end
 
 		/// <summary>
 		/// Potentially Preventable Hospitalisations
 		/// </summary>
-		// % protected region % [Customise Pph here] off begin
+		// % protected region % [Customise Numofpph here] off begin
 		[EntityAttribute]
-		public int? Pph { get; set; }
-		// % protected region % [Customise Pph here] end
+		public int? Numofpph { get; set; }
+		// % protected region % [Customise Numofpph here] end
+
+		// % protected region % [Customise Percentpphperday here] off begin
+		[EntityAttribute]
+		public Double? Percentpphperday { get; set; }
+		// % protected region % [Customise Percentpphperday here] end
+
+		// % protected region % [Customise Sa2name here] off begin
+		[EntityAttribute]
+		public String Sa2name { get; set; }
+		// % protected region % [Customise Sa2name here] end
+
+		// % protected region % [Customise Indigenous here] off begin
+		[EntityAttribute]
+		public int? Indigenous { get; set; }
+		// % protected region % [Customise Indigenous here] end
+
+		// % protected region % [Customise Nonindigenous here] off begin
+		[EntityAttribute]
+		public int? Nonindigenous { get; set; }
+		// % protected region % [Customise Nonindigenous here] end
 
 		/// <summary>
 		/// The Index of Relative Socio-economic Disadvantage (IRSD) is a general socio-economic index that summarises a range of information about the economic and social conditions of people and households within an area. 
@@ -94,20 +109,20 @@ namespace Cis.Models {
 		// % protected region % [Customise Irsad here] end
 
 		/// <summary>
-		/// The Index of Education and Occupation (IEO) is designed to reflect the educational and occupational level of communities. 
-		/// </summary>
-		// % protected region % [Customise Ieo here] off begin
-		[EntityAttribute]
-		public int? Ieo { get; set; }
-		// % protected region % [Customise Ieo here] end
-
-		/// <summary>
 		/// The Index of Economic Resources (IER) focuses on the financial aspects of relative socio-economic advantage and disadvantage, by summarising variables related to income and wealth. 
 		/// </summary>
 		// % protected region % [Customise Ier here] off begin
 		[EntityAttribute]
 		public int? Ier { get; set; }
 		// % protected region % [Customise Ier here] end
+
+		/// <summary>
+		/// The Index of Education and Occupation (IEO) is designed to reflect the educational and occupational level of communities. 
+		/// </summary>
+		// % protected region % [Customise Ieo here] off begin
+		[EntityAttribute]
+		public int? Ieo { get; set; }
+		// % protected region % [Customise Ieo here] end
 
 		// % protected region % [Customise GapScore here] off begin
 		[EntityAttribute]
@@ -283,46 +298,70 @@ namespace Cis.Models {
 
 			var timelineEvents = new List<ITimelineEventEntity>();
 
-			// % protected region % [Override CreateTimelineEventsAsync 'Sa2code' case here] off begin
+			// % protected region % [Override CreateTimelineEventsAsync 'Sa2id' case here] off begin
 			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
 				"RegionalAreaEntity",
-				"Sa2code",
-				 originalEntity.Sa2code,
-				 Sa2code,
+				"Sa2id",
+				 originalEntity.Sa2id,
+				 Sa2id,
 				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Sa2code' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Name' case here] off begin
+			// % protected region % [Override CreateTimelineEventsAsync 'Sa2id' case here] end
+			// % protected region % [Override CreateTimelineEventsAsync 'Sa3id' case here] off begin
 			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
 				"RegionalAreaEntity",
-				"Name",
-				 originalEntity.Name,
-				 Name,
+				"Sa3id",
+				 originalEntity.Sa3id,
+				 Sa3id,
 				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Name' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Nonindigenouspopulation' case here] off begin
+			// % protected region % [Override CreateTimelineEventsAsync 'Sa3id' case here] end
+			// % protected region % [Override CreateTimelineEventsAsync 'Sa3name' case here] off begin
 			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
 				"RegionalAreaEntity",
-				"Nonindigenouspopulation",
-				 originalEntity.Nonindigenouspopulation,
-				 Nonindigenouspopulation,
+				"Sa3name",
+				 originalEntity.Sa3name,
+				 Sa3name,
 				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Nonindigenouspopulation' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Indigenouspopulation' case here] off begin
+			// % protected region % [Override CreateTimelineEventsAsync 'Sa3name' case here] end
+			// % protected region % [Override CreateTimelineEventsAsync 'Numofpph' case here] off begin
 			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
 				"RegionalAreaEntity",
-				"Indigenouspopulation",
-				 originalEntity.Indigenouspopulation,
-				 Indigenouspopulation,
+				"Numofpph",
+				 originalEntity.Numofpph,
+				 Numofpph,
 				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Indigenouspopulation' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Pph' case here] off begin
+			// % protected region % [Override CreateTimelineEventsAsync 'Numofpph' case here] end
+			// % protected region % [Override CreateTimelineEventsAsync 'Percentpphperday' case here] off begin
 			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
 				"RegionalAreaEntity",
-				"Pph",
-				 originalEntity.Pph,
-				 Pph,
+				"Percentpphperday",
+				 originalEntity.Percentpphperday,
+				 Percentpphperday,
 				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Pph' case here] end
+			// % protected region % [Override CreateTimelineEventsAsync 'Percentpphperday' case here] end
+			// % protected region % [Override CreateTimelineEventsAsync 'Sa2name' case here] off begin
+			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
+				"RegionalAreaEntity",
+				"Sa2name",
+				 originalEntity.Sa2name,
+				 Sa2name,
+				 Id);
+			// % protected region % [Override CreateTimelineEventsAsync 'Sa2name' case here] end
+			// % protected region % [Override CreateTimelineEventsAsync 'Indigenous' case here] off begin
+			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
+				"RegionalAreaEntity",
+				"Indigenous",
+				 originalEntity.Indigenous,
+				 Indigenous,
+				 Id);
+			// % protected region % [Override CreateTimelineEventsAsync 'Indigenous' case here] end
+			// % protected region % [Override CreateTimelineEventsAsync 'Nonindigenous' case here] off begin
+			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
+				"RegionalAreaEntity",
+				"Nonindigenous",
+				 originalEntity.Nonindigenous,
+				 Nonindigenous,
+				 Id);
+			// % protected region % [Override CreateTimelineEventsAsync 'Nonindigenous' case here] end
 			// % protected region % [Override CreateTimelineEventsAsync 'Irsd' case here] off begin
 			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
 				"RegionalAreaEntity",
@@ -339,14 +378,6 @@ namespace Cis.Models {
 				 Irsad,
 				 Id);
 			// % protected region % [Override CreateTimelineEventsAsync 'Irsad' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Ieo' case here] off begin
-			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
-				"RegionalAreaEntity",
-				"Ieo",
-				 originalEntity.Ieo,
-				 Ieo,
-				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Ieo' case here] end
 			// % protected region % [Override CreateTimelineEventsAsync 'Ier' case here] off begin
 			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
 				"RegionalAreaEntity",
@@ -355,6 +386,14 @@ namespace Cis.Models {
 				 Ier,
 				 Id);
 			// % protected region % [Override CreateTimelineEventsAsync 'Ier' case here] end
+			// % protected region % [Override CreateTimelineEventsAsync 'Ieo' case here] off begin
+			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
+				"RegionalAreaEntity",
+				"Ieo",
+				 originalEntity.Ieo,
+				 Ieo,
+				 Id);
+			// % protected region % [Override CreateTimelineEventsAsync 'Ieo' case here] end
 			// % protected region % [Override CreateTimelineEventsAsync 'GapScore' case here] off begin
 			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
 				"RegionalAreaEntity",

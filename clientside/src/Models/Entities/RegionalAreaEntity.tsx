@@ -35,15 +35,18 @@ import {SuperAdministratorScheme} from '../Security/Acl/SuperAdministratorScheme
 // % protected region % [Add any further imports here] end
 
 export interface IRegionalAreaEntityAttributes extends IModelAttributes {
-	sa2code: number;
-	name: string;
-	nonindigenouspopulation: number;
-	indigenouspopulation: number;
-	pph: number;
+	sa2id: string;
+	sa3id: string;
+	sa3name: string;
+	numofpph: number;
+	percentpphperday: number;
+	sa2name: string;
+	indigenous: number;
+	nonindigenous: number;
 	irsd: number;
 	irsad: number;
-	ieo: number;
 	ier: number;
+	ieo: number;
 	gapScore: number;
 	noservices: number;
 	totalinvestment: number;
@@ -83,31 +86,29 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 		// % protected region % [Add any custom update exclusions here] end
 	];
 
-	// % protected region % [Modify props to the crud options here for attribute 'SA2Code'] off begin
+	// % protected region % [Modify props to the crud options here for attribute 'sa2Id'] off begin
 	@Validators.Required()
-	@Validators.Integer()
 	@Validators.Unique()
 	@observable
 	@attribute()
 	@CRUD({
-		name: 'SA2Code',
+		name: 'sa2Id',
 		displayType: 'textfield',
 		order: 10,
 		headerColumn: true,
 		searchable: true,
-		searchFunction: 'equal',
-		searchTransform: AttrUtils.standardiseInteger,
+		searchFunction: 'like',
+		searchTransform: AttrUtils.standardiseString,
 	})
-	public sa2code: number;
-	// % protected region % [Modify props to the crud options here for attribute 'SA2Code'] end
+	public sa2id: string;
+	// % protected region % [Modify props to the crud options here for attribute 'sa2Id'] end
 
-	// % protected region % [Modify props to the crud options here for attribute 'Name'] off begin
+	// % protected region % [Modify props to the crud options here for attribute 'sa3Id'] off begin
 	@Validators.Required()
-	@Validators.Unique()
 	@observable
 	@attribute()
 	@CRUD({
-		name: 'Name',
+		name: 'sa3Id',
 		displayType: 'textfield',
 		order: 20,
 		headerColumn: true,
@@ -115,42 +116,25 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 		searchFunction: 'like',
 		searchTransform: AttrUtils.standardiseString,
 	})
-	public name: string;
-	// % protected region % [Modify props to the crud options here for attribute 'Name'] end
+	public sa3id: string;
+	// % protected region % [Modify props to the crud options here for attribute 'sa3Id'] end
 
-	// % protected region % [Modify props to the crud options here for attribute 'NonIndigenousPopulation'] off begin
-	@Validators.Integer()
+	// % protected region % [Modify props to the crud options here for attribute 'sa3Name'] off begin
 	@observable
 	@attribute()
 	@CRUD({
-		name: 'NonIndigenousPopulation',
+		name: 'sa3Name',
 		displayType: 'textfield',
 		order: 30,
 		headerColumn: true,
 		searchable: true,
-		searchFunction: 'equal',
-		searchTransform: AttrUtils.standardiseInteger,
+		searchFunction: 'like',
+		searchTransform: AttrUtils.standardiseString,
 	})
-	public nonindigenouspopulation: number;
-	// % protected region % [Modify props to the crud options here for attribute 'NonIndigenousPopulation'] end
+	public sa3name: string;
+	// % protected region % [Modify props to the crud options here for attribute 'sa3Name'] end
 
-	// % protected region % [Modify props to the crud options here for attribute 'IndigenousPopulation'] off begin
-	@Validators.Integer()
-	@observable
-	@attribute()
-	@CRUD({
-		name: 'IndigenousPopulation',
-		displayType: 'textfield',
-		order: 40,
-		headerColumn: true,
-		searchable: true,
-		searchFunction: 'equal',
-		searchTransform: AttrUtils.standardiseInteger,
-	})
-	public indigenouspopulation: number;
-	// % protected region % [Modify props to the crud options here for attribute 'IndigenousPopulation'] end
-
-	// % protected region % [Modify props to the crud options here for attribute 'PPH'] off begin
+	// % protected region % [Modify props to the crud options here for attribute 'numOfPph'] off begin
 	/**
 	 * Potentially Preventable Hospitalisations
 	 */
@@ -158,18 +142,78 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	@observable
 	@attribute()
 	@CRUD({
-		name: 'PPH',
+		name: 'numOfPph',
 		displayType: 'textfield',
-		order: 50,
+		order: 40,
 		headerColumn: true,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseInteger,
 	})
-	public pph: number;
-	// % protected region % [Modify props to the crud options here for attribute 'PPH'] end
+	public numofpph: number;
+	// % protected region % [Modify props to the crud options here for attribute 'numOfPph'] end
 
-	// % protected region % [Modify props to the crud options here for attribute 'IRSD'] off begin
+	// % protected region % [Modify props to the crud options here for attribute 'percentPphPerDay'] off begin
+	@Validators.Numeric()
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'percentPphPerDay',
+		displayType: 'textfield',
+		order: 50,
+		headerColumn: true,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: AttrUtils.standardiseFloat,
+	})
+	public percentpphperday: number;
+	// % protected region % [Modify props to the crud options here for attribute 'percentPphPerDay'] end
+
+	// % protected region % [Modify props to the crud options here for attribute 'sa2Name'] off begin
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'sa2Name',
+		displayType: 'textfield',
+		order: 60,
+		searchable: true,
+		searchFunction: 'like',
+		searchTransform: AttrUtils.standardiseString,
+	})
+	public sa2name: string;
+	// % protected region % [Modify props to the crud options here for attribute 'sa2Name'] end
+
+	// % protected region % [Modify props to the crud options here for attribute 'indigenous'] off begin
+	@Validators.Integer()
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'indigenous',
+		displayType: 'textfield',
+		order: 70,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: AttrUtils.standardiseInteger,
+	})
+	public indigenous: number;
+	// % protected region % [Modify props to the crud options here for attribute 'indigenous'] end
+
+	// % protected region % [Modify props to the crud options here for attribute 'nonIndigenous'] off begin
+	@Validators.Integer()
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'nonIndigenous',
+		displayType: 'textfield',
+		order: 80,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: AttrUtils.standardiseInteger,
+	})
+	public nonindigenous: number;
+	// % protected region % [Modify props to the crud options here for attribute 'nonIndigenous'] end
+
+	// % protected region % [Modify props to the crud options here for attribute 'irsd'] off begin
 	/**
 	 * The Index of Relative Socio-economic Disadvantage (IRSD) is a general socio-economic index that summarises a range of information about the economic and social conditions of people and households within an area. 
 	 */
@@ -177,17 +221,17 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	@observable
 	@attribute()
 	@CRUD({
-		name: 'IRSD',
+		name: 'irsd',
 		displayType: 'textfield',
-		order: 60,
+		order: 90,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseInteger,
 	})
 	public irsd: number;
-	// % protected region % [Modify props to the crud options here for attribute 'IRSD'] end
+	// % protected region % [Modify props to the crud options here for attribute 'irsd'] end
 
-	// % protected region % [Modify props to the crud options here for attribute 'IRSAD'] off begin
+	// % protected region % [Modify props to the crud options here for attribute 'irsad'] off begin
 	/**
 	 * The Index of Relative Socio-economic Advantage and Disadvantage (IRSAD) summarises information about the economic and social conditions of people and households within an area, including both relative advantage and disadvantage measures.
 	 */
@@ -195,35 +239,17 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	@observable
 	@attribute()
 	@CRUD({
-		name: 'IRSAD',
+		name: 'irsad',
 		displayType: 'textfield',
-		order: 70,
+		order: 100,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseInteger,
 	})
 	public irsad: number;
-	// % protected region % [Modify props to the crud options here for attribute 'IRSAD'] end
+	// % protected region % [Modify props to the crud options here for attribute 'irsad'] end
 
-	// % protected region % [Modify props to the crud options here for attribute 'IEO'] off begin
-	/**
-	 * The Index of Education and Occupation (IEO) is designed to reflect the educational and occupational level of communities. 
-	 */
-	@Validators.Integer()
-	@observable
-	@attribute()
-	@CRUD({
-		name: 'IEO',
-		displayType: 'textfield',
-		order: 80,
-		searchable: true,
-		searchFunction: 'equal',
-		searchTransform: AttrUtils.standardiseInteger,
-	})
-	public ieo: number;
-	// % protected region % [Modify props to the crud options here for attribute 'IEO'] end
-
-	// % protected region % [Modify props to the crud options here for attribute 'IER'] off begin
+	// % protected region % [Modify props to the crud options here for attribute 'ier'] off begin
 	/**
 	 * The Index of Economic Resources (IER) focuses on the financial aspects of relative socio-economic advantage and disadvantage, by summarising variables related to income and wealth. 
 	 */
@@ -231,60 +257,78 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	@observable
 	@attribute()
 	@CRUD({
-		name: 'IER',
-		displayType: 'textfield',
-		order: 90,
-		searchable: true,
-		searchFunction: 'equal',
-		searchTransform: AttrUtils.standardiseInteger,
-	})
-	public ier: number;
-	// % protected region % [Modify props to the crud options here for attribute 'IER'] end
-
-	// % protected region % [Modify props to the crud options here for attribute 'Gap Score'] off begin
-	@Validators.Numeric()
-	@observable
-	@attribute()
-	@CRUD({
-		name: 'Gap Score',
-		displayType: 'textfield',
-		order: 100,
-		searchable: true,
-		searchFunction: 'equal',
-		searchTransform: AttrUtils.standardiseFloat,
-	})
-	public gapScore: number;
-	// % protected region % [Modify props to the crud options here for attribute 'Gap Score'] end
-
-	// % protected region % [Modify props to the crud options here for attribute 'NoServices'] off begin
-	@Validators.Integer()
-	@observable
-	@attribute()
-	@CRUD({
-		name: 'NoServices',
+		name: 'ier',
 		displayType: 'textfield',
 		order: 110,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseInteger,
 	})
-	public noservices: number;
-	// % protected region % [Modify props to the crud options here for attribute 'NoServices'] end
+	public ier: number;
+	// % protected region % [Modify props to the crud options here for attribute 'ier'] end
 
-	// % protected region % [Modify props to the crud options here for attribute 'TotalInvestment'] off begin
+	// % protected region % [Modify props to the crud options here for attribute 'ieo'] off begin
+	/**
+	 * The Index of Education and Occupation (IEO) is designed to reflect the educational and occupational level of communities. 
+	 */
+	@Validators.Integer()
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'ieo',
+		displayType: 'textfield',
+		order: 120,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: AttrUtils.standardiseInteger,
+	})
+	public ieo: number;
+	// % protected region % [Modify props to the crud options here for attribute 'ieo'] end
+
+	// % protected region % [Modify props to the crud options here for attribute 'gap Score'] off begin
 	@Validators.Numeric()
 	@observable
 	@attribute()
 	@CRUD({
-		name: 'TotalInvestment',
+		name: 'gap Score',
 		displayType: 'textfield',
-		order: 120,
+		order: 130,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: AttrUtils.standardiseFloat,
+	})
+	public gapScore: number;
+	// % protected region % [Modify props to the crud options here for attribute 'gap Score'] end
+
+	// % protected region % [Modify props to the crud options here for attribute 'noServices'] off begin
+	@Validators.Integer()
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'noServices',
+		displayType: 'textfield',
+		order: 140,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: AttrUtils.standardiseInteger,
+	})
+	public noservices: number;
+	// % protected region % [Modify props to the crud options here for attribute 'noServices'] end
+
+	// % protected region % [Modify props to the crud options here for attribute 'totalInvestment'] off begin
+	@Validators.Numeric()
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'totalInvestment',
+		displayType: 'textfield',
+		order: 150,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseFloat,
 	})
 	public totalinvestment: number;
-	// % protected region % [Modify props to the crud options here for attribute 'TotalInvestment'] end
+	// % protected region % [Modify props to the crud options here for attribute 'totalInvestment'] end
 
 	@observable
 	@attribute({isReference: true})
@@ -292,7 +336,7 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 		// % protected region % [Modify props to the crud options here for reference 'Services'] off begin
 		name: "Servicess",
 		displayType: 'reference-multicombobox',
-		order: 130,
+		order: 160,
 		referenceTypeFunc: () => Models.ServiceEntity,
 		referenceResolveFunction: makeFetchOneToManyFunc({
 			relationName: 'servicess',
@@ -308,7 +352,7 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 		// % protected region % [Modify props to the crud options here for reference 'Logged Event'] off begin
 		name: "Logged Events",
 		displayType: 'hidden',
-		order: 140,
+		order: 170,
 		referenceTypeFunc: () => Models.RegionalAreaTimelineEventsEntity,
 		referenceResolveFunction: makeFetchOneToManyFunc({
 			relationName: 'loggedEvents',
@@ -343,20 +387,29 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 		super.assignAttributes(attributes);
 
 		if (attributes) {
-			if (attributes.sa2code !== undefined) {
-				this.sa2code = attributes.sa2code;
+			if (attributes.sa2id !== undefined) {
+				this.sa2id = attributes.sa2id;
 			}
-			if (attributes.name !== undefined) {
-				this.name = attributes.name;
+			if (attributes.sa3id !== undefined) {
+				this.sa3id = attributes.sa3id;
 			}
-			if (attributes.nonindigenouspopulation !== undefined) {
-				this.nonindigenouspopulation = attributes.nonindigenouspopulation;
+			if (attributes.sa3name !== undefined) {
+				this.sa3name = attributes.sa3name;
 			}
-			if (attributes.indigenouspopulation !== undefined) {
-				this.indigenouspopulation = attributes.indigenouspopulation;
+			if (attributes.numofpph !== undefined) {
+				this.numofpph = attributes.numofpph;
 			}
-			if (attributes.pph !== undefined) {
-				this.pph = attributes.pph;
+			if (attributes.percentpphperday !== undefined) {
+				this.percentpphperday = attributes.percentpphperday;
+			}
+			if (attributes.sa2name !== undefined) {
+				this.sa2name = attributes.sa2name;
+			}
+			if (attributes.indigenous !== undefined) {
+				this.indigenous = attributes.indigenous;
+			}
+			if (attributes.nonindigenous !== undefined) {
+				this.nonindigenous = attributes.nonindigenous;
 			}
 			if (attributes.irsd !== undefined) {
 				this.irsd = attributes.irsd;
@@ -364,11 +417,11 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 			if (attributes.irsad !== undefined) {
 				this.irsad = attributes.irsad;
 			}
-			if (attributes.ieo !== undefined) {
-				this.ieo = attributes.ieo;
-			}
 			if (attributes.ier !== undefined) {
 				this.ier = attributes.ier;
+			}
+			if (attributes.ieo !== undefined) {
+				this.ieo = attributes.ieo;
 			}
 			if (attributes.gapScore !== undefined) {
 				this.gapScore = attributes.gapScore;

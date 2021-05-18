@@ -24,52 +24,64 @@ Feature: Sort RegionalAreaEntity
 	Scenario: Sort RegionalAreaEntity
 	Given I login to the site as a user
 	And I navigate to the RegionalAreaEntity backend page
-	When I sort RegionalAreaEntity by SA2Code
-	Then I assert that SA2Code in RegionalAreaEntity of type int is properly sorted in descending
-	When I sort RegionalAreaEntity by SA2Code
-	Then I assert that SA2Code in RegionalAreaEntity of type int is properly sorted in ascending
-	When I sort RegionalAreaEntity by Name
-	Then I assert that Name in RegionalAreaEntity of type String is properly sorted in descending
-	When I sort RegionalAreaEntity by Name
-	Then I assert that Name in RegionalAreaEntity of type String is properly sorted in ascending
-	When I sort RegionalAreaEntity by NonIndigenousPopulation
-	Then I assert that NonIndigenousPopulation in RegionalAreaEntity of type int is properly sorted in descending
-	When I sort RegionalAreaEntity by NonIndigenousPopulation
-	Then I assert that NonIndigenousPopulation in RegionalAreaEntity of type int is properly sorted in ascending
-	When I sort RegionalAreaEntity by IndigenousPopulation
-	Then I assert that IndigenousPopulation in RegionalAreaEntity of type int is properly sorted in descending
-	When I sort RegionalAreaEntity by IndigenousPopulation
-	Then I assert that IndigenousPopulation in RegionalAreaEntity of type int is properly sorted in ascending
-	When I sort RegionalAreaEntity by PPH
-	Then I assert that PPH in RegionalAreaEntity of type int is properly sorted in descending
-	When I sort RegionalAreaEntity by PPH
-	Then I assert that PPH in RegionalAreaEntity of type int is properly sorted in ascending
-	When I sort RegionalAreaEntity by IRSD
-	Then I assert that IRSD in RegionalAreaEntity of type int is properly sorted in descending
-	When I sort RegionalAreaEntity by IRSD
-	Then I assert that IRSD in RegionalAreaEntity of type int is properly sorted in ascending
-	When I sort RegionalAreaEntity by IRSAD
-	Then I assert that IRSAD in RegionalAreaEntity of type int is properly sorted in descending
-	When I sort RegionalAreaEntity by IRSAD
-	Then I assert that IRSAD in RegionalAreaEntity of type int is properly sorted in ascending
-	When I sort RegionalAreaEntity by IEO
-	Then I assert that IEO in RegionalAreaEntity of type int is properly sorted in descending
-	When I sort RegionalAreaEntity by IEO
-	Then I assert that IEO in RegionalAreaEntity of type int is properly sorted in ascending
-	When I sort RegionalAreaEntity by IER
-	Then I assert that IER in RegionalAreaEntity of type int is properly sorted in descending
-	When I sort RegionalAreaEntity by IER
-	Then I assert that IER in RegionalAreaEntity of type int is properly sorted in ascending
-	When I sort RegionalAreaEntity by Gap Score
-	Then I assert that Gap Score in RegionalAreaEntity of type double is properly sorted in descending
-	When I sort RegionalAreaEntity by Gap Score
-	Then I assert that Gap Score in RegionalAreaEntity of type double is properly sorted in ascending
-	When I sort RegionalAreaEntity by NoServices
-	Then I assert that NoServices in RegionalAreaEntity of type int is properly sorted in descending
-	When I sort RegionalAreaEntity by NoServices
-	Then I assert that NoServices in RegionalAreaEntity of type int is properly sorted in ascending
-	When I sort RegionalAreaEntity by TotalInvestment
-	Then I assert that TotalInvestment in RegionalAreaEntity of type double is properly sorted in descending
-	When I sort RegionalAreaEntity by TotalInvestment
-	Then I assert that TotalInvestment in RegionalAreaEntity of type double is properly sorted in ascending
+	When I sort RegionalAreaEntity by sa2Id
+	Then I assert that sa2Id in RegionalAreaEntity of type String is properly sorted in descending
+	When I sort RegionalAreaEntity by sa2Id
+	Then I assert that sa2Id in RegionalAreaEntity of type String is properly sorted in ascending
+	When I sort RegionalAreaEntity by sa3Id
+	Then I assert that sa3Id in RegionalAreaEntity of type String is properly sorted in descending
+	When I sort RegionalAreaEntity by sa3Id
+	Then I assert that sa3Id in RegionalAreaEntity of type String is properly sorted in ascending
+	When I sort RegionalAreaEntity by sa3Name
+	Then I assert that sa3Name in RegionalAreaEntity of type String is properly sorted in descending
+	When I sort RegionalAreaEntity by sa3Name
+	Then I assert that sa3Name in RegionalAreaEntity of type String is properly sorted in ascending
+	When I sort RegionalAreaEntity by numOfPph
+	Then I assert that numOfPph in RegionalAreaEntity of type int is properly sorted in descending
+	When I sort RegionalAreaEntity by numOfPph
+	Then I assert that numOfPph in RegionalAreaEntity of type int is properly sorted in ascending
+	When I sort RegionalAreaEntity by percentPphPerDay
+	Then I assert that percentPphPerDay in RegionalAreaEntity of type double is properly sorted in descending
+	When I sort RegionalAreaEntity by percentPphPerDay
+	Then I assert that percentPphPerDay in RegionalAreaEntity of type double is properly sorted in ascending
+	When I sort RegionalAreaEntity by sa2Name
+	Then I assert that sa2Name in RegionalAreaEntity of type String is properly sorted in descending
+	When I sort RegionalAreaEntity by sa2Name
+	Then I assert that sa2Name in RegionalAreaEntity of type String is properly sorted in ascending
+	When I sort RegionalAreaEntity by indigenous
+	Then I assert that indigenous in RegionalAreaEntity of type int is properly sorted in descending
+	When I sort RegionalAreaEntity by indigenous
+	Then I assert that indigenous in RegionalAreaEntity of type int is properly sorted in ascending
+	When I sort RegionalAreaEntity by nonIndigenous
+	Then I assert that nonIndigenous in RegionalAreaEntity of type int is properly sorted in descending
+	When I sort RegionalAreaEntity by nonIndigenous
+	Then I assert that nonIndigenous in RegionalAreaEntity of type int is properly sorted in ascending
+	When I sort RegionalAreaEntity by irsd
+	Then I assert that irsd in RegionalAreaEntity of type int is properly sorted in descending
+	When I sort RegionalAreaEntity by irsd
+	Then I assert that irsd in RegionalAreaEntity of type int is properly sorted in ascending
+	When I sort RegionalAreaEntity by irsad
+	Then I assert that irsad in RegionalAreaEntity of type int is properly sorted in descending
+	When I sort RegionalAreaEntity by irsad
+	Then I assert that irsad in RegionalAreaEntity of type int is properly sorted in ascending
+	When I sort RegionalAreaEntity by ier
+	Then I assert that ier in RegionalAreaEntity of type int is properly sorted in descending
+	When I sort RegionalAreaEntity by ier
+	Then I assert that ier in RegionalAreaEntity of type int is properly sorted in ascending
+	When I sort RegionalAreaEntity by ieo
+	Then I assert that ieo in RegionalAreaEntity of type int is properly sorted in descending
+	When I sort RegionalAreaEntity by ieo
+	Then I assert that ieo in RegionalAreaEntity of type int is properly sorted in ascending
+	When I sort RegionalAreaEntity by gap Score
+	Then I assert that gap Score in RegionalAreaEntity of type double is properly sorted in descending
+	When I sort RegionalAreaEntity by gap Score
+	Then I assert that gap Score in RegionalAreaEntity of type double is properly sorted in ascending
+	When I sort RegionalAreaEntity by noServices
+	Then I assert that noServices in RegionalAreaEntity of type int is properly sorted in descending
+	When I sort RegionalAreaEntity by noServices
+	Then I assert that noServices in RegionalAreaEntity of type int is properly sorted in ascending
+	When I sort RegionalAreaEntity by totalInvestment
+	Then I assert that totalInvestment in RegionalAreaEntity of type double is properly sorted in descending
+	When I sort RegionalAreaEntity by totalInvestment
+	Then I assert that totalInvestment in RegionalAreaEntity of type double is properly sorted in ascending
 

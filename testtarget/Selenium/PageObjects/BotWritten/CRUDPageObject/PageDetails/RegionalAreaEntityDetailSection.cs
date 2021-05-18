@@ -48,18 +48,21 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		private readonly RegionalAreaEntity _regionalAreaEntity;
 
 		//Attribute Header Titles
-		private IWebElement Sa2codeHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='SA2Code']"));
-		private IWebElement NameHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Name']"));
-		private IWebElement NonindigenouspopulationHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='NonIndigenousPopulation']"));
-		private IWebElement IndigenouspopulationHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='IndigenousPopulation']"));
-		private IWebElement PphHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='PPH']"));
-		private IWebElement IrsdHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='IRSD']"));
-		private IWebElement IrsadHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='IRSAD']"));
-		private IWebElement IeoHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='IEO']"));
-		private IWebElement IerHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='IER']"));
-		private IWebElement GapScoreHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Gap Score']"));
-		private IWebElement NoservicesHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='NoServices']"));
-		private IWebElement TotalinvestmentHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='TotalInvestment']"));
+		private IWebElement Sa2idHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='sa2Id']"));
+		private IWebElement Sa3idHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='sa3Id']"));
+		private IWebElement Sa3nameHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='sa3Name']"));
+		private IWebElement NumofpphHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='numOfPph']"));
+		private IWebElement PercentpphperdayHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='percentPphPerDay']"));
+		private IWebElement Sa2nameHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='sa2Name']"));
+		private IWebElement IndigenousHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='indigenous']"));
+		private IWebElement NonindigenousHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='nonIndigenous']"));
+		private IWebElement IrsdHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='irsd']"));
+		private IWebElement IrsadHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='irsad']"));
+		private IWebElement IerHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='ier']"));
+		private IWebElement IeoHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='ieo']"));
+		private IWebElement GapScoreHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='gap Score']"));
+		private IWebElement NoservicesHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='noServices']"));
+		private IWebElement TotalinvestmentHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='totalInvestment']"));
 
 		// Datepickers
 		public IWebElement CreateAtDatepickerField => _driver.FindElementExt(By.CssSelector("div.created > input[type='date']"));
@@ -82,15 +85,18 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		private void InitializeSelectors()
 		{
 			// Attribute web elements
-			selectorDict.Add("Sa2codeElement", (selector: "//div[contains(@class, 'sa2code')]//input", type: SelectorType.XPath));
-			selectorDict.Add("NameElement", (selector: "//div[contains(@class, 'name')]//input", type: SelectorType.XPath));
-			selectorDict.Add("NonindigenouspopulationElement", (selector: "//div[contains(@class, 'nonindigenouspopulation')]//input", type: SelectorType.XPath));
-			selectorDict.Add("IndigenouspopulationElement", (selector: "//div[contains(@class, 'indigenouspopulation')]//input", type: SelectorType.XPath));
-			selectorDict.Add("PphElement", (selector: "//div[contains(@class, 'pph')]//input", type: SelectorType.XPath));
+			selectorDict.Add("Sa2idElement", (selector: "//div[contains(@class, 'sa2id')]//input", type: SelectorType.XPath));
+			selectorDict.Add("Sa3idElement", (selector: "//div[contains(@class, 'sa3id')]//input", type: SelectorType.XPath));
+			selectorDict.Add("Sa3nameElement", (selector: "//div[contains(@class, 'sa3name')]//input", type: SelectorType.XPath));
+			selectorDict.Add("NumofpphElement", (selector: "//div[contains(@class, 'numofpph')]//input", type: SelectorType.XPath));
+			selectorDict.Add("PercentpphperdayElement", (selector: "//div[contains(@class, 'percentpphperday')]//input", type: SelectorType.XPath));
+			selectorDict.Add("Sa2nameElement", (selector: "//div[contains(@class, 'sa2name')]//input", type: SelectorType.XPath));
+			selectorDict.Add("IndigenousElement", (selector: "//div[contains(@class, 'indigenous')]//input", type: SelectorType.XPath));
+			selectorDict.Add("NonindigenousElement", (selector: "//div[contains(@class, 'nonindigenous')]//input", type: SelectorType.XPath));
 			selectorDict.Add("IrsdElement", (selector: "//div[contains(@class, 'irsd')]//input", type: SelectorType.XPath));
 			selectorDict.Add("IrsadElement", (selector: "//div[contains(@class, 'irsad')]//input", type: SelectorType.XPath));
-			selectorDict.Add("IeoElement", (selector: "//div[contains(@class, 'ieo')]//input", type: SelectorType.XPath));
 			selectorDict.Add("IerElement", (selector: "//div[contains(@class, 'ier')]//input", type: SelectorType.XPath));
+			selectorDict.Add("IeoElement", (selector: "//div[contains(@class, 'ieo')]//input", type: SelectorType.XPath));
 			selectorDict.Add("GapScoreElement", (selector: "//div[contains(@class, 'gapScore')]//input", type: SelectorType.XPath));
 			selectorDict.Add("NoservicesElement", (selector: "//div[contains(@class, 'noservices')]//input", type: SelectorType.XPath));
 			selectorDict.Add("TotalinvestmentElement", (selector: "//div[contains(@class, 'totalinvestment')]//input", type: SelectorType.XPath));
@@ -106,15 +112,18 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		//outgoing Reference web elements
 
 		//Attribute web Elements
-		private IWebElement Sa2codeElement => FindElementExt("Sa2codeElement");
-		private IWebElement NameElement => FindElementExt("NameElement");
-		private IWebElement NonindigenouspopulationElement => FindElementExt("NonindigenouspopulationElement");
-		private IWebElement IndigenouspopulationElement => FindElementExt("IndigenouspopulationElement");
-		private IWebElement PphElement => FindElementExt("PphElement");
+		private IWebElement Sa2idElement => FindElementExt("Sa2idElement");
+		private IWebElement Sa3idElement => FindElementExt("Sa3idElement");
+		private IWebElement Sa3nameElement => FindElementExt("Sa3nameElement");
+		private IWebElement NumofpphElement => FindElementExt("NumofpphElement");
+		private IWebElement PercentpphperdayElement => FindElementExt("PercentpphperdayElement");
+		private IWebElement Sa2nameElement => FindElementExt("Sa2nameElement");
+		private IWebElement IndigenousElement => FindElementExt("IndigenousElement");
+		private IWebElement NonindigenousElement => FindElementExt("NonindigenousElement");
 		private IWebElement IrsdElement => FindElementExt("IrsdElement");
 		private IWebElement IrsadElement => FindElementExt("IrsadElement");
-		private IWebElement IeoElement => FindElementExt("IeoElement");
 		private IWebElement IerElement => FindElementExt("IerElement");
+		private IWebElement IeoElement => FindElementExt("IeoElement");
 		private IWebElement GapScoreElement => FindElementExt("GapScoreElement");
 		private IWebElement NoservicesElement => FindElementExt("NoservicesElement");
 		private IWebElement TotalinvestmentElement => FindElementExt("TotalinvestmentElement");
@@ -124,18 +133,21 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		{
 			return attribute switch
 			{
-				"SA2Code" => Sa2codeHeaderTitle,
-				"Name" => NameHeaderTitle,
-				"NonIndigenousPopulation" => NonindigenouspopulationHeaderTitle,
-				"IndigenousPopulation" => IndigenouspopulationHeaderTitle,
-				"PPH" => PphHeaderTitle,
-				"IRSD" => IrsdHeaderTitle,
-				"IRSAD" => IrsadHeaderTitle,
-				"IEO" => IeoHeaderTitle,
-				"IER" => IerHeaderTitle,
-				"Gap Score" => GapScoreHeaderTitle,
-				"NoServices" => NoservicesHeaderTitle,
-				"TotalInvestment" => TotalinvestmentHeaderTitle,
+				"sa2Id" => Sa2idHeaderTitle,
+				"sa3Id" => Sa3idHeaderTitle,
+				"sa3Name" => Sa3nameHeaderTitle,
+				"numOfPph" => NumofpphHeaderTitle,
+				"percentPphPerDay" => PercentpphperdayHeaderTitle,
+				"sa2Name" => Sa2nameHeaderTitle,
+				"indigenous" => IndigenousHeaderTitle,
+				"nonIndigenous" => NonindigenousHeaderTitle,
+				"irsd" => IrsdHeaderTitle,
+				"irsad" => IrsadHeaderTitle,
+				"ier" => IerHeaderTitle,
+				"ieo" => IeoHeaderTitle,
+				"gap Score" => GapScoreHeaderTitle,
+				"noServices" => NoservicesHeaderTitle,
+				"totalInvestment" => TotalinvestmentHeaderTitle,
 				_ => throw new Exception($"Cannot find header tile {attribute}"),
 			};
 		}
@@ -145,24 +157,30 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		{
 			switch (attribute)
 			{
-				case "Sa2code":
-					return Sa2codeElement;
-				case "Name":
-					return NameElement;
-				case "Nonindigenouspopulation":
-					return NonindigenouspopulationElement;
-				case "Indigenouspopulation":
-					return IndigenouspopulationElement;
-				case "Pph":
-					return PphElement;
+				case "Sa2id":
+					return Sa2idElement;
+				case "Sa3id":
+					return Sa3idElement;
+				case "Sa3name":
+					return Sa3nameElement;
+				case "Numofpph":
+					return NumofpphElement;
+				case "Percentpphperday":
+					return PercentpphperdayElement;
+				case "Sa2name":
+					return Sa2nameElement;
+				case "Indigenous":
+					return IndigenousElement;
+				case "Nonindigenous":
+					return NonindigenousElement;
 				case "Irsd":
 					return IrsdElement;
 				case "Irsad":
 					return IrsadElement;
-				case "Ieo":
-					return IeoElement;
 				case "Ier":
 					return IerElement;
+				case "Ieo":
+					return IeoElement;
 				case "GapScore":
 					return GapScoreElement;
 				case "Noservices":
@@ -178,40 +196,44 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		{
 			switch (attribute)
 			{
-				case "Sa2code":
-					int? sa2code = null;
-					if (int.TryParse(value, out var intSa2code))
-					{
-						sa2code = intSa2code;
-					}
-					SetSa2code(sa2code);
+				case "Sa2id":
+					SetSa2id(value);
 					break;
-				case "Name":
-					SetName(value);
+				case "Sa3id":
+					SetSa3id(value);
 					break;
-				case "Nonindigenouspopulation":
-					int? nonindigenouspopulation = null;
-					if (int.TryParse(value, out var intNonindigenouspopulation))
-					{
-						nonindigenouspopulation = intNonindigenouspopulation;
-					}
-					SetNonindigenouspopulation(nonindigenouspopulation);
+				case "Sa3name":
+					SetSa3name(value);
 					break;
-				case "Indigenouspopulation":
-					int? indigenouspopulation = null;
-					if (int.TryParse(value, out var intIndigenouspopulation))
+				case "Numofpph":
+					int? numofpph = null;
+					if (int.TryParse(value, out var intNumofpph))
 					{
-						indigenouspopulation = intIndigenouspopulation;
+						numofpph = intNumofpph;
 					}
-					SetIndigenouspopulation(indigenouspopulation);
+					SetNumofpph(numofpph);
 					break;
-				case "Pph":
-					int? pph = null;
-					if (int.TryParse(value, out var intPph))
+				case "Percentpphperday":
+					SetPercentpphperday(Convert.ToDouble(value));
+					break;
+				case "Sa2name":
+					SetSa2name(value);
+					break;
+				case "Indigenous":
+					int? indigenous = null;
+					if (int.TryParse(value, out var intIndigenous))
 					{
-						pph = intPph;
+						indigenous = intIndigenous;
 					}
-					SetPph(pph);
+					SetIndigenous(indigenous);
+					break;
+				case "Nonindigenous":
+					int? nonindigenous = null;
+					if (int.TryParse(value, out var intNonindigenous))
+					{
+						nonindigenous = intNonindigenous;
+					}
+					SetNonindigenous(nonindigenous);
 					break;
 				case "Irsd":
 					int? irsd = null;
@@ -229,14 +251,6 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 					}
 					SetIrsad(irsad);
 					break;
-				case "Ieo":
-					int? ieo = null;
-					if (int.TryParse(value, out var intIeo))
-					{
-						ieo = intIeo;
-					}
-					SetIeo(ieo);
-					break;
 				case "Ier":
 					int? ier = null;
 					if (int.TryParse(value, out var intIer))
@@ -244,6 +258,14 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 						ier = intIer;
 					}
 					SetIer(ier);
+					break;
+				case "Ieo":
+					int? ieo = null;
+					if (int.TryParse(value, out var intIeo))
+					{
+						ieo = intIeo;
+					}
+					SetIeo(ieo);
 					break;
 				case "GapScore":
 					SetGapScore(Convert.ToDouble(value));
@@ -268,15 +290,18 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		{
 			return attribute switch
 			{
-				"Sa2code" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.sa2code > div > p"),
-				"Name" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.name > div > p"),
-				"Nonindigenouspopulation" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.nonindigenouspopulation > div > p"),
-				"Indigenouspopulation" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.indigenouspopulation > div > p"),
-				"Pph" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.pph > div > p"),
+				"Sa2id" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.sa2id > div > p"),
+				"Sa3id" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.sa3id > div > p"),
+				"Sa3name" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.sa3name > div > p"),
+				"Numofpph" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.numofpph > div > p"),
+				"Percentpphperday" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.percentpphperday > div > p"),
+				"Sa2name" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.sa2name > div > p"),
+				"Indigenous" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.indigenous > div > p"),
+				"Nonindigenous" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.nonindigenous > div > p"),
 				"Irsd" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.irsd > div > p"),
 				"Irsad" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.irsad > div > p"),
-				"Ieo" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.ieo > div > p"),
 				"Ier" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.ier > div > p"),
+				"Ieo" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.ieo > div > p"),
 				"GapScore" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.gapScore > div > p"),
 				"Noservices" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.noservices > div > p"),
 				"Totalinvestment" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.totalinvestment > div > p"),
@@ -298,15 +323,18 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		public void Apply()
 		{
 			// % protected region % [Configure entity application here] off begin
-			SetSa2code(_regionalAreaEntity.Sa2code);
-			SetName(_regionalAreaEntity.Name);
-			SetNonindigenouspopulation(_regionalAreaEntity.Nonindigenouspopulation);
-			SetIndigenouspopulation(_regionalAreaEntity.Indigenouspopulation);
-			SetPph(_regionalAreaEntity.Pph);
+			SetSa2id(_regionalAreaEntity.Sa2id);
+			SetSa3id(_regionalAreaEntity.Sa3id);
+			SetSa3name(_regionalAreaEntity.Sa3name);
+			SetNumofpph(_regionalAreaEntity.Numofpph);
+			SetPercentpphperday(_regionalAreaEntity.Percentpphperday);
+			SetSa2name(_regionalAreaEntity.Sa2name);
+			SetIndigenous(_regionalAreaEntity.Indigenous);
+			SetNonindigenous(_regionalAreaEntity.Nonindigenous);
 			SetIrsd(_regionalAreaEntity.Irsd);
 			SetIrsad(_regionalAreaEntity.Irsad);
-			SetIeo(_regionalAreaEntity.Ieo);
 			SetIer(_regionalAreaEntity.Ier);
+			SetIeo(_regionalAreaEntity.Ieo);
 			SetGapScore(_regionalAreaEntity.GapScore);
 			SetNoservices(_regionalAreaEntity.Noservices);
 			SetTotalinvestment(_regionalAreaEntity.Totalinvestment);
@@ -366,59 +394,88 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 			WaitUtils.elementState(_driverWait, elementBy,ElementState.EXISTS);
 		}
 
-		private void SetSa2code (int? value)
+		private void SetSa2id (String value)
+		{
+			TypingUtils.InputEntityAttributeByClass(_driver, "sa2id", value, _isFastText);
+			Sa2idElement.SendKeys(Keys.Tab);
+			Sa2idElement.SendKeys(Keys.Escape);
+		}
+
+		private String GetSa2id =>
+			Sa2idElement.Text;
+
+		private void SetSa3id (String value)
+		{
+			TypingUtils.InputEntityAttributeByClass(_driver, "sa3id", value, _isFastText);
+			Sa3idElement.SendKeys(Keys.Tab);
+			Sa3idElement.SendKeys(Keys.Escape);
+		}
+
+		private String GetSa3id =>
+			Sa3idElement.Text;
+
+		private void SetSa3name (String value)
+		{
+			TypingUtils.InputEntityAttributeByClass(_driver, "sa3name", value, _isFastText);
+			Sa3nameElement.SendKeys(Keys.Tab);
+			Sa3nameElement.SendKeys(Keys.Escape);
+		}
+
+		private String GetSa3name =>
+			Sa3nameElement.Text;
+
+		private void SetNumofpph (int? value)
 		{
 			if (value is int intValue)
 			{
-				TypingUtils.InputEntityAttributeByClass(_driver, "sa2code", intValue.ToString(), _isFastText);
+				TypingUtils.InputEntityAttributeByClass(_driver, "numofpph", intValue.ToString(), _isFastText);
 			}
 		}
 
-		private int? GetSa2code =>
-			int.Parse(Sa2codeElement.Text);
+		private int? GetNumofpph =>
+			int.Parse(NumofpphElement.Text);
 
-		private void SetName (String value)
+		private void SetPercentpphperday (Double? value)
 		{
-			TypingUtils.InputEntityAttributeByClass(_driver, "name", value, _isFastText);
-			NameElement.SendKeys(Keys.Tab);
-			NameElement.SendKeys(Keys.Escape);
+			if (value is double doubleValue)
+			{
+				TypingUtils.InputEntityAttributeByClass(_driver, "percentpphperday", doubleValue.ToString(), _isFastText);
+			}
 		}
 
-		private String GetName =>
-			NameElement.Text;
+		private Double? GetPercentpphperday =>
+			Convert.ToDouble(PercentpphperdayElement.Text);
+		private void SetSa2name (String value)
+		{
+			TypingUtils.InputEntityAttributeByClass(_driver, "sa2name", value, _isFastText);
+			Sa2nameElement.SendKeys(Keys.Tab);
+			Sa2nameElement.SendKeys(Keys.Escape);
+		}
 
-		private void SetNonindigenouspopulation (int? value)
+		private String GetSa2name =>
+			Sa2nameElement.Text;
+
+		private void SetIndigenous (int? value)
 		{
 			if (value is int intValue)
 			{
-				TypingUtils.InputEntityAttributeByClass(_driver, "nonindigenouspopulation", intValue.ToString(), _isFastText);
+				TypingUtils.InputEntityAttributeByClass(_driver, "indigenous", intValue.ToString(), _isFastText);
 			}
 		}
 
-		private int? GetNonindigenouspopulation =>
-			int.Parse(NonindigenouspopulationElement.Text);
+		private int? GetIndigenous =>
+			int.Parse(IndigenousElement.Text);
 
-		private void SetIndigenouspopulation (int? value)
+		private void SetNonindigenous (int? value)
 		{
 			if (value is int intValue)
 			{
-				TypingUtils.InputEntityAttributeByClass(_driver, "indigenouspopulation", intValue.ToString(), _isFastText);
+				TypingUtils.InputEntityAttributeByClass(_driver, "nonindigenous", intValue.ToString(), _isFastText);
 			}
 		}
 
-		private int? GetIndigenouspopulation =>
-			int.Parse(IndigenouspopulationElement.Text);
-
-		private void SetPph (int? value)
-		{
-			if (value is int intValue)
-			{
-				TypingUtils.InputEntityAttributeByClass(_driver, "pph", intValue.ToString(), _isFastText);
-			}
-		}
-
-		private int? GetPph =>
-			int.Parse(PphElement.Text);
+		private int? GetNonindigenous =>
+			int.Parse(NonindigenousElement.Text);
 
 		private void SetIrsd (int? value)
 		{
@@ -442,17 +499,6 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		private int? GetIrsad =>
 			int.Parse(IrsadElement.Text);
 
-		private void SetIeo (int? value)
-		{
-			if (value is int intValue)
-			{
-				TypingUtils.InputEntityAttributeByClass(_driver, "ieo", intValue.ToString(), _isFastText);
-			}
-		}
-
-		private int? GetIeo =>
-			int.Parse(IeoElement.Text);
-
 		private void SetIer (int? value)
 		{
 			if (value is int intValue)
@@ -463,6 +509,17 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 
 		private int? GetIer =>
 			int.Parse(IerElement.Text);
+
+		private void SetIeo (int? value)
+		{
+			if (value is int intValue)
+			{
+				TypingUtils.InputEntityAttributeByClass(_driver, "ieo", intValue.ToString(), _isFastText);
+			}
+		}
+
+		private int? GetIeo =>
+			int.Parse(IeoElement.Text);
 
 		private void SetGapScore (Double? value)
 		{

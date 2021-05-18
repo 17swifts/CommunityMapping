@@ -24,28 +24,40 @@ namespace Cis.Models
 {
 	public class RegionalAreaEntityDto : ModelDto<RegionalAreaEntity>
 	{
-		// % protected region % [Customise Sa2code here] off begin
-		public int? Sa2code { get; set; }
-		// % protected region % [Customise Sa2code here] end
+		// % protected region % [Customise Sa2id here] off begin
+		public String Sa2id { get; set; }
+		// % protected region % [Customise Sa2id here] end
 
-		// % protected region % [Customise Name here] off begin
-		public String Name { get; set; }
-		// % protected region % [Customise Name here] end
+		// % protected region % [Customise Sa3id here] off begin
+		public String Sa3id { get; set; }
+		// % protected region % [Customise Sa3id here] end
 
-		// % protected region % [Customise Nonindigenouspopulation here] off begin
-		public int? Nonindigenouspopulation { get; set; }
-		// % protected region % [Customise Nonindigenouspopulation here] end
+		// % protected region % [Customise Sa3name here] off begin
+		public String Sa3name { get; set; }
+		// % protected region % [Customise Sa3name here] end
 
-		// % protected region % [Customise Indigenouspopulation here] off begin
-		public int? Indigenouspopulation { get; set; }
-		// % protected region % [Customise Indigenouspopulation here] end
-
-		// % protected region % [Customise Pph here] off begin
+		// % protected region % [Customise Numofpph here] off begin
 		/// <summary>
 		/// Potentially Preventable Hospitalisations
 		/// </summary>
-		public int? Pph { get; set; }
-		// % protected region % [Customise Pph here] end
+		public int? Numofpph { get; set; }
+		// % protected region % [Customise Numofpph here] end
+
+		// % protected region % [Customise Percentpphperday here] off begin
+		public Double? Percentpphperday { get; set; }
+		// % protected region % [Customise Percentpphperday here] end
+
+		// % protected region % [Customise Sa2name here] off begin
+		public String Sa2name { get; set; }
+		// % protected region % [Customise Sa2name here] end
+
+		// % protected region % [Customise Indigenous here] off begin
+		public int? Indigenous { get; set; }
+		// % protected region % [Customise Indigenous here] end
+
+		// % protected region % [Customise Nonindigenous here] off begin
+		public int? Nonindigenous { get; set; }
+		// % protected region % [Customise Nonindigenous here] end
 
 		// % protected region % [Customise Irsd here] off begin
 		/// <summary>
@@ -61,19 +73,19 @@ namespace Cis.Models
 		public int? Irsad { get; set; }
 		// % protected region % [Customise Irsad here] end
 
-		// % protected region % [Customise Ieo here] off begin
-		/// <summary>
-		/// The Index of Education and Occupation (IEO) is designed to reflect the educational and occupational level of communities. 
-		/// </summary>
-		public int? Ieo { get; set; }
-		// % protected region % [Customise Ieo here] end
-
 		// % protected region % [Customise Ier here] off begin
 		/// <summary>
 		/// The Index of Economic Resources (IER) focuses on the financial aspects of relative socio-economic advantage and disadvantage, by summarising variables related to income and wealth. 
 		/// </summary>
 		public int? Ier { get; set; }
 		// % protected region % [Customise Ier here] end
+
+		// % protected region % [Customise Ieo here] off begin
+		/// <summary>
+		/// The Index of Education and Occupation (IEO) is designed to reflect the educational and occupational level of communities. 
+		/// </summary>
+		public int? Ieo { get; set; }
+		// % protected region % [Customise Ieo here] end
 
 		// % protected region % [Customise GapScore here] off begin
 		public Double? GapScore { get; set; }
@@ -114,15 +126,18 @@ namespace Cis.Models
 				Id = Id,
 				Created = Created,
 				Modified = Modified,
-				Sa2code = Sa2code,
-				Name = Name,
-				Nonindigenouspopulation = Nonindigenouspopulation,
-				Indigenouspopulation = Indigenouspopulation,
-				Pph = Pph,
+				Sa2id = Sa2id,
+				Sa3id = Sa3id,
+				Sa3name = Sa3name,
+				Numofpph = Numofpph,
+				Percentpphperday = Percentpphperday,
+				Sa2name = Sa2name,
+				Indigenous = Indigenous,
+				Nonindigenous = Nonindigenous,
 				Irsd = Irsd,
 				Irsad = Irsad,
-				Ieo = Ieo,
 				Ier = Ier,
+				Ieo = Ieo,
 				GapScore = GapScore,
 				Noservices = Noservices,
 				Totalinvestment = Totalinvestment,
@@ -136,15 +151,18 @@ namespace Cis.Models
 			Id = model.Id;
 			Created = model.Created;
 			Modified = model.Modified;
-			Sa2code = model.Sa2code;
-			Name = model.Name;
-			Nonindigenouspopulation = model.Nonindigenouspopulation;
-			Indigenouspopulation = model.Indigenouspopulation;
-			Pph = model.Pph;
+			Sa2id = model.Sa2id;
+			Sa3id = model.Sa3id;
+			Sa3name = model.Sa3name;
+			Numofpph = model.Numofpph;
+			Percentpphperday = model.Percentpphperday;
+			Sa2name = model.Sa2name;
+			Indigenous = model.Indigenous;
+			Nonindigenous = model.Nonindigenous;
 			Irsd = model.Irsd;
 			Irsad = model.Irsad;
-			Ieo = model.Ieo;
 			Ier = model.Ier;
+			Ieo = model.Ieo;
 			GapScore = model.GapScore;
 			Noservices = model.Noservices;
 			Totalinvestment = model.Totalinvestment;
