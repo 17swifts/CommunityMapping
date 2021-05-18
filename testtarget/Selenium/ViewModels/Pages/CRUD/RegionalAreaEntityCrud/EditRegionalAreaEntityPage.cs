@@ -41,6 +41,7 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.RegionalAreaEntityCrud
 		// % protected region % [Override set values here] off begin
 		public void SetValues(RegionalAreaEntity regionalAreaEntity)
 		{
+			Sa2code.Value = regionalAreaEntity.Sa2code.ToString();
 			Name.Value = regionalAreaEntity.Name;
 			Nonindigenouspopulation.Value = regionalAreaEntity.Nonindigenouspopulation.ToString();
 			Indigenouspopulation.Value = regionalAreaEntity.Indigenouspopulation.ToString();
@@ -61,6 +62,7 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.RegionalAreaEntityCrud
 		{
 			var regionalAreaEntity =  new RegionalAreaEntity
 			{
+				Sa2code = Sa2code.Value.ToNullableInt(),
 				Name = Name.Value,
 				Nonindigenouspopulation = Nonindigenouspopulation.Value.ToNullableInt(),
 				Indigenouspopulation = Indigenouspopulation.Value.ToNullableInt(),

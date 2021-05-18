@@ -25,7 +25,7 @@
 	<Pages xsi:type="reactbotUi:Page" Uuid="ca6964ab-6505-4c1b-a34d-2141458a6d80" Name="Service  Dashboard" IsHomePage="false" />
 	<Layouts xsi:type="reactbotUi:HorizontalStackLayout" Uuid="4b66389f-9503-437d-9bcd-aa4bb30f800b" />
 	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="451d858e-82b8-5178-91a9-b30c5c4cf593" Source="ca6964ab-6505-4c1b-a34d-2141458a6d80" Target="4b66389f-9503-437d-9bcd-aa4bb30f800b" Order="0" />
-	<Components xsi:type="reactbotUi:HeadingComponent" Uuid="23b709cf-a744-4fd1-bcde-86dfa3304d6c" Contents="Analytics Dashboard" Level="1" />
+	<Components xsi:type="reactbotUi:HeadingComponent" Uuid="23b709cf-a744-4fd1-bcde-86dfa3304d6c" Contents="Analytics Dashboard" Level="2" />
 	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="589fcf72-ddcf-5291-b061-cdf4aa6309fe" Source="4b66389f-9503-437d-9bcd-aa4bb30f800b" Target="23b709cf-a744-4fd1-bcde-86dfa3304d6c" Order="0" />
 	<Components xsi:type="reactbotUi:CustomComponent" Uuid="a3b19bca-d710-4b91-8d19-45171c92b6d6" />
 	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="7490cca2-9f6d-5f0b-8ed4-de6a2232335b" Source="ca6964ab-6505-4c1b-a34d-2141458a6d80" Target="a3b19bca-d710-4b91-8d19-45171c92b6d6" Order="1" />

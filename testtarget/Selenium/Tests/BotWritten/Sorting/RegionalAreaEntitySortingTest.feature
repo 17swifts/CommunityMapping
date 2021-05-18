@@ -24,6 +24,10 @@ Feature: Sort RegionalAreaEntity
 	Scenario: Sort RegionalAreaEntity
 	Given I login to the site as a user
 	And I navigate to the RegionalAreaEntity backend page
+	When I sort RegionalAreaEntity by SA2Code
+	Then I assert that SA2Code in RegionalAreaEntity of type int is properly sorted in descending
+	When I sort RegionalAreaEntity by SA2Code
+	Then I assert that SA2Code in RegionalAreaEntity of type int is properly sorted in ascending
 	When I sort RegionalAreaEntity by Name
 	Then I assert that Name in RegionalAreaEntity of type String is properly sorted in descending
 	When I sort RegionalAreaEntity by Name

@@ -40,6 +40,10 @@ namespace Cis.Models {
 				.OnDelete(DeleteBehavior.SetNull);
 			// % protected region % [Override LoggedEvents Entity configuration here] end
 
+			// % protected region % [Override Sa2code index configuration here] off begin
+			builder.HasIndex(e => e.Sa2code).IsUnique();
+			// % protected region % [Override Sa2code index configuration here] end
+
 			// % protected region % [Override Name index configuration here] off begin
 			builder.HasIndex(e => e.Name).IsUnique();
 			// % protected region % [Override Name index configuration here] end

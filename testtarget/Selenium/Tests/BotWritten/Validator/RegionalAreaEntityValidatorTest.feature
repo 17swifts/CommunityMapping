@@ -22,4 +22,5 @@ Feature: RegionalAreaEntity Validator
 Scenario: Violate RegionalAreaEntity validators
 Given I login to the site as a user
 And I navigate to the RegionalAreaEntity create page
+Then I verify the Required Validator for the Sa2code attribute for on-submit validation
 Then I verify the Required Validator for the Name attribute for on-submit validation

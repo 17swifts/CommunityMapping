@@ -4,6 +4,9 @@
 		<Behaviours xsi:type="csharpbotEntity:BehaviourUser"  Uuid="97fb434d-7995-4df8-83e9-6b1bda4f932a"/>
 	</Entities>
 	<Entities xsi:type="csharpbotEntity:Entity"  Uuid="1a612178-01c4-4ded-a0a0-42d1d68c0927" Name="Regional area" OrderByDirection="ASCENDING">
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="00dde034-ec54-4beb-9482-d540392e963f" Name="SA2Code" Searchable="true" Unique="true">
+			<Validators xsi:type="csharpbotEntity:ValidatorRequired"  Uuid="32a2ac3b-acbc-4e9c-9ffc-e78dda5fddf0"/>
+		</Attributes>
 		<Attributes xsi:type="csharpbotEntity:AttributeString"  Uuid="665a0eaf-a7e0-4c29-a02f-8e3ed31ad3a5" Name="Name" Searchable="true" Unique="true" DatabaseType="VARCHAR">
 			<Validators xsi:type="csharpbotEntity:ValidatorRequired"  Uuid="eaff93b9-9d22-44e9-811f-0ff3c9bd1d24"/>
 		</Attributes>

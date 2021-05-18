@@ -35,6 +35,7 @@ import {SuperAdministratorScheme} from '../Security/Acl/SuperAdministratorScheme
 // % protected region % [Add any further imports here] end
 
 export interface IRegionalAreaEntityAttributes extends IModelAttributes {
+	sa2code: number;
 	name: string;
 	nonindigenouspopulation: number;
 	indigenouspopulation: number;
@@ -82,6 +83,24 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 		// % protected region % [Add any custom update exclusions here] end
 	];
 
+	// % protected region % [Modify props to the crud options here for attribute 'SA2Code'] off begin
+	@Validators.Required()
+	@Validators.Integer()
+	@Validators.Unique()
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'SA2Code',
+		displayType: 'textfield',
+		order: 10,
+		headerColumn: true,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: AttrUtils.standardiseInteger,
+	})
+	public sa2code: number;
+	// % protected region % [Modify props to the crud options here for attribute 'SA2Code'] end
+
 	// % protected region % [Modify props to the crud options here for attribute 'Name'] off begin
 	@Validators.Required()
 	@Validators.Unique()
@@ -90,7 +109,7 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	@CRUD({
 		name: 'Name',
 		displayType: 'textfield',
-		order: 10,
+		order: 20,
 		headerColumn: true,
 		searchable: true,
 		searchFunction: 'like',
@@ -106,7 +125,7 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	@CRUD({
 		name: 'NonIndigenousPopulation',
 		displayType: 'textfield',
-		order: 20,
+		order: 30,
 		headerColumn: true,
 		searchable: true,
 		searchFunction: 'equal',
@@ -122,7 +141,7 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	@CRUD({
 		name: 'IndigenousPopulation',
 		displayType: 'textfield',
-		order: 30,
+		order: 40,
 		headerColumn: true,
 		searchable: true,
 		searchFunction: 'equal',
@@ -141,7 +160,7 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	@CRUD({
 		name: 'PPH',
 		displayType: 'textfield',
-		order: 40,
+		order: 50,
 		headerColumn: true,
 		searchable: true,
 		searchFunction: 'equal',
@@ -160,8 +179,7 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	@CRUD({
 		name: 'IRSD',
 		displayType: 'textfield',
-		order: 50,
-		headerColumn: true,
+		order: 60,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseInteger,
@@ -179,7 +197,7 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	@CRUD({
 		name: 'IRSAD',
 		displayType: 'textfield',
-		order: 60,
+		order: 70,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseInteger,
@@ -197,7 +215,7 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	@CRUD({
 		name: 'IEO',
 		displayType: 'textfield',
-		order: 70,
+		order: 80,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseInteger,
@@ -215,7 +233,7 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	@CRUD({
 		name: 'IER',
 		displayType: 'textfield',
-		order: 80,
+		order: 90,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseInteger,
@@ -230,7 +248,7 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	@CRUD({
 		name: 'Gap Score',
 		displayType: 'textfield',
-		order: 90,
+		order: 100,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseFloat,
@@ -245,7 +263,7 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	@CRUD({
 		name: 'NoServices',
 		displayType: 'textfield',
-		order: 100,
+		order: 110,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseInteger,
@@ -260,7 +278,7 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	@CRUD({
 		name: 'TotalInvestment',
 		displayType: 'textfield',
-		order: 110,
+		order: 120,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseFloat,
@@ -274,7 +292,7 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 		// % protected region % [Modify props to the crud options here for reference 'Services'] off begin
 		name: "Servicess",
 		displayType: 'reference-multicombobox',
-		order: 120,
+		order: 130,
 		referenceTypeFunc: () => Models.ServiceEntity,
 		referenceResolveFunction: makeFetchOneToManyFunc({
 			relationName: 'servicess',
@@ -290,7 +308,7 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 		// % protected region % [Modify props to the crud options here for reference 'Logged Event'] off begin
 		name: "Logged Events",
 		displayType: 'hidden',
-		order: 130,
+		order: 140,
 		referenceTypeFunc: () => Models.RegionalAreaTimelineEventsEntity,
 		referenceResolveFunction: makeFetchOneToManyFunc({
 			relationName: 'loggedEvents',
@@ -325,6 +343,9 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 		super.assignAttributes(attributes);
 
 		if (attributes) {
+			if (attributes.sa2code !== undefined) {
+				this.sa2code = attributes.sa2code;
+			}
 			if (attributes.name !== undefined) {
 				this.name = attributes.name;
 			}

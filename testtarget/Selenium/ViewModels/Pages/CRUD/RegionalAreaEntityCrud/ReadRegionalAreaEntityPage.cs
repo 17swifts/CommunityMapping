@@ -42,6 +42,7 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.RegionalAreaEntityCrud
 		{
 			var regionalAreaEntity =  new RegionalAreaEntity
 			{
+				Sa2code = Sa2code.Value.ToNullableInt(),
 				Name = Name.Value,
 				Nonindigenouspopulation = Nonindigenouspopulation.Value.ToNullableInt(),
 				Indigenouspopulation = Indigenouspopulation.Value.ToNullableInt(),

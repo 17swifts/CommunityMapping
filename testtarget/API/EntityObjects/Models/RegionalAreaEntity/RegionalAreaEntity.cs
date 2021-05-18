@@ -34,6 +34,11 @@ namespace APITests.EntityObjects.Models
 		[Unique]
 		[Required]
 		[EntityAttribute]
+		public int? Sa2code { get; set; }
+		// 
+		[Unique]
+		[Required]
+		[EntityAttribute]
 		public String Name { get; set; }
 		// 
 		[EntityAttribute]
@@ -144,6 +149,7 @@ namespace APITests.EntityObjects.Models
 			var entityVar = new Dictionary<string, string>()
 			{
 				{"id" , Id.ToString()},
+				{"sa2code" , Sa2code.ToString()},
 				{"name" , Name},
 				{"nonindigenouspopulation" , Nonindigenouspopulation.ToString()},
 				{"indigenouspopulation" , Indigenouspopulation.ToString()},
@@ -167,6 +173,10 @@ namespace APITests.EntityObjects.Models
 			{
 				["id"] = Id,
 			};
+			if(Sa2code != null) 
+			{
+				entityVar["sa2code"] = Sa2code;
+			}
 			if(Name != null) 
 			{
 				entityVar["name"] = Name.ToString();

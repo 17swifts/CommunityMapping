@@ -26,6 +26,7 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.RegionalAreaEntityCrud.Internal
 	public class RegionalAreaEntityAttributeCollection : Page
 	{
 		// % protected region % [Override class properties here] off begin
+		public AttributeTextField Sa2code => new(By.CssSelector("div.sa2code"), ContextConfiguration);
 		public AttributeTextField Name => new(By.CssSelector("div.name"), ContextConfiguration);
 		public AttributeTextField Nonindigenouspopulation => new(By.CssSelector("div.nonindigenouspopulation"), ContextConfiguration);
 		public AttributeTextField Indigenouspopulation => new(By.CssSelector("div.indigenouspopulation"), ContextConfiguration);

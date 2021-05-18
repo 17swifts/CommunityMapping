@@ -24,6 +24,10 @@ namespace Cis.Models
 {
 	public class RegionalAreaEntityDto : ModelDto<RegionalAreaEntity>
 	{
+		// % protected region % [Customise Sa2code here] off begin
+		public int? Sa2code { get; set; }
+		// % protected region % [Customise Sa2code here] end
+
 		// % protected region % [Customise Name here] off begin
 		public String Name { get; set; }
 		// % protected region % [Customise Name here] end
@@ -110,6 +114,7 @@ namespace Cis.Models
 				Id = Id,
 				Created = Created,
 				Modified = Modified,
+				Sa2code = Sa2code,
 				Name = Name,
 				Nonindigenouspopulation = Nonindigenouspopulation,
 				Indigenouspopulation = Indigenouspopulation,
@@ -131,6 +136,7 @@ namespace Cis.Models
 			Id = model.Id;
 			Created = model.Created;
 			Modified = model.Modified;
+			Sa2code = model.Sa2code;
 			Name = model.Name;
 			Nonindigenouspopulation = model.Nonindigenouspopulation;
 			Indigenouspopulation = model.Indigenouspopulation;

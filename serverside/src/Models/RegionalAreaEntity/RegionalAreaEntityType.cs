@@ -41,6 +41,7 @@ namespace Cis.Models
 			Field(o => o.Id, type: typeof(IdGraphType));
 			Field(o => o.Created, type: typeof(DateTimeGraphType));
 			Field(o => o.Modified, type: typeof(DateTimeGraphType));
+			Field(o => o.Sa2code, type: typeof(IntGraphType));
 			Field(o => o.Name, type: typeof(StringGraphType));
 			Field(o => o.Nonindigenouspopulation, type: typeof(IntGraphType));
 			Field(o => o.Indigenouspopulation, type: typeof(IntGraphType));
@@ -148,6 +149,7 @@ namespace Cis.Models
 			Field<IdGraphType>("Id");
 			Field<DateTimeGraphType>("Created");
 			Field<DateTimeGraphType>("Modified");
+			Field<IntGraphType>("Sa2code");
 			Field<StringGraphType>("Name");
 			Field<IntGraphType>("Nonindigenouspopulation");
 			Field<IntGraphType>("Indigenouspopulation");

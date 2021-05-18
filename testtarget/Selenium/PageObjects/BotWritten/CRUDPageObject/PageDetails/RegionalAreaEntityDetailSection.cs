@@ -48,6 +48,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		private readonly RegionalAreaEntity _regionalAreaEntity;
 
 		//Attribute Header Titles
+		private IWebElement Sa2codeHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='SA2Code']"));
 		private IWebElement NameHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Name']"));
 		private IWebElement NonindigenouspopulationHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='NonIndigenousPopulation']"));
 		private IWebElement IndigenouspopulationHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='IndigenousPopulation']"));
@@ -81,6 +82,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		private void InitializeSelectors()
 		{
 			// Attribute web elements
+			selectorDict.Add("Sa2codeElement", (selector: "//div[contains(@class, 'sa2code')]//input", type: SelectorType.XPath));
 			selectorDict.Add("NameElement", (selector: "//div[contains(@class, 'name')]//input", type: SelectorType.XPath));
 			selectorDict.Add("NonindigenouspopulationElement", (selector: "//div[contains(@class, 'nonindigenouspopulation')]//input", type: SelectorType.XPath));
 			selectorDict.Add("IndigenouspopulationElement", (selector: "//div[contains(@class, 'indigenouspopulation')]//input", type: SelectorType.XPath));
@@ -104,6 +106,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		//outgoing Reference web elements
 
 		//Attribute web Elements
+		private IWebElement Sa2codeElement => FindElementExt("Sa2codeElement");
 		private IWebElement NameElement => FindElementExt("NameElement");
 		private IWebElement NonindigenouspopulationElement => FindElementExt("NonindigenouspopulationElement");
 		private IWebElement IndigenouspopulationElement => FindElementExt("IndigenouspopulationElement");
@@ -121,6 +124,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		{
 			return attribute switch
 			{
+				"SA2Code" => Sa2codeHeaderTitle,
 				"Name" => NameHeaderTitle,
 				"NonIndigenousPopulation" => NonindigenouspopulationHeaderTitle,
 				"IndigenousPopulation" => IndigenouspopulationHeaderTitle,
@@ -141,6 +145,8 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		{
 			switch (attribute)
 			{
+				case "Sa2code":
+					return Sa2codeElement;
 				case "Name":
 					return NameElement;
 				case "Nonindigenouspopulation":
@@ -172,6 +178,14 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		{
 			switch (attribute)
 			{
+				case "Sa2code":
+					int? sa2code = null;
+					if (int.TryParse(value, out var intSa2code))
+					{
+						sa2code = intSa2code;
+					}
+					SetSa2code(sa2code);
+					break;
 				case "Name":
 					SetName(value);
 					break;
@@ -254,6 +268,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		{
 			return attribute switch
 			{
+				"Sa2code" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.sa2code > div > p"),
 				"Name" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.name > div > p"),
 				"Nonindigenouspopulation" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.nonindigenouspopulation > div > p"),
 				"Indigenouspopulation" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.indigenouspopulation > div > p"),
@@ -283,6 +298,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		public void Apply()
 		{
 			// % protected region % [Configure entity application here] off begin
+			SetSa2code(_regionalAreaEntity.Sa2code);
 			SetName(_regionalAreaEntity.Name);
 			SetNonindigenouspopulation(_regionalAreaEntity.Nonindigenouspopulation);
 			SetIndigenouspopulation(_regionalAreaEntity.Indigenouspopulation);
@@ -349,6 +365,17 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 			var elementBy = WebElementUtils.GetElementAsBy(SelectorPathType.XPATH, xpath);
 			WaitUtils.elementState(_driverWait, elementBy,ElementState.EXISTS);
 		}
+
+		private void SetSa2code (int? value)
+		{
+			if (value is int intValue)
+			{
+				TypingUtils.InputEntityAttributeByClass(_driver, "sa2code", intValue.ToString(), _isFastText);
+			}
+		}
+
+		private int? GetSa2code =>
+			int.Parse(Sa2codeElement.Text);
 
 		private void SetName (String value)
 		{

@@ -59,9 +59,9 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 				}
 				<div className="body-content">
 					<div className="layout__horizontal">
-						<h1>
+						<h2>
 							Analytics Dashboard
-						</h1>
+						</h2>
 					</div>
 					{
 					// % protected region % [Add code for a3b19bca-d710-4b91-8d19-45171c92b6d6 here] off begin

@@ -48,6 +48,12 @@ namespace Cis.Models {
 		public DateTime Modified { get; set; }
 
 		[Required]
+		// % protected region % [Customise Sa2code here] off begin
+		[EntityAttribute]
+		public int? Sa2code { get; set; }
+		// % protected region % [Customise Sa2code here] end
+
+		[Required]
 		// % protected region % [Customise Name here] off begin
 		[EntityAttribute]
 		public String Name { get; set; }
@@ -277,6 +283,14 @@ namespace Cis.Models {
 
 			var timelineEvents = new List<ITimelineEventEntity>();
 
+			// % protected region % [Override CreateTimelineEventsAsync 'Sa2code' case here] off begin
+			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
+				"RegionalAreaEntity",
+				"Sa2code",
+				 originalEntity.Sa2code,
+				 Sa2code,
+				 Id);
+			// % protected region % [Override CreateTimelineEventsAsync 'Sa2code' case here] end
 			// % protected region % [Override CreateTimelineEventsAsync 'Name' case here] off begin
 			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
 				"RegionalAreaEntity",
