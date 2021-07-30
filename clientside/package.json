@@ -41,8 +41,9 @@
     	" protected region % [Configure the package versions here] end "
     ],
     "//": [
-    	" protected region % [Add any custom libraries here] off begin "
+    	" protected region % [Add any custom libraries here] on begin "
     ],
+    "mapbox-gl": "^2.3.1",
     "//": [
     	" protected region % [Add any custom libraries here] end "
     ]
