@@ -23,7 +23,7 @@ namespace Cis.Validators
 	{
 		protected override ValidationResult IsValid(object value, ValidationContext validationContext)
 		{
-			var dispayName = validationContext.DisplayName;
+			var displayName = validationContext.DisplayName;
 			string stringValue = value != null? value.ToString(): "";
 			if (string.IsNullOrEmpty(stringValue))
 			{
@@ -38,7 +38,7 @@ namespace Cis.Validators
 				}
 				else
 				{
-					return new ValidationResult($"{dispayName} is not a valid Uuid");
+					return new ValidationResult($"{displayName} is not a valid Uuid");
 				}
 			}
 		}

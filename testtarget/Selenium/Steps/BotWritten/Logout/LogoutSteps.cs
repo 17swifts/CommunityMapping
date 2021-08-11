@@ -42,7 +42,12 @@ namespace SeleniumTests.Steps.BotWritten.Logout
 		[Then(@"I am redirected to the login page")]
 		public void ThenIamRedirectedToTheLoginPage()
 		{
-			_driver.Url.Should().BeOneOf($"{_baseUrl}/login?redirect=/", $"{_baseUrl}/");
+			_driver.Url.Should().BeOneOf(
+				// % protected region % [Add any additional valid logout URLs here] off begin
+				// % protected region % [Add any additional valid logout URLs here] end
+				$"{_baseUrl}/login?redirect=/",
+				$"{_baseUrl}/"
+			);
 		}
 
 		[StepDefinition("I am logged out of the site")]

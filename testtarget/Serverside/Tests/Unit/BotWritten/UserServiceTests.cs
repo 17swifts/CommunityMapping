@@ -82,7 +82,6 @@ namespace ServersideTests.Tests.Unit.BotWritten
 
 			var userService =
 				MockUserService.GetMockUserService(
-					signInManager: MockSignInManager.GetMockSignInManager(userManager: _mockUserManager.Object).Object,
 					userManager: _mockUserManager.Object,
 					roleManager: _mockRoleManager.Object
 				).Object;
@@ -97,7 +96,7 @@ namespace ServersideTests.Tests.Unit.BotWritten
 
 			result.Groups.Select(x => x.Name).Should().Equal(_groupListNames);
 
-			Assert.Equal(_testUser.UserName, result.Email);
+			Assert.Equal(_testUser.UserName, result.UserName);
 		}
 		// % protected region % [Customize UserServiceGetUserTest here] end
 
@@ -124,7 +123,6 @@ namespace ServersideTests.Tests.Unit.BotWritten
 
 			var userService =
 				MockUserService.GetMockUserService(
-					signInManager: MockSignInManager.GetMockSignInManager(userManager: _mockUserManager.Object).Object,
 					userManager: _mockUserManager.Object,
 					roleManager: _mockRoleManager.Object
 				).Object;
@@ -169,7 +167,6 @@ namespace ServersideTests.Tests.Unit.BotWritten
 
 			var userService =
 				MockUserService.GetMockUserService(
-					signInManager: MockSignInManager.GetMockSignInManager(userManager: _mockUserManager.Object).Object,
 					userManager: _mockUserManager.Object,
 					roleManager: _mockRoleManager.Object
 				).Object;

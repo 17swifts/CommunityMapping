@@ -21,6 +21,8 @@ Login
 Login, register and reset password pages
 */
 
+
+// % protected region % [Change login styles here] off begin
 .login,
 .reset-password,
 .register {
@@ -128,3 +130,7 @@ Login, register and reset password pages
 		border-bottom: none;
 	}
 }
+
+// % protected region % [Change login styles here] end
+// % protected region % [Add additional login styles here] off begin
+// % protected region % [Add additional login styles here] end

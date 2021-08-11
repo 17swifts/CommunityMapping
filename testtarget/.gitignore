@@ -19,7 +19,7 @@
 /docs
 
 # capture screenshots
-*.png
+Selenium/TestResults/*.png
 
 # code behind files
 *.feature.cs

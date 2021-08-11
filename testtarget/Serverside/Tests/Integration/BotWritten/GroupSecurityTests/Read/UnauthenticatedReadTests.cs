@@ -39,19 +39,24 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Read
 			// % protected region % [Add constructor logic here] end
 		}
 
-		public static TheoryData<IAbstractModel, bool, string> UnauthenticatedReadSecurityData =>
-			new TheoryData<IAbstractModel, bool, string>
+		public static TheoryData<IAbstractModel, bool, string> UnauthenticatedReadSecurityData 
+		{
+			get
 			{
-				// % protected region % [Configure theory data for Unauthenticated here] off begin
-				{new RegionalAreaEntity(), true, null},
-				{new ServiceEntity(), false, null},
-				{new MetricEntity(), false, null},
-				{new RegionalAreaTimelineEventsEntity(), true, null},
-				// % protected region % [Configure theory data for Unauthenticated here] end
-
+				var data = new TheoryData<IAbstractModel, bool, string>
+				{
+					// % protected region % [Configure entity theory data for Unauthenticated here] off begin
+					{new RegionalAreaEntity(), true, null},
+					{new ServiceEntity(), false, null},
+					{new MetricEntity(), false, null},
+					{new RegionalAreaTimelineEventsEntity(), true, null},
+					// % protected region % [Configure entity theory data for Unauthenticated here] end
+				};
 				// % protected region % [Add any extra theory data here] off begin
 				// % protected region % [Add any extra theory data here] end
-			};
+				return data;
+			}
+		}
 
 		[Theory]
 		[MemberData(nameof(UnauthenticatedReadSecurityData))]

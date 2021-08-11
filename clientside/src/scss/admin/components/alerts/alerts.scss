@@ -22,6 +22,8 @@ Toasters are notifications of failed/successful actions that slide in on the top
 Alerts are prompts that require user's actions to confirm a change.
 */
 
+
+// % protected region % [Change alerts styles here] off begin
 .toast-container,
 .alert-container {
 	position: fixed;
@@ -119,3 +121,7 @@ Alerts are prompts that require user's actions to confirm a change.
 		background-color: $admin-color-support-red;
 	}
 }
+
+// % protected region % [Change alerts styles here] end
+// % protected region % [Add additional alerts styles here] off begin
+// % protected region % [Add additional alerts styles here] end

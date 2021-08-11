@@ -76,7 +76,7 @@ export class RadioButtonGroup<T> extends React.Component<IRadioButtonGroupProps<
 		const requiredMark = (label && isRequired)? <span className = "required">*</span> : undefined;
 		const labelNode = label ? <p className="input-group__radio-header" aria-describedby={tooltip ? tooltipId : undefined}>{label}{requiredMark}</p> : null;
 		const tooltipNode = (label && tooltip) ? <Tooltip id={tooltipId} content={tooltip}></Tooltip> : '';
-		const groupName = this.props.name || 'DefaultName';
+		const groupName = this.props.name || this.uuid;
 
 		if(this.props.innerProps){
 			this.props.innerProps['aira-live'] = 'assertive';
@@ -84,7 +84,7 @@ export class RadioButtonGroup<T> extends React.Component<IRadioButtonGroupProps<
 
 		return (
 			<InputWrapper isInputGroup={true} wrapperId={id} errors={errors} isRequired={isRequired}
-				id = {id}
+				id={id}
 				className={classes}
 				displayType={displayType}
 				innerProps={this.props.innerProps}>
@@ -94,13 +94,14 @@ export class RadioButtonGroup<T> extends React.Component<IRadioButtonGroupProps<
 					<InputWrapper
 						inputType={InputType.RADIO}
 						key={this.props.uuidKey ? uuid.v4() : option.value}
-						label={{text:option.display, position:LabelPositions.AFTER}}
-						inputId={option.value}>
+						label={{ text: option.display, position: LabelPositions.AFTER }}
+						inputId={this.uuid + option.value}>
 						<input
 							type="radio"
 							name={groupName}
-							id={option.value}
-							defaultChecked={this.props.model[this.props.modelProperty] === option.value}
+							id={this.uuid + option.value}
+							value={option.value}
+							checked={this.props.model[this.props.modelProperty] === option.value}
 							key={this.props.uuidKey ? uuid.v4() : option.value}
 							onChange={this.onChecked}
 							disabled={isDisabled || isReadOnly}
@@ -112,12 +113,14 @@ export class RadioButtonGroup<T> extends React.Component<IRadioButtonGroupProps<
 	}
 	// % protected region % [customize the RadioButtonGroup render function] end
 
+	// % protected region % [Modify onChecked here] off begin
 	@action
 	public onChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
-		this.props.model[this.props.modelProperty] = event.target.id;
+		this.props.model[this.props.modelProperty] = event.target.value;
 		// If there is any logic to be done after the change of the Radio Button Group, do it here
 		if (this.props.onAfterChange) {
-			this.props.onAfterChange(event.target.id);
+			this.props.onAfterChange(event.target.value);
 		}
 	}
+	// % protected region % [Modify onChecked here] end
 }

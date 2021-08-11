@@ -46,10 +46,11 @@ export default function validate() {
 	};
 }
 
-
+// % protected region % [Override isUuid here] off begin
 export function isUuid(uuid: string): boolean {
 	return /^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$/.test(uuid);
 };
+// % protected region % [Override isUuid here] end
 
 // % protected region % [Add any extra methods here] off begin
 // % protected region % [Add any extra methods here] end

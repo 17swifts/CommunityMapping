@@ -22,21 +22,21 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using Cis.Configuration;
 using Cis.Exceptions;
 using Cis.Models;
+using Cis.Models.Internal.Emails;
+using Cis.Models.Internal.Identity;
 using Cis.Services.Interfaces;
+using Cis.Utility;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using RazorLight;
 
 // % protected region % [Customise Authorization Library imports here] off begin
-using OpenIddict.Abstractions;
-using OpenIddict.Server;
-using AspNet.Security.OpenIdConnect.Extensions;
 using AspNet.Security.OpenIdConnect.Primitives;
 // % protected region % [Customise Authorization Library imports here] end
 
@@ -84,60 +84,22 @@ namespace Cis.Services
 	}
 	// % protected region % [Customise UpdateUserModel here] end
 
-	public class UserResult
-	{
-		public Guid Id { get; set; }
-
-		public string Email { get; set; }
-
-		public List<GroupResult> Groups { get; set; } = new List<GroupResult>();
-
-		// % protected region % [Add extra properties to the user result here] off begin
-		// % protected region % [Add extra properties to the user result here] end
-
-		public UserResult(User user, IEnumerable<Group> groups) {
-			Id = user.Id;
-			Email = user.UserName;
-			if (groups != null)
-			{
-				Groups.AddRange(groups.Select(group => new GroupResult(group)));
-			}
-			// % protected region % [Add extra properties to the user result constructor here] off begin
-			// % protected region % [Add extra properties to the user result constructor here] end
-		}
-	}
-
-	public class GroupResult
-	{
-		public string Name { get; set; }
-
-		public bool HasBackendAccess { get; set; }
-
-		// % protected region % [Add extra properties to the group result here] off begin
-		// % protected region % [Add extra properties to the group result here] end
-
-		public GroupResult(Group group)
-		{
-			Name = group.Name;
-			HasBackendAccess = group.HasBackendAccess ?? false;
-			// % protected region % [Add extra properties to the group result constructor here] off begin
-			// % protected region % [Add extra properties to the group result constructor here] end
-		}
-	}
-
-
 	/// <summary>
 	/// Service for handling user operations
 	/// </summary>
 	public class UserService : IUserService
 	{
+		private const string ResetEmailResourceKey = "Cis.Assets.Emails.ResetPassword";
+		private const string RegisterEmailResourceKey = "Cis.Assets.Emails.RegisterEmail";
+
 		private readonly IOptions<IdentityOptions> _identityOptions;
-		private readonly SignInManager<User> _signInManager;
+		private readonly IUserClaimsPrincipalFactory<User> _claimsPrincipalFactory;
+		private readonly IServiceProvider _serviceProvider;
 		private readonly UserManager<User> _userManager;
-		private readonly IHttpContextAccessor _httpContextAccessor;
 		private readonly RoleManager<Group> _roleManager;
+		private readonly RazorLightEngine _razorLightEngine;
 		private readonly IBackgroundJobService _backgroundJobService;
-		private readonly IConfiguration _configuration;
+		private readonly ServerSettings _serverSettings;
 		// % protected region % [Add any extra readonly fields here] off begin
 		// % protected region % [Add any extra readonly fields here] end
 
@@ -145,22 +107,24 @@ namespace Cis.Services
 			// % protected region % [Add any extra params here] off begin
 			// % protected region % [Add any extra params here] end
 			IOptions<IdentityOptions> identityOptions,
-			SignInManager<User> signInManager,
+			IUserClaimsPrincipalFactory<User> claimsPrincipalFactory,
+			IServiceProvider serviceProvider,
 			UserManager<User> userManager,
-			IHttpContextAccessor httpContextAccessor,
 			RoleManager<Group> roleManager,
+			RazorLightEngine razorLightEngine,
 			IBackgroundJobService backgroundJobService,
-			IConfiguration configuration)
+			IOptions<ServerSettings> serverSettings)
 		{
 			// % protected region % [Add initialisations here] off begin
 			// % protected region % [Add initialisations here] end
 			_identityOptions = identityOptions;
-			_signInManager = signInManager;
+			_claimsPrincipalFactory = claimsPrincipalFactory;
+			_serviceProvider = serviceProvider;
 			_userManager = userManager;
-			_httpContextAccessor = httpContextAccessor;
 			_roleManager = roleManager;
+			_razorLightEngine = razorLightEngine;
 			_backgroundJobService = backgroundJobService;
-			_configuration = configuration;
+			_serverSettings = serverSettings.Value;
 		}
 
 		public async Task<List<UserResult>> GetUsers() {
@@ -243,8 +207,8 @@ namespace Cis.Services
 			}
 
 			user.Owner = user.Id;
-
 			user.EmailConfirmed = !sendRegisterEmail;
+
 			var result = await _userManager.CreateAsync(user, password);
 
 			if(!result.Succeeded)
@@ -256,22 +220,31 @@ namespace Cis.Services
 
 			if (sendRegisterEmail)
 			{
-				var serverUrl = _configuration.GetSection("ServerSettings")["ServerUrl"];
 				var token = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
 
-				token = HttpUtility.UrlEncode(token);
-				var username = HttpUtility.UrlEncode(newUser.UserName);
+				var serverUrl = _serverSettings.ServerUrl;
+				var uriBuilder = new UriBuilder($"{serverUrl}/confirm-email");
 
-				var email = File.ReadAllText("Assets/Emails/RegisterEmail.template.html")
-					.Replace("${user}", user.UserName)
-					.Replace("${confirmEmailUrl}", $"{serverUrl}/confirm-email?token={token}&username={username}");
+				var query = HttpUtility.ParseQueryString("");
+				query["token"] = token;
+				query["username"] = newUser.UserName;
+				uriBuilder.Query = query.ToString()!;
+
+				var email = await _razorLightEngine.CompileRenderAsync(
+					RegisterEmailResourceKey,
+					new RegisterEmailModel
+					{
+						UserName = user.UserName,
+						ConfirmEmailUrl = uriBuilder.Uri.ToString(),
+						ServiceProvider = _serviceProvider,
+					});
 
 				_backgroundJobService.StartBackgroundJob<IEmailService>(emailService => emailService.SendEmail(new EmailEntity
 				{
 					To = new[] {newUser.Email},
 					Body = email,
 					Subject = "Confirm Account",
-				}));
+				}, default));
 			}
 
 			if (groups != null)
@@ -287,6 +260,7 @@ namespace Cis.Services
 		{
 			// % protected region % [Change confirm email method here] off begin
 			var user = await _userManager.Users.FirstAsync(u => u.Email == email);
+			user.LockoutEnd = null;
 			return await _userManager.ConfirmEmailAsync(user, token);
 			// % protected region % [Change confirm email method here] end
 		}
@@ -325,19 +299,31 @@ namespace Cis.Services
 		public async Task<bool> SendPasswordResetEmail(User user)
 		{
 			var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-			token = HttpUtility.UrlEncode(token);
-			var serverUrl = _configuration.GetSection("ServerSettings")["ServerUrl"];
 
-			var email = File.ReadAllText("Assets/Emails/ResetPassword.template.html")
-				.Replace("${user}", user.UserName)
-				.Replace("${passwordResetUrl}", $"{serverUrl}/reset-password?token={token}&username={user.UserName}");
+			var serverUrl = _serverSettings.ServerUrl;
+			var uriBuilder = new UriBuilder($"{serverUrl}/reset-password");
+
+			var query = HttpUtility.ParseQueryString("");
+			query["username"] = user.UserName;
+			query["token"] = token;
+
+			uriBuilder.Query = query.ToString()!;
+
+			var email = await _razorLightEngine.CompileRenderAsync(
+				ResetEmailResourceKey,
+				new ResetPasswordEmailModel
+				{
+					UserName = user.UserName,
+					PasswordResetUrl = uriBuilder.Uri.ToString(),
+					ServiceProvider = _serviceProvider,
+				});
 
 			_backgroundJobService.StartBackgroundJob<IEmailService>(emailService => emailService.SendEmail(new EmailEntity
 			{
 				To = new [] {user.Email},
 				Body = email,
 				Subject = "Reset Password",
-			}));
+			}, default));
 
 			return true;
 		}
@@ -358,156 +344,20 @@ namespace Cis.Services
 			// % protected region % [Change delete user method here] end
 		}
 
-		// % protected region % [Customise CheckCredentials method implementation here] off begin
-		public async Task<User> CheckCredentials(
-			string username,
-			string password,
-			bool lockoutOnFailure = true,
-			bool validateEmailConfirmation = true)
-		{
-			var user = await _userManager.FindByNameAsync(username);
-			if (user == null)
-			{
-				throw new InvalidUserPasswordException();
-			}
-			if (validateEmailConfirmation && !user.EmailConfirmed)
-			{
-				throw new InvalidUserPasswordException("This account is not yet activated");
-			}
-
-			var success = await _signInManager.CheckPasswordSignInAsync(user, password, lockoutOnFailure);
-			if (!success.Succeeded)
-			{
-				throw new InvalidUserPasswordException();
-			}
-
-			return user;
-		}
-		// % protected region % [Customise CheckCredentials method implementation here] end
-
 		public async Task<ClaimsPrincipal> CreateUserPrincipal(
 			User user,
-			string authenticationScheme = CookieAuthenticationDefaults.AuthenticationScheme)
+			string authenticationScheme = StaticIdentityConstants.ApplicationScheme)
 		{
 			// % protected region % [Adjust the claims if required] off begin
-			// You may need to adjust subject and the like if you are interacting with an AD server
-			var identity = new ClaimsIdentity(
+			var principal = await _claimsPrincipalFactory.CreateAsync(user);
+			return new ClaimsPrincipal(new ClaimsIdentity(
+				principal.Identity,
+				principal.Claims,
 				authenticationScheme,
-				OpenIdConnectConstants.Claims.Name,
-				OpenIdConnectConstants.Claims.Role);
-			identity.AddClaim(new Claim("UserId", user.Id.ToString()));
-			identity.AddClaim(new Claim(OpenIdConnectConstants.Claims.Subject, user.Id.ToString()));
-			identity.AddClaim(new Claim(OpenIdConnectConstants.Claims.Name, user.UserName));
-			identity.AddClaims((await _userManager.GetRolesAsync(user)).Select(r => new Claim(OpenIdConnectConstants.Claims.Role, r)));
-
-			return new ClaimsPrincipal(identity);
+				_identityOptions.Value.ClaimsIdentity.UserNameClaimType,
+				_identityOptions.Value.ClaimsIdentity.RoleClaimType));
 			// % protected region % [Adjust the claims if required] end
 		}
-
-		// % protected region % [Customise Exchange method implementation here] off begin
-		public async Task<AuthenticationTicket> Exchange(OpenIdConnectRequest request)
-		{
-			if (request.IsPasswordGrantType())
-			{
-				var user = await CheckCredentials(request.Username, request.Password);
-
-				// Create a new authentication ticket.
-				var ticket = await CreateTicketAsync(request, user);
-
-				return ticket;
-			}
-
-			if (request.IsRefreshTokenGrantType())
-			{
-				var info = await _httpContextAccessor.HttpContext.AuthenticateAsync(OpenIddictServerDefaults.AuthenticationScheme);
-
-				var user = await _userManager.GetUserAsync(info.Principal);
-				if (user == null)
-				{
-					throw new InvalidUserPasswordException();
-				}
-
-				if (!await _signInManager.CanSignInAsync(user))
-				{
-					throw new InvalidUserPasswordException();
-				}
-
-				return await CreateTicketAsync(request, user);
-			}
-
-			throw new InvalidGrantTypeException();
-		}
-		// % protected region % [Customise Exchange method implementation here] end
-
-		// % protected region % [Customise CreateTicketAsync method implementation here] off begin
-		/// <summary>
-		/// Creates a ticket for an OpenId connect request
-		/// </summary>
-		/// <param name="request">The OpenId connect request</param>
-		/// <param name="user">The user to provide a ticket for</param>
-		/// <returns>The OpenId ticket</returns>
-		private async Task<AuthenticationTicket> CreateTicketAsync(OpenIdConnectRequest request, User user)
-		{
-			// Create a new ClaimsPrincipal containing the claims that
-			// will be used to create an id_token, a token or a code.
-			var principal = await CreateUserPrincipal(user, OpenIdConnectConstants.Schemes.Bearer);
-
-			// Create a new authentication ticket holding the user identity.
-			var ticket = new AuthenticationTicket(principal,
-				new AuthenticationProperties(),
-				OpenIddictServerDefaults.AuthenticationScheme);
-
-			// The scopes that are provided to every request
-			var defaultScopes = new List<string>
-			{
-				OpenIdConnectConstants.Scopes.OpenId,
-				OpenIddictConstants.Scopes.Roles,
-			};
-			// These are additional scopes that the client can also explicitly request
-			var allowedScopes = new List<string>
-			{
-				OpenIdConnectConstants.Scopes.Email,
-				OpenIdConnectConstants.Scopes.Profile,
-				OpenIdConnectConstants.Scopes.OfflineAccess,
-			};
-			ticket.SetScopes(defaultScopes.Concat(allowedScopes.Intersect(request.GetScopes())));
-
-			ticket.SetResources("resource-server");
-
-			ticket.SetAccessTokenLifetime(new TimeSpan(7, 0, 0, 0));
-
-			// Note: by default, claims are NOT automatically included in the access and identity tokens.
-			// To allow OpenIddict to serialize them, you must attach them a destination, that specifies
-			// whether they should be included in access tokens, in identity tokens or in both.
-
-			foreach (var claim in ticket.Principal.Claims)
-			{
-				// Never include the security stamp in the access and identity tokens, as it's a secret value.
-				if (claim.Type == _identityOptions.Value.ClaimsIdentity.SecurityStampClaimType)
-				{
-					continue;
-				}
-
-				var destinations = new List<string>
-				{
-					OpenIdConnectConstants.Destinations.AccessToken
-				};
-
-				// Only add the iterated claim to the id_token if the corresponding scope was granted to the client application.
-				// The other claims will only be added to the access_token, which is encrypted when using the default format.
-				if ((claim.Type == OpenIdConnectConstants.Claims.Name && ticket.HasScope(OpenIdConnectConstants.Scopes.Profile)) ||
-					(claim.Type == OpenIdConnectConstants.Claims.Email && ticket.HasScope(OpenIdConnectConstants.Scopes.Email)) ||
-					(claim.Type == OpenIdConnectConstants.Claims.Role && ticket.HasScope(OpenIddictConstants.Claims.Roles)))
-				{
-					destinations.Add(OpenIdConnectConstants.Destinations.IdentityToken);
-				}
-
-				claim.SetDestinations(destinations);
-			}
-
-			return ticket;
-		}
-		// % protected region % [Customise CreateTicketAsync method implementation here] end
 
 		// % protected region % [Add any extra user service methods here] off begin
 		// % protected region % [Add any extra user service methods here] end

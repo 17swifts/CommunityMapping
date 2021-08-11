@@ -22,6 +22,7 @@ Textareas currently have fixed widths - these are changeable
 */
 
 
+// % protected region % [Change textarea styles here] off begin
 &.input-group__textarea {
 	width: 100%;
 	@include media(xs, sm, md) {
@@ -49,3 +50,6 @@ Textareas currently have fixed widths - these are changeable
 		left: convert-rem(488px);
 	}
 }
+// % protected region % [Change textarea styles here] end
+// % protected region % [Add additional textarea styles here] off begin
+// % protected region % [Add additional textarea styles here] end

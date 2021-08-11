@@ -14,22 +14,19 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using AspNet.Security.OpenIdConnect.Primitives;
 using Autofac.Extensions.DependencyInjection;
 using Cis;
 using Cis.Helpers;
 using Cis.Models;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using Cis.Utility;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Serilog;
+using ServersideTests.Helpers.Services;
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
 
@@ -73,9 +70,10 @@ namespace ServersideTests.Helpers
 					// Replace the implementation of the IHttpContextAccessor to only provide a testing context
 					sc.AddScoped<IHttpContextAccessor>(serviceProvider =>
 					{
+						var claimsPrincipal = builderOptions.UserPrincipalFactory(serviceProvider).Result;
 						var httpContext = new DefaultHttpContext
 						{
-							User = builderOptions.UserPrincipal,
+							User = claimsPrincipal,
 							RequestServices = serviceProvider,
 							ServiceScopeFactory = serviceProvider.GetRequiredService<IServiceScopeFactory>(),
 						};
@@ -95,6 +93,8 @@ namespace ServersideTests.Helpers
 				.UseSerilog()
 				.Build();
 
+			builderOptions.BeforeDataSeeding(host).Wait();
+
 			if (builderOptions.InitialiseData)
 			{
 				// % protected region % [Configure data initialisation here] off begin
@@ -103,35 +103,20 @@ namespace ServersideTests.Helpers
 				// % protected region % [Configure data initialisation here] end
 			}
 
+			// % protected region % [Configure auditing here] off begin
+			var auditLogger = host.Services.GetRequiredService<ILogger<AuditLog>>();
+			Audit.Core.Configuration.Setup()
+				.UseDynamicProvider(configurator =>
+				{
+					configurator.OnInsert(audit => AuditUtilities.LogAuditEvent(audit, auditLogger));
+					configurator.OnReplace((_, audit) => AuditUtilities.LogAuditEvent(audit, auditLogger));
+				});
+			// % protected region % [Configure auditing here] end
+
 			// % protected region % [Add any additional actions after build here] off begin
 			// % protected region % [Add any additional actions after build here] end
 
 			return host;
-		}
-
-		/// <summary>
-		/// Creates a claims principal for a user
-		/// </summary>
-		/// <param name="userId">The id of the user</param>
-		/// <param name="userName">The username of the user</param>
-		/// <param name="email">The email of the user</param>
-		/// <param name="roles">The groups that the user is in</param>
-		/// <returns>A claims principal to represent this information</returns>
-		public static ClaimsPrincipal CreateUserPrincipal(Guid userId, string userName, string email, IEnumerable<string> roles)
-		{
-			var identity = new ClaimsIdentity(
-				CookieAuthenticationDefaults.AuthenticationScheme,
-				OpenIdConnectConstants.Claims.Name,
-				OpenIdConnectConstants.Claims.Role);
-			identity.AddClaim(new Claim("UserId", userId.ToString()));
-			identity.AddClaim(new Claim(OpenIdConnectConstants.Claims.Subject, userId.ToString()));
-			identity.AddClaim(new Claim(OpenIdConnectConstants.Claims.Name, userName));
-			identity.AddClaims(roles.Select(r => new Claim(ClaimTypes.Role, r)));
-
-			// % protected region % [Add any additional claims here] off begin
-			// % protected region % [Add any additional claims here] end
-
-			return new ClaimsPrincipal(identity);
 		}
 	}
 }

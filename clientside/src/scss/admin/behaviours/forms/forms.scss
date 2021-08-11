@@ -17,10 +17,17 @@
 /* 
 Forms behaviour - multiple imports are here such as sidebar, landing, and preview. 
 */
+
+// % protected region % [Change forms behaviour styles here] off begin
 .forms-behaviour {
 	//Other import in forms behaviour that is not on the page of create/edit slide/questions and preview
 	//Import of landing page of forms
 	@import 'forms-landing.scss';
+
+	/* Form section */
+	.form__section .form__question-container {
+		padding-left: $admin-space-md;
+	}
 
 
 	.slide-builder {
@@ -129,3 +136,6 @@ Forms behaviour - multiple imports are here such as sidebar, landing, and previe
 	//mobile styling import
 	@import 'forms-mobile.scss';
 }
+// % protected region % [Change forms behaviour styles here] end
+// % protected region % [Add additional forms behaviour styles here] off begin
+// % protected region % [Add additional forms behaviour styles here] end

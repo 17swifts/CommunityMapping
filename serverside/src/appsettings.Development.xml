@@ -33,6 +33,7 @@ Any changes out side of "protected regions" will be lost next time the bot makes
 		To change that alter Properties/launchSettings.json instead.
 		-->
 		<ServerUrl>http://localhost:5000</ServerUrl>
+		<IsHttps>false</IsHttps>
 		<!-- % protected region % [Configure server settings here] end -->
 	</ServerSettings>
 	<ConnectionStrings>
@@ -40,6 +41,13 @@ Any changes out side of "protected regions" will be lost next time the bot makes
 		<DbConnectionString>Server=localhost;Database=Cis;Username=postgres;Password=pass;</DbConnectionString>
 		<!-- % protected region % [Configure ConnectionStrings] end -->
 	</ConnectionStrings>
+	<Redis>
+		<!-- % protected region % [Configure Redis here] off begin -->
+		<Enabled>true</Enabled>
+		<Configuration>localhost</Configuration>
+		<InstanceName>Cis:</InstanceName>
+		<!-- % protected region % [Configure Redis here] end -->
+	</Redis>
 	<EmailAccount>
 		<!-- % protected region % [Configure Email Account] off begin -->
 		<Host>HOST@EXAMPLE.COM</Host>

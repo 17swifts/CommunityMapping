@@ -38,19 +38,24 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Update
 			// % protected region % [Add constructor logic here] end
 		}
 
-		public static TheoryData<IAbstractModel, string, string> ServiceCommissioningBodyUpdateSecurityData =>
-			new TheoryData<IAbstractModel, string,string>
+		public static TheoryData<IAbstractModel, string, string> ServiceCommissioningBodyUpdateSecurityData 
+		{
+			get
 			{
-				// % protected region % [Configure theory data for ServiceCommissioningBody here] off begin
-				{new RegionalAreaEntity(), SecurityStringHelper.UserPermissionDenied, "ServiceCommissioningBody"},
-				{new ServiceEntity(), SecurityStringHelper.UserPermissionDenied, "ServiceCommissioningBody"},
-				{new MetricEntity(), SecurityStringHelper.NoApplicableSchemes, "ServiceCommissioningBody"},
-				{new RegionalAreaTimelineEventsEntity(), SecurityStringHelper.UserPermissionDenied, "ServiceCommissioningBody"},
-				// % protected region % [Configure theory data for ServiceCommissioningBody here] end
-
+				var data = new TheoryData<IAbstractModel, string,string>
+				{
+					// % protected region % [Configure entity theory data for ServiceCommissioningBody here] off begin
+					{new RegionalAreaEntity(), SecurityStringHelper.UserPermissionDenied, "ServiceCommissioningBody"},
+					{new ServiceEntity(), SecurityStringHelper.UserPermissionDenied, "ServiceCommissioningBody"},
+					{new MetricEntity(), SecurityStringHelper.UserPermissionDenied, "ServiceCommissioningBody"},
+					{new RegionalAreaTimelineEventsEntity(), SecurityStringHelper.UserPermissionDenied, "ServiceCommissioningBody"},
+					// % protected region % [Configure entity theory data for ServiceCommissioningBody here] end
+				};
 				// % protected region % [Add any extra theory data here] off begin
 				// % protected region % [Add any extra theory data here] end
-			};
+				return data;
+			}
+		}
 
 		[Theory]
 		[MemberData(nameof(ServiceCommissioningBodyUpdateSecurityData))]

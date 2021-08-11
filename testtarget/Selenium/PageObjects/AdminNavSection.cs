@@ -30,15 +30,12 @@ namespace SeleniumTests.PageObjects
 	// % protected region % [Protected region incase the admin Nav Section should not extend the user Nav Section] end
 	{
 		// % protected region % [Add any web elements which are specific to logged in admins navigation] off begin
-
-
 		// % protected region % [Add any web elements which are specific to logged in admins navigation] end
 
 		public AdminNavSection(ContextConfiguration contextConfiguration) : base(contextConfiguration)
 		{
 			InitializeSelectors();
 		// % protected region % [Add any Admin nav specific construction ] off begin
-
 		// % protected region % [Add any Admin nav specific construction ] end
 		}
 
@@ -59,6 +56,7 @@ namespace SeleniumTests.PageObjects
 		// Initialise all selectors
 		private void InitializeSelectors()
 		{
+			// % protected region % [Modify the existing selectors or add additional selectors here] off begin
 			selectorDict.Add("AdminNavMenu", (selector: "//nav[contains(@class,'nav__admin')]", type: SelectorType.XPath));
 
 			// Admin Nav Links
@@ -75,6 +73,7 @@ namespace SeleniumTests.PageObjects
 			selectorDict.Add("AdminNavIconEntities", (selector: "//a[contains(@class,'icon-list')]", type: SelectorType.XPath));
 			selectorDict.Add("AdminNavIconLogout", (selector: "//a[contains(@class,'icon-room')]", type: SelectorType.XPath));
 			selectorDict.Add("AdminNavIconTimelines", (selector: "//a[contains(@class,'icon-timeline')]", type: SelectorType.XPath));
+			// % protected region % [Modify the existing selectors or add additional selectors here] end
 		}
 
 		// Admin Nav Menu section
@@ -98,7 +97,6 @@ namespace SeleniumTests.PageObjects
 		public IWebElement AdminNavIconTimelines => FindElementExt("AdminNavIconTimelines");
 
 		// % protected region % [Add any methods which can be performed from the admin navigation section] off begin
-
 		// % protected region % [Add any methods which can be performed from the admin navigation section] end
 	}
 }

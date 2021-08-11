@@ -19,6 +19,8 @@ Workflow Mobile styling
 -------------------------------- */
 
 
+
+// % protected region % [Change workflows mobile view styles here] off begin
 @include media(xs, sm) {
 	&.workflow-behaviour__landing {
 		padding: $admin-space-xxs $admin-space-xs;
@@ -92,3 +94,7 @@ Workflow Mobile styling
 		}
 	}
 }
+
+// % protected region % [Change workflows mobile view styles here] end
+// % protected region % [Add additional workflows mobile view styles here] off begin
+// % protected region % [Add additional workflows mobile view styles here] end

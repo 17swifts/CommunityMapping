@@ -116,12 +116,12 @@ namespace SeleniumTests.Steps.BotWritten
 			{
 				// and if you were, assert that the page number has not increased after
 				// pressing the next page button.
-				Assert.True(pageNumberAfterClickingNextPage == _genericEntityPage.NumberOfPages());
+				Assert.Equal(_genericEntityPage.NumberOfPages(), pageNumberAfterClickingNextPage);
 			}
 			else
 			{
 				// Otherwise, assert that the page number has increased by 1.
-				Assert.True(pageNumberBeforeClickingNextPage + 1 == pageNumberAfterClickingNextPage);
+				Assert.Equal(pageNumberBeforeClickingNextPage + 1, pageNumberAfterClickingNextPage);
 			}
 		}
 
@@ -161,7 +161,19 @@ namespace SeleniumTests.Steps.BotWritten
 		{
 			if (selectType.Contains("all pages"))
 			{
-				_genericEntityPage.ClickSelectAllItemsButton();
+				/*
+					if these are the same, then the select all button will not be present, as it is only shown when
+					there are additional unselected entities which can be selected. In this scenario, we cannot/do not
+					need to click this button, as the goal of this step is to select all entities, which is already the
+					case
+
+					This fixes an issue where if there were no entities present at the start of a delete all test, then
+					the test would fail as it couldn't find the select all button
+				*/
+				if (_genericEntityPage.TotalEntities() > _genericEntityPage.NumberOfItemsSelected())
+				{
+					_genericEntityPage.ClickSelectAllItemsButton();
+				}
 			}
 			else
 			{

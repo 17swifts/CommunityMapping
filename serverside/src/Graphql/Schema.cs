@@ -104,7 +104,7 @@ namespace Cis.Graphql
 			// % protected region % [Override single query here] end
 
 			// % protected region % [Override multiple query here] off begin
-			Field<ListGraphType<TModelType>, IEnumerable<TModel>>()
+			Field<NonNullGraphType<ListGraphType<NonNullGraphType<TModelType>>>, IEnumerable<TModel>>()
 				.Name($"{name}s")
 				.AddCommonArguments()
 				.Description($"Query for fetching multiple {name}s")
@@ -128,7 +128,7 @@ namespace Cis.Graphql
 			// % protected region % [Override count query here] end
 
 			// % protected region % [Override conditional query here] off begin
-			Field<ListGraphType<TModelType>, IEnumerable<TModel>>()
+			Field<NonNullGraphType<ListGraphType<NonNullGraphType<TModelType>>>, IEnumerable<TModel>>()
 				.Name($"{name}sConditional")
 				.AddCommonArguments()
 				.Description(ConditionalWhereDesc)
@@ -222,7 +222,7 @@ namespace Cis.Graphql
 			// % protected region % [Add any extra logic before adding entity mutation fields here] end
 
 			// % protected region % [Override create mutation here] off begin
-			FieldAsync<ListGraphType<TModelType>>(
+			FieldAsync<NonNullGraphType<ListGraphType<NonNullGraphType<TModelType>>>>(
 				$"create{name}",
 				arguments: new QueryArguments(
 					new QueryArgument<ListGraphType<TModelCreateInputType>> { Name = name + "s" },
@@ -233,7 +233,7 @@ namespace Cis.Graphql
 			// % protected region % [Override create mutation here] end
 
 			// % protected region % [Override update mutation here] off begin
-			FieldAsync<ListGraphType<TModelType>>(
+			FieldAsync<NonNullGraphType<ListGraphType<NonNullGraphType<TModelType>>>>(
 				$"update{name}",
 				arguments: new QueryArguments(
 					new QueryArgument<ListGraphType<TModelUpdateInputType>> { Name = name + "s" },
@@ -244,7 +244,7 @@ namespace Cis.Graphql
 			// % protected region % [Override update mutation here] end
 
 			// % protected region % [Override delete mutation here] off begin
-			FieldAsync<ListGraphType<IdObjectType>>(
+			FieldAsync<NonNullGraphType<ListGraphType<NonNullGraphType<IdObjectType>>>>(
 				$"delete{name}",
 				arguments: new QueryArguments(
 					new QueryArgument<ListGraphType<IdGraphType>> { Name = $"{name}Ids" }

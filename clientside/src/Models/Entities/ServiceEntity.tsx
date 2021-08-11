@@ -27,8 +27,9 @@ import {
 	makeEnumFetchFunction,
 	getCreatedModifiedCrudOptions,
 } from 'Util/EntityUtils';
-import { AdminServiceEntity } from 'Models/Security/Acl/AdminServiceEntity';
+import { VisitorsServiceEntity } from 'Models/Security/Acl/VisitorsServiceEntity';
 import { ServiceCommissioningBodyServiceEntity } from 'Models/Security/Acl/ServiceCommissioningBodyServiceEntity';
+import { AdminServiceEntity } from 'Models/Security/Acl/AdminServiceEntity';
 import * as Enums from '../Enums';
 import { EntityFormMode } from 'Views/Components/Helpers/Common';
 import {SuperAdministratorScheme} from '../Security/Acl/SuperAdministratorScheme';
@@ -55,8 +56,9 @@ export interface IServiceEntityAttributes extends IModelAttributes {
 export default class ServiceEntity extends Model implements IServiceEntityAttributes {
 	public static acls: IAcl[] = [
 		new SuperAdministratorScheme(),
-		new AdminServiceEntity(),
+		new VisitorsServiceEntity(),
 		new ServiceCommissioningBodyServiceEntity(),
+		new AdminServiceEntity(),
 		// % protected region % [Add any further ACL entries here] off begin
 		// % protected region % [Add any further ACL entries here] end
 	];

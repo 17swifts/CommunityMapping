@@ -24,6 +24,7 @@ using ServersideTests.Helpers;
 using ServersideTests.Helpers.EntityFactory;
 using Cis.Controllers;
 using Cis.Models;
+using Microsoft.AspNetCore.Http;
 using Xunit;
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
@@ -59,6 +60,11 @@ namespace ServersideTests.Tests.Integration.BotWritten
 
 			var controller = host.Services.GetRequiredService<AuthorizationController>();
 			var userManager = host.Services.GetRequiredService<UserManager<User>>();
+			var httpContextAccessor = host.Services.GetRequiredService<IHttpContextAccessor>();
+			controller.ControllerContext = new ControllerContext
+			{
+				HttpContext = httpContextAccessor.HttpContext,
+			};
 
 			// Create a user with the user manager
 			var entity = new EntityFactory<T>()

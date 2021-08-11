@@ -44,7 +44,7 @@ export default class ServiceEntityPage extends React.Component<RouteComponentPro
 		// % protected region % [Override contents here] end
 
 		return (
-			<SecuredPage groups={["Super Administrators", "Admin","ServiceCommissioningBody"]}>
+			<SecuredPage groups={["Super Administrators", "ServiceCommissioningBody","Admin"]}>
 				{contents}
 			</SecuredPage>
 		);

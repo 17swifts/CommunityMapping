@@ -38,9 +38,9 @@ namespace Cis.Models
 		{
 
 			// Add model fields to type
-			Field(o => o.Id, type: typeof(IdGraphType));
-			Field(o => o.Created, type: typeof(DateTimeGraphType));
-			Field(o => o.Modified, type: typeof(DateTimeGraphType));
+			Field(o => o.Id, type: typeof(NonNullGraphType<IdGraphType>));
+			Field(o => o.Created, type: typeof(NonNullGraphType<DateTimeGraphType>));
+			Field(o => o.Modified, type: typeof(NonNullGraphType<DateTimeGraphType>));
 			Field(o => o.Email, type: typeof(StringGraphType));
 			Field(o => o.Name, type: typeof(StringGraphType));
 			Field(o => o.Location, type: typeof(StringGraphType));
@@ -51,7 +51,7 @@ namespace Cis.Models
 			// Add entity references
 
 			// GraphQL many to many reference to entity ServiceEntity via reference Services
-			Field<ListGraphType<ServiceCommissioningBodiesServicesType>, IEnumerable<ServiceCommissioningBodiesServices>>()
+			Field<ListGraphType<NonNullGraphType<ServiceCommissioningBodiesServicesType>>, IEnumerable<ServiceCommissioningBodiesServices>>()
 				.Name("Servicess")
 				.AddCommonArguments()
 				.ResolveAsync(async context =>

@@ -18,7 +18,10 @@ import { Symbols } from 'Symbols';
 import { initValidators, IModelAttributeValidationError, ErrorType } from '../Util';
 import moment from 'moment';
 import { Model } from 'Models/Model';
+// % protected region % [Add extra imports and exports here] off begin
+// % protected region % [Add extra imports and exports here] end
 
+// % protected region % [Override validate here] off begin
 export default function validate() {
 	return (target: object, key: string) => {
 		initValidators(target, key);
@@ -44,3 +47,4 @@ export default function validate() {
 		);
 	};
 }
+// % protected region % [Override validate here] end

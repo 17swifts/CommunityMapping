@@ -26,7 +26,7 @@ namespace SeleniumTests.ViewModels.Components.Attribute
 	public class AttributeTextArea : Component
 	{
 		// % protected region % [Override class properties here] off begin
-		public TextField TextField => new(new ByChained(Selector, By.CssSelector("input")), ContextConfiguration);
+		public TextField TextField => new(new ByChained(Selector, By.CssSelector("textarea")), ContextConfiguration);
 		public string Value { get => TextField.Value; set => TextField.Value = value; }
 		// % protected region % [Override class properties here] end
 		// % protected region % [Override constructor here] off begin

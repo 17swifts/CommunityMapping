@@ -18,6 +18,7 @@
 Forms mobile responsive styles
 -------------------------------- */
 
+// % protected region % [Make changes to forms mobile view] off begin
 @include media(xs, sm) {
 	&.forms-behaviour__landing {
 		padding: $admin-space-xs $admin-space-sm;
@@ -72,3 +73,6 @@ Forms mobile responsive styles
 		}
 	}
 }
+// % protected region % [Make changes to forms mobile view] end
+// % protected region % [Add additional forms mobile view here] off begin
+// % protected region % [Add additional forms mobile view here] end

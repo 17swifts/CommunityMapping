@@ -21,6 +21,8 @@ Collection - Mobile styling
 Mobile responsive - ideal to display grid when on mobile devices
 */
 
+
+// % protected region % [Change collection mobile view styles here] off begin
 @include media(xs, sm) {
 	padding: 0;
 
@@ -74,3 +76,7 @@ Mobile responsive - ideal to display grid when on mobile devices
 
 	}
 }
+
+// % protected region % [Change collection mobile view styles here] end
+// % protected region % [Add additional collection mobile view styles here] off begin
+// % protected region % [Add additional collection mobile view styles here] end

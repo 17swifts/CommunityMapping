@@ -14,10 +14,11 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
+import { createContext } from 'react';
 import { History } from 'history';
 import { default as ApolloClient } from 'apollo-boost';
 import { action, computed, observable } from 'mobx';
-import { IGlobalModal } from '../Views/Components/Modal/GlobalModal';
+import { IGlobalModal } from 'Views/Components/Modal/GlobalModal';
 // % protected region % [Add any extra store imports here] off begin
 // % protected region % [Add any extra store imports here] end
 
@@ -30,44 +31,102 @@ export interface IGroupResult {
 
 // % protected region % [Change The user return result as needed] off begin
 export interface IUserResult {
+	type: 'user-data';
 	id: string;
+	userName: string;
 	email: string;
 	groups: IGroupResult[];
 }
 // % protected region % [Change The user return result as needed] end
 
-/**
- * A global singleton store that contains a global state of data
- */
-export class Store {
-	@observable
-	private user?: IUserResult;
-
+export interface IStore {
 	/**
 	 * The current location in the application
 	 */
-	@observable
-	public appLocation: 'frontend' | 'admin' = 'frontend';
+	appLocation: 'frontend' | 'admin';
 
 	/**
 	 * The router history object for React Router
 	 */
-	public routerHistory: History;
+	routerHistory: History;
 
 	/**
 	 * The client for Apollo
 	 */
-	public apolloClient: ApolloClient<{}>;
+	apolloClient: ApolloClient<{}>;
 
 	/**
 	 * The global modal that is stored in the app and can be called imperatively
 	 */
-	public modal: IGlobalModal;
+	modal: IGlobalModal;
 
 	/**
 	 * This signifies weather we are logged in or not
 	 * Only ever set this value to true if there is a value set in this.token
 	 */
+	readonly loggedIn: boolean;
+
+	/**
+	 * The user Id of the logged-in user
+	 */
+	readonly userId: string | undefined;
+
+	/**
+	 * The user name of the logged in user
+	 */
+	readonly userName: string | undefined;
+
+	/**
+	 * The email of the current logged in user
+	 */
+	readonly email: string | undefined;
+
+	/**
+	 * The groups that the logged in user are a part of
+	 */
+	readonly userGroups: IGroupResult[];
+
+	/**
+	 * Does this user have access to the backend admin views
+	 */
+	readonly hasBackendAccess: boolean;
+
+	/**
+	 * Is the frontend in edit mode
+	 */
+	frontendEditMode: boolean;
+
+	/**
+	 * Sets the current logged in user in the store
+	 * @param userResult
+	 */
+	setLoggedInUser(userResult: IUserResult): void;
+
+	/**
+	 * Clears the logged in user data from the store
+	 */
+	clearLoggedInUser(): void;
+
+	// % protected region % [Add any extra store interface methods or properties here] off begin
+	// % protected region % [Add any extra store interface methods or properties here] end
+}
+
+/**
+ * A global singleton store that contains a global state of data
+ */
+export class Store implements IStore {
+	@observable
+	user?: IUserResult;
+
+	@observable
+	appLocation: 'frontend' | 'admin' = 'frontend';
+
+	routerHistory: History;
+
+	apolloClient: ApolloClient<{}>;
+
+	modal: IGlobalModal;
+
 	@computed
 	public get loggedIn() {
 		// % protected region % [Customise the loggedIn getter here] off begin
@@ -75,18 +134,20 @@ export class Store {
 		// % protected region % [Customise the loggedIn getter here] end
 	}
 
-	/**
-	 * The user Id of the logged-in user
-	 */
 	@computed
 	public get userId(): string | undefined {
 		// % protected region % [Customise the userId getter here] off begin
 		return this.user ? this.user.id : undefined;
 		// % protected region % [Customise the userId getter here] end
 	};
-	/**
-	 * The email of the current logged in user
-	 */
+
+	@computed
+	public get userName(): string | undefined {
+		// % protected region % [Customise the user name getter here] off begin
+		return this.user?.userName;
+		// % protected region % [Customise the user name getter here] end
+	}
+
 	@computed
 	public get email(): string | undefined {
 		// % protected region % [Customise the email getter here] off begin
@@ -94,9 +155,6 @@ export class Store {
 		// % protected region % [Customise the email getter here] end
 	}
 
-	/**
-	 * The groups that the logged in user are a part of
-	 */
 	@computed
 	public get userGroups(): IGroupResult[] {
 		// % protected region % [Customise the userGroups getter here] off begin
@@ -107,9 +165,6 @@ export class Store {
 		// % protected region % [Customise the userGroups getter here] end
 	};
 
-	/**
-	 * Does this user have access to the backend admin views
-	 */
 	@computed
 	public get hasBackendAccess() {
 		// % protected region % [Customise the hasBackendAccess getter here] off begin
@@ -120,16 +175,9 @@ export class Store {
 		// % protected region % [Customise the hasBackendAccess getter here] end
 	};
 
-	/**
-	 * Is the frontend in edit mode
-	 */
 	@observable
 	public frontendEditMode = false;
 
-	/**
-	 * Sets the current logged in user in the store
-	 * @param userResult
-	 */
 	@action
 	public setLoggedInUser(userResult: IUserResult) {
 		// % protected region % [Customise the setLoggedInUser here] off begin
@@ -137,10 +185,8 @@ export class Store {
 		// % protected region % [Customise the setLoggedInUser here] end
 	}
 
-	/**
-	 * Clears the logged in user data from the store
-	 */
-	@action clearLoggedInUser() {
+	@action
+	public clearLoggedInUser() {
 		// % protected region % [Customise the clearLoggedInUser here] off begin
 		this.user = undefined;
 		// % protected region % [Customise the clearLoggedInUser here] end
@@ -150,4 +196,5 @@ export class Store {
 	// % protected region % [Add any extra store methods or properties here] end
 }
 
-export const store = new Store();
+export const store: IStore = new Store();
+export const StoreContext = createContext<IStore>(store);

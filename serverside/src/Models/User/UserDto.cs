@@ -15,6 +15,8 @@
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
 using System;
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
 namespace Cis.Models
 {
@@ -28,7 +30,13 @@ namespace Cis.Models
 
 		public bool EmailConfirmed { get; set; }
 
+		public bool LockedOut { get; set; }
+
 		public string Discriminator { get; set; }
+
+		public bool TwoFactorEnabled { get; set; }
+
+		public string TwoFactorMethod { get; set; }
 
 		// % protected region % [Add extra UserDto properties] off begin
 		// % protected region % [Add extra UserDto properties] end
@@ -49,6 +57,7 @@ namespace Cis.Models
 				Email = Email,
 				EmailConfirmed = EmailConfirmed,
 				Discriminator = Discriminator,
+				TwoFactorEnabled = TwoFactorEnabled,
 				// % protected region % [Add extra ToModel fields] off begin
 				// % protected region % [Add extra ToModel fields] end
 			};
@@ -60,7 +69,9 @@ namespace Cis.Models
 			UserName = model.UserName;
 			Email = model.Email;
 			EmailConfirmed = model.EmailConfirmed;
+			LockedOut = model.LockoutEnd >= DateTimeOffset.UtcNow;
 			Discriminator = model.Discriminator;
+			TwoFactorEnabled = model.TwoFactorEnabled;
 			// % protected region % [Add extra LoadModelData properties] off begin
 			// % protected region % [Add extra LoadModelData properties] end
 			return this;

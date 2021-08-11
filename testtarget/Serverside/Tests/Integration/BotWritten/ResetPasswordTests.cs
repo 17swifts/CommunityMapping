@@ -16,12 +16,13 @@
  */
 using System;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web;
 using Cis.Controllers;
 using Cis.Models;
 using Cis.Services;
 using Cis.Services.Interfaces;
+using HtmlAgilityPack;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
@@ -119,12 +120,13 @@ namespace ServersideTests.Tests.Integration.BotWritten
 		// % protected region % [Customize ReadResetToken method here] off begin
 		private static string ReadResetToken(EmailEntity email)
 		{
-			var token = new Regex(@"(?<=token=)(.*)(?=&username)")
-				.Matches(email.Body)
-				.First()
-				.Value;
-
-			return Uri.UnescapeDataString(token);
+			var doc = new HtmlDocument();
+			doc.LoadHtml(email.Body);
+			var linkTag = doc.GetElementbyId("reset-link");
+			var href = linkTag.ChildAttributes("href").First();
+			var uri = new Uri(href.Value);
+			var query = HttpUtility.ParseQueryString(uri.Query);
+			return query["token"];
 		}
 		// % protected region % [Customize ReadResetToken method here] end
 

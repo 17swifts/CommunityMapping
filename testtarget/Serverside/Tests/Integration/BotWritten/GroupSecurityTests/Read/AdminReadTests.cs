@@ -39,19 +39,24 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Read
 			// % protected region % [Add constructor logic here] end
 		}
 
-		public static TheoryData<IAbstractModel, bool, string> AdminReadSecurityData =>
-			new TheoryData<IAbstractModel, bool, string>
+		public static TheoryData<IAbstractModel, bool, string> AdminReadSecurityData 
+		{
+			get
 			{
-				// % protected region % [Configure theory data for Admin here] off begin
-				{new RegionalAreaEntity(), true, "Admin"},
-				{new ServiceEntity(), true, "Admin"},
-				{new MetricEntity(), false, null},
-				{new RegionalAreaTimelineEventsEntity(), true, "Admin"},
-				// % protected region % [Configure theory data for Admin here] end
-
+				var data = new TheoryData<IAbstractModel, bool, string>
+				{
+					// % protected region % [Configure entity theory data for Admin here] off begin
+					{new RegionalAreaEntity(), true, "Admin"},
+					{new ServiceEntity(), true, "Admin"},
+					{new MetricEntity(), true, "Admin"},
+					{new RegionalAreaTimelineEventsEntity(), true, "Admin"},
+					// % protected region % [Configure entity theory data for Admin here] end
+				};
 				// % protected region % [Add any extra theory data here] off begin
 				// % protected region % [Add any extra theory data here] end
-			};
+				return data;
+			}
+		}
 
 		[Theory]
 		[MemberData(nameof(AdminReadSecurityData))]

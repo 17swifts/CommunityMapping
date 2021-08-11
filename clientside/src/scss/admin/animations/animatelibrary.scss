@@ -24,6 +24,8 @@
  * Copyright (c) 2018 Daniel Eden
  */
 
+
+// % protected region % [Change animations] off begin
 //Spinner variables
 
 //bouncing ball variable
@@ -3577,3 +3579,6 @@ $bounce-height: convert-rem(40px);
 	}
 }
 
+// % protected region % [Change animations] end
+// % protected region % [Add additional animations here] off begin
+// % protected region % [Add additional animations here] end

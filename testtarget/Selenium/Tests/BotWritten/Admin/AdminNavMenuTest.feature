@@ -19,13 +19,16 @@
 Feature: Admin Nav Section
 # % protected region % [Override feature properties here] end
 
+# % protected region % [Modify the test content of 'Navigate to admin landing page' here] off begin
 Scenario: Navigate to admin landing page
 	Given I login to the site as a user
 	Then I assert that the admin bar is on the Admin
 	When I click on the Topbar Link
 	Then I assert that the admin bar is on the Frontend
 	Then The Admin Nav Menu is displayed
+# % protected region % [Modify the test content of 'Navigate to admin landing page' here] end
 
+# % protected region % [Modify the test content of 'Navigate to home page' here] off begin
 Scenario: Navigate to home page
 	Given I login to the site as a user
 	Then I assert that the admin bar is on the Admin
@@ -33,7 +36,9 @@ Scenario: Navigate to home page
 	Then I assert that the admin bar is on the Frontend
 	When I click the home link of the admin nav section
 	Then I assert that the admin bar is on the Frontend
+# % protected region % [Modify the test content of 'Navigate to home page' here] end
 
+# % protected region % [Modify the test content of 'Verify the number of Admin Submenus' here] off begin
 Scenario: Verify the number of Admin Submenus
 	Given I login to the site as a user
 	Then I assert that the admin bar is on the Admin
@@ -43,7 +48,9 @@ Scenario: Verify the number of Admin Submenus
 	Then I assert that 3 Nav links are displayed
 	When I click on Entities Nav link on the Admin Nav section
 	Then I assert that 4 Nav links are displayed
+# % protected region % [Modify the test content of 'Verify the number of Admin Submenus' here] end
 
+# % protected region % [Modify the test content of 'Verify the admin submenus' here] off begin
 Scenario: Verify the admin submenus
 	Given I login to the site as a user
 	Then I assert that the admin bar is on the Admin
@@ -62,3 +69,4 @@ Scenario: Verify the admin submenus
 	| Service |
 	| Metric |
 	| Regional area Timeline Events |
+# % protected region % [Modify the test content of 'Verify the admin submenus' here] end

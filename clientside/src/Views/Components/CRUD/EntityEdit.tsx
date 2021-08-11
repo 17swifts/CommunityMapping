@@ -23,21 +23,30 @@ import { EntityFormMode } from '../Helpers/Common'
 import { Query, QueryResult } from 'react-apollo';
 import { getFetchSingleQuery, getModelDisplayName, getModelName } from 'Util/EntityUtils';
 import { lowerCaseFirst } from 'Util/StringUtils';
+import { AttributeCRUDOptions } from 'Models/CRUDOptions';
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
 interface IEntityEditProps<T extends Model> extends RouteComponentProps<IEntityEditRouteParams> {
 	modelType: IModelType;
 	formMode: EntityFormMode;
+	/** Function to mutate the attribute options before it is rendered */
+	mutateOptions?: (model: Model | Model[], options: AttributeCRUDOptions[], formMode: EntityFormMode) => AttributeCRUDOptions[];
+	// % protected region % [Add any extra props here] off begin
+	// % protected region % [Add any extra props here] end
 }
 
 interface IEntityEditRouteParams {
 	id?: string;
+	// % protected region % [Add any extra route params here] off begin
+	// % protected region % [Add any extra route params here] end
 }
 
 @inject('store')
 @observer
 class EntityEdit<T extends Model> extends React.Component<IEntityEditProps<T>, any> {
 	public render() {
-		const { modelType } = this.props;
+		const { formMode, modelType, mutateOptions } = this.props;
 		const query = getFetchSingleQuery(modelType);
 		const modelName = getModelDisplayName(modelType);
 		const dataReturnName = lowerCaseFirst(getModelName(modelType));
@@ -64,8 +73,9 @@ class EntityEdit<T extends Model> extends React.Component<IEntityEditProps<T>, a
 						{...this.props}
 						model={new modelType(data[dataReturnName])}
 						{...options}
-						formMode={this.props.formMode}
-						modelType={this.props.modelType}
+						formMode={formMode}
+						modelType={modelType}
+						mutateOptions={mutateOptions}
 					/>);
 				}}
 			</Query>

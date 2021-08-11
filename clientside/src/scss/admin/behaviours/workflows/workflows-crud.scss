@@ -21,6 +21,7 @@ Workflow CRUD
 This is the workflows that is displayed in crud - imported into crud/_crud.scss
 */
 
+// % protected region % [Change workflows crud view styles here] off begin
 .workflow__display {
 	background-color: $admin-grey-0;
 	padding: $admin-space-xxs $admin-space-sm;
@@ -29,3 +30,6 @@ This is the workflows that is displayed in crud - imported into crud/_crud.scss
 		margin: $admin-space-xxs;
 	}
 }
+// % protected region % [Change workflows crud view styles here] end
+// % protected region % [Add additional workflows crud view styles here] off begin
+// % protected region % [Add additional workflows crud view styles here] end

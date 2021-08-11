@@ -39,10 +39,9 @@ services:
     ports:
       - 9091:9090
   client:
-    image: node:10-alpine
+    image: node:12-alpine
     working_dir: /usr/src/app
     command:  sh -c "
-      npm i -g yarn;
       yarn install;
       HOST=0.0.0.0 yarn start;
       tail -f /dev/null"

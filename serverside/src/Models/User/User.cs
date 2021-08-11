@@ -37,6 +37,11 @@ namespace Cis.Models {
 		public virtual DateTime Modified { get; set; }
 		public virtual Guid Owner { get; set; }
 
+		/// <summary>
+		/// The method that the user will use to authenticate with 2 factor auth.
+		/// </summary>
+		public virtual string PreferredTwoFactorMethod { get; set; }
+
 		// % protected region % [Add extra fields here] off begin
 		// % protected region % [Add extra fields here] end
 

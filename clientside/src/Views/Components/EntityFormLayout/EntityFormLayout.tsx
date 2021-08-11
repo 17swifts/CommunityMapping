@@ -16,14 +16,16 @@
  */
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { Model, IAttributeGroup } from 'Models/Model';
+import { IAttributeGroup, Model } from 'Models/Model';
 import { AttributeCRUDOptions } from 'Models/CRUDOptions';
 import { getAttributeComponent } from '../CRUD/Attributes/AttributeFactory';
 import _ from 'lodash';
-import {AttributeFormMode, EntityFormMode} from '../Helpers/Common';
+import { AttributeFormMode, EntityFormMode } from '../Helpers/Common';
 import { isRequired } from 'Util/EntityUtils';
 import { FieldSet } from '../FieldSet/FieldSet';
-import {IEntityAttributeBehaviour} from "../CRUD/EntityAttributeList";
+import { IEntityAttributeBehaviour } from '../CRUD/EntityAttributeList';
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
 interface IEntityFormLayout<T extends Model> {
 	/** The model containing the data to render */
@@ -38,10 +40,17 @@ interface IEntityFormLayout<T extends Model> {
 	onAttributeChangeAndBlur?: (attributeName: string) => void;
 	/** Specifies if an attribute should be read-only, editable or hidden */
 	attributeBehaviours?: Array<IEntityAttributeBehaviour>;
+	/** Function to mutate the attribute options before it is rendered */
+	mutateOptions?: (model: Model | Model[], options: AttributeCRUDOptions[], formMode: EntityFormMode) => AttributeCRUDOptions[];
+	// % protected region % [Add any extra props here] off begin
+	// % protected region % [Add any extra props here] end
 }
 
 @observer
 export class EntityFormLayout<T extends Model> extends React.Component<IEntityFormLayout<T>> {
+	// % protected region % [Add any extra methods or fields here] off begin
+	// % protected region % [Add any extra methods or fields here] end
+
 	private getOneFieldSet(attrGroup: IAttributeGroup, attrs: AttributeCRUDOptions[]) {
 		// % protected region % [Modify getOneFieldSet method here] off begin
 		const id = attrGroup.id.toString();
@@ -87,6 +96,7 @@ export class EntityFormLayout<T extends Model> extends React.Component<IEntityFo
 	}
 
 	private getAttributeViewMode = (attributeOption: AttributeCRUDOptions) => {
+		// % protected region % [Modify getAttributeViewMode method here] off begin
 		let viewMode = this.props.formMode;
 		if (this.props.attributeBehaviours) {
 			const attributeBehaviour = this.props.attributeBehaviours
@@ -106,10 +116,19 @@ export class EntityFormLayout<T extends Model> extends React.Component<IEntityFo
 			}
 		}
 		return viewMode;
+		// % protected region % [Modify getAttributeViewMode method here] end
 	};
 
 	render() {
 		let attributeOptions = this.props.model.getAttributeCRUDOptions();
+
+		if (this.props.mutateOptions) {
+			attributeOptions = this.props.mutateOptions(
+				this.props.model,
+				attributeOptions,
+				this.props.formMode ?? EntityFormMode.VIEW
+			);
+		}
 
 		const model = this.props.model;
 		/** If the attributeGroups is not defined or empty in the model class, the fields in the form should be shown as default order and with no grouping.

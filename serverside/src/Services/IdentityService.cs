@@ -16,6 +16,7 @@
  */
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Cis.Helpers;
 using Cis.Models;
@@ -33,7 +34,6 @@ namespace Cis.Services
 		public bool Fetched { get; set; } = false;
 
 		private readonly IHttpContextAccessor _httpContextAccessor;
-		private readonly IUserService _userService;
 		private readonly UserManager<User> _userManager;
 
 		/// <inheritdoc />
@@ -42,6 +42,9 @@ namespace Cis.Services
 		/// <inheritdoc />
 		public IList<string> Groups { get; set; }
 
+		/// <inheritdoc />
+		public bool TwoFactorAuthenticated { get; set; }
+
 		// % protected region % [Add any extra class variables here] off begin
 		// % protected region % [Add any extra class variables here] end
 
@@ -49,11 +52,9 @@ namespace Cis.Services
 			// % protected region % [Add any extra constructor arguments here] off begin
 			// % protected region % [Add any extra constructor arguments here] end
 			IHttpContextAccessor httpContextAccessor,
-			IUserService userService,
 			UserManager<User> userManager)
 		{
 			_httpContextAccessor = httpContextAccessor;
-			_userService = userService;
 			_userManager = userManager;
 			// % protected region % [Add any extra constructor logic here] off begin
 			// % protected region % [Add any extra constructor logic here] end
@@ -65,7 +66,7 @@ namespace Cis.Services
 			// % protected region % [Change RetrieveUserAsync here] off begin
 			if (Fetched != true)
 			{
-				if (_httpContextAccessor.HttpContext is null)
+				if (_httpContextAccessor.HttpContext?.User.Identity is not ClaimsIdentity identity)
 				{
 					Fetched = true;
 					User = null;
@@ -73,12 +74,18 @@ namespace Cis.Services
 					return;
 				}
 
-				User = await _userService.GetUserFromClaim(_httpContextAccessor.HttpContext.User);
-				Groups = User == null ? new List<string>() : await _userManager.GetRolesAsync(User);
+				User = await _userManager.GetUserAsync(_httpContextAccessor.HttpContext.User);
+				Groups = User == null
+					? new List<string>()
+					: identity.Claims
+						.Where(x => x.Type == identity.RoleClaimType)
+						.Select(x => x.Value)
+						.ToList();
 				Groups.AddRange(SecurityUtilities.GetAllAcls()
 					.Where(x => x.IsVisitorAcl && x.Group != null)
 					.Select(x => x.Group)
 					.ToHashSet());
+				TwoFactorAuthenticated = await _httpContextAccessor.HttpContext.IsTwoFactorAuthenticated();
 				Fetched = true;
 			}
 			// % protected region % [Change RetrieveUserAsync here] end

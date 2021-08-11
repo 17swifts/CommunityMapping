@@ -65,6 +65,7 @@ namespace SeleniumTests.ViewModels.Components.Common
 		{
 			DatePicker.Value = value;
 			TimePicker.Value = value;
+			TimePicker.Close();
 		}
 		// % protected region % [Override GetValue here] end
 	}

@@ -17,11 +17,14 @@
 using System;
 using System.Net;
 using RestSharp;
+// % protected region % [Add any further imports here] off begin
+// % protected region % [Add any further imports here] end
 
 namespace APITests.Utils
 {
 	public static class PingServer
 	{
+		// % protected region % [Customize TestConnection here] off begin
 		/// <summary>
 		/// Pings the server to determine if it can get a connection
 		/// </summary>
@@ -48,5 +51,6 @@ namespace APITests.Utils
 				throw new Exception($"Could not reach {url}, Response Code: {response.StatusCode}");
 			}
 		}
+		// % protected region % [Customize TestConnection here] end
 	}
 }

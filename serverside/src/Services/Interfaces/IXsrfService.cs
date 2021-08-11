@@ -16,6 +16,8 @@
  */
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
 namespace Cis.Services.Interfaces
 {
@@ -33,5 +35,14 @@ namespace Cis.Services.Interfaces
 		/// <param name="context">The HttpContext to add the token to</param>
 		/// <param name="userClaim">The ClaimsPrincipal to generate the XSRF token with</param>
 		void AddXsrfToken(HttpContext context, ClaimsPrincipal userClaim);
+
+		/// <summary>
+		/// Deletes the XSRF token from the provided HttpContext.
+		/// </summary>
+		/// <param name="context">The context to remove the token from.</param>
+		public void RemoveXsrfToken(HttpContext context);
+
+		// % protected region % [Add any extra methods here] off begin
+		// % protected region % [Add any extra methods here] end
 	}
 }

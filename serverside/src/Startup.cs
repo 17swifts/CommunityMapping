@@ -19,20 +19,24 @@ using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
 using AspNet.Security.OpenIdConnect.Primitives;
+using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.Internal;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.StackExchangeRedis;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -48,8 +52,11 @@ using GraphQL.Server;
 using GraphQL.Types;
 using Hangfire;
 using Hangfire.EntityFrameworkCore;
+using Hangfire.Redis;
+using StackExchange.Redis;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using RazorLight;
 
 using Cis.Configuration;
 using Cis.Models;
@@ -64,7 +71,8 @@ using Cis.Services.CertificateProvider;
 using Cis.Services.Interfaces;
 using Cis.Services.Files;
 using Cis.Services.Files.Providers;
-using Serilog;
+using Cis.Services.TwoFactor;
+using Cis.Services.TwoFactor.Methods;
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
 
@@ -88,6 +96,10 @@ namespace Cis
 			// % protected region % [Configure initialization hosted service here] off begin
 			services.AddHostedService<InitializationHostedService>();
 			// % protected region % [Configure initialization hosted service here] end
+
+			// % protected region % [Configure caching here] off begin
+			ConfigureCaching(services);
+			// % protected region % [Configure caching here] end
 
 			// % protected region % [Configure MVC here] off begin
 			AddMvc(services);
@@ -167,6 +179,24 @@ namespace Cis
 			// % protected region % [Configure health check registration here] off begin
 			services.AddHealthChecks();
 			// % protected region % [Configure health check registration here] end
+
+			// % protected region % [Configure rate limiting services here] off begin
+			// Configure rate limiting stores and processing strategy
+			services.TryAddSingleton<IIpPolicyStore, DistributedCacheIpPolicyStore>();
+			services.TryAddSingleton<IClientPolicyStore, DistributedCacheClientPolicyStore>();
+			services.TryAddSingleton<IRateLimitCounterStore, DistributedCacheRateLimitCounterStore>();
+			services.TryAddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+			services.TryAddSingleton<IProcessingStrategy>(sp =>
+			{
+				// Use Redis strategy if there is a Redis connection, otherwise use the distributed cache
+				if (sp.GetRequiredService<IRedisConnectionService>().Enabled)
+				{
+					return ActivatorUtilities.CreateInstance<CustomRedisProcessingStrategy>(sp);
+				}
+
+				return ActivatorUtilities.CreateInstance<AsyncKeyLockProcessingStrategy>(sp);
+			});
+			// % protected region % [Configure rate limiting services here] end
 		}
 
 		// % protected region % [Customise ConfigureDatabaseConnection method here] off begin
@@ -176,6 +206,7 @@ namespace Cis
 		/// <param name="services"></param>
 		private void ConfigureDatabaseConnection(IServiceCollection services)
 		{
+			// Configure the connection to the application database
 			var dbConnectionString = Configuration.GetConnectionString("DbConnectionString");
 			services.AddDbContextFactory<CisDBContext>(options =>
 			{
@@ -189,8 +220,34 @@ namespace Cis
 				options.UseOpenIddict<Guid>();
 				options.ReplaceService<IQueryCompiler, CrudQueryCompiler>();
 			});
+
+			// Configure Redis connection
+			services.TryAddSingleton<IRedisConnectionService, RedisConnectionService>();
+			services.TryAddSingleton<IConnectionMultiplexer>(sp => sp
+				.GetRequiredService<IRedisConnectionService>()
+				.Connection);
 		}
 		// % protected region % [Customise ConfigureDatabaseConnection method here] end
+
+		// % protected region % [Customise ConfigureCaching method here] off begin
+		/// <summary>
+		/// Configures caching services for the application
+		/// </summary>
+		/// <param name="services"></param>
+		private void ConfigureCaching(IServiceCollection services)
+		{
+			services.TryAddSingleton<IDistributedCache>(sp =>
+			{
+				// Back distributed cache by Redis if there is a connection, otherwise use an in memory store
+				if (sp.GetRequiredService<IRedisConnectionService>().Enabled)
+				{
+					return ActivatorUtilities.CreateInstance<RedisCache>(sp);
+				}
+
+				return ActivatorUtilities.CreateInstance<MemoryDistributedCache>(sp);
+			});
+		}
+		// % protected region % [Customise ConfigureCaching method here] end
 
 		private void AddSwaggerService(IServiceCollection services)
 		{
@@ -211,6 +268,10 @@ namespace Cis
 		private void ConfigureAuthServices(IServiceCollection services)
 		{
 			// % protected region % [Configure XSRF here] off begin
+			services.Configure<DataProtectionOptions>(options =>
+			{
+				options.ApplicationDiscriminator = "Cis";
+			});
 			services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
 			// % protected region % [Configure XSRF here] end
 
@@ -221,6 +282,7 @@ namespace Cis
 
 			// % protected region % [Configure password requirements here] off begin
 			// Register Identity Services
+			services.TryAddScoped<IUserClaimsPrincipalFactory<User>, ClaimsPrincipalFactory>();
 			services.AddIdentity<User, Group>(options =>
 				{
 					options.ClaimsIdentity.UserNameClaimType = OpenIdConnectConstants.Claims.Name;
@@ -248,6 +310,10 @@ namespace Cis
 						options.Password.RequireDigit = false;
 					}
 
+					// Mandate that all users must have a confirmed account
+					// By default this is a requirement that the EmailConfirmed field is set to true
+					// This can be changed by providing a new implementation of the IUserConfirmation<User> service
+					options.SignIn.RequireConfirmedAccount = true;
 				})
 				.AddEntityFrameworkStores<CisDBContext>()
 				.AddDefaultTokenProviders();
@@ -267,26 +333,13 @@ namespace Cis
 			services.AddAuthentication(options =>
 				{
 					// % protected region % [Change authentication defaults here] off begin
-					options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-					options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+					options.DefaultScheme = IdentityConstants.ApplicationScheme;
+					options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
 					options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 					// % protected region % [Change authentication defaults here] end
 				})
-				.AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
+				.AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
 				{
-					// % protected region % [Change AddCookie logic here] off begin
-					options.LoginPath = "/api/authorization/login";
-					options.LogoutPath = "/api/authorization/logout";
-					options.SlidingExpiration = true;
-					options.ExpireTimeSpan = TimeSpan.FromDays(7);
-					options.Events.OnRedirectToLogin = redirectOptions =>
-					{
-						redirectOptions.Response.StatusCode = StatusCodes.Status401Unauthorized;
-						return Task.CompletedTask;
-					};
-					// % protected region % [Change AddCookie logic here] end
-				})
-				.AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options => {
 					// % protected region % [Change AddJwtBearer logic here] off begin
 					options.Authority = certSetting.JwtBearerAuthority;
 					options.Audience = certSetting.JwtBearerAudience;
@@ -303,6 +356,51 @@ namespace Cis
 				// % protected region % [Add additional authentication chain methods here] end
 				;
 
+			services.ConfigureApplicationCookie(options =>
+			{
+				// % protected region % [Change AddCookie logic here] off begin
+				var serverSettings = Configuration.GetSection(ServerSettings.SectionName).Get<ServerSettings>();
+				var isHttps = serverSettings.IsHttps;
+
+				options.LoginPath = "/api/authorization/login";
+				options.LogoutPath = "/api/authorization/logout";
+				options.SlidingExpiration = true;
+				options.ExpireTimeSpan = TimeSpan.FromDays(7);
+				options.Cookie.Name = isHttps 
+					? $"__Host-.AspNetCore.{IdentityConstants.ApplicationScheme}"
+					: $".AspNetCore.{IdentityConstants.ApplicationScheme}";
+				options.Cookie.SameSite = SameSiteMode.Strict;
+				options.Cookie.SecurePolicy = isHttps ? CookieSecurePolicy.Always : CookieSecurePolicy.SameAsRequest;
+				options.EventsType = typeof(CustomCookieAuthenticationEvents);
+				// % protected region % [Change AddCookie logic here] end
+			});
+
+			// % protected region % [Modify two factor method registrations here] off begin
+			services.AddTwoFactorAuthenticationMethod<EmailTwoFactorMethodEvents>(
+				TokenOptions.DefaultEmailProvider,
+				10);
+			services.AddTwoFactorAuthenticationMethod<AuthenticatorAppTwoFactorMethodEvents>(
+				TokenOptions.DefaultAuthenticatorProvider,
+				20);
+			// % protected region % [Modify two factor method registrations here] end
+
+			// % protected region % [Add any additional two factor method registrations here] off begin
+			// % protected region % [Add any additional two factor method registrations here] end
+
+			var cookieConfiguration = new CookieConfiguration();
+			Configuration.GetSection("CookieConfiguration").Bind(cookieConfiguration);
+			services.Configure<SecurityStampValidatorOptions>(options =>
+			{
+				options.ValidationInterval = cookieConfiguration.CookieSecurityStampValidationInterval;
+				options.OnRefreshingPrincipal = context =>
+				{
+					// When the security stamp validator replaces the claims principal, give the new principal the
+					// identities of the old principal.
+					context.NewPrincipal = new ClaimsPrincipal(context.CurrentPrincipal.Identities);
+					return Task.CompletedTask;
+				};
+			});
+
 			// % protected region % [Add additional authentication types here] off begin
 			// % protected region % [Add additional authentication types here] end
 
@@ -311,7 +409,7 @@ namespace Cis
 				// % protected region % [Change authorization logic here] off begin
 				options.DefaultPolicy = new AuthorizationPolicyBuilder(
 						JwtBearerDefaults.AuthenticationScheme,
-						CookieAuthenticationDefaults.AuthenticationScheme)
+						IdentityConstants.ApplicationScheme)
 					.RequireAuthenticatedUser()
 					.Build();
 				// % protected region % [Change authorization logic here] end
@@ -321,7 +419,7 @@ namespace Cis
 					"AllowVisitorPolicy",
 					new AuthorizationPolicyBuilder(
 							JwtBearerDefaults.AuthenticationScheme,
-							CookieAuthenticationDefaults.AuthenticationScheme)
+							IdentityConstants.ApplicationScheme)
 						.RequireAssertion(_ => true)
 						.Build());
 				// % protected region % [Change visitor policy here] end
@@ -331,10 +429,20 @@ namespace Cis
 					"HangfireDashboardPolicy",
 					new AuthorizationPolicyBuilder(
 							JwtBearerDefaults.AuthenticationScheme,
-							CookieAuthenticationDefaults.AuthenticationScheme)
+							IdentityConstants.ApplicationScheme)
 						.RequireRole("Admin", "Super Administrators")
 						.Build());
 				// % protected region % [Change hangfire dashboard policy here] end
+
+				// % protected region % [Change two factor enabled policy here] off begin
+				options.AddPolicy(
+					"TwoFactorEnabled",
+					new AuthorizationPolicyBuilder(
+							JwtBearerDefaults.AuthenticationScheme,
+							IdentityConstants.ApplicationScheme)
+						.RequireClaim("amr", "mfa")
+						.Build());
+				// % protected region % [Change two factor enabled policy here] end
 
 				// % protected region % [Configure any additional authorization options here] off begin
 				// % protected region % [Configure any additional authorization options here] end
@@ -407,10 +515,22 @@ namespace Cis
 			services.TryAddScoped<IXsrfService, XsrfService>();
 			services.TryAddScoped<ITimelineGroupingService, TimelineGroupingService>();
 			services.TryAddScoped<IPerformContextAccessor, PerformContextAccessor>();
+			services.TryAddScoped<ISignInService, SignInService>();
+			services.TryAddScoped<ICookieStore, DistributedCacheCookieStore>();
+			services.TryAddScoped<ITwoFactorMethodEventFactory, TwoFactorMethodEventFactory>();
+			services.TryAddScoped<CustomCookieAuthenticationEvents>();
 
 			// Register context filters
 			services.TryAddScoped<AntiforgeryFilter>();
 			services.TryAddScoped<XsrfActionFilter>();
+
+			// % protected region % [Configure razor light engine here] off begin
+			// Register razor light templating engine
+			services.TryAddSingleton(_ => new RazorLightEngineBuilder()
+				.UseEmbeddedResourcesProject(typeof(Startup).Assembly)
+				.UseMemoryCachingProvider()
+				.Build());
+			// % protected region % [Configure razor light engine here] end
 
 			// % protected region % [Configure storage provider services here] off begin
 			// Configure the file system provider to use
@@ -511,9 +631,16 @@ namespace Cis
 			services.Configure<S3StorageProviderConfiguration>(Configuration.GetSection("S3StorageProvider"));
 			services.Configure<ClientServerConfiguration>(Configuration.GetSection("ClientServerSettings"));
 			services.Configure<SchedulerConfiguration>(Configuration.GetSection("Scheduler"));
+			services.Configure<ServerSettings>(Configuration.GetSection("ServerSettings"));
+			services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));
+			services.Configure<IpRateLimitPolicies>(Configuration.GetSection("IpRateLimitPolicies"));
+			services.Configure<CookieConfiguration>(Configuration.GetSection("CookieConfiguration"));
+			services.Configure<RedisCacheOptions>(Configuration.GetSection("Redis"));
+			services.Configure<RedisConfiguration>(Configuration.GetSection("Redis"));
 			// % protected region % [Add more configuration sections here] off begin
 			// % protected region % [Add more configuration sections here] end
 		}
+
 		private void LoadScheduledTasks(IServiceCollection services)
 		{
 			// % protected region % [Configure scheduled task library here] off begin
@@ -521,19 +648,35 @@ namespace Cis
 			{
 				configuration.UseActivator(
 					new ServiceProviderActivator(serviceProvider.GetRequiredService<IServiceScopeFactory>()));
-				configuration.UseEFCoreStorage(
-					() => serviceProvider
-						.GetRequiredService<IDbContextFactory<CisDBContext>>()
-						.CreateDbContext(),
-					new EFCoreStorageOptions
-					{
-						CountersAggregationInterval = new TimeSpan(0, 5, 0),
-						DistributedLockTimeout = new TimeSpan(0, 10, 0),
-						JobExpirationCheckInterval = new TimeSpan(0, 30, 0),
-						QueuePollInterval = new TimeSpan(0, 1, 0),
-						Schema = string.Empty,
-						SlidingInvisibilityTimeout = new TimeSpan(0, 5, 0),
-					});
+
+				var redisConnectionService = serviceProvider.GetRequiredService<IRedisConnectionService>();
+				var redisConfiguration = serviceProvider.GetRequiredService<IOptions<RedisConfiguration>>().Value;
+
+				if (redisConnectionService.Enabled)
+				{
+					configuration.UseRedisStorage(
+						redisConnectionService.Connection,
+						new RedisStorageOptions
+						{
+							Prefix = redisConfiguration.InstanceName,
+						});
+				}
+				else
+				{
+					configuration.UseEFCoreStorage(
+						() => serviceProvider
+							.GetRequiredService<IDbContextFactory<CisDBContext>>()
+							.CreateDbContext(),
+						new EFCoreStorageOptions
+						{
+							CountersAggregationInterval = new TimeSpan(0, 5, 0),
+							DistributedLockTimeout = new TimeSpan(0, 10, 0),
+							JobExpirationCheckInterval = new TimeSpan(0, 30, 0),
+							QueuePollInterval = new TimeSpan(0, 1, 0),
+							Schema = string.Empty,
+							SlidingInvisibilityTimeout = new TimeSpan(0, 5, 0),
+						});
+				}
 			});
 			// % protected region % [Configure scheduled task library here] end
 		}
@@ -552,9 +695,9 @@ namespace Cis
 			app.UseRequestLogging();
 			// % protected region % [Configure request logging here] end
 
-			// % protected region % [Configure XSRF token here] off begin
-			app.UseXsrfToken();
-			// % protected region % [Configure XSRF token here] end
+			// % protected region % [Configure rate limiting middleware here] off begin
+			app.UseIpRateLimiting();
+			// % protected region % [Configure rate limiting middleware here] end
 
 			// % protected region % [Configure security headers here] off begin
 			app.UseSecurityHeaders();
@@ -614,6 +757,14 @@ namespace Cis
 			app.UseAuthorization();
 			// % protected region % [Add cors settings here] off begin
 			// % protected region % [Add cors settings here] end
+
+			// % protected region % [Configure XSRF token here] off begin
+			app.UseXsrfToken();
+			// % protected region % [Configure XSRF token here] end
+
+			// % protected region % [Configure database user auditing here] off begin
+			app.UseDatabaseUserAuditing();
+			// % protected region % [Configure database user auditing here] end
 
 			// % protected region % [Configure endpoints here] off begin
 			app.UseEndpoints(endpoints =>

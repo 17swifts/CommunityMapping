@@ -25,7 +25,7 @@ import 'react-toastify/dist/ReactToastify.css';
  * @param type The type of the toast
  * @param options additional options such as 'autoClose' | 'position'
  */
-export default function alert(errorMsg: React.ReactNode, type: TypeOptions = 'info', options: ToastOptions = {}) {
+export default function alertToast(errorMsg: React.ReactNode, type: TypeOptions = 'info', options: ToastOptions = {}) {
 	toast(<p>{errorMsg}</p>, {
 		className: classNames('alert', 'alert__' + type),
 		type,

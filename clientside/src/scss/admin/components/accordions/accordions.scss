@@ -22,6 +22,7 @@ Accordions are used to expand information
 */
 
 
+// % protected region % [Change accordion styles here] off begin
 .accordion {
 	border-bottom: convert-rem(1px) solid $admin-grey-1;
 	@include transform-timing($admin-animation-time);
@@ -75,3 +76,6 @@ Accordions are used to expand information
 		}
 	}
 }
+// % protected region % [Change accordion styles here] end
+// % protected region % [Add additional accordion styles here] off begin
+// % protected region % [Add additional accordion styles here] end

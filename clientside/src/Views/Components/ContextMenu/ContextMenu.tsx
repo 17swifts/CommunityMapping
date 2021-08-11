@@ -187,7 +187,10 @@ export class ContextMenu extends React.Component<IContextMenuProps> {
 		// % protected region % [Customise the render method here] off begin
 		const menuItems = this.getSubMenu(this.props.actions, this.props.menuId);
 		return (
-			<Menu id={this.props.menuId} className={classNames(this.props.location, this.props.className)} ref={this.menuRef}>
+			<Menu key={this.props.menuId} 
+				id={this.props.menuId} 
+				className={classNames(this.props.location, this.props.className)} 
+				ref={this.menuRef}>
 				{menuItems}
 			</Menu>
 		);

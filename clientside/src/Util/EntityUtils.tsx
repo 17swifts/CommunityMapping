@@ -88,7 +88,10 @@ export async function exportAll(modelType: { new(): Model }, conditions: IWhereC
 			}
 		});
 	const blob = new Blob([result.data], {type: "text/csv;charset=utf-8"});
+
+	// % protected region % [Customize the name of the exported CSV file here] off begin
 	saveAs(blob, `export-${getModelName(modelType)}.csv`);
+	// % protected region % [Customize the name of the exported CSV file here] end
 }
 
 // % protected region % [Customize getFetchAllQuery method here] off begin

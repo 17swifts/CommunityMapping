@@ -55,6 +55,11 @@ Forms styles done here such as submissions
 	}
 }
 
+/* Form section */
+.form__section .form__question-container {
+	padding-left: $space-md;
+}
+
 /* Form statement */
 .form-statement {
 	&--important {

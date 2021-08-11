@@ -21,6 +21,7 @@ Collection - Menu Actions
 Top section of collection - Search bar, filter buttons, grid buttons
 */
 
+// % protected region % [Change collection menu actions styles here] off begin
 .collection__menu {
 	display: flex;
 	margin: $admin-space-xs auto;
@@ -186,3 +187,6 @@ Top section of collection - Search bar, filter buttons, grid buttons
 		opacity: 0;
 	}
 }
+// % protected region % [Change collection menu actions styles here] end
+// % protected region % [Add additional collection menu actions styles here] off begin
+// % protected region % [Add additional collection menu actions styles here] end

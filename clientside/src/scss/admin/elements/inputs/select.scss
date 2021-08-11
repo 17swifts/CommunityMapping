@@ -22,6 +22,7 @@ Styling for select inputs - your bot is most likely to have specific styles for 
 */
 
 
+// % protected region % [Change select styles here] off begin
 &.input-group__select {
 	select {
 		grid-area: input;
@@ -62,3 +63,6 @@ Styling for select inputs - your bot is most likely to have specific styles for 
 		}
 	}
 }
+// % protected region % [Change select styles here] end
+// % protected region % [Add additional select styles here] off begin
+// % protected region % [Add additional select styles here] end

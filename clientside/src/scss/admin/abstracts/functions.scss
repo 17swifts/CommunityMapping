@@ -16,7 +16,7 @@
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
 //****************-------COLOUR FUNCTIONS--------*****************
-
+// % protected region % [Change and update functions] off begin
 // Calculate the luminance for a color.
 // See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
 @function luminance($color) {
@@ -351,3 +351,6 @@ $admin-rem-base: 16 !default;
 @function convert-rem($pixels) {
 	@return strip-unit($pixels) / $admin-rem-base * 1rem;
 }
+// % protected region % [Change and update functions] end
+// % protected region % [Add additional functions here] off begin
+// % protected region % [Add additional functions here] end

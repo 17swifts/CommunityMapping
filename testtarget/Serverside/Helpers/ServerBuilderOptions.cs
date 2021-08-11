@@ -17,12 +17,16 @@
 using System;
 using System.IO;
 using System.Security.Claims;
+using System.Threading.Tasks;
+using Cis.Models;
+using Cis.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Cis.Utility;
+using Microsoft.AspNetCore.Identity;
 
 namespace ServersideTests.Helpers
 {
@@ -35,26 +39,34 @@ namespace ServersideTests.Helpers
 		/// <summary>
 		/// The name of the in memory database to use
 		/// </summary>
+		// % protected region % [Configure DatabaseName default] off begin
 		public string DatabaseName { get; set; } = Path.GetRandomFileName();
+		// % protected region % [Configure DatabaseName default] end
 
 		/// <summary>
 		/// Should the data seed helper be called to initialise data
 		/// This will create the user super@example.com for testing
 		/// </summary>
+		// % protected region % [Configure InitialiseData default] off begin
 		public bool InitialiseData { get; set; } = true;
+		// % protected region % [Configure InitialiseData default] end
 
 		/// <summary>
 		/// The claims principal used to represent the testing user
 		/// </summary>
-		public ClaimsPrincipal UserPrincipal { get; set; } = ServerBuilder.CreateUserPrincipal(
-			Guid.NewGuid(),
-			"super@example.com",
-			"super@example.com",
-			new [] {"Visitors", "ServiceCommissioningBody", "Admin", "Super Administrators"});
+		// % protected region % [Configure UserPrincipal default] off begin
+		public Func<IServiceProvider, Task<ClaimsPrincipal>> UserPrincipalFactory { get; set; } = async sp =>
+		{
+			var userManager = sp.GetRequiredService<UserManager<User>>();
+			var userService = sp.GetRequiredService<IUserService>();
+			return await userService.CreateUserPrincipal(await userManager.FindByNameAsync("super@example.com"));
+		};
+		// % protected region % [Configure UserPrincipal default] end
 
 		/// <summary>
 		/// Configuration function for the database for the tests
 		/// </summary>
+		// % protected region % [Configure DatabaseOptions default] off begin
 		public DbContextOptionsFunc DatabaseOptions { get; set; } = (builderOptions, hostBuilder) => (serviceProvider, options) =>
 		{
 			options.UseInMemoryDatabase(builderOptions.DatabaseName);
@@ -62,11 +74,21 @@ namespace ServersideTests.Helpers
 			options.ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning));
 			options.UseOpenIddict<Guid>();
 		};
+		// % protected region % [Configure DatabaseOptions default] end
 
 		/// <summary>
 		/// Configure any additional services for the tests
 		/// </summary>
+		// % protected region % [Configure ConfigureServices default] off begin
 		public Action<IServiceCollection, ServerBuilderOptions> ConfigureServices { get; set; } = null;
+		// % protected region % [Configure ConfigureServices default] end
+
+		/// <summary>
+		/// Method that will run before any data seeding.
+		/// </summary>
+		// % protected region % [Configure BeforeDataSeeding default] off begin
+		public Func<IHost, Task> BeforeDataSeeding { get; set; } = _ => Task.CompletedTask;
+		// % protected region % [Configure BeforeDataSeeding default] end
 
 		// % protected region % [Add any additional server builder options here] off begin
 		// % protected region % [Add any additional server builder options here] end

@@ -23,8 +23,9 @@ import { IAcl } from 'Models/Security/IAcl';
 import {
 	getCreatedModifiedCrudOptions,
 } from 'Util/EntityUtils';
-import { AdminAdminEntity } from 'Models/Security/Acl/AdminAdminEntity';
+import { VisitorsAdminEntity } from 'Models/Security/Acl/VisitorsAdminEntity';
 import { ServiceCommissioningBodyAdminEntity } from 'Models/Security/Acl/ServiceCommissioningBodyAdminEntity';
+import { AdminAdminEntity } from 'Models/Security/Acl/AdminAdminEntity';
 import { EntityFormMode } from 'Views/Components/Helpers/Common';
 import {SuperAdministratorScheme} from '../Security/Acl/SuperAdministratorScheme';
 // % protected region % [Add any further imports here] off begin
@@ -43,8 +44,9 @@ export interface IAdminEntityAttributes extends IModelAttributes {
 export default class AdminEntity extends Model implements IAdminEntityAttributes {
 	public static acls: IAcl[] = [
 		new SuperAdministratorScheme(),
-		new AdminAdminEntity(),
+		new VisitorsAdminEntity(),
 		new ServiceCommissioningBodyAdminEntity(),
+		new AdminAdminEntity(),
 		// % protected region % [Add any further ACL entries here] off begin
 		// % protected region % [Add any further ACL entries here] end
 	];

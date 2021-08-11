@@ -37,7 +37,7 @@ export default class AdminPage extends React.Component<RouteComponentProps> {
 							straight to <a href={'https://codebots.app/academy'} target={'_blank'} rel="noopener noreferrer">Codebots Academy</a></p>
 					</div>
 					<div className='dashboard-bot-version'>
-						<p>Bot version: 2.3.0.0</p>
+						<p>Bot version: 2.5.1.0</p>
 					</div>
 					<div className={'dashboard-cards'}>
 						<CardGroup>

@@ -36,6 +36,9 @@ Any changes out side of "protected regions" will be lost next time the bot makes
 		<PackageReference Include="Audit.EntityFramework.Core" Version="16.2.0" />
 		<PackageReference Include="Audit.EntityFramework.Identity.Core" Version="16.2.0" />
 		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="5.0.1" />
+		<PackageReference Include="AspNetCoreRateLimit" Version="4.0.1" />
+		<PackageReference Include="AspNetCoreRateLimit.Redis" Version="1.0.0" />
 		<PackageReference Include="AWSSDK.S3" Version="3.5.6.1" />
 		<PackageReference Include="CsvHelper" Version="17.0.1" />
 		<PackageReference Include="docfx.console" Version="2.56.5">
@@ -60,12 +63,15 @@ Any changes out side of "protected regions" will be lost next time the bot makes
 		<PackageReference Include="GraphQL.Server.Transports.AspNetCore" Version="4.4.1" />
 		<PackageReference Include="GraphQL.Server.Transports.WebSockets" Version="4.4.1" />
 		<PackageReference Include="GraphQL.SystemTextJson" Version="3.3.2" />
+		<PackageReference Include="RazorLight" Version="2.0.0-rc.3" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.3" />
 		<PackageReference Include="NCrontab" Version="3.3.1" />
 
 		<!-- % protected region % [Customise scheduling libraries here] off begin -->
 		<PackageReference Include="Hangfire.Core" Version="1.7.19" />
 		<PackageReference Include="Hangfire.AspNetCore" Version="1.7.19" />
-		<PackageReference Include="Hangfire.EntityFrameworkCore" Version="0.3.0" />
+		<PackageReference Include="Hangfire.Redis.StackExchange" Version="1.8.4" />
+		<PackageReference Include="Hangfire.EntityFrameworkCore" Version="0.3.1" />
 		<!-- % protected region % [Customise scheduling libraries here] end -->
 
 		<!-- % protected region % [Customise authorization library here] off begin -->
@@ -89,14 +95,9 @@ Any changes out side of "protected regions" will be lost next time the bot makes
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Remove="Assets\Emails\RegisterEmail.template.html" />
-		<Content Include="Assets\Emails\RegisterEmail.template.html">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<None Remove="Assets\Emails\ResetPassword.template.html" />
-		<Content Include="Assets\Emails\ResetPassword.template.html">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
+		<EmbeddedResource Include="Assets/Emails/*.cshtml" />
+		<!-- % protected region % [Add any additional resources here] off begin -->
+		<!-- % protected region % [Add any additional resources here] end -->
 	</ItemGroup>
 
 	<Target Name="PublishFrontend" AfterTargets="ComputeFilesToPublish" Condition=" '$(Configuration)' == 'Release' ">

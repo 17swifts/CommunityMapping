@@ -22,6 +22,7 @@ Commonly used for inputs that do not make sense. These tooltips display with fur
 */
 
 
+// % protected region % [Change tooltip styles here] off begin
 .tooltip {
 	display: inline;
 	font-size: $admin-base-font-size;
@@ -67,3 +68,6 @@ Commonly used for inputs that do not make sense. These tooltips display with fur
 		}
 	}
 }
+// % protected region % [Change tooltip styles here] end
+// % protected region % [Add additional tooltip styles here] off begin
+// % protected region % [Add additional tooltip styles here] end

@@ -16,5 +16,12 @@
  */
 import * as enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+// % protected region % [Add any extra index imports here] off begin
+// % protected region % [Add any extra index imports here] end
 
+// % protected region % [Override configure here] off begin
 enzyme.configure({ adapter: new Adapter() });
+// % protected region % [Override configure here] end
+
+// % protected region % [Add any extra configuration here] off begin
+// % protected region % [Add any extra configuration here] end

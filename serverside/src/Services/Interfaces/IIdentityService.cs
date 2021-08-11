@@ -39,6 +39,11 @@ namespace Cis.Services.Interfaces
 		User User { get; set; }
 
 		/// <summary>
+		/// Is the current user two factor authenticated.
+		/// </summary>
+		bool TwoFactorAuthenticated { get; set; }
+
+		/// <summary>
 		/// Retrieves the user from the database if they have not already been fetched. The user to retrieve is taken
 		/// from the http context of the scope. If this function has already been called in the scope then it will be a
 		/// no op on future calls/

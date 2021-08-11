@@ -243,8 +243,8 @@ export default class Collection<T> extends React.Component<ICollectionProps<T>, 
 					selectedBulkActions={this.props.selectedBulkActions}
 					filterOrientationRow={this.props.filterOrientationRow}
 				/>
-				<this.list />
-				<this.pagination />
+				{this.list()}
+				{this.pagination()}
 			</section>
 		);
 	}

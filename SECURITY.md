@@ -6,7 +6,7 @@ The purpose of this document is to outline and provide guidance on the security 
 
 This guide aims to provide guidance on known areas of risk and considerations.
 
-For the purposes of this document, the [Application Security Verification Standard](https://owasp.org/www-pdf-archive/OWASP_Application_Security_Verification_Standard_4.0-en.pdf) will be used as the primary source of OWASP considerations.
+For the purposes of this document, the [Application Security Verification Standard](https://github.com/OWASP/ASVS/tree/v4.0.2#latest-stable-version---402) will be used as the primary source of OWASP considerations.
 
 ## Codebots Platform
 
@@ -18,9 +18,18 @@ While these default settings are a great start, it is the responsibility of the 
 
 For an in-depth guide of performing custom security, please refer to our guide on [custom security with C#Bot](https://codebots.com/docs/c-bot-custom-security).
 
+## Two-Factor Authentication
+
+Your application comes with two-factor authentication out of the box. The default options available are email and authenticator app. You can find most of the configuration files in `./serverside/src/services/TwoFactor`.
+
+Two-factor authentication is an optional feature, it is disabled by default for all users. It can be enabled and configured per user by an administrator in the all users page.
+
+**NOTE: If Two-factor authentication is enabled, a user will be unable to use the JWT authentication scheme.**
+
+
 ## Development
 
-### 14.4.4 Verify that all responses contain X-Content-Type-Options: nosniff
+### v4.0.2-14.4.4 Verify that all responses contain X-Content-Type-Options: nosniff
 
 **NOTE: The default behaviour is inline with OWASP recommendations**.
 
@@ -30,7 +39,7 @@ This can be overwritten in the `UseSecurityHeaders` method of the `serverside/sr
 
 See the [OWASP Secure headers project for details](https://wiki.owasp.org/index.php/OWASP_Secure_Headers_Project#xcto).
 
-### 14.4.6 Verify that a suitable "Referrer-Policy" header is included
+### v4.0.2-14.4.6 Verify that a suitable "Referrer-Policy" header is included
 
 **NOTE: The default behaviour is inline with OWASP recommendations**.
 
@@ -40,7 +49,7 @@ This  can be overwritten in the `UseSecurityHeaders` method of the `serverside/s
 
 See the [OWASP Secure headers project for details](https://wiki.owasp.org/index.php/OWASP_Secure_Headers_Project#rp).
 
-### 14.4.7 Verify that a suitable X-Frame-Options or Content-Security-Policy is in use
+### v4.0.2-14.4.7 Verify that a suitable X-Frame-Options or Content-Security-Policy is in use
 
 **NOTE: The default behaviour is inline with OWASP recommendations**.
 
@@ -50,6 +59,35 @@ This can be overwritten in the `UseSecurityHeaders` method of the `serversider/s
 
 See the [OWASP Secure headers project for details](https://wiki.owasp.org/index.php/OWASP_Secure_Headers_Project#xfo).
 
+### v4.0.2-2.2.1 Rate Limiting
+
+To assist in the prevention of denial of service attacks, IP rate limiting has been built into the project. This is can be configured both globally and per API endpoint. The rate limited is determined by the IP address of the incoming connection. Rate limiting can be configured in `serverside/src/appsettings.xml`. An annotated rate limiting config is displayed below. For comprehensive documentation of all settings that can be configured, see [here](https://github.com/stefanprodan/AspNetCoreRateLimit/wiki/IpRateLimitMiddleware).
+
+```xml
+<IpRateLimiting>
+	<!-- In the case that the server is behind an ingress server the IP address of the connection will be set to the IP address of the ingress instead of the client user. This field specifies the name of a header on the HTTP request that is set by the ingress that specifies the real IP address of the client. -->
+	<RealIpHeader>X-Real-IP</RealIpHeader>
+	<!-- The HTTP response code to respond with when the rate limit has been exceeded. -->
+	<HttpStatusCode>429</HttpStatusCode>
+	<!-- List of IP addresses that are excluded from rate limtiting. This accepts port ranges. -->
+	<IpWhitelist name="0">127.0.0.1</IpWhitelist>
+	<IpWhitelist name="1">192.168.0.0/16</IpWhitelist>
+	<!-- Endpoints that are excluded from the rate limit rules. -->
+	<EndpointWhitelist name="0">*:/api/health</EndpointWhitelist>
+	<!-- Global rule for all endpoints that are not whitelisted. This will limit the number of requests by one IP address to 500 every 10 minutes. -->
+	<GeneralRules name="0">
+		<Endpoint>*</Endpoint>
+		<Period>10m</Period>
+		<Limit>500</Limit>
+	</GeneralRules>
+	<!-- Specific rule for a single endpoint. This will limit the number of POST requests to this single endpoint to 30 every minute. -->
+	<GeneralRules name="1">
+		<Endpoint>POST:/api/custom/endpoint</Endpoint>
+		<Period>1m</Period>
+		<Limit>30</Limit>
+	</GeneralRules>
+</IpRateLimiting>
+```
 
 ## Deployment
 

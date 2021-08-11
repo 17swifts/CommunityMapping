@@ -20,7 +20,7 @@ Feature: Delete all RegionalAreaEntity on all pages
 # % protected region % [Override feature properties here] end
 	@RegionalAreaEntity
 	Scenario: Delete all RegionalAreaEntity on all pages
-	Given I have 10 valid RegionalAreaEntity entities
+	Given I have 15 valid RegionalAreaEntity entities
 	Given I login to the site as a user
 	And I navigate to the RegionalAreaEntity backend page
 	When I select all entities on current page

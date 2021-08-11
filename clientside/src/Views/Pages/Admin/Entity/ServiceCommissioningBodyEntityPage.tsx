@@ -44,7 +44,7 @@ export default class ServiceCommissioningBodyEntityPage extends React.Component<
 		// % protected region % [Override contents here] end
 
 		return (
-			<SecuredPage groups={["Super Administrators", "Admin","ServiceCommissioningBody"]}>
+			<SecuredPage groups={["Super Administrators", "ServiceCommissioningBody","Admin"]}>
 				{contents}
 			</SecuredPage>
 		);

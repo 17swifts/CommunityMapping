@@ -117,6 +117,7 @@ namespace APITests.Utils
 			return ConstructQuery(baseEntities[0], entityList);
 		}
 
+		// % protected region % [Customize InvalidEntityQueryBuilder here] off begin
 		/// <summary>
 		/// Builds a graphql query to create invalid entities
 		/// </summary>
@@ -161,6 +162,7 @@ namespace APITests.Utils
 
 			return ConstructQuery(entity, myAL);
 		}
+		// % protected region % [Customize InvalidEntityQueryBuilder here] end
 
 		/// <summary>
 		/// Query builder for deleting an entity

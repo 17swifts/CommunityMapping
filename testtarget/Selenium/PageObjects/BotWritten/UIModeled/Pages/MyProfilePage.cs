@@ -32,6 +32,7 @@ namespace SeleniumTests.PageObjects.BotWritten.UIModeled.Pages
 		private string MyProfilePageHorizontalLayoutSelector => RootSelector + "//*[@class='layout__horizontal']";
 		private By MyProfilePageHorizontalLayoutBy => By.XPath(MyProfilePageHorizontalLayoutSelector);
 		private By HeadingComponentBy => By.XPath($"{MyProfilePageHorizontalLayoutSelector}//h2[text()='My Profile']");
+		private By CrudComponentBy => By.XPath($"{RootSelector}//section[@class='collection-component']");
 		// % protected region % [Override class properties here] end
 		// % protected region % [Override constructor here] off begin
 		public MyProfilePage(ContextConfiguration currentContext) : base(currentContext)
@@ -44,6 +45,7 @@ namespace SeleniumTests.PageObjects.BotWritten.UIModeled.Pages
 			var validContents = true;
 			validContents &= WaitUtils.elementState(DriverWait, MyProfilePageHorizontalLayoutBy, ElementState.VISIBLE);
 			validContents &= WaitUtils.elementState(DriverWait, HeadingComponentBy, ElementState.VISIBLE);
+			validContents &= WaitUtils.elementState(DriverWait, CrudComponentBy, ElementState.VISIBLE);
 			return validContents;
 		}
 		// % protected region % [Override ContainsModeledElements here] end

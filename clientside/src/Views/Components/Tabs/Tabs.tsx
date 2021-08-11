@@ -19,14 +19,19 @@ import { observer } from 'mobx-react';
 import { observable, action, computed } from 'mobx';
 import classNames from 'classnames';
 import { Button, Display } from '../Button/Button';
+// % protected region % [Add any extra index imports here] off begin
+// % protected region % [Add any extra index imports here] end
 
+// % protected region % [Override ITabConfig here] off begin
 export interface ITabConfig {
 	name: string,
 	component: React.ReactNode,
 	key: string,
 	className?: string
 };
+// % protected region % [Override ITabConfig here] end
 
+// % protected region % [Override ITabsProps here] off begin
 export interface ITabsProps {
 	tabs: Array<ITabConfig>;
 	className?: string;
@@ -35,19 +40,28 @@ export interface ITabsProps {
 	currentTab?: number;
 	onTabClicked?: (tabIndex: number, event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
+// % protected region % [Override ITabsProps here] end
 
+// % protected region % [Override ITabHeaderProps here] off begin
 interface ITabHeaderProps {
 	tabState: { currentTab: number };
 	tabIdx: number;
 	tabChanged?: (() => void);
 	onTabClicked?: (tabIndex: number, event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
+// % protected region % [Override ITabHeaderProps here] end
+
+// % protected region % [Add any extra interfaces here] off begin
+// % protected region % [Add any extra interfaces here] end
 
 class TabHeader extends React.Component<ITabHeaderProps, any> {
+	// % protected region % [Override TabHeader render here] off begin
 	public render() {
 		return <Button display={Display.Text} onClick={this.onTabClicked}>{this.props.children}</Button>;
 	}
+	// % protected region % [Override TabHeader render here] end
 
+	// % protected region % [Override TabHeader onTabClicked here] off begin
 	@action
 	private onTabClicked = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		if(this.props.tabState.currentTab !== this.props.tabIdx && this.props.tabChanged){
@@ -58,26 +72,40 @@ class TabHeader extends React.Component<ITabHeaderProps, any> {
 			this.props.onTabClicked(this.props.tabIdx, event);
 		}
 	}
+	// % protected region % [Override TabHeader onTabClicked here] end
+	// % protected region % [Add any extra TabHeader functions here] off begin
+	// % protected region % [Add any extra TabHeader functions here] end
 }
 
 @observer
-export default class Tabs extends React.Component<ITabsProps, any> {
+class Tabs extends React.Component<ITabsProps, any> {
+	// % protected region % [Override Tabs tabState here] off begin
 	@observable
 	public tabState = {
 		currentTab: 0,
 	};
+	// % protected region % [Override Tabs tabState here] end
 
+	// % protected region % [Override get currentTab here] off begin
 	@computed
 	public get currentTab() {
 		return this.props.currentTab || this.tabState.currentTab;
 	}
+	// % protected region % [Override get currentTab here] end
+
+	// % protected region % [Override Tabs constructor here] off begin
 	constructor(props: ITabsProps, context: any) {
 		super(props, context);
 		if (this.props.defaultTab) {
 			this.tabState.currentTab = this.props.defaultTab;
 		}
 	}
+	// % protected region % [Override Tabs constructor here] end
 
+	// % protected region % [Add any extra Tabs functions here] off begin
+	// % protected region % [Add any extra Tabs functions here] end
+
+	// % protected region % [Override Tabs render here] off begin
 	public render(){
 		return (
 			<>
@@ -98,4 +126,9 @@ export default class Tabs extends React.Component<ITabsProps, any> {
 			</>
 		);
 	}
+	// % protected region % [Override Tabs render here] end
 }
+
+// % protected region % [Override export Tabs here] off begin
+export default Tabs;
+// % protected region % [Override export Tabs here] end

@@ -19,6 +19,8 @@ using System.Threading.Tasks;
 using Cis.Models;
 using GraphQL;
 using Microsoft.AspNetCore.Http;
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
 namespace Cis.Services.Interfaces
 {
@@ -41,5 +43,8 @@ namespace Cis.Services.Interfaces
 			IFormFileCollection attachments,
 			User user,
 			CancellationToken cancellation);
+
+		// % protected region % [Add any extra methods here] off begin
+		// % protected region % [Add any extra methods here] end
 	}
 }

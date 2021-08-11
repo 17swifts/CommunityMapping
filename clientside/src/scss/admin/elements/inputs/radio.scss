@@ -20,7 +20,7 @@ Radio buttons
 /*
 Custom styles for radio buttons
 */
-
+// % protected region % [Change generic radio button styles here] off begin
 /*******Radio*******/
 .input-group-wrapper__radio {
 	//give with 100% so it doesn't look weird with other input groups
@@ -103,9 +103,10 @@ input[type="radio"] {
 		outline: none;
 	}
 }
+// % protected region % [Change generic radio button styles here] end
 
 
-
+// % protected region % [Change disabled radio button styles here] off begin
 input[type="radio"][readonly] {
 	background-color: $admin-grey-0;
 	pointer-events: none;
@@ -145,3 +146,6 @@ input[type="radio"][disabled] {
 		outline: none;
 	}
 }
+// % protected region % [Change disabled radio button styles here] end
+// % protected region % [Add additional radio button styles here] off begin
+// % protected region % [Add additional radio button styles here] end

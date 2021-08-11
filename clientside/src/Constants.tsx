@@ -14,7 +14,16 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
 // % protected region % [Override contents here] off begin
 export const SERVER_URL = '';
 // % protected region % [Override contents here] end
+
+// % protected region % [Override application name here] off begin
+export const APPLICATION_NAME = 'cis';
+// % protected region % [Override application name here] end
+
+// % protected region % [Add any extra constants here] off begin
+// % protected region % [Add any extra constants here] end

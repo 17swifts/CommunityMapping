@@ -20,7 +20,7 @@ Inputs
 /*
 Styling for all types of inputs - checkboxes, radios, selects, textareas and tooltips are imported.
 */
-
+// % protected region % [Change input variables and standard input styles here] off begin
 /******* INPUT VARIABLES *******/
 $admin-input-font-size: $admin-base-font-size !default;
 $admin-input-radius: $radius !default;
@@ -87,9 +87,9 @@ select {
 	}
 }
 
+// % protected region % [Change input variables and standard input styles here] end
 
-
-
+// % protected region % [Change input group styles here] off begin
 /*******INPUT GROUP*******/
 /*This is an input group. It collects multiple components - labels, tooltips, text areas and other types of inputs and structures them within a grid area. Multiple
 items can be placed within a single grid area, as long as they are contained within a wrapper div (to prevent items floating above each other).*/
@@ -230,10 +230,10 @@ items can be placed within a single grid area, as long as they are contained wit
 	//SELECTS
 	@import 'select.scss';
 }
-
+// % protected region % [Change input group styles here] end
 
 /*******INPUT BUTTONS*******/
-
+// % protected region % [Change input buttons styles here] off begin
 /*This is a button which clears the content within an input*/
 .input-group {
 
@@ -259,7 +259,7 @@ items can be placed within a single grid area, as long as they are contained wit
 		}
 	}
 }
-
+// % protected region % [Change input buttons styles here] end
 /*******Date & Time Picker*******/
 //If styling required create the file and import here//
 
@@ -267,7 +267,7 @@ items can be placed within a single grid area, as long as they are contained wit
 
 /*This will organise a series of inputs into a row as oppsed to a column. Inputs will wrap, whereas header and tooltip occupy half of the
 top row*/
-
+// % protected region % [Change radio and checkbox wrapper styles here] off begin
 .input-group-wrapper__radio,
 .input-group-wrapper__checkbox {
 	position: relative;
@@ -311,14 +311,6 @@ top row*/
 		top: 1.5rem;
 	}
 }
-
-/*******Checkboxes*******/
-@import 'checkbox.scss';
-
-
-/*******Radio*******/
-@import 'radio.scss';
-
 .input-group__radio,
 .input-group__checkbox {
 	input {
@@ -327,8 +319,18 @@ top row*/
 		align-items: center;
 	}
 }
+// % protected region % [Change radio and checkbox wrapper styles here] end
+
+/*******Checkboxes*******/
+@import 'checkbox.scss';
 
 
+/*******Radio*******/
+@import 'radio.scss';
+
+
+
+// % protected region % [Change disabled inputs styles here] off begin
 /*******DISABLED AND READONLY INPUTS*******/
 //Imports are after all input styles to override all styling on disabled and static
 
@@ -418,3 +420,6 @@ textarea[readonly] {
 		}
 	}
 }
+// % protected region % [Change disabled inputs styles here] end
+// % protected region % [Add additional inputs styles here] off begin
+// % protected region % [Add additional inputs styles here] end

@@ -32,9 +32,16 @@ import Modal from '../Modal/Modal';
 import {Combobox} from 'Views/Components/Combobox/Combobox';
 import {IOrderByCondition} from '../ModelCollection/ModelQuery';
 import {ICollectionHeaderProps} from "../Collection/CollectionHeaders";
+import { TwoFactorContext, TwoFactorMethods } from 'Services/TwoFactor/Common';
+import { useContext } from 'react';
+import TwoFactorAuthSetup from 'Views/Components/CRUD/TwoFactorAuthSetup';
 
 interface IEntityEditRouteParams {
 	id?: string;
+}
+
+interface UserListInternalProps extends RouteComponentProps<IEntityEditRouteParams> {
+	methods: TwoFactorMethods;
 }
 
 const userTypes = {
@@ -51,22 +58,34 @@ interface ModalOptions {
 	value: string;
 }
 
-interface ModalState {
+interface ClosedModalState {
+	open: false;
+}
+
+interface OpenModalState {
 	open: boolean;
-	user: IUser | undefined;
+	user: IUser;
 	activate: boolean;
 }
+
+type ModalState = OpenModalState | ClosedModalState;
 
 interface IUser {
 	id: string;
 	email: string;
 	discriminator: string;
 	emailConfirmed: boolean;
-	username: string;
+	lockedOut: boolean;
+	created: string;
+	modified: string;
+	owner: string;
+	userName: string;
+	twoFactorEnabled: boolean;
+	twoFactorMethod: string;
 }
 
 @observer
-export default class UserList extends React.Component<RouteComponentProps<IEntityEditRouteParams>> {
+class UserListInternal extends React.Component<UserListInternalProps> {
 	@observable
 	private users: IUser[] = [];
 
@@ -118,6 +137,12 @@ export default class UserList extends React.Component<RouteComponentProps<IEntit
 		open: false,
 		user: undefined,
 		activate: true,
+	};
+
+	@observable
+	private authenticatorModalState: {open: boolean, content: React.ReactNode} = {
+		open: false,
+		content: '',
 	};
 
 	public componentDidMount() {
@@ -292,9 +317,22 @@ export default class UserList extends React.Component<RouteComponentProps<IEntit
 			name: 'emailConfirmed',
 			displayName: 'Activated',
 			sortable: true,
-			transformItem: model => model.emailConfirmed ? 'True' : 'False',
+			transformItem: model => model.emailConfirmed && !model.lockedOut ? 'True' : 'False',
 			sortClicked: () => this.onSort('emailConfirmed')
-		}
+		},
+		{
+			name: 'twoFactorEnabled',
+			displayName: 'Two Factor Enabled',
+			sortable: true,
+			transformItem: model => model.twoFactorEnabled ? 'True' : 'False',
+			sortClicked: () => this.onSort('twoFactorEnabled'),
+		},
+		{
+			name: 'twoFactorMethod',
+			displayName: 'Two Factor Method',
+			sortable: false,
+			transformItem: model => model.twoFactorMethod ? model.twoFactorMethod : 'None',
+		},
 	];
 	// % protected region % [Customise user collection headers here] end
 
@@ -303,6 +341,7 @@ export default class UserList extends React.Component<RouteComponentProps<IEntit
 			<>
 				{this.renderCreateModal()}
 				{this.renderDeactivateUserModal()}
+				{this.renderAuthenticatorModal()}
 				<Collection
 					additionalActions={[this.renderCreateButton()]}
 					actions={this.getTableActions}
@@ -314,11 +353,15 @@ export default class UserList extends React.Component<RouteComponentProps<IEntit
 					actionsMore={[
 						{
 							customItem: <Button>Toggle activation</Button>,
-							onEntityClick: (event, entity) => this.setActivateUserModalState(entity, true)
+							onEntityClick: (event, entity) => this.setActivateUserModalState(entity, true),
 						},
 						{
 							customItem: <Button>Reset password</Button>,
-							onEntityClick: (event, entity) => this.resetPassword(entity)
+							onEntityClick: (event, entity) => this.resetPassword(entity),
+						},
+						{
+							customItem: <Button>Toggle Two Factor Authentication</Button>,
+							onEntityClick: (event, entity) => this.toggle2fa(entity),
 						},
 					]}/>
 			</>
@@ -346,69 +389,80 @@ export default class UserList extends React.Component<RouteComponentProps<IEntit
 	};
 
 	@action
-	protected setActivateUserModalState = (user: IUser | undefined, open: boolean) => {
-		this.activateModalState.user = user;
-		this.activateModalState.open = open;
-		if (user !== undefined && !user.emailConfirmed){
-			this.activateModalState.activate = true;
+	protected setActivateUserModalState = (user: IUser | null, open: boolean) => {
+		if (open && user) {
+			this.activateModalState = {
+				open: open,
+				user: user,
+				activate: !user.emailConfirmed || user.lockedOut
+			};
 		} else {
-			this.activateModalState.activate = false;
+			this.activateModalState = { open: false };
 		}
 	};
 
 	// The modal shown when a user selects 'deactivate user' on an entry
 	// in the all user list.
 	protected renderDeactivateUserModal = () => {
-		const user = this.activateModalState.user;
-		if (user === undefined) {
-			return;
-		} else {
+		if (this.activateModalState.open) {
+			const { user, activate } = this.activateModalState;
 			return (
 				<Modal
 					isOpen={this.activateModalState.open}
 					label="Deactivate User Modal"
-					onRequestClose={() => runInAction(() => this.setActivateUserModalState(undefined, false))}>
+					onRequestClose={() => runInAction(() => this.setActivateUserModalState(null, false))}>
 					<h4>{this.activateModalState.activate ? 'Activate' : 'Deactivate'} User</h4>
 					<p>Are you sure you wish to {this.activateModalState.activate ? 'activate' : 'deactivate'} {user.email}?</p>
 					<div key="actions" className="modal__actions">
 						<Button key="confirm"
-								onClick={() => this.activateModalState.activate
+								onClick={() => activate
 									? this.activateUser(user)
 									: this.deactivateUser(user)}
 								display={Display.Solid}>Confirm</Button>
 						<Button key="cancel"
-								onClick={() => this.setActivateUserModalState(undefined, false)}
+								onClick={() => this.setActivateUserModalState(null, false)}
 								display={Display.Outline}>Cancel</Button>
 					</div>
 				</Modal>
 			)
 		}
+
+		return <></>;
 	};
 
+	protected renderAuthenticatorModal = () => {
+		return (
+			<Modal
+				isOpen={this.authenticatorModalState.open}
+				label="Authenticator Modal"
+				onRequestClose={() => undefined}
+			>
+				{this.authenticatorModalState.content}
+			</Modal>
+		);
+	}
+
 	protected deactivateUser = (entity: IUser) => {
-		this.setActivateUserModalState(undefined, false);
-		if(entity.emailConfirmed){
-			axios
-				.post(`${SERVER_URL}/api/account/deactivate`, {Username: entity.email})
-				.then(data => {
-					alert(`Successfully deactivated ${entity.email}`, 'success');
-					this.updateEmailConfirmed(entity, false);
-				})
-				.catch(data => alert(`Unable to deactivate ${entity.email}`, 'error'))
-		}
-		else{
-			alert('Account already deactivated', 'warning')
-		}
+		this.setActivateUserModalState(null, false);
+		axios
+			.post(`${SERVER_URL}/api/account/deactivate`, {Username: entity.email})
+			.then(data => {
+				alert(`Successfully deactivated ${entity.email}`, 'success');
+				this.updateEmailConfirmed(entity, false);
+				this.fetchData();
+			})
+			.catch(data => alert(`Unable to deactivate ${entity.email}`, 'error'))
 	};
 
 	protected activateUser = (entity: IUser) => {
-		this.setActivateUserModalState(undefined, false);
-		if (!entity.emailConfirmed) {
+		this.setActivateUserModalState(null, false);
+		if (!entity.emailConfirmed || entity.lockedOut) {
 			axios
 				.post(`${SERVER_URL}/api/account/activate`, {Username: entity.email})
 				.then(data => {
 					alert(`Successfully activated ${entity.email}`, 'success');
 					this.updateEmailConfirmed(entity, true);
+					this.fetchData();
 				})
 				.catch(data => {
 					alert(`Unable to activate ${entity.email}`, 'error');
@@ -434,9 +488,33 @@ export default class UserList extends React.Component<RouteComponentProps<IEntit
 	};
 
 	@action
+	protected toggle2fa = (entity: IUser) => {
+		this.authenticatorModalState.content = (
+			<TwoFactorAuthSetup
+				userName={entity.userName}
+				currentlyEnabled={entity.twoFactorEnabled}
+				close={action((dataUnchanged) => {
+					this.authenticatorModalState.open = false
+					if (!dataUnchanged) {
+						this.fetchData();
+					}
+				})}
+			/>
+		);
+		this.authenticatorModalState.open = true;
+	}
+
+	@action
 	protected onSearchTriggered = (searchTerm: string) => {
 		this.paginationQueryOptions.page = 0;
 		this.search.searchTerm = searchTerm.trim();
 		this.fetchData();
 	}
 }
+
+function UserList(props: RouteComponentProps<IEntityEditRouteParams>) {
+	const twoFactorMethods = useContext(TwoFactorContext);
+	return <UserListInternal {...props} methods={twoFactorMethods} />;
+}
+
+export default UserList;

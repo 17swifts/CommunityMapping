@@ -21,7 +21,7 @@ Checkboxes
 Custom styles for checkbox
 */
 
-
+// % protected region % [Change checkbox layout styles here] off begin
 .input-group-wrapper__checkbox {
 	&__checkbox-header {
 		width: 100%;
@@ -68,10 +68,10 @@ beside a tooltip and above an input. For checkboxes, the grid areas are re-arran
 		grid-area: validation;
 	}
 }
+// % protected region % [Change checkbox layout styles here] end
 
 
-
-
+// % protected region % [Change checkbox styles here] off begin
 input[type="checkbox"] {
 	//Removing the default styles, with it you can only control the border style, without it you can control width, height etc.
 	appearance: none;
@@ -109,7 +109,10 @@ input[type="checkbox"] {
 		outline: none;
 	}
 }
+// % protected region % [Change checkbox styles here] end
 
+
+// % protected region % [Change disabled checkbox styles here] off begin
 input[type="checkbox"][readonly]+label,
 input[type="checkbox"][disabled]+label {
 	background-color: transparent;
@@ -151,3 +154,6 @@ input[type="checkbox"][disabled] {
 		}
 	}
 }
+// % protected region % [Change disabled checkbox styles here] end
+// % protected region % [Add additional checkbox styles here] off begin
+// % protected region % [Add additional checkbox styles here] end

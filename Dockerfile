@@ -16,34 +16,32 @@
 ###
 
 # % protected region % [Customise the build stage] off begin
-
 ##### Build Stage #####
 ###
 # SERVERSIDE
+# This container will build the serverside of the application.
 ###
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-serverside
+FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine AS build-serverside
 WORKDIR /build
 
-# Install dotnet EF
-RUN dotnet tool install --global dotnet-ef
-
-# Copy and restore project
+# Copy and restore project. This is done before copying the rest of the source files to cache dependencies independently
+# from code changes.
 COPY serverside/src/*.csproj ./
 RUN dotnet restore
 
 # Copy & build source
 COPY serverside/src ./
-RUN export CSHARPBOT_DISABLE_CLIENT_BUILD=1 \
-	&& export CSHARPBOT_DISABLE_CLIENT_COPY=1 \
-	&& dotnet publish -c Release -o out
+RUN dotnet publish -c Release -o out -p:CSHARPBOT_DISABLE_CLIENT_BUILD=1 -p:CSHARPBOT_DISABLE_CLIENT_COPY=1
 
 ###
 # CLIENTSIDE
+# This container will build the clientside of the application.
 ###
 FROM node:12-alpine AS build-clientside
 WORKDIR /build
 
-# Copy and restore npm/yarn
+# Copy and restore dependencies. This is done before copying the project source to cache it independently from the
+# source files. The lock file needs to be copied as well to maintain consistent builds.
 COPY clientside/package.json ./clientside/yarn.lock* ./
 RUN yarn
 
@@ -55,18 +53,20 @@ RUN yarn run build
 # % protected region % [Customise the runtime] off begin
 ###
 # RUNTIME
+# This is the container that will run the web server that was built from the prior containers.
+# If there are any native dependencies needed for your application, they will need to be installed here.
 ###
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
 
 # Copy the built serverside
-COPY --from=build-serverside /build/appsettings* ./
 COPY --from=build-serverside /build/out ./
 
 # Copy the built clientside
 COPY --from=build-clientside /build/build ./Client
 
+# Expose port 80 for the web server
+EXPOSE 80
 
 ENTRYPOINT ["dotnet", "Cis.dll"]
-
 # % protected region % [Customise the runtime] end

@@ -31,6 +31,7 @@ import { IAcl } from 'Models/Security/IAcl';
 import { Form } from '../Form/Form';
 import {AttributeFormMode, EntityFormMode} from '../Helpers/Common';
 import { EntityFormLayout } from '../EntityFormLayout/EntityFormLayout';
+import { AttributeCRUDOptions } from 'Models/CRUDOptions';
 
 // % protected region % [Add extra page imports here] off begin
 // % protected region % [Add extra page imports here] end
@@ -51,6 +52,8 @@ interface IEntityCreateProps<T extends Model> extends RouteComponentProps {
 	customFields?: React.ReactNode;
 	customRelationPath?: any;
 	attributeBehaviours?: Array<IEntityAttributeBehaviour>;
+	/** Function to mutate the attribute options before it is rendered */
+	mutateOptions?: (model: Model | Model[], options: AttributeCRUDOptions[], formMode: EntityFormMode) => AttributeCRUDOptions[];
 }
 
 // % protected region % [Add extra implementation here] off begin
@@ -115,7 +118,7 @@ class EntityAttributeList<T extends Model> extends React.Component<IEntityCreate
 
 	// % protected region % [Customize EntityFormLayout here] off begin
 	protected renderEntityFormLayout = (): React.ReactNode => {
-		const { model, formMode, attributeBehaviours } = this.props;
+		const { model, formMode, attributeBehaviours, mutateOptions } = this.props;
 		return (
 			<EntityFormLayout
 				model={model}
@@ -124,6 +127,7 @@ class EntityAttributeList<T extends Model> extends React.Component<IEntityCreate
 				onAttributeAfterChange={this.onAttributeAfterChange}
 				onAttributeChangeAndBlur={this.onAttributeChangeAndBlur}
 				attributeBehaviours={attributeBehaviours}
+				mutateOptions={mutateOptions}
 			/>
 		);
 	};

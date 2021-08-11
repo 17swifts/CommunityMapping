@@ -25,9 +25,9 @@ import {
 	makeFetchOneToManyFunc,
 	getCreatedModifiedCrudOptions,
 } from 'Util/EntityUtils';
-import { AdminRegionalAreaEntity } from 'Models/Security/Acl/AdminRegionalAreaEntity';
 import { VisitorsRegionalAreaEntity } from 'Models/Security/Acl/VisitorsRegionalAreaEntity';
 import { ServiceCommissioningBodyRegionalAreaEntity } from 'Models/Security/Acl/ServiceCommissioningBodyRegionalAreaEntity';
+import { AdminRegionalAreaEntity } from 'Models/Security/Acl/AdminRegionalAreaEntity';
 import { EntityFormMode } from 'Views/Components/Helpers/Common';
 import { TimelineModel } from 'Timelines/TimelineModel';
 import {SuperAdministratorScheme} from '../Security/Acl/SuperAdministratorScheme';
@@ -63,9 +63,9 @@ export interface IRegionalAreaEntityAttributes extends IModelAttributes {
 export default class RegionalAreaEntity extends Model implements IRegionalAreaEntityAttributes, TimelineModel  {
 	public static acls: IAcl[] = [
 		new SuperAdministratorScheme(),
-		new AdminRegionalAreaEntity(),
 		new VisitorsRegionalAreaEntity(),
 		new ServiceCommissioningBodyRegionalAreaEntity(),
+		new AdminRegionalAreaEntity(),
 		// % protected region % [Add any further ACL entries here] off begin
 		// % protected region % [Add any further ACL entries here] end
 	];

@@ -18,17 +18,20 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Cis.Exceptions;
+using Cis.Helpers;
 using Cis.Models;
 using Cis.Models.Internal;
-using Cis.Helpers;
+using Cis.Models.Internal.Identity;
 using Cis.Services;
 using Cis.Services.Interfaces;
+using Cis.Services.TwoFactor;
 using Cis.Utility;
 using GraphQL.EntityFramework;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -49,7 +52,9 @@ namespace Cis.Controllers
 		private readonly UserManager<User> _userManager;
 		private readonly IUserService _userService;
 		private readonly RoleManager<Group> _roleManager;
+		private readonly SignInManager<User> _signInManager;
 		private readonly IIdentityService _identityService;
+		private readonly ITwoFactorMethodEventFactory _twoFactorMethodEventFactory;
 		private readonly IServiceProvider _serviceProvider;
 		private readonly ILogger<AccountController> _logger;
 
@@ -124,13 +129,39 @@ namespace Cis.Controllers
 			// % protected region % [Override UserListModel fields here] end
 		}
 
+		public class ConfigureTwoFactorModel
+		{
+			/// <summary>
+			/// The type of 2 factor method to be configured.
+			/// </summary>
+			[Required]
+			public string Method { get; set; }
+
+			/// <summary>
+			/// The username for the user to configure the 2 factor method for.
+			/// </summary>
+			[Required]
+			public string UserName { get; set; }
+		}
+
+		public class DisableTwoFactorModel
+		{
+			/// <summary>
+			/// The username of the user to disable 2fa for.
+			/// </summary>
+			[Required]
+			public string UserName { get; set; }
+		}
+
 		public AccountController(
 			// % protected region % [Add extra account controller arguments] off begin
 			// % protected region % [Add extra account controller arguments] end
 			UserManager<User> userManager,
 			IUserService userService,
 			RoleManager<Group> roleManager,
+			SignInManager<User> signInManager,
 			IIdentityService identityService,
+			ITwoFactorMethodEventFactory twoFactorMethodEventFactory,
 			IServiceProvider serviceProvider,
 			ILogger<AccountController> logger)
 		{
@@ -139,7 +170,9 @@ namespace Cis.Controllers
 			_userManager = userManager;
 			_userService = userService;
 			_roleManager = roleManager;
+			_signInManager = signInManager;
 			_identityService = identityService;
+			_twoFactorMethodEventFactory = twoFactorMethodEventFactory;
 			_serviceProvider = serviceProvider;
 			_logger = logger;
 		}
@@ -193,19 +226,39 @@ namespace Cis.Controllers
 		public async Task<UserListModel> GetUsers([FromBody] AllUserRequestModel options)
 		{
 			// % protected region % [Override GetUsers here] off begin
-			_identityService.RetrieveUserAsync().Wait();
+			await _identityService.RetrieveUserAsync();
 
 			var userQuery = _userManager.Users
-				.Where(UsersFilter.AllUsersFilter(_identityService.User, _identityService.Groups, DATABASE_OPERATION.READ, _serviceProvider))
+				.Where(UsersFilter.AllUsersFilter(
+					_identityService.User,
+					_identityService.Groups,
+					DATABASE_OPERATION.READ,
+					_serviceProvider))
 				.AddConditionalWhereFilter(options.SearchConditions)
 				.AddOrderBys(options.SortConditions);
+
+			var users = await userQuery
+				.AddPagination(new Pagination(options.PaginationOptions))
+				.ToListAsync();
+
+			var dtos = new List<UserDto>();
+			foreach (var user in users)
+			{
+				var dto = new UserDto(user);
+
+				// If a user has 2fa enabled then get their 2fa provider.
+				if (dto.TwoFactorEnabled)
+				{
+					dto.TwoFactorMethod = await _twoFactorMethodEventFactory.PickTwoFactorMethodAsync(user);
+				}
+
+				dtos.Add(dto);
+			}
+
 			return new UserListModel
 			{
 				countUsers = await userQuery.CountAsync(),
-				Users = userQuery
-					.AddPagination(new Pagination(options.PaginationOptions))
-					.ToList()
-					.Select(u => new UserDto(u))
+				Users = dtos,
 			};
 			// % protected region % [Override GetUsers here] end
 		}
@@ -224,17 +277,25 @@ namespace Cis.Controllers
 		public async Task<IActionResult> DeactivateUser([FromBody] UsernameModel deactivateUser)
 		{
 			// % protected region % [Override DeactivateUser here] off begin
-			_identityService.RetrieveUserAsync().Wait();
+			await _identityService.RetrieveUserAsync();
+
 			var user = _userManager.Users
-				.Where(UsersFilter.AllUsersFilter(_identityService.User, _identityService.Groups, DATABASE_OPERATION.UPDATE, _serviceProvider))
+				.Where(UsersFilter.AllUsersFilter(
+					_identityService.User,
+					_identityService.Groups,
+					DATABASE_OPERATION.UPDATE,
+					_serviceProvider))
 				.FirstOrDefault(u => u.UserName == deactivateUser.Username);
+
 			if (user == null)
 			{
 				return BadRequest("The user does not exist or you do not have permission to deactivate the user");
 			}
 
-			user.EmailConfirmed = false;
-			await _userManager.UpdateAsync(user);
+			// Lock them out until the end of time and update the security stamp to invalidate all current logins.
+			user.LockoutEnd = DateTimeOffset.MaxValue;
+			await _userManager.UpdateSecurityStampAsync(user);
+
 			return Ok();
 			// % protected region % [Override DeactivateUser here] end
 		}
@@ -253,18 +314,25 @@ namespace Cis.Controllers
 		public async Task<IActionResult> ActivateUser([FromBody] UsernameModel userModel)
 		{
 			// % protected region % [Override ActivateUser here] off begin
-			_identityService.RetrieveUserAsync().Wait();
+			await _identityService.RetrieveUserAsync();
+
 			var user = _userManager
 				.Users
-				.Where(UsersFilter.AllUsersFilter(_identityService.User, _identityService.Groups, DATABASE_OPERATION.UPDATE, _serviceProvider))
+				.Where(UsersFilter.AllUsersFilter(
+					_identityService.User,
+					_identityService.Groups,
+					DATABASE_OPERATION.UPDATE,
+					_serviceProvider))
 				.FirstOrDefault(u => u.UserName == userModel.Username);
+
 			if (user == null)
 			{
 				return BadRequest("The user does not exist or you do not have permission to activate the user");
 			}
 
 			user.EmailConfirmed = true;
-			await _userManager.UpdateAsync(user);
+			await _userManager.SetLockoutEndDateAsync(user, null);
+
 			return Ok();
 			// % protected region % [Override ActivateUser here] end
 		}
@@ -338,6 +406,166 @@ namespace Cis.Controllers
 			}
 		}
 		// % protected region % [Customize reset password endpoint here] end
+
+		// % protected region % [Customize get two factor methods endpoint here] off begin
+		/// <summary>
+		/// Gets the 2 factor methods that are available to be configured.
+		/// </summary>
+		/// <param name="userName">The username of the user to get the valid 2 factor methods for.</param>
+		/// <param name="cancellationToken">Cancellation token for the operation.</param>
+		/// <returns>list of 2 factor methods available to be configured.</returns>
+		[HttpGet("valid-2fa")]
+		[Authorize]
+		[ProducesResponseType(typeof(IEnumerable<string>), 200)]
+		public async Task<IActionResult> GetTwoFactorMethods(
+			[FromQuery]string userName,
+			CancellationToken cancellationToken = default)
+		{
+			await _identityService.RetrieveUserAsync();
+			var user = await _userManager
+				.Users
+				.Where(UsersFilter.AllUsersFilter(
+					_identityService.User,
+					_identityService.Groups,
+					DATABASE_OPERATION.READ,
+					_serviceProvider))
+				.FirstOrDefaultAsync(u => u.UserName == userName, cancellationToken);
+
+			if (user == null)
+			{
+				return Forbid();
+			}
+
+			return Ok(await _twoFactorMethodEventFactory.GetConfigurableTwoFactorMethods(user));
+		}
+		// % protected region % [Customize get two factor methods endpoint here] end
+
+		// % protected region % [Customize configure two factor endpoint here] off begin
+		/// <summary>
+		/// Configures a 2 factor authentication method. Note that if the user that that is specified to
+		/// configure two factor for in this request is logged in then they will be logged out within a minute.
+		/// If the current logged in user is the user being configured then they are logged out immediately and are
+		/// sent a two factor challenge.
+		/// </summary>
+		/// <param name="model">Parameters for the configuration.</param>
+		/// <param name="cancellationToken">Cancellation token for the operation.</param>
+		/// <returns>Information for the ui on how to finish setup of the method.</returns>
+		[HttpPost("configure-2fa")]
+		[Authorize]
+		public async Task<IActionResult> ConfigureTwoFactorAuthentication(
+			[FromBody]ConfigureTwoFactorModel model,
+			CancellationToken cancellationToken = default)
+		{
+			await _identityService.RetrieveUserAsync();
+			var user = await _userManager
+				.Users
+				.Where(UsersFilter.AllUsersFilter(
+					_identityService.User,
+					_identityService.Groups,
+					DATABASE_OPERATION.UPDATE,
+					_serviceProvider))
+				.FirstOrDefaultAsync(u => u.UserName == model.UserName, cancellationToken);
+
+			if (user == null)
+			{
+				return Forbid();
+			}
+
+			var methodEvents = _twoFactorMethodEventFactory.GetTwoFactorMethodEvents(model.Method);
+
+			try
+			{
+				var result = await methodEvents.OnConfiguring(user);
+				if (_identityService.User.UserName != model.UserName)
+				{
+					return Ok(result);
+				}
+
+				// If the current logged in user is the user that had the two factor authentication method changed then
+				// their security stamp will be changed and they will be logged out. Sign them in and if they need two
+				// factor then send them a token.
+				await HttpContext.SignOutAsync(IdentityConstants.ApplicationScheme);
+				var signInResult = await _signInManager.SignInOrTwoFactorAsync(user, false);
+				if (!signInResult.RequiresTwoFactor)
+				{
+					return Ok(result);
+				}
+
+				var token = await _userManager.GenerateUserTokenAsync(
+					user,
+					model.Method,
+					TwoFactorConstants.TokenPurpose);
+				await methodEvents.OnLogin(user, token);
+				return Ok(result);
+			}
+			catch (Exception e)
+			{
+				await methodEvents.OnRemoveMethod(user);
+				_logger.LogError("Error while activating authenticator app: {Exception}", e);
+				return Problem("Could not activate authenticator app");
+			}
+		}
+		// % protected region % [Customize configure two factor endpoint here] end
+
+		// % protected region % [Customize disable two factor endpoint here] off begin
+		/// <summary>
+		/// Removes two factor authentication from a user.
+		/// </summary>
+		/// <param name="model">Parameters for the operation.</param>
+		/// <param name="cancellationToken">Cancellation token for the operation.</param>
+		/// <returns>200 Ok on success. Other response codes otherwise.</returns>
+		[HttpPost("disable-2fa")]
+		[Authorize]
+		public async Task<IActionResult> DisableTwoFactorAuthentication(
+			[FromBody]DisableTwoFactorModel model,
+			CancellationToken cancellationToken = default)
+		{
+			await _identityService.RetrieveUserAsync();
+			var user = await _userManager
+				.Users
+				.Where(UsersFilter.AllUsersFilter(
+					_identityService.User,
+					_identityService.Groups,
+					DATABASE_OPERATION.UPDATE,
+					_serviceProvider))
+				.FirstOrDefaultAsync(u => u.UserName == model.UserName, cancellationToken);
+
+			if (user == null)
+			{
+				return Forbid();
+			}
+
+			if (!await _userManager.GetTwoFactorEnabledAsync(user))
+			{
+				return BadRequest("This user does not have two factor authentication enabled");
+			}
+
+			var method = await _twoFactorMethodEventFactory.PickTwoFactorMethodAsync(user);
+
+			if (method is not null)
+			{
+				var methodEvents = _twoFactorMethodEventFactory.GetTwoFactorMethodEvents(method);
+				await methodEvents.OnRemoveMethod(user);
+			}
+			else
+			{
+				// If a user has two factor enabled but no method, then they are in a bad state. In this case
+				// we just need to clean up as best as we can.
+				user.PreferredTwoFactorMethod = null;
+				await _userManager.SetTwoFactorEnabledAsync(user, false);
+			}
+
+			// If the user has changed their own 2 factor method then their security stamp will be changed.
+			// Therefore they need to be logged in with a new cookie. Since 2fa has just been removed use SignInAsync
+			// instead of SignInOrTwoFactorAsync.
+			if (_identityService.User.UserName == model.UserName)
+			{
+				await _signInManager.SignInAsync(user, false);
+			}
+
+			return Ok();
+		}
+		// % protected region % [Customize disable two factor endpoint here] end
 
 		private void AddErrors(IEnumerable<IdentityError> errors)
 		{

@@ -20,7 +20,7 @@ Feature: Delete all ServiceCommissioningBodyEntity on all pages
 # % protected region % [Override feature properties here] end
 	@ServiceCommissioningBodyEntity
 	Scenario: Delete all ServiceCommissioningBodyEntity on all pages
-	Given I have 10 valid ServiceCommissioningBodyEntity entities
+	Given I have 15 valid ServiceCommissioningBodyEntity entities
 	Given I login to the site as a user
 	And I navigate to the ServiceCommissioningBodyEntity backend page
 	When I select all entities on current page

@@ -29,7 +29,9 @@ Scenario: Visit the admin timeline page
 
 Scenario: Visit admin timelines page from RegionalAreaEntity admin crud
 	Given I login to the site as a user
-	And I navigate to the RegionalAreaEntity backend page
+	And I navigate to the RegionalAreaEntity admin crud page
+	And I click to create a RegionalAreaEntity
+	And I create a valid RegionalAreaEntity
 	Then A RegionalAreaEntity has a view in timeline option
 	And when I click the view in timeline option
 	And I am on the timeline graph view

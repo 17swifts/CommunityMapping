@@ -23,6 +23,10 @@ Multiple imports come here such as list view and timelines view
 
 /* Timelines behaviour, imported list view and timelines view is in the behaviour. 
 Everything else is here such as the layout, the header, menu, filter and sidebar */
+
+
+
+// % protected region % [Change timelines behaviour styles here] off begin
 .timelines-behaviour {
 	//import list view into the behaviour
 	@import 'timelines-list-view.scss';
@@ -190,3 +194,7 @@ Everything else is here such as the layout, the header, menu, filter and sidebar
 	}
 
 }
+
+// % protected region % [Change timelines behaviour styles here] end
+// % protected region % [Add additional timelines behaviour styles here] off begin
+// % protected region % [Add additional timelines behaviour styles here] end

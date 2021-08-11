@@ -21,6 +21,8 @@ Workflow Behaviour
 Multiple imports are here such as sidebar, landing, and preview. 
 */
 
+
+// % protected region % [Change workflows behaviour styles here] off begin
 .workflow-behaviour {
 	@import 'workflows-landing.scss';
 
@@ -65,3 +67,7 @@ Multiple imports are here such as sidebar, landing, and preview.
 	}
 	@import 'workflows-mobile.scss';
 }
+
+// % protected region % [Change workflows behaviour styles here] end
+// % protected region % [Add additional workflows behaviour styles here] off begin
+// % protected region % [Add additional workflows behaviour styles here] end

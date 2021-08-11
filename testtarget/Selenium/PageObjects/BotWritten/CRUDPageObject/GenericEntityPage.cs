@@ -193,6 +193,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject
 		// initialise all selectors and grouping them with the selector type which is used
 		private void InitializeSelectors()
 		{
+			// % protected region % [Modify the existing selectors or add additional selectors here] off begin
 			selectorDict.Add("SearchButton",(selector: "form.search__collection>button", type: SelectorType.CSS));
 			selectorDict.Add("SearchInput", (selector: "form.search__collection>div.input-group > input", type: SelectorType.CSS));
 			selectorDict.Add("CreateButton",(selector:"button.icon-create",type: SelectorType.CSS));
@@ -223,6 +224,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject
 			selectorDict.Add("FilterModifiedInput", (selector: ".filter-modified input", type: SelectorType.CSS));
 			selectorDict.Add("ApplyFilterButton", (selector: "button.apply-filters", type: SelectorType.CSS));
 			selectorDict.Add("ClearFilterButton", (selector: "button.clear-filters", type: SelectorType.CSS));
+			// % protected region % [Modify the existing selectors or add additional selectors here] end
 		}
 
 		public IWebElement SearchInput => FindElementExt("SearchInput");

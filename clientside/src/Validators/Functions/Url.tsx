@@ -46,10 +46,11 @@ export default function validate() {
 	};
 }
 
-
+// % protected region % [Override isUrl here] off begin
 export function isUrl(url: string): boolean {
 	return /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/.test(url);
 };
+// % protected region % [Override isUrl here] end
 
 // % protected region % [Add any extra methods here] off begin
 // % protected region % [Add any extra methods here] end

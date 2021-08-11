@@ -8,7 +8,7 @@ Welcome to your application! Below is an overview of the source code to help you
 
 Now that your app has been built, you have complete ownership of the source code, including the code that the codebots have written. All of the code is customisable and ready to use, whether it be for commercial or non-commercial purposes.
 
-**Bot version:** 2.3.0.0 ([Release notes are here](https://forum.codebots.com/t/c-bot-release-2-3-0-0/265))
+**Bot version:** 2.5.1.0 ([Release notes are here](https://forum.codebots.com/t/c-bot-release-2-5-1-0/392))
 
 ----
 
@@ -27,6 +27,7 @@ Now that your app has been built, you have complete ownership of the source code
 	- [Security](#security)
 	- [Client-side - React](#client-side)
 	- [Database type - POSTGRES](#database)
+	- [Redis and Caching](#redis-and-caching)
 	- [Export](#export)
 	- [Docker deployment](#docker-deployment)
 	- [Scheduled tasks](#scheduled-tasks)
@@ -39,7 +40,7 @@ Now that your app has been built, you have complete ownership of the source code
 	- [Theme](#theme)
 
 	- [Amazon S3](#amazon-s3)
-	- [Scheduled task storage provider - EF_CORE](#scheduled-task-storage-provider)
+	- [Scheduled task storage](#scheduled-task-storage)
 	- [Swagger UI](#swagger-ui)
 	- [GraphiQl](#graphiql)
 	- [ApiTests](#api-tests)
@@ -187,6 +188,18 @@ You can configure your database connection by going to `serverside/src/appsettin
 
 `<DbConnectionString>Server=localhost;Database=Cis;Username=postgres;Password=pass;</DbConnectionString>`
 
+### Redis and Caching
+
+For caching data, your application is configured to use a [Redis](https://redis.io/) database.
+
+Redis is a high performance key value store capable of quickly storing and retrieving data. A C#Bot application will use Redis for caching and storing Hangfire jobs if there is a Redis instance configured. If there is no Redis instance, then the application will fall back to in memory caching. In a production environment, it is strongly recommended to configure a Redis instance, so the cache is persistent and can be shared across application instances.
+
+To configure your Redis connection string, you need to update the `RedisConnectionString` property in `appsettings.xml` to point to your Redis instance. The default configuration (shown below) points to a Redis instance running on `localhost`.
+
+```xml
+<RedisConnectionString>localhost</RedisConnectionString>
+```
+
 ### Export
 
 Export allows you to export selected entity records from a Data Table component into a downloadable CSV file. The Export button will be displayed whenever any records are selected in a Data Table. Clicking the button will create a CSV file containing all the selected records, which can then be downloaded from the browser.
@@ -233,11 +246,11 @@ You can access the Hangfire dashboard in your target application by going to `/a
 
 > These properties are already configured for the test profile by default.
 
-#### Scheduled task storage provider
+#### Scheduled task storage
 
-Your app comes configured with EF_CORE as the storage provider for scheduled tasks.
+For the persistence and multi node processing of scheduled tasks, Hangfire requires that it's job queue is stored in a centralised location. If there is a [Redis database](#redis-and-caching) configured, then the application will use that for the storage. Otherwise, it will default to the main application database.
 
-This is the simplest scheduled task storage provider option offered by the bots. The task scheduler makes use of the database for persistence and clustering.
+> For more details on the integration, please see [Hangfire.Redis.StackExchange](https://github.com/marcoCasamento/Hangfire.Redis.StackExchange) and [Hangfire.EntityFrameworkCore](https://github.com/sergezhigunov/Hangfire.EntityFrameworkCore).
 
 ### Emails
 
@@ -249,16 +262,16 @@ To configure the email service, you need to set your SMTP settings in `appsettin
 
 ```xml
 <EmailAccount>
-		<Host>HOST@EXAMPLE.COM</Host>
-		<Username>EMAIL_SERVER_USERNAME</Username>
-		<Password>EMAIL_SERVER_PASSWORD</Password>
-		<FromAddress>MAIL@EXAMPLE.COM</FromAddress>
-		<FromAddressDisplayName>NOREPLY@EXAMPLE.COM</FromAddressDisplayName>
-		<Port>25</Port>
-		<EnableSsl>true</EnableSsl>
-		<RedirectToAddress></RedirectToAddress>
-		<BypassCertificateValidation>false</BypassCertificateValidation>
-		<SaveToLocalFile>false</SaveToLocalFile>
+	<Host>HOST@EXAMPLE.COM</Host>
+	<Username>EMAIL_SERVER_USERNAME</Username>
+	<Password>EMAIL_SERVER_PASSWORD</Password>
+	<FromAddress>MAIL@EXAMPLE.COM</FromAddress>
+	<FromAddressDisplayName>NOREPLY@EXAMPLE.COM</FromAddressDisplayName>
+	<Port>25</Port>
+	<EnableSsl>true</EnableSsl>
+	<RedirectToAddress></RedirectToAddress>
+	<BypassCertificateValidation>false</BypassCertificateValidation>
+	<SaveToLocalFile>false</SaveToLocalFile>
 </EmailAccount>
 ```
 
@@ -270,8 +283,8 @@ Auditing has been enabled for your application. All CRUD (create, read, update a
 
 The admin section of your application allows users with administrator access to access the backend of the application. This includes data management tables for every entity in the application.  This ensures that even if an entity is not directly manageable in the application's front-end, the data can still be handled by admin users. The following additional services are also included:
 
-* Data tables for user management* Configuration for the Timelines Extension
-
+* Data tables for user management
+* Configuration for the Timelines Extension
 To access the admin section of the application, you can either click the button in the top bar or navigate to the `/admin` route directly. Both of these options will only be available when the user is logged in and they have been granted administrator access, otherwise the top bar won't be shown, and any attempt to access the route directly will redirect to the 403 page.
 
 ### Design system docs

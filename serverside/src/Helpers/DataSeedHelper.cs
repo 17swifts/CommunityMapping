@@ -50,7 +50,7 @@ namespace Cis.Helpers
 		// % protected region % [Add any extra properties here] off begin
 		// % protected region % [Add any extra properties here] end
 
-		private static readonly List<SeedGroup> Roles = new List<SeedGroup>
+		public static readonly List<SeedGroup> Roles = new List<SeedGroup>
 		{
 			// % protected region % [Configure the modelled groups here] off begin
 			// Super administrators has no special access but just allows the super dev account to open to the admin
@@ -127,7 +127,7 @@ namespace Cis.Helpers
 			// % protected region % [Add any extra seeding here] end
 		}
 
-		private async Task CreateRole(SeedGroup seedGroup)
+		public async Task CreateRole(SeedGroup seedGroup)
 		{
 			var group = await _roleManager.FindByNameAsync(seedGroup.Name);
 			if (group == null)
@@ -154,7 +154,7 @@ namespace Cis.Helpers
 			}
 		}
 
-		private async Task CreateUser(
+		public async Task CreateUser(
 			User user,
 			string password,
 			IEnumerable<string> groups,

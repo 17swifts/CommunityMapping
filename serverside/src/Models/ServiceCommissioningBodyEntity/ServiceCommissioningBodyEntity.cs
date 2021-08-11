@@ -72,8 +72,9 @@ namespace Cis.Models {
 		{
 			// % protected region % [Override ACLs here] off begin
 			new SuperAdministratorsScheme(),
-			new AdminServiceCommissioningBodyEntity(),
+			new VisitorsServiceCommissioningBodyEntity(),
 			new ServiceCommissioningBodyServiceCommissioningBodyEntity(),
+			new AdminServiceCommissioningBodyEntity(),
 			// % protected region % [Override ACLs here] end
 			// % protected region % [Add any further ACL entries here] off begin
 			// % protected region % [Add any further ACL entries here] end

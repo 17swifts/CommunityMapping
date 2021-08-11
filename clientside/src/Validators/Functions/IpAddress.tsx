@@ -18,11 +18,16 @@
 import { Symbols } from 'Symbols';
 import { Model } from 'Models/Model';
 import { initValidators, IModelAttributeValidationError, ErrorType } from '../Util';
+// % protected region % [Add extra imports and exports here] off begin
+// % protected region % [Add extra imports and exports here] end
 
+// % protected region % [Override isIP here] off begin
 export function isIP(url: string): boolean {
 	return /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(url);
 }
+// % protected region % [Override isIP here] end
 
+// % protected region % [Override validate here] off begin
 export default function validate() {
 	return (target: object, key: string) => {
 		initValidators(target, key);
@@ -45,3 +50,4 @@ export default function validate() {
 		);
 	};
 }
+// % protected region % [Override validate here] end

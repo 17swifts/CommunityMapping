@@ -19,6 +19,8 @@ import classNames from 'classnames';
 import ReactModal, { Props as ModalProps } from 'react-modal';
 import { observer } from 'mobx-react';
 import { store } from "Models/Store";
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
 export interface IModalProps {
 	/** Is the modal open */
@@ -43,19 +45,28 @@ export interface IModalProps {
 	 * This will overwrite any props that are placed on the modal by this component
 	 */
 	modalProps?: ModalProps;
+	// % protected region % [Add any extra props here] off begin
+	// % protected region % [Add any extra props here] end
 }
 
+// % protected region % [Override root node here] off begin
 const rootId = 'root';
 const modalElement = document.getElementById(rootId);
+// % protected region % [Override root node here] end
 
 /**
  * A modal dialog that can display any content inside of it
  */
 @observer
-export default class Modal extends React.Component<IModalProps> {
+class Modal extends React.Component<IModalProps> {
+	// % protected region % [Add any extra methods here] off begin
+	// % protected region % [Add any extra methods here] end
+
 	public render() {
+		// % protected region % [Override render method here] off begin
 		if (!modalElement) {
-			throw new Error(`Could not find the #${rootId} element in the html. Could not create modal`);
+			console.error(`Could not find the #${rootId} element in the html. Could not create modal`);
+			return <></>;
 		}
 
 		return (
@@ -78,5 +89,10 @@ export default class Modal extends React.Component<IModalProps> {
 				{this.props.children}
 			</ReactModal>
 		);
+		// % protected region % [Override render method here] end
 	}
 }
+
+// % protected region % [Override default export here] off begin
+export default Modal;
+// % protected region % [Override default export here] end

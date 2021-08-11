@@ -26,7 +26,7 @@ using Xunit.Abstractions;
 
 namespace APITests.Setup
 {
-	class WebApi
+	public class WebApi
 	{
 		private readonly StartupTestFixture _configure;
 		private readonly ITestOutputHelper _output;

@@ -23,6 +23,9 @@ import { IAcl } from 'Models/Security/IAcl';
 import {
 	getCreatedModifiedCrudOptions,
 } from 'Util/EntityUtils';
+import { VisitorsMetricEntity } from 'Models/Security/Acl/VisitorsMetricEntity';
+import { ServiceCommissioningBodyMetricEntity } from 'Models/Security/Acl/ServiceCommissioningBodyMetricEntity';
+import { AdminMetricEntity } from 'Models/Security/Acl/AdminMetricEntity';
 import { EntityFormMode } from 'Views/Components/Helpers/Common';
 import {SuperAdministratorScheme} from '../Security/Acl/SuperAdministratorScheme';
 // % protected region % [Add any further imports here] off begin
@@ -42,6 +45,9 @@ export interface IMetricEntityAttributes extends IModelAttributes {
 export default class MetricEntity extends Model implements IMetricEntityAttributes {
 	public static acls: IAcl[] = [
 		new SuperAdministratorScheme(),
+		new VisitorsMetricEntity(),
+		new ServiceCommissioningBodyMetricEntity(),
+		new AdminMetricEntity(),
 		// % protected region % [Add any further ACL entries here] off begin
 		// % protected region % [Add any further ACL entries here] end
 	];

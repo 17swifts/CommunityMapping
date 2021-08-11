@@ -57,7 +57,7 @@ namespace Cis.Controllers
 		/// <returns>A user result on success or a list of errors on failure</returns>
 		[HttpPost]
 		[Route("admin-entity")]
-		[Authorize(Roles = "Admin,ServiceCommissioningBody,Super Administrators")]
+		[Authorize(Roles = "Visitors,ServiceCommissioningBody,Admin,Super Administrators")]
 		public async Task<IActionResult> RegisterAdminEntity([FromBody] AdminEntityRegistrationModel registrationModel)
 		{
 			var model = registrationModel.ToModel();
@@ -73,7 +73,7 @@ namespace Cis.Controllers
 		/// <returns>A user result on success or a list of errors on failure</returns>
 		[HttpPost]
 		[Route("service-commissioning-body-entity")]
-		[Authorize(Roles = "Admin,ServiceCommissioningBody,Super Administrators")]
+		[Authorize(Roles = "Visitors,ServiceCommissioningBody,Admin,Super Administrators")]
 		public async Task<IActionResult> RegisterServiceCommissioningBodyEntity([FromBody] ServiceCommissioningBodyEntityRegistrationModel registrationModel)
 		{
 			var model = registrationModel.ToModel();

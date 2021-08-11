@@ -21,6 +21,7 @@
 
 //****************-------FONTS--------****************
 
+// % protected region % [Set fonts and change font styles here] off begin
 // @import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700');
 // @import url("https://use.typekit.net/kxu7vbt.css");
 // //Import Icon Fonts
@@ -75,3 +76,7 @@ $admin-top-bar-height: 2.4rem;
 
 //set up variables for forms
 $slide-builder-list-width: convert-rem(400px);
+
+// % protected region % [Set fonts and change font styles here] end
+// % protected region % [Add additional variables here] off begin
+// % protected region % [Add additional variables here] end

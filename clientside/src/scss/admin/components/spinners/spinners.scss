@@ -23,6 +23,8 @@ There are various ways you can design a spinner, there are 4 spinners available 
 Animations are used from animation/motion.scss.
 */
 
+
+// % protected region % [Change spinner styles here] off begin
 .spinner-container {
 	position: fixed;
 	opacity: 1;
@@ -128,3 +130,7 @@ Animations are used from animation/motion.scss.
 #square-3 {
 	@include square($admin-slow-animation-time);
 }
+
+// % protected region % [Change spinner styles here] end
+// % protected region % [Add additional spinner styles here] off begin
+// % protected region % [Add additional spinner styles here] end

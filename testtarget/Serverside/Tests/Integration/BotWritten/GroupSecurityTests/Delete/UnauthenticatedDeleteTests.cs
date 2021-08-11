@@ -38,19 +38,24 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Delete
 			// % protected region % [Add constructor logic here] end
 		}
 
-		public static TheoryData<IAbstractModel, string, string> DeleteUnauthenticatedSecurityData =>
-			new TheoryData<IAbstractModel, string,string>
+		public static TheoryData<IAbstractModel, string, string> DeleteUnauthenticatedSecurityData 
+		{
+			get
 			{
-				// % protected region % [Configure theory data for Unauthenticated here] off begin
-				{new RegionalAreaEntity(), SecurityStringHelper.UserPermissionDenied, null},
-				{new ServiceEntity(), SecurityStringHelper.NoApplicableSchemes, null},
-				{new MetricEntity(), SecurityStringHelper.NoApplicableSchemes, null},
-				{new RegionalAreaTimelineEventsEntity(), SecurityStringHelper.UserPermissionDenied, null},
-				// % protected region % [Configure theory data for Unauthenticated here] end
-
+				var data = new TheoryData<IAbstractModel, string,string>
+				{
+					// % protected region % [Configure entity theory data for Unauthenticated here] off begin
+					{new RegionalAreaEntity(), SecurityStringHelper.UserPermissionDenied, null},
+					{new ServiceEntity(), SecurityStringHelper.UserPermissionDenied, null},
+					{new MetricEntity(), SecurityStringHelper.UserPermissionDenied, null},
+					{new RegionalAreaTimelineEventsEntity(), SecurityStringHelper.UserPermissionDenied, null},
+					// % protected region % [Configure entity theory data for Unauthenticated here] end
+				};
 				// % protected region % [Add any extra theory data here] off begin
 				// % protected region % [Add any extra theory data here] end
-			};
+				return data;
+			}
+		}
 
 		[Theory]
 		[MemberData(nameof(DeleteUnauthenticatedSecurityData))]

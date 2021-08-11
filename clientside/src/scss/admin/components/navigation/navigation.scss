@@ -20,7 +20,7 @@ Navigation
 /*
 Styling for basic navigation, vertical navigation and horizontal navigation.
 */
-
+// % protected region % [Change generic nav styles here] off begin
 .nav {
 	background-color: $admin-color-brand-03;
 	display: flex;
@@ -175,8 +175,9 @@ Styling for basic navigation, vertical navigation and horizontal navigation.
 		}
 	}
 }
+// % protected region % [Change generic nav styles here] end
 
-
+// % protected region % [Change tabs styles here] off begin
 /*Tabs*/
 
 .tabs {
@@ -215,7 +216,9 @@ Styling for basic navigation, vertical navigation and horizontal navigation.
 		}
 	}
 }
+// % protected region % [Change tabs styles here] end
 
+// % protected region % [Change tabs styles here] off begin
 /*Breadcrumbs*/
 .breadcrumbs {
 	padding-left: unset;
@@ -244,11 +247,11 @@ Styling for basic navigation, vertical navigation and horizontal navigation.
 		}
 	}
 }
-
+// % protected region % [Change tabs styles here] end
 
 /************ MOBILE NAVIGATION ***********/
 
-
+// % protected region % [Change navigation mobile styles here] off begin
 @include media(xs, sm, md) {
 
 	//Horizontal mobile responsive
@@ -422,3 +425,7 @@ Styling for basic navigation, vertical navigation and horizontal navigation.
 		}
 	}
 }
+// % protected region % [Change navigation mobile styles here] end
+
+// % protected region % [Add additional navigation styles here] off begin
+// % protected region % [Add additional navigation styles here] end

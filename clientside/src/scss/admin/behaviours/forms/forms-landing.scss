@@ -18,6 +18,7 @@
 Forms landing page with the squares
 -------------------------------- */
 
+// % protected region % [Make changes to forms landing page here] off begin
 &.forms-behaviour__landing {
 	padding: $admin-space-md $admin-space-lg;
 	overflow: auto;
@@ -105,3 +106,6 @@ Forms landing page with the squares
 		}
 	}
 }
+// % protected region % [Make changes to forms landing page here] end
+// % protected region % [Add additional styles here] off begin
+// % protected region % [Add additional styles here] end

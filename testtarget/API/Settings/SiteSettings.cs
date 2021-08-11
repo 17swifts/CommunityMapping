@@ -14,10 +14,16 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
+// % protected region % [Add any further imports here] off begin
+// % protected region % [Add any further imports here] end
 namespace APITests.Settings
 {
 	public class SiteSettings
 	{
+		// % protected region % [Adjust the base url here] off begin
 		public string BaseUrl { get; set; } = "http://localhost:5000";
+		// % protected region % [Adjust the base url here] end
+		// % protected region % [Add any further site settings here] off begin
+		// % protected region % [Add any further site settings here] end
 	}
 }

@@ -20,7 +20,7 @@ CRUD
 
 /********** CRUD BUTTONS **********/
 
-
+// % protected region % [Make changes to CRUD component here] off begin
 /********** CRUD CREATE NEW OR EDIT **********/
 .crud-component {
 	padding: $admin-space-lg;
@@ -111,3 +111,6 @@ CRUD
 		color: $admin-color-support-red;
 	}
 }
+// % protected region % [Make changes to CRUD component here] end
+// % protected region % [Add additional CRUD styles here] off begin
+// % protected region % [Add additional CRUD styles here] end

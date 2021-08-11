@@ -22,6 +22,8 @@ https://medium.com/codyhouse/create-your-design-system-part-2-grid-layout-aa961d
 /* -------------------------------- 
   Flexbox
   -------------------------------- */
+
+// % protected region % [Change admin layout] off begin
 $admin-grid-gap: $admin-space-sm !default;
 
 //Set up the main content area with a flexable grid based layout
@@ -116,3 +118,6 @@ $admin-grid-columns: 12 !default;
 		justify-content: space-between;
 	}
 }
+// % protected region % [Change admin layout] end
+// % protected region % [Add additional layout here] off begin
+// % protected region % [Add additional layout here] end

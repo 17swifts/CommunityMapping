@@ -266,6 +266,13 @@ class AsyncCombobox<T, I> extends React.Component<InternalAsyncComboboxProps<T, 
 		}
 	};
 
+	@action
+	private onOpen = () => {
+		if (this.lastSearchQuery !== '') {
+			this.searchOptions('');
+		}
+	}
+
 	constructor(props: InternalAsyncComboboxProps<T, I>, context: any) {
 		super(props, context);
 		if (this.props.initialOptions) {
@@ -302,6 +309,7 @@ class AsyncCombobox<T, I> extends React.Component<InternalAsyncComboboxProps<T, 
 					onAfterChange={this.props.onAfterChange}
 					onChange={this.props.onChange}
 					optionEqualFunc={this.props.optionEqualFunc}
+					onOpen={this.onOpen}
 					{...this.props.inputProps}
 				/>;
 		}
@@ -364,7 +372,7 @@ class InnerCombobox<T, I> extends React.Component<InnerComboboxProps<T, I>> {
 			}
 		}
 
-		return undefined;
+		return '';
 	}
 
 	private set selectedItem(value: undefined | boolean | number | string | (boolean | number | string)[]) {
@@ -401,7 +409,6 @@ class InnerCombobox<T, I> extends React.Component<InnerComboboxProps<T, I>> {
 		} else {
 			const { value } = data;
 			this.selectedItem = value;
-			// this.props.model[this.props.modelProperty] = value;
 		}
 
 		// If there is any logic to be done after the change of the combobox, do it here

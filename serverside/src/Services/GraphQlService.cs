@@ -43,6 +43,9 @@ namespace Cis.Services
 		public IServiceProvider ServiceProvider { get; set; }
 		public IAuditService AuditService { get; set; }
 		public IFormFileCollection Files { get; set; }
+
+		// % protected region % [Add any extra user context fields here] off begin
+		// % protected region % [Add any extra user context fields here] end
 	}
 
 	public class GraphQlService : IGraphQlService
@@ -59,7 +62,12 @@ namespace Cis.Services
 		private readonly DataLoaderDocumentListener _dataLoaderDocumentListener;
 		private readonly IAuditService _auditService;
 
+		// % protected region % [Add any extra class fields here] off begin
+		// % protected region % [Add any extra class fields here] end
+
 		public GraphQlService(
+			// % protected region % [Add any extra constructor arguments here] off begin
+			// % protected region % [Add any extra constructor arguments here] end
 			ISchema schema,
 			IDocumentExecuter executer,
 			CisDBContext dataContext,
@@ -83,6 +91,8 @@ namespace Cis.Services
 			_serviceProvider = serviceProvider;
 			_dataLoaderDocumentListener = dataLoaderDocumentListener;
 			_auditService = auditService;
+			// % protected region % [Add any extra constructor logic here] off begin
+			// % protected region % [Add any extra constructor logic here] end
 		}
 
 		/// <inheritdoc />
@@ -94,6 +104,7 @@ namespace Cis.Services
 			User user,
 			CancellationToken cancellation)
 		{
+			// % protected region % [Override Execute method here] off begin
 			await _identityService.RetrieveUserAsync();
 
 			var executionOptions = new ExecutionOptions
@@ -128,6 +139,10 @@ namespace Cis.Services
 				.ConfigureAwait(false);
 
 			return result;
+			// % protected region % [Override Execute method here] end
 		}
+
+		// % protected region % [Add any extra methods here] off begin
+		// % protected region % [Add any extra methods here] end
 	}
 }

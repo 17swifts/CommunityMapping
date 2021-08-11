@@ -44,6 +44,7 @@ namespace SeleniumTests.Steps.BotWritten.TopBar
 			(new TopBarMenuAdmin(_contextConfiguration)).TopBarLink.Click();
 		}
 
+		// % protected region % [Override ThenIAssertThatTheAdminBarIsOnTheAdmin here] off begin
 		[StepDefinition(@"I assert that the admin bar is on the (.*)")]
 		public void ThenIAssertThatTheAdminBarIsOnTheAdmin(TopbarMenuType topBarMenuText)
 		{
@@ -61,6 +62,7 @@ namespace SeleniumTests.Steps.BotWritten.TopBar
 					throw new Exception($"Could not find {topBarMenuText} url");
 			}
 		}
+		// % protected region % [Override ThenIAssertThatTheAdminBarIsOnTheAdmin here] end
 
 		[StepArgumentTransformation]
 		public static TopbarMenuType TransformStringToTopbarMenuTypeEnum(string topbarMenuType)

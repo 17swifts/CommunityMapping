@@ -21,7 +21,10 @@ import { getFetchAllQuery } from 'Util/EntityUtils';
 import { store } from 'Models/Store';
 import { modelName as modelNameSymbol } from 'Symbols';
 import { lowerCaseFirst } from 'Util/StringUtils';
+// % protected region % [Add extra imports and exports here] off begin
+// % protected region % [Add extra imports and exports here] end
 
+// % protected region % [Override validate here] off begin
 export default function validate() {
 	return (target: object, key: string) => {
 		initValidators(target, key);
@@ -56,3 +59,4 @@ export default function validate() {
 		);
 	};
 }
+// % protected region % [Override validate here] end

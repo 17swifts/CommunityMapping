@@ -18,18 +18,29 @@ import * as React from "react";
 import { observer } from 'mobx-react';
 import { action, computed, observable } from 'mobx';
 import { TextField, ITextFieldProps } from '../TextBox/TextBox';
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
+// % protected region % [Adjust validation message here] off begin
 const errorMessage = 'The value must be a number';
+const notWholeNumberErrorMessage = 'The value must be a whole number';
+// % protected region % [Adjust validation message here] end
 
 type numberModel = {
 	number?: string,
 };
 
+export interface INumberTextFieldProps<T> extends ITextFieldProps<T> {
+	acceptWholeNumbersOnly?: boolean;
+	// % protected region % [Add extra INumberTextFieldProps here] off begin
+	// % protected region % [Add extra INumberTextFieldProps here] end
+}
+
 /**
  * A text field that will cast the value typed into it to a number and will not allow non numbers to be typed into it
  */
 @observer
-export class NumberTextField<T> extends React.Component<ITextFieldProps<T>> {
+export class NumberTextField<T> extends React.Component<INumberTextFieldProps<T>> {
 	/**
 	 * An internal model that contains the string value of the number that is stored in the real model
 	 * This allows for values such as '1.' to be displayed even though it is really just '1'
@@ -106,6 +117,12 @@ export class NumberTextField<T> extends React.Component<ITextFieldProps<T>> {
 		// Check if the input is actually a number
 		if (isNaN(numberValue) && textValue !== '-') {
 			this.error = errorMessage;
+			return;
+		}
+
+		// If this input only accepts whole numbers, check that next
+		if(this.props.acceptWholeNumbersOnly && textValue.includes('.')) {
+			this.error = notWholeNumberErrorMessage;
 			return;
 		}
 

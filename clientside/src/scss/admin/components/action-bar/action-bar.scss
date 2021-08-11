@@ -20,6 +20,8 @@ Action bar
 /*
 This component is a bar that can be used in your target project and placed in the bottom of the page with action buttons 
 */
+
+// % protected region % [Change action bar styles here] off begin
 .action-bar {
 	display: flex;
 	align-items: center;
@@ -40,3 +42,7 @@ This component is a bar that can be used in your target project and placed in th
 		}
 	}
 }
+
+// % protected region % [Change action bar styles here] end
+// % protected region % [Add additional action bar styles here] off begin
+// % protected region % [Add additional action bar styles here] end

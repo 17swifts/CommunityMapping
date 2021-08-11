@@ -44,7 +44,7 @@ export default class RegionalAreaTimelineEventsEntityPage extends React.Componen
 		// % protected region % [Override contents here] end
 
 		return (
-			<SecuredPage groups={["Super Administrators", "Admin","Visitors","ServiceCommissioningBody"]}>
+			<SecuredPage groups={["Super Administrators", "Visitors","ServiceCommissioningBody","Admin"]}>
 				{contents}
 			</SecuredPage>
 		);

@@ -20,6 +20,8 @@
 // or consistent patterns like borders for particular components. Like variables, if you find yourself writing code over and over
 // make it into a mixin.
 
+
+// % protected region % [Change mixins] off begin
 //****************-------MEDIA QUERIES--------****************
 // Breakpoints for CSS variables
 // Used for the typography, spacing and the inputs
@@ -598,3 +600,7 @@ textarea {
 		box-shadow: inset convert-rem(0px) convert-rem(-2px) convert-rem(2px) convert-rem(0px) $admin-grey-2;
 	}
 }
+
+// % protected region % [Change mixins] end
+// % protected region % [Add additional mixins here] off begin
+// % protected region % [Add additional mixins here] end

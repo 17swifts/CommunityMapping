@@ -72,7 +72,7 @@ export default class Frontend extends React.Component<RouteComponentProps> {
 								{
 								// % protected region % [customize the universal public routes] off begin
 								}
-								<Route path="/login" component={Pages.LoginPage} />
+								<Route path="/login" component={Pages.LoginRoutes} />
 								<Route path="/logout" component={Logout} />
 								<Route path="/register" component={Pages.RegistrationPage} />
 								<Route path="/confirm-email" component={Pages.RegistrationConfirmPage} />

@@ -20,7 +20,7 @@ Feature: Delete all ServiceEntity on all pages
 # % protected region % [Override feature properties here] end
 	@ServiceEntity
 	Scenario: Delete all ServiceEntity on all pages
-	Given I have 10 valid ServiceEntity entities
+	Given I have 15 valid ServiceEntity entities
 	Given I login to the site as a user
 	And I navigate to the ServiceEntity backend page
 	When I select all entities on current page

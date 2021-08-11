@@ -22,6 +22,7 @@ Sidebar that displays information sliding from either left or right side.
 Example is a history/audit button.
 */
 
+// % protected region % [Change sidebar styles here] off begin
 .sidebar__btn {
 	margin: 0 0 0 $admin-space-lg;
 }
@@ -193,3 +194,6 @@ Example is a history/audit button.
 		}
 	}
 }
+// % protected region % [Change sidebar styles here] end
+// % protected region % [Add additional sidebar styles here] off begin
+// % protected region % [Add additional sidebar styles here] end

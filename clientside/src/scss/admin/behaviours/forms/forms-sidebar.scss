@@ -18,6 +18,8 @@
 Forms sidebar 
 -------------------------------- */
 
+
+// % protected region % [Change forms sidebar styles here] off begin
 //Left side when editing and creating the form
 .slide-builder__list {
 	padding-bottom: $admin-space-md;
@@ -186,3 +188,6 @@ Forms sidebar
 		}
 	}
 }
+// % protected region % [Change forms sidebar styles here] end
+// % protected region % [Add additional forms sidebar styles here] off begin
+// % protected region % [Add additional forms sidebar styles here] end

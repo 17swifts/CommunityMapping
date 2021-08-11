@@ -29,6 +29,7 @@ addition to your desired animation. IE:
 
 @import 'animatelibrary.scss';
 
+// % protected region % [Change animations mixins here] off begin
 @mixin heightScaleIn($duration: linear) {
 	transition: transform $duration ease-out;
 	transform: scaleY(1);
@@ -766,3 +767,6 @@ addition to your desired animation. IE:
 	animation-name: zoomIn3;
 	animation-duration: $duration;
 }
+// % protected region % [Change animations mixins here] end
+// % protected region % [Add additional motion mixins here] off begin
+// % protected region % [Add additional motion mixins here] end

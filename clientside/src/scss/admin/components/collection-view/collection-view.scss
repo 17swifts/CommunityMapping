@@ -22,6 +22,8 @@ Mobile responsive - ideal to display grid when on mobile devices
 */
 
 
+
+// % protected region % [Change collection view styles here] off begin
 .collection-component {
 
 	/***** Top section of collection *****/
@@ -80,3 +82,7 @@ Mobile responsive - ideal to display grid when on mobile devices
 
 	@import 'collection-mobile.scss';
 }
+
+// % protected region % [Change collection view styles here] end
+// % protected region % [Add additional collection view styles here] off begin
+// % protected region % [Add additional collection view styles here] end

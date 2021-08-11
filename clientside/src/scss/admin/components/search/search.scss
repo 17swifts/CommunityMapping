@@ -21,6 +21,7 @@ Search
 Found above collection list 
 */
 
+// % protected region % [Change search styles here] off begin
 .search {
 	display: flex;
 	position: relative;
@@ -54,3 +55,6 @@ Found above collection list
 		padding: $admin-space-sm;
 	}
 }
+// % protected region % [Change search styles here] end
+// % protected region % [Add additional search styles here] off begin
+// % protected region % [Add additional search styles here] end

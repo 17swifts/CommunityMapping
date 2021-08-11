@@ -47,6 +47,7 @@ import moment from 'moment';
 import { AttributeCRUDOptions } from 'Models/CRUDOptions';
 import { convertCaseComparisonToPascalCase } from 'Util/GraphQLUtils';
 import { IWhereConditionApi } from '../ModelCollection/ModelQuery';
+import { EntityFormMode } from 'Views/Components/Helpers/Common';
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
 
@@ -90,6 +91,9 @@ export interface IEntityCollectionProps<T extends Model> extends RouteComponentP
 	disableUpdateButtonSecurity?: boolean;
 	disableDeleteButtonSecurity?: boolean;
 	headerAttributes?: AttributeCRUDOptions[];
+	additionalActions?: React.ReactNode[];
+	/** Function to mutate the attribute options before it is rendered */
+	mutateOptions?: (model: Model | Model[], options: AttributeCRUDOptions[], formMode: EntityFormMode) => AttributeCRUDOptions[];
 	// % protected region % [Add any extra props here] off begin
 	// % protected region % [Add any extra props here] end
 }
@@ -255,14 +259,14 @@ class EntityCollection<T extends Model> extends React.Component<IEntityCollectio
 		const { modelType } = this.props;
 		const modelName = getModelName(modelType);
 
-		const tableHeaders = this.getHeaders();
-		const tableActions = this.getTableActions(refetch);
-
 		this.models = [];
 		const dataModelName = lowerCaseFirst(modelName + 's');
 		if (data[dataModelName]) {
 			this.models = data[dataModelName].map((e: any) => new modelType(e));
 		}
+
+		const tableHeaders = this.getHeaders();
+		const tableActions = this.getTableActions(refetch);
 
 		const countName = `count${modelName}s`;
 		let totalRecords = 0;
@@ -270,7 +274,9 @@ class EntityCollection<T extends Model> extends React.Component<IEntityCollectio
 			totalRecords = data[countName]['number'];
 		}
 
-		let additionalActions: React.ReactNode[] = [];
+		const additionalActions: React.ReactNode[] = this.props.additionalActions !== undefined
+			? [...this.props.additionalActions]
+			: [];
 		if(this.security.create) {
 			additionalActions.push(this.renderCreateButton(refetch));
 		}
@@ -471,8 +477,15 @@ class EntityCollection<T extends Model> extends React.Component<IEntityCollectio
 
 	// % protected region % [Customize GetHeaders method here] off begin
 	public getHeaders = (): Array<ICollectionHeaderProps<T>> => {
-
-		const attributeOptions = this.props.headerAttributes ?? getAttributeCRUDOptions(this.props.modelType);
+		let attributeOptions: AttributeCRUDOptions[];
+		if (this.props.headerAttributes) {
+			attributeOptions = this.props.headerAttributes;
+		} else {
+			attributeOptions = getAttributeCRUDOptions(this.props.modelType);
+			if (this.props.mutateOptions) {
+				attributeOptions = this.props.mutateOptions(this.models, attributeOptions, EntityFormMode.VIEW);
+			}
+		}
 
 		return attributeOptions.filter(attributeOption => attributeOption.headerColumn)
 			.map(attributeOption => {

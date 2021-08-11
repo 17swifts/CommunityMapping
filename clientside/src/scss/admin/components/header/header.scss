@@ -21,6 +21,8 @@ Header
 Generic header element styling
 */
 
+
+// % protected region % [Change header styles here] off begin
 header {
 	display: flex;
 
@@ -89,3 +91,7 @@ header {
 		}
 	}
 }
+
+// % protected region % [Change header styles here] end
+// % protected region % [Add additional header styles here] off begin
+// % protected region % [Add additional header styles here] end

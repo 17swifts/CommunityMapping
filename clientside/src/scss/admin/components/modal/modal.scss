@@ -22,6 +22,8 @@ This is the container for modals, which places them above the other content and 
 */
 
 
+
+// % protected region % [Change modal styles here] off begin
 .modal-container {
 	background-color: rgba($admin-white, 0.75);
 	position: fixed;
@@ -93,3 +95,7 @@ This is the container for modals, which places them above the other content and 
 		}
 	}
 }
+
+// % protected region % [Change modal styles here] end
+// % protected region % [Add additional modal styles here] off begin
+// % protected region % [Add additional modal styles here] end

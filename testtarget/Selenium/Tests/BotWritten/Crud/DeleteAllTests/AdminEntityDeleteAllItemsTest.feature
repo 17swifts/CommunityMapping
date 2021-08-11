@@ -20,7 +20,7 @@ Feature: Delete all AdminEntity on all pages
 # % protected region % [Override feature properties here] end
 	@AdminEntity
 	Scenario: Delete all AdminEntity on all pages
-	Given I have 10 valid AdminEntity entities
+	Given I have 15 valid AdminEntity entities
 	Given I login to the site as a user
 	And I navigate to the AdminEntity backend page
 	When I select all entities on current page

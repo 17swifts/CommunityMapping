@@ -28,8 +28,9 @@ import {
 	makeJoinEqualsFunc,
 	getCreatedModifiedCrudOptions,
 } from 'Util/EntityUtils';
-import { AdminServiceCommissioningBodyEntity } from 'Models/Security/Acl/AdminServiceCommissioningBodyEntity';
+import { VisitorsServiceCommissioningBodyEntity } from 'Models/Security/Acl/VisitorsServiceCommissioningBodyEntity';
 import { ServiceCommissioningBodyServiceCommissioningBodyEntity } from 'Models/Security/Acl/ServiceCommissioningBodyServiceCommissioningBodyEntity';
+import { AdminServiceCommissioningBodyEntity } from 'Models/Security/Acl/AdminServiceCommissioningBodyEntity';
 import { EntityFormMode } from 'Views/Components/Helpers/Common';
 import {SuperAdministratorScheme} from '../Security/Acl/SuperAdministratorScheme';
 // % protected region % [Add any further imports here] off begin
@@ -53,8 +54,9 @@ export interface IServiceCommissioningBodyEntityAttributes extends IModelAttribu
 export default class ServiceCommissioningBodyEntity extends Model implements IServiceCommissioningBodyEntityAttributes {
 	public static acls: IAcl[] = [
 		new SuperAdministratorScheme(),
-		new AdminServiceCommissioningBodyEntity(),
+		new VisitorsServiceCommissioningBodyEntity(),
 		new ServiceCommissioningBodyServiceCommissioningBodyEntity(),
+		new AdminServiceCommissioningBodyEntity(),
 		// % protected region % [Add any further ACL entries here] off begin
 		// % protected region % [Add any further ACL entries here] end
 	];

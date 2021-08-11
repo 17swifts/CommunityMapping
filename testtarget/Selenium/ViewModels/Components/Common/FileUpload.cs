@@ -48,7 +48,15 @@ namespace SeleniumTests.ViewModels.Components.Common
 		// % protected region % [Override GetValue here] off begin
 		public string GetValue()
 		{
-			return ContextConfiguration.WebDriver.FindElementExt(new ByChained(Selector, By.CssSelector("a.file-name"))).Text;
+			try
+			{
+				return ContextConfiguration.WebDriver
+					.FindElementExt(new ByChained(Selector, By.CssSelector("a.file-name"))).Text;
+			}
+			catch
+			{
+				return string.Empty;
+			}
 		}
 		// % protected region % [Override GetValue here] end
 

@@ -24,9 +24,9 @@ import { IAcl } from 'Models/Security/IAcl';
 import {
 	getCreatedModifiedCrudOptions,
 } from 'Util/EntityUtils';
-import { AdminRegionalAreaEntity } from 'Models/Security/Acl/AdminRegionalAreaEntity';
 import { VisitorsRegionalAreaEntity } from 'Models/Security/Acl/VisitorsRegionalAreaEntity';
 import { ServiceCommissioningBodyRegionalAreaEntity } from 'Models/Security/Acl/ServiceCommissioningBodyRegionalAreaEntity';
+import { AdminRegionalAreaEntity } from 'Models/Security/Acl/AdminRegionalAreaEntity';
 import { EntityFormMode } from 'Views/Components/Helpers/Common';
 import {SuperAdministratorScheme} from '../Security/Acl/SuperAdministratorScheme';
 // % protected region % [Add any further imports here] off begin
@@ -50,9 +50,9 @@ export interface IRegionalAreaTimelineEventsEntityAttributes extends IModelAttri
 export default class RegionalAreaTimelineEventsEntity extends Model implements IRegionalAreaTimelineEventsEntityAttributes {
 	public static acls: IAcl[] = [
 		new SuperAdministratorScheme(),
-		new AdminRegionalAreaEntity(),
 		new VisitorsRegionalAreaEntity(),
 		new ServiceCommissioningBodyRegionalAreaEntity(),
+		new AdminRegionalAreaEntity(),
 		// % protected region % [Add any further ACL entries here] off begin
 		// % protected region % [Add any further ACL entries here] end
 	];

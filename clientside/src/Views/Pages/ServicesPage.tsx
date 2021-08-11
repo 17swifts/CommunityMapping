@@ -44,7 +44,7 @@ class ServicesPage extends React.Component<ServicesPageProps> {
 		// % protected region % [Add logic before rendering contents here] end
 
 		let contents = (
-			<SecuredPage groups={['Super Administrators']}>
+			<SecuredPage groups={['Super Administrators', 'ServiceCommissioningBody', 'Admin']}>
 				{
 				// % protected region % [Alter navigation here] off begin
 				}

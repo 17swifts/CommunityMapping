@@ -18,8 +18,9 @@ import { Model, IModelAttributes, attribute, entity } from 'Models/Model';
 import * as Models from 'Models/Entities';
 import { IAcl } from '../Security/IAcl';
 import { observable } from 'mobx';
-import { AdminServicesReferenceManyToMany } from '../Security/Acl/AdminServicesReferenceManyToMany';
+import { VisitorsServicesReferenceManyToMany } from '../Security/Acl/VisitorsServicesReferenceManyToMany';
 import { ServiceCommissioningBodyServicesReferenceManyToMany } from '../Security/Acl/ServiceCommissioningBodyServicesReferenceManyToMany';
+import { AdminServicesReferenceManyToMany } from '../Security/Acl/AdminServicesReferenceManyToMany';
 
 // % protected region % [Add any further imports here] off begin
 // % protected region % [Add any further imports here] end
@@ -37,8 +38,9 @@ export interface IServiceCommissioningBodiesServicesAttributes extends IModelAtt
 @entity('ServiceCommissioningBodiesServices')
 export default class ServiceCommissioningBodiesServices extends Model implements IServiceCommissioningBodiesServicesAttributes {
 	public static acls: IAcl[] = [
-		new AdminServicesReferenceManyToMany(),
+		new VisitorsServicesReferenceManyToMany(),
 		new ServiceCommissioningBodyServicesReferenceManyToMany(),
+		new AdminServicesReferenceManyToMany(),
 		// % protected region % [Add any further ACL entries here] off begin
 		// % protected region % [Add any further ACL entries here] end
 	];

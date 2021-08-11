@@ -17,7 +17,7 @@
 /* --------------------------------
 Forms preview page - upon editing
 -------------------------------- */
-
+// % protected region % [Change forms preview styles here] off begin
 .forms-preview {
 	overflow: auto;
 	padding: $admin-space-md;
@@ -34,3 +34,7 @@ Forms preview page - upon editing
 		}
 	}
 }
+
+// % protected region % [Change forms preview styles here] end
+// % protected region % [Add additional forms preview styles here] off begin
+// % protected region % [Add additional forms preview styles here] end

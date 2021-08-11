@@ -52,6 +52,7 @@ namespace APITests.Tests.BotWritten
 				new EntityFactory("RegionalAreaTimelineEventsEntity"),
 			};
 		}
+		// % protected region % [Customize CreateInvalidEntity here] off begin
 		[Theory]
 		[Trait("Category", "BotWritten")]
 		[Trait("Category", "Integration")]
@@ -90,6 +91,7 @@ namespace APITests.Tests.BotWritten
 			var invalidEntities = entityObject.GetInvalidMutatedJsons().ToList();
 			CheckInvalidJsonsForInvalidResponse(entityObject, invalidEntities, client);
 		}
+		// % protected region % [Customize CreateInvalidEntity here] end
 
 		// % protected region % [Customize CheckInvalidJsonsForInvalidResponse method here] off begin
 		private void CheckInvalidJsonsForInvalidResponse(BaseEntity entityObject, List<(string expectedError,

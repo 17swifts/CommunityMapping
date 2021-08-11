@@ -15,6 +15,7 @@
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Cis.Services;
 using Cis.Services.Interfaces;
@@ -30,7 +31,7 @@ namespace ServersideTests.Helpers.Services
 		// % protected region % [Customise SentEmails here] end
 
 		// % protected region % [Customise SendEmail here] off begin
-		public Task<bool> SendEmail(EmailEntity emailToSend)
+		public Task<bool> SendEmail(EmailEntity emailToSend, CancellationToken cancellationToken = default)
 		{
 			SentEmails.Add(emailToSend);
 			return Task.FromResult(true);

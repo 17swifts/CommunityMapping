@@ -36,13 +36,17 @@ namespace Cis.Helpers
 			Expression<Func<TModel, bool>> baseRule = _ => false;
 			var filter = Expression.OrElse(baseRule.Body, baseRule.Body);
 
-			filter = expressions.Aggregate(filter, (current, expression) =>
-				Expression.OrElse(current, expression.Body));
-
 			var param = Expression.Parameter(typeof(TModel), "model");
-			var replacer = new ParameterReplacer(param);
 
-			return Expression.Lambda<Func<TModel, bool>>(replacer.Visit(filter), param);
+			filter = expressions
+				.Select(expr => (Expression<Func<TModel, bool>>) ParameterReplacer.Replace(
+					param, 
+					expr.Parameters.First(),
+					expr))
+				.Aggregate(filter, (current, expression) =>
+					Expression.OrElse(current, expression.Body));
+
+			return Expression.Lambda<Func<TModel, bool>>(filter, param);
 		}
 
 		/// <summary>
@@ -57,15 +61,25 @@ namespace Cis.Helpers
 			Expression<Func<TModel, bool>> baseRule = _ => true;
 			var filter = Expression.AndAlso(baseRule.Body, baseRule.Body);
 
-			filter = expressions.Aggregate(filter, (current, expression) =>
-				Expression.AndAlso(current, expression.Body));
-
 			var param = Expression.Parameter(typeof(TModel), "model");
-			var replacer = new ParameterReplacer(param);
 
-			return Expression.Lambda<Func<TModel, bool>>(replacer.Visit(filter), param);
+			filter = expressions
+				.Select(expr => (Expression<Func<TModel, bool>>) ParameterReplacer.Replace(
+					param,
+					expr.Parameters.First(),
+					expr))
+				.Aggregate(filter, (current, expression) =>
+					Expression.AndAlso(current, expression.Body));
+
+			return Expression.Lambda<Func<TModel, bool>>(filter, param);
 		}
 
+		/// <summary>
+		/// Combines many expressions with <see cref="Expression.OrElse(System.Linq.Expressions.Expression,System.Linq.Expressions.Expression)"/>
+		/// </summary>
+		/// <param name="expressions">An array of expressions to combine.</param>
+		/// <returns>A new expression that is all the expression arguments combined with a logical OR.</returns>
+		/// <exception cref="ArgumentException">If no expressions are passed in.</exception>
 		public static Expression OrElse(params Expression[] expressions)
 		{
 			switch (expressions.Length)

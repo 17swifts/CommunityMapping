@@ -83,7 +83,7 @@ namespace Cis.Utility
 			}
 
 			var method = context.HttpContext.Request.Method;
-			const string cookieName = ".AspNetCore." + CookieAuthenticationDefaults.AuthenticationScheme;
+			const string cookieName = ".AspNetCore." + StaticIdentityConstants.ApplicationScheme;
 
 			return context.HttpContext.Request.Cookies.ContainsKey(cookieName) &&
 				context.HttpContext.User.Identity.IsAuthenticated &&

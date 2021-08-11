@@ -38,9 +38,9 @@ namespace Cis.Models
 		{
 
 			// Add model fields to type
-			Field(o => o.Id, type: typeof(IdGraphType));
-			Field(o => o.Created, type: typeof(DateTimeGraphType));
-			Field(o => o.Modified, type: typeof(DateTimeGraphType));
+			Field(o => o.Id, type: typeof(NonNullGraphType<IdGraphType>));
+			Field(o => o.Created, type: typeof(NonNullGraphType<DateTimeGraphType>));
+			Field(o => o.Modified, type: typeof(NonNullGraphType<DateTimeGraphType>));
 			Field(o => o.Email, type: typeof(StringGraphType));
 			// % protected region % [Add any extra GraphQL fields here] off begin
 			// % protected region % [Add any extra GraphQL fields here] end

@@ -40,19 +40,24 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Create
 			// % protected region % [Add constructor logic here] end
 		}
 
-		public static TheoryData<IAbstractModel, string, string> VisitorsCreateSecurityData =>
-			new TheoryData<IAbstractModel, string,string>
+		public static TheoryData<IAbstractModel, string, string> VisitorsCreateSecurityData 
+		{
+			get
 			{
-				// % protected region % [Configure entity theory data for Visitors here] off begin
-				{new RegionalAreaEntity(), SecurityStringHelper.UserPermissionDenied, "Visitors"},
-				{new ServiceEntity(), SecurityStringHelper.NoApplicableSchemes, "Visitors"},
-				{new MetricEntity(), SecurityStringHelper.NoApplicableSchemes, "Visitors"},
-				{new RegionalAreaTimelineEventsEntity(), SecurityStringHelper.UserPermissionDenied, "Visitors"},
-				// % protected region % [Configure entity theory data for Visitors here] end
-
+				var data = new TheoryData<IAbstractModel, string,string>
+				{
+					// % protected region % [Configure entity theory data for Visitors here] off begin
+					{new RegionalAreaEntity(), SecurityStringHelper.UserPermissionDenied, "Visitors"},
+					{new ServiceEntity(), SecurityStringHelper.UserPermissionDenied, "Visitors"},
+					{new MetricEntity(), SecurityStringHelper.UserPermissionDenied, "Visitors"},
+					{new RegionalAreaTimelineEventsEntity(), SecurityStringHelper.UserPermissionDenied, "Visitors"},
+					// % protected region % [Configure entity theory data for Visitors here] end
+				};
 				// % protected region % [Add any extra theory data here] off begin
 				// % protected region % [Add any extra theory data here] end
-			};
+				return data;
+			}
+		}
 
 		[Theory]
 		[MemberData(nameof(VisitorsCreateSecurityData))]
@@ -64,17 +69,22 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Create
 			// % protected region % [Overwrite create security test here] end
 		}
 
-		public static TheoryData<IAbstractModel, object, string, string> VisitorsCreateUserSecurityData =>
-			new TheoryData<IAbstractModel, object, string,string>
+		public static TheoryData<IAbstractModel, object, string, string> VisitorsCreateUserSecurityData
+		{
+			get
 			{
-				// % protected region % [Configure user theory data for Visitors here] off begin
-				{new AdminEntity(), new AdminEntityGraphQlRegistrationModel(), SecurityStringHelper.NoApplicableSchemes, "Visitors"},
-				{new ServiceCommissioningBodyEntity(), new ServiceCommissioningBodyEntityGraphQlRegistrationModel(), SecurityStringHelper.NoApplicableSchemes, "Visitors"},
-				// % protected region % [Configure user theory data for Visitors here] end
-
+				var data = new TheoryData<IAbstractModel, object, string, string>
+				{
+					// % protected region % [Configure user theory data for Visitors here] off begin
+					{new AdminEntity(), new AdminEntityGraphQlRegistrationModel(), SecurityStringHelper.UserPermissionDenied, "Visitors"},
+					{new ServiceCommissioningBodyEntity(), new ServiceCommissioningBodyEntityGraphQlRegistrationModel(), SecurityStringHelper.UserPermissionDenied, "Visitors"},
+					// % protected region % [Configure user theory data for Visitors here] end
+				};
 				// % protected region % [Add any extra user theory data here] off begin
 				// % protected region % [Add any extra user theory data here] end
-			};
+				return data;
+			}
+		}
 
 		[Theory]
 		[MemberData(nameof(VisitorsCreateUserSecurityData))]

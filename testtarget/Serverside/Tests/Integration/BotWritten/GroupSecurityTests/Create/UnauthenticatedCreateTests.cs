@@ -40,19 +40,24 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Create
 			// % protected region % [Add constructor logic here] end
 		}
 
-		public static TheoryData<IAbstractModel, string, string> UnauthenticatedCreateSecurityData =>
-			new TheoryData<IAbstractModel, string,string>
+		public static TheoryData<IAbstractModel, string, string> UnauthenticatedCreateSecurityData 
+		{
+			get
 			{
-				// % protected region % [Configure entity theory data for Unauthenticated here] off begin
-				{new RegionalAreaEntity(), SecurityStringHelper.UserPermissionDenied, null},
-				{new ServiceEntity(), SecurityStringHelper.NoApplicableSchemes, null},
-				{new MetricEntity(), SecurityStringHelper.NoApplicableSchemes, null},
-				{new RegionalAreaTimelineEventsEntity(), SecurityStringHelper.UserPermissionDenied, null},
-				// % protected region % [Configure entity theory data for Unauthenticated here] end
-
+				var data = new TheoryData<IAbstractModel, string,string>
+				{
+					// % protected region % [Configure entity theory data for Unauthenticated here] off begin
+					{new RegionalAreaEntity(), SecurityStringHelper.UserPermissionDenied, null},
+					{new ServiceEntity(), SecurityStringHelper.UserPermissionDenied, null},
+					{new MetricEntity(), SecurityStringHelper.UserPermissionDenied, null},
+					{new RegionalAreaTimelineEventsEntity(), SecurityStringHelper.UserPermissionDenied, null},
+					// % protected region % [Configure entity theory data for Unauthenticated here] end
+				};
 				// % protected region % [Add any extra theory data here] off begin
 				// % protected region % [Add any extra theory data here] end
-			};
+				return data;
+			}
+		}
 
 		[Theory]
 		[MemberData(nameof(UnauthenticatedCreateSecurityData))]
@@ -64,17 +69,22 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Create
 			// % protected region % [Overwrite create security test here] end
 		}
 
-		public static TheoryData<IAbstractModel, object, string, string> UnauthenticatedCreateUserSecurityData =>
-			new TheoryData<IAbstractModel, object, string,string>
+		public static TheoryData<IAbstractModel, object, string, string> UnauthenticatedCreateUserSecurityData
+		{
+			get
 			{
-				// % protected region % [Configure user theory data for Unauthenticated here] off begin
-				{new AdminEntity(), new AdminEntityGraphQlRegistrationModel(), SecurityStringHelper.NoApplicableSchemes, null},
-				{new ServiceCommissioningBodyEntity(), new ServiceCommissioningBodyEntityGraphQlRegistrationModel(), SecurityStringHelper.NoApplicableSchemes, null},
-				// % protected region % [Configure user theory data for Unauthenticated here] end
-
+				var data = new TheoryData<IAbstractModel, object, string, string>
+				{
+					// % protected region % [Configure user theory data for Unauthenticated here] off begin
+					{new AdminEntity(), new AdminEntityGraphQlRegistrationModel(), SecurityStringHelper.UserPermissionDenied, null},
+					{new ServiceCommissioningBodyEntity(), new ServiceCommissioningBodyEntityGraphQlRegistrationModel(), SecurityStringHelper.UserPermissionDenied, null},
+					// % protected region % [Configure user theory data for Unauthenticated here] end
+				};
 				// % protected region % [Add any extra user theory data here] off begin
 				// % protected region % [Add any extra user theory data here] end
-			};
+				return data;
+			}
+		}
 
 		[Theory]
 		[MemberData(nameof(UnauthenticatedCreateUserSecurityData))]

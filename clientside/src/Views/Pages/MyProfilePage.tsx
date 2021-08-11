@@ -15,7 +15,9 @@
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
 import * as React from 'react';
+import { ServiceCommissioningBodyEntity } from 'Models/Entities';
 import SecuredPage from 'Views/Components/Security/SecuredPage';
+import EntityCRUD from 'Views/Components/CRUD/EntityCRUD';
 import { observer } from 'mobx-react';
 import { RouteComponentProps } from 'react-router';
 import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
@@ -42,7 +44,7 @@ class MyProfilePage extends React.Component<MyProfilePageProps> {
 		// % protected region % [Add logic before rendering contents here] end
 
 		let contents = (
-			<SecuredPage groups={['Super Administrators', 'Admin', 'ServiceCommissioningBody']}>
+			<SecuredPage groups={['Super Administrators', 'ServiceCommissioningBody', 'Admin']}>
 				{
 				// % protected region % [Alter navigation here] off begin
 				}
@@ -63,6 +65,13 @@ class MyProfilePage extends React.Component<MyProfilePageProps> {
 							My Profile
 						</h2>
 					</div>
+					<EntityCRUD
+						{...this.props}
+						modelType={ServiceCommissioningBodyEntity}
+						URLExtension="02090b64-f3eb-47b5-acf2-bb9f038b4ead"
+						// % protected region % [Add props to crud component 02090b64-f3eb-47b5-acf2-bb9f038b4ead here] off begin
+						// % protected region % [Add props to crud component 02090b64-f3eb-47b5-acf2-bb9f038b4ead here] end
+					/>
 				</div>
 			</SecuredPage>
 		);

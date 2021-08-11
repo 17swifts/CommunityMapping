@@ -16,9 +16,15 @@
  */
 using System;
 using System.Security.Claims;
+using Cis.Configuration;
 using Cis.Services.Interfaces;
 using Microsoft.AspNetCore.Antiforgery;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
 namespace Cis.Services
 {
@@ -27,37 +33,55 @@ namespace Cis.Services
 		private const string TokenName = "XSRF-TOKEN";
 
 		private readonly IAntiforgery _antiforgery;
+		private readonly ServerSettings _serverSettings;
+		private readonly CookieAuthenticationOptions _cookieAuthenticationOptions;
 
-		public XsrfService(IAntiforgery antiforgery)
+		// % protected region % [Add any extra class fields here] off begin
+		// % protected region % [Add any extra class fields here] end
+
+		public XsrfService(
+			// % protected region % [Add any extra constructor arguments here] off begin
+			// % protected region % [Add any extra constructor arguments here] end
+			IAntiforgery antiforgery,
+			IOptions<ServerSettings> serverSettings,
+			IOptionsSnapshot<CookieAuthenticationOptions> cookieAuthenticationOptions)
 		{
 			_antiforgery = antiforgery;
+			_serverSettings = serverSettings.Value;
+			_cookieAuthenticationOptions = cookieAuthenticationOptions.Get(
+				IdentityConstants.ApplicationScheme);
+			// % protected region % [Add any extra constructor logic here] off begin
+			// % protected region % [Add any extra constructor logic here] end
 		}
 
 		// % protected region % [customize exchange signature] off begin
+		/// <inheritdoc />
 		public void AddXsrfToken(HttpContext context)
 		{
-			if (string.IsNullOrEmpty(context.User.Identity.Name))
+			if (string.IsNullOrEmpty(context.User.Identity?.Name))
 			{
 				return;
 			}
 
 			var tokens = _antiforgery.GetAndStoreTokens(context);
 
-			var date = new DateTime(DateTime.Now.Ticks, DateTimeKind.Unspecified);
-			date = date.AddDays(7);
+			var date = DateTime.UtcNow.Add(_cookieAuthenticationOptions.ExpireTimeSpan);
 
 			context.Response.Cookies.Append(
 				TokenName,
-				tokens.RequestToken,
+				tokens.RequestToken!,
 				new CookieOptions
 				{
 					HttpOnly = false,
-					Expires = new DateTimeOffset(date, TimeSpan.FromHours(0))
+					Expires = new DateTimeOffset(date, TimeSpan.FromHours(0)),
+					Secure = _serverSettings.IsHttps,
+					SameSite = SameSiteMode.Strict,
 				});
 		}
 		// % protected region % [customize exchange signature] end
 
-
+		// % protected region % [Customise AddXsrfToken overload here] off begin
+		/// <inheritdoc />
 		public void AddXsrfToken(HttpContext context, ClaimsPrincipal userClaim)
 		{
 			var existingClaim = context.User;
@@ -67,5 +91,23 @@ namespace Cis.Services
 
 			context.User = existingClaim;
 		}
+		// % protected region % [Customise AddXsrfToken overload here] end
+
+		// % protected region % [Customise RemoveXsrfToken overload here] off begin
+		public void RemoveXsrfToken(HttpContext context)
+		{
+			var date = DateTime.UtcNow.Add(_cookieAuthenticationOptions.ExpireTimeSpan);
+			context.Response.Cookies.Delete(TokenName, new CookieOptions
+			{
+				HttpOnly = false,
+				Expires = new DateTimeOffset(date, TimeSpan.FromHours(0)),
+				Secure = _serverSettings.IsHttps,
+				SameSite = SameSiteMode.Strict,
+			});
+		}
+		// % protected region % [Customise RemoveXsrfToken overload here] end
+
+		// % protected region % [Add any extra methods here] off begin
+		// % protected region % [Add any extra methods here] end
 	}
 }

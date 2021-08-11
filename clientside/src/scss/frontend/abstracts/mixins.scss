@@ -169,7 +169,7 @@ make it into a mixin.
 	&:#{$position} {
 		@if $icon {
 			// A particular icon has been specified
-			content: "#{map-get($custom-icons, $icon)}";
+			content: "#{map-get($icons-custom, $icon)}";
 		}
 
 		@if $styles {

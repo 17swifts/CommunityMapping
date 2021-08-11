@@ -22,6 +22,8 @@ Sublinks navigation are the lists that displays under an li link. Example of thi
 */
 
 
+
+// % protected region % [Change sublinks styles here] off begin
 .nav__sublinks {
 	opacity: 0;
 	background-color: $admin-grey-6;
@@ -65,3 +67,7 @@ Sublinks navigation are the lists that displays under an li link. Example of thi
 		}
 	}
 }
+
+// % protected region % [Change sublinks styles here] end
+// % protected region % [Add additional sublinks styles here] off begin
+// % protected region % [Add additional sublinks styles here] end

@@ -38,9 +38,9 @@ namespace Cis.Models
 		{
 
 			// Add model fields to type
-			Field(o => o.Id, type: typeof(IdGraphType));
-			Field(o => o.Created, type: typeof(DateTimeGraphType));
-			Field(o => o.Modified, type: typeof(DateTimeGraphType));
+			Field(o => o.Id, type: typeof(NonNullGraphType<IdGraphType>));
+			Field(o => o.Created, type: typeof(NonNullGraphType<DateTimeGraphType>));
+			Field(o => o.Modified, type: typeof(NonNullGraphType<DateTimeGraphType>));
 			Field(o => o.Sa2id, type: typeof(StringGraphType));
 			Field(o => o.Sa3id, type: typeof(StringGraphType));
 			Field(o => o.Sa3name, type: typeof(StringGraphType));
@@ -62,7 +62,7 @@ namespace Cis.Models
 			// Add entity references
 
 			// GraphQL reference to entity ServiceEntity via reference Services
-			Field<ListGraphType<ServiceEntityType>, IEnumerable<ServiceEntity>>()
+			Field<ListGraphType<NonNullGraphType<ServiceEntityType>>, IEnumerable<ServiceEntity>>()
 				.Name("Servicess")
 				.AddCommonArguments()
 				.ResolveAsync(async context =>
@@ -98,7 +98,7 @@ namespace Cis.Models
 				});
 
 			// GraphQL reference to entity RegionalAreaTimelineEventsEntity via reference LoggedEvent
-			Field<ListGraphType<RegionalAreaTimelineEventsEntityType>, IEnumerable<RegionalAreaTimelineEventsEntity>>()
+			Field<ListGraphType<NonNullGraphType<RegionalAreaTimelineEventsEntityType>>, IEnumerable<RegionalAreaTimelineEventsEntity>>()
 				.Name("LoggedEvents")
 				.AddCommonArguments()
 				.ResolveAsync(async context =>

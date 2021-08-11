@@ -39,19 +39,24 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Read
 			// % protected region % [Add constructor logic here] end
 		}
 
-		public static TheoryData<IAbstractModel, bool, string> ServiceCommissioningBodyReadSecurityData =>
-			new TheoryData<IAbstractModel, bool, string>
+		public static TheoryData<IAbstractModel, bool, string> ServiceCommissioningBodyReadSecurityData 
+		{
+			get
 			{
-				// % protected region % [Configure theory data for Service Commissioning Body here] off begin
-				{new RegionalAreaEntity(), true, "ServiceCommissioningBody"},
-				{new ServiceEntity(), true, "ServiceCommissioningBody"},
-				{new MetricEntity(), false, null},
-				{new RegionalAreaTimelineEventsEntity(), true, "ServiceCommissioningBody"},
-				// % protected region % [Configure theory data for Service Commissioning Body here] end
-
+				var data = new TheoryData<IAbstractModel, bool, string>
+				{
+					// % protected region % [Configure entity theory data for ServiceCommissioningBody here] off begin
+					{new RegionalAreaEntity(), true, "ServiceCommissioningBody"},
+					{new ServiceEntity(), true, "ServiceCommissioningBody"},
+					{new MetricEntity(), false, null},
+					{new RegionalAreaTimelineEventsEntity(), true, "ServiceCommissioningBody"},
+					// % protected region % [Configure entity theory data for ServiceCommissioningBody here] end
+				};
 				// % protected region % [Add any extra theory data here] off begin
 				// % protected region % [Add any extra theory data here] end
-			};
+				return data;
+			}
+		}
 
 		[Theory]
 		[MemberData(nameof(ServiceCommissioningBodyReadSecurityData))]

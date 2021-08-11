@@ -32,6 +32,7 @@ namespace APITests.Utils
 	{
 		private readonly StartupTestFixture _configure = new StartupTestFixture();
 
+		// % protected region % [Customize Registration here] off begin
 		public Registration(UserBaseEntity userBaseEntity, ITestOutputHelper testOutputHelper)
 		{
 			var endpointName = userBaseEntity.EndpointName;
@@ -85,8 +86,6 @@ namespace APITests.Utils
 					case "Passwords must be at least 6 characters.":
 						errorsList.Add(new PasswordLengthException(errorMessage));
 						break;
-					// % protected region % [Add any further cases here] off begin
-					// % protected region % [Add any further cases here] end
 					default:
 						errorsList.Add( new Exception($"An error returned which could not be handled, error message: {errorMessage}"));
 						break;
@@ -98,5 +97,6 @@ namespace APITests.Utils
 				throw new AggregateException(errorsList);
 			}
 		}
+		// % protected region % [Customize Registration here] end
 	}
 }

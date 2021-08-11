@@ -21,6 +21,7 @@ Workflow Landing page
 Page with the boxes before you edit a workflow
 */
 
+// % protected region % [Change workflows landing view styles here] off begin
 &.workflow-behaviour__landing {
 	padding: $admin-space-md $admin-space-lg;
 	overflow-y: auto;
@@ -75,3 +76,6 @@ Page with the boxes before you edit a workflow
 		}
 	}
 }
+// % protected region % [Change workflows landing view styles here] end
+// % protected region % [Add additional workflows landing view styles here] off begin
+// % protected region % [Add additional workflows landing view styles here] end

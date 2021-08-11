@@ -521,9 +521,12 @@ export class Model implements IModelAttributes {
 		const referenceKeys = Object.keys(path);
 		for (const key of referenceKeys) {
 			const referenceObj = this[key];
-			if (referenceObj instanceof Model) {
-				referenceObj.getFiles(path[key], excludeCrudFields, result);
-			}
+			const referenceArray = Array.isArray(referenceObj) ? referenceObj : [referenceObj];
+			referenceArray.forEach((obj) => {
+				if (obj instanceof Model) {
+					obj.getFiles(path[key], excludeCrudFields, result);
+				}
+			});
 		}
 
 		return result;

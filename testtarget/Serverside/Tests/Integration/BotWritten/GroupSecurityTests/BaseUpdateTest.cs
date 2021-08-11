@@ -16,12 +16,14 @@
  */
 using System;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Cis.Models;
 using Cis.Services.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Hosting;
 using ServersideTests.Helpers;
 using ServersideTests.Helpers.EntityFactory;
@@ -59,11 +61,11 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests
 			{
 				_host = ServerBuilder.CreateServer(new ServerBuilderOptions
 				{
-					UserPrincipal = ServerBuilder.CreateUserPrincipal(
-					Guid.NewGuid(),
-					$"test_{groupName.ToLower()}@example.com",
-					$"test_{groupName.ToLower()}@example.com",
-					new[] { groupName }),
+					UserPrincipalFactory = async sp => await sp
+						.GetRequiredService<IUserClaimsPrincipalFactory<User>>()
+						.CreateAsync(await sp
+							.GetRequiredService<UserManager<User>>()
+							.FindByNameAsync($"test_{groupName.ToLower()}@example.com"))
 				});
 				_scope = _host.Services.CreateScope();
 				serviceProvider = _scope.ServiceProvider;
@@ -82,7 +84,7 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests
 			{
 				_host = ServerBuilder.CreateServer(new ServerBuilderOptions
 				{
-					UserPrincipal = null,
+					UserPrincipalFactory = _ => Task.FromResult<ClaimsPrincipal>(null),
 				});
 				_scope = _host.Services.CreateScope();
 				serviceProvider = _scope.ServiceProvider;

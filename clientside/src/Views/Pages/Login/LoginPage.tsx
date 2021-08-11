@@ -18,18 +18,21 @@ import * as React from 'react';
 import { observer } from 'mobx-react';
 import { RouteComponentProps } from 'react-router';
 import { Redirect } from 'react-router';
-import { Button, Display, Colors, Sizes } from '../Components/Button/Button';
+import { Button, Display, Colors, Sizes } from 'Views/Components/Button/Button';
 import { action, observable } from 'mobx';
-import { TextField } from '../Components/TextBox/TextBox';
-import { IUserResult, store } from 'Models/Store';
-import { SERVER_URL } from 'Constants';
-import axios from 'axios';
+import { TextField } from 'Views/Components/TextBox/TextBox';
+import { IUserResult, IStore } from 'Models/Store';
 import * as queryString from 'querystring';
 import { ButtonGroup, Alignment } from 'Views/Components/Button/ButtonGroup';
 import { Password } from 'Views/Components/Password/Password';
 import { isEmail } from 'Validators/Functions/Email';
-import alert from '../../Util/ToastifyUtils';
+import alertToast from 'Util/ToastifyUtils';
 import { getErrorMessages } from 'Util/GraphQLUtils';
+import { useContext } from 'react';
+import { TwoFactorContext, TwoFactorMethods } from 'Services/TwoFactor/Common';
+import { useStore } from 'Hooks/useStore';
+import { login } from 'Services/Api/AuthorizationService';
+import { buildUrl } from 'Util/FetchUtils';
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
 
@@ -37,6 +40,7 @@ import { getErrorMessages } from 'Util/GraphQLUtils';
 interface ILoginState {
 	username: string;
 	password: string;
+	rememberMe: boolean;
 	errors: { [attr: string]: string };
 }
 // % protected region % [Customise ILoginState here] end
@@ -45,6 +49,7 @@ interface ILoginState {
 const defaultLoginState: ILoginState = {
 	username: '',
 	password: '',
+	rememberMe: false,
 	errors: {},
 };
 // % protected region % [Customise defaultLoginState here] end
@@ -52,9 +57,16 @@ const defaultLoginState: ILoginState = {
 // % protected region % [Add any extra constants here] off begin
 // % protected region % [Add any extra constants here] end
 
+interface LoginPageInternalProps extends RouteComponentProps {
+	store: IStore;
+	twoFactorMethods: TwoFactorMethods;
+	// % protected region % [Add any extra LoginPageInternalProps fields here] off begin
+	// % protected region % [Add any extra LoginPageInternalProps fields here] end
+}
+
 @observer
 // % protected region % [Override class signature here] off begin
-export default class LoginPage extends React.Component<RouteComponentProps> {
+class LoginPageInternal extends React.Component<LoginPageInternalProps> {
 // % protected region % [Override class signature here] end
 	@observable
 	private loginState: ILoginState = defaultLoginState;
@@ -66,7 +78,7 @@ export default class LoginPage extends React.Component<RouteComponentProps> {
 	public render() {
 		let contents = null;
 
-		if (store.loggedIn) {
+		if (this.props.store.loggedIn) {
 			return <Redirect to="/" />;
 		}
 
@@ -122,14 +134,25 @@ export default class LoginPage extends React.Component<RouteComponentProps> {
 		if (Object.keys(this.loginState.errors).length > 0) {
 			return;
 		} else {
-			axios.post(
-				`${SERVER_URL}/api/authorization/login`,
-				{
-					username: this.loginState.username,
-					password: this.loginState.password,
-				})
-				.then(({ data }) => {
-					this.onLoginSuccess(data);
+			login(this.loginState.username, this.loginState.password)
+				.then(data => {
+					if (data.type === '2fa-required') {
+						const validMethods = Object.keys(this.props.twoFactorMethods);
+						if (validMethods.indexOf(data.method) > -1) {
+							const { redirect } = queryString.parse(this.props.location.search.substring(1));
+							const params: { [key: string]: string } = {
+								rememberMe: this.loginState.rememberMe.toString(),
+							};
+							if (typeof redirect === 'string') {
+								params['redirect'] = redirect;
+							}
+							this.props.history.push(buildUrl(`login/2fa/${data.method.toLocaleLowerCase()}`, params));
+						} else {
+							alertToast('Invalid 2 factor method', 'error');
+						}
+					} else {
+						this.onLoginSuccess(data);
+					}
 				})
 				.catch(response => {
 					const errorMessages = getErrorMessages(response).map((error: any) => {
@@ -138,7 +161,7 @@ export default class LoginPage extends React.Component<RouteComponentProps> {
 							: error.message;
 						return (<p>{message}</p>);
 					});
-					alert(
+					alertToast(
 						<div>
 							<h6>Login failed</h6>
 							{errorMessages}
@@ -154,35 +177,48 @@ export default class LoginPage extends React.Component<RouteComponentProps> {
 	@action
 	private onStartRegisterClicked = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		const { redirect } = queryString.parse(this.props.location.search.substring(1));
-		store.routerHistory.push(`/register?${!!redirect ? `redirect=${redirect}` : ''}`);
+		this.props.store.routerHistory.push(`/register?${!!redirect ? `redirect=${redirect}` : ''}`);
 	};
 	// % protected region % [Override onStartRegisterClicked here] end
 
 	// % protected region % [Override login success logic here] off begin
 	@action
 	private onLoginSuccess = (userResult: IUserResult) => {
-		store.setLoggedInUser(userResult);
+		this.props.store.setLoggedInUser(userResult);
 
 		const { redirect } = queryString.parse(this.props.location.search.substring(1));
 
 		if (redirect && !Array.isArray(redirect)) {
-			store.routerHistory.push(redirect);
+			this.props.store.routerHistory.push(redirect);
 		} else {
-			store.routerHistory.push('/');
+			this.props.store.routerHistory.push('/');
 		}
 	};
 	// % protected region % [Override login success logic here] end
 
 	// % protected region % [Override onForgottenPasswordClick here] off begin
 	@action
-	private onForgottenPasswordClick() {
-		store.routerHistory.push(`/reset-password-request`);
+	private onForgottenPasswordClick = () => {
+		this.props.store.routerHistory.push(`/reset-password-request`);
 	};
 	// % protected region % [Override onForgottenPasswordClick here] end
 
 	// % protected region % [Add class methods here] off begin
 	// % protected region % [Add class methods here] end
 }
+
+// % protected region % [Override LoginPage here] off begin
+function LoginPage(props: RouteComponentProps) {
+	const twoFactorMethods = useContext(TwoFactorContext);
+	const store = useStore();
+
+	return <LoginPageInternal {...props} store={store} twoFactorMethods={twoFactorMethods} />;
+}
+// % protected region % [Override LoginPage here] end
+
+// % protected region % [Override default export here] off begin
+export default LoginPage;
+// % protected region % [Override default export here] end
 
 // % protected region % [Add additional exports here] off begin
 // % protected region % [Add additional exports here] end

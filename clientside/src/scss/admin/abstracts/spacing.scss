@@ -19,6 +19,7 @@ Spacing
 https://medium.com/codyhouse/create-your-design-system-part-4-spacing-895c9213e2b9
 -------------------------------- */
 
+// % protected region % [Set spacing variables] off begin
 /* spacing values */
 $admin-space-unit: 1rem !default;
 $admin-space-xxxs: calc(0.25 * #{$admin-space-unit}) !default; //4px
@@ -42,3 +43,7 @@ $admin-space-vertical: 1rem !default;
 	$admin-space-uni: 1.25rem !default;
 	$admin-component-padding: $admin-space-md !default;
 }
+
+// % protected region % [Set spacing variables] end
+// % protected region % [Add additional spacing variables and rules here] off begin
+// % protected region % [Add additional spacing variables and rules here] end

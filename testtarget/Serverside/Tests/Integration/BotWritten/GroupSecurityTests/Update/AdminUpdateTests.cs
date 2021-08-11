@@ -38,19 +38,24 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Update
 			// % protected region % [Add constructor logic here] end
 		}
 
-		public static TheoryData<IAbstractModel, string, string> AdminUpdateSecurityData =>
-			new TheoryData<IAbstractModel, string,string>
+		public static TheoryData<IAbstractModel, string, string> AdminUpdateSecurityData 
+		{
+			get
 			{
-				// % protected region % [Configure theory data for Admin here] off begin
-				{new RegionalAreaEntity(), null, "Admin"},
-				{new ServiceEntity(), null, "Admin"},
-				{new MetricEntity(), SecurityStringHelper.NoApplicableSchemes, "Admin"},
-				{new RegionalAreaTimelineEventsEntity(), null, "Admin"},
-				// % protected region % [Configure theory data for Admin here] end
-
+				var data = new TheoryData<IAbstractModel, string,string>
+				{
+					// % protected region % [Configure entity theory data for Admin here] off begin
+					{new RegionalAreaEntity(), null, "Admin"},
+					{new ServiceEntity(), null, "Admin"},
+					{new MetricEntity(), null, "Admin"},
+					{new RegionalAreaTimelineEventsEntity(), null, "Admin"},
+					// % protected region % [Configure entity theory data for Admin here] end
+				};
 				// % protected region % [Add any extra theory data here] off begin
 				// % protected region % [Add any extra theory data here] end
-			};
+				return data;
+			}
+		}
 
 		[Theory]
 		[MemberData(nameof(AdminUpdateSecurityData))]

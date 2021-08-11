@@ -532,10 +532,27 @@ namespace Cis.Services
 							dbContext.UserRoles.Add(new IdentityUserRole<Guid>{UserId = model.Id, RoleId = role.Id});
 						}
 
-						// Validate the password matches the applications password strength
+						// % protected region % [Customise user model here] off begin
+						// % protected region % [Customise user model here] end
+
+						model.UserName ??= model.Email;
+						model.PasswordHash = _userManager.PasswordHasher.HashPassword(
+							model,
+							registrationModel.Password);
+						model.ConcurrencyStamp = await _userManager.GenerateConcurrencyStampAsync(model);
+						model.NormalizedEmail = _userManager.NormalizeEmail(model.Email);
+						model.NormalizedUserName = _userManager.NormalizeName(model.UserName);
+						model.EmailConfirmed = true;
+						model.SecurityStamp = Guid.NewGuid().ToString();
+
+						// Run the user and password validators over the model
 						var validationTasks = _userManager
+							.UserValidators
+							.Select(v => v.ValidateAsync(_userManager, model))
+							.ToList();
+						validationTasks.AddRange(_userManager
 							.PasswordValidators
-							.Select(v => v.ValidateAsync(_userManager, model, registrationModel.Password));
+							.Select(v => v.ValidateAsync(_userManager, model, registrationModel.Password)));
 						var validationResults = await Task.WhenAll(validationTasks);
 						var failed = validationResults.Where(r => r.Succeeded == false).ToList();
 						if (failed.Any())
@@ -545,20 +562,10 @@ namespace Cis.Services
 								.Select(s => new InvalidOperationException(s)));
 						}
 
-						// % protected region % [Customise user model here] off begin
-						// % protected region % [Customise user model here] end
+						// % protected region % [Customise user model after validation here] off begin
+						// % protected region % [Customise user model after validation here] end
 
-						model.UserName = model.Email;
-						model.PasswordHash = _userManager.PasswordHasher.HashPassword(
-							model,
-							registrationModel.Password);
-						model.ConcurrencyStamp = await _userManager.GenerateConcurrencyStampAsync(model);
-						model.NormalizedEmail = _userManager.NormalizeEmail(model.Email);
-						model.NormalizedUserName = _userManager.NormalizeName(model.UserName);
-						model.EmailConfirmed = true;
-						model.SecurityStamp = Guid.NewGuid().ToString();
 						dbSet.Update(model);
-
 						createdUsers.Add(model);
 					}
 

@@ -20,6 +20,8 @@ Colour Variables
 /* _colors.scss is dependent on this file using variables that are changable in projects
 */
 
+
+// % protected region % [Set colours, accent colours, and greyscale colours] off begin
 /* Main colors */
 /* -------------------------------------------------*/
 /* ----------Pick your brand colours here ----------*/
@@ -101,3 +103,6 @@ $admin-color-support-orange-bg: rgba($admin-color-support-orange, $admin-color-a
 $admin-color-support-purple-light: lighten($admin-color-support-purple, $admin-color-shades) !default;
 $admin-color-support-purple-dark: darken($admin-color-support-purple, $admin-color-shades) !default;
 $admin-color-support-purple-bg: rgba($admin-color-support-purple, $admin-color-alpha) !default;
+// % protected region % [Set colours, accent colours, and greyscale colours] end
+// % protected region % [Add additional colours here] off begin
+// % protected region % [Add additional colours here] end

@@ -21,6 +21,7 @@ Upload
 Upload component allows image upload or file upload.
 */
 
+// % protected region % [Change upload styles here] off begin
 .upload {
 	width: 100%;
 	margin-bottom: $admin-space-sm;
@@ -122,7 +123,9 @@ Upload component allows image upload or file upload.
 		}
 	}
 }
+// % protected region % [Change upload styles here] end
 
+// % protected region % [Change preview styles here] off begin
 .preview {
 	border: convert-rem(1px) solid $admin-grey-1;
 	margin: $admin-space-md;
@@ -200,3 +203,6 @@ Upload component allows image upload or file upload.
 		}
 	}
 }
+// % protected region % [Change preview styles here] end
+// % protected region % [Add additional upload and preview styles here] off begin
+// % protected region % [Add additional upload and preview styles here] end

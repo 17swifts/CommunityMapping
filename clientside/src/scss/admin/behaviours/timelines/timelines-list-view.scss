@@ -21,6 +21,7 @@ Timelines - list view
 This is imported into timelines.scss. By organising stylesheets, we have seperated the list view here.
 */
 
+// % protected region % [Change timelines list view styles here] off begin
 .timelines__list-view {
 	overflow-y: auto;
 	height: calc(100vh - 330px);
@@ -157,3 +158,6 @@ This is imported into timelines.scss. By organising stylesheets, we have seperat
 		}
 	}
 }
+// % protected region % [Change timelines list view styles here] end
+// % protected region % [Add additional timelines list view styles here] off begin
+// % protected region % [Add additional timelines list view styles here] end

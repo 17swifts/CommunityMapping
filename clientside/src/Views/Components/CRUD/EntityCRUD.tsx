@@ -28,6 +28,7 @@ import { expandFn, showExpandFn, ICollectionItemActionProps } from '../Collectio
 import { IEntityContextMenuActions } from '../EntityContextMenu/EntityContextMenu';
 import { EntityFormMode } from '../Helpers/Common';
 import { IFilter } from '../Collection/CollectionFilterPanel';
+import { AttributeCRUDOptions } from 'Models/CRUDOptions';
 // % protected region % [Add any further imports here] off begin
 // % protected region % [Add any further imports here] end
 
@@ -80,6 +81,10 @@ interface IEntityCRUDProps<T extends Model> extends RouteComponentProps {
 	disableBulkExport?: boolean;
 	/** Override for disabling bulk delete on the bulk select all */
 	disableBulkDelete?: boolean;
+	/** Additional actions for the collection view. These will be displayed before the create button. */
+	additionalActions?: React.ReactNode[];
+	/** Function to mutate the attribute options before it is rendered */
+	mutateOptions?: (model: Model | Model[], options: AttributeCRUDOptions[], formMode: EntityFormMode) => AttributeCRUDOptions[];
 	// % protected region % [Add any extra props here] off begin
 	// % protected region % [Add any extra props here] end
 }
@@ -178,7 +183,9 @@ class EntityCRUD<T extends Model> extends React.Component<IEntityCRUDProps<T>> {
 			disableBulkDelete,
 			disableBulkExport,
 			removeCreatedFilter,
-			removeModifiedFilter
+			removeModifiedFilter,
+			additionalActions,
+			mutateOptions,
 		} = this.props;
 
 		return (
@@ -202,6 +209,8 @@ class EntityCRUD<T extends Model> extends React.Component<IEntityCRUDProps<T>> {
 				updateAction={collectionUpdateAction}
 				removeCreatedFilter={removeCreatedFilter}
 				removeModifiedFilter={removeModifiedFilter}
+				additionalActions={additionalActions}
+				mutateOptions={mutateOptions}
 				{...entityCollectionProps}
 			/>
 		);
@@ -210,7 +219,7 @@ class EntityCRUD<T extends Model> extends React.Component<IEntityCRUDProps<T>> {
 
 	protected renderEntityCreate = (routeProps: RouteComponentProps) => {
 		// % protected region % [Override create component render here] off begin
-		const { modelType } = this.props;
+		const { modelType, mutateOptions } = this.props;
 		const modelDisplayName = getModelDisplayName(modelType);
 		return (
 			<EntityAttributeList
@@ -220,6 +229,7 @@ class EntityCRUD<T extends Model> extends React.Component<IEntityCRUDProps<T>> {
 				title={`Create New ${modelDisplayName}`}
 				formMode={EntityFormMode.CREATE}
 				modelType={modelType}
+				mutateOptions={mutateOptions}
 			/>
 		);
 		// % protected region % [Override create component render here] end
@@ -227,15 +237,29 @@ class EntityCRUD<T extends Model> extends React.Component<IEntityCRUDProps<T>> {
 
 	protected renderEntityEdit = (routeProps: RouteComponentProps) => {
 		// % protected region % [Override edit component render here] off begin
-		const { modelType } = this.props;
-		return <EntityEdit {...routeProps} modelType={modelType} formMode={EntityFormMode.EDIT} />;
+		const { modelType, mutateOptions } = this.props;
+		return (
+			<EntityEdit
+				{...routeProps}
+				modelType={modelType}
+				formMode={EntityFormMode.EDIT}
+				mutateOptions={mutateOptions}
+			/>
+		);
 		// % protected region % [Override edit component render here] end
 	};
 
 	protected renderEntityView = (routeProps: RouteComponentProps) => {
 		// % protected region % [Override read component render here] off begin
-		const { modelType } = this.props;
-		return <EntityEdit {...routeProps} modelType={modelType} formMode={EntityFormMode.VIEW} />;
+		const { modelType, mutateOptions } = this.props;
+		return (
+			<EntityEdit
+				{...routeProps}
+				modelType={modelType}
+				formMode={EntityFormMode.VIEW}
+				mutateOptions={mutateOptions}
+			/>
+		);
 		// % protected region % [Override read component render here] end
 	};
 

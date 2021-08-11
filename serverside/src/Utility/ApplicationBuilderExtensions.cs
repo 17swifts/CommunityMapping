@@ -26,6 +26,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Cis.Configuration;
+using Cis.Models;
 using Cis.Services.Interfaces;
 using Serilog;
 // % protected region % [Add any extra imports here] off begin
@@ -174,6 +175,28 @@ namespace Cis.Utility
 		}
 		// % protected region % [Customise UseRequestLogging method here] end
 
+		// % protected region % [Customise UseRequestLogging method here] off begin
+		/// <summary>
+		/// Middleware to add user fields to the database context for auditing purposes.
+		/// </summary>
+		/// <param name="app">The application builder to augment.</param>
+		/// <returns>The application builder.</returns>
+		public static IApplicationBuilder UseDatabaseUserAuditing(this IApplicationBuilder app)
+		{
+			return app.Use(async (context, next) =>
+			{
+				var dbContext = context.RequestServices.GetRequiredService<CisDBContext>();
+				var httpContextAccessor = context.RequestServices.GetRequiredService<IHttpContextAccessor>();
+
+				dbContext.SessionId = httpContextAccessor?.HttpContext?.TraceIdentifier;
+				dbContext.SessionUser = httpContextAccessor?.HttpContext?.User.Identity?.Name;
+				dbContext.SessionUserId = httpContextAccessor?.HttpContext?.User.FindFirst("UserId")?.Value;
+
+				await next();
+			});
+		}
+		// % protected region % [Customise UseRequestLogging method here] end
+
 		// % protected region % [Customise UseXsrfToken method here] off begin
 		/// <summary>
 		/// Middleware to add an XSRF token as a cookie to an outgoing response.
@@ -204,7 +227,7 @@ namespace Cis.Utility
 
 				// If we are in a production environment then no further action is required
 				var env = app.ApplicationServices.GetRequiredService<IWebHostEnvironment>();
-				if (env.IsProduction())
+				if (!env.IsDevelopment())
 				{
 					return;
 				}

@@ -42,7 +42,7 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 		// % protected region % [Add logic before rendering contents here] end
 
 		let contents = (
-			<SecuredPage groups={['Super Administrators', 'Admin', 'ServiceCommissioningBody']}>
+			<SecuredPage groups={['Super Administrators', 'ServiceCommissioningBody', 'Admin']}>
 				{
 				// % protected region % [Alter navigation here] off begin
 				}

@@ -21,6 +21,8 @@ Context menu
 Drop down menu for more buttons
 */
 
+
+// % protected region % [Change context menu styles here] off begin
 .context-menu {
 	cursor: pointer;
 	color: $admin-black;
@@ -85,3 +87,7 @@ Drop down menu for more buttons
 		}
 	}
 }
+
+// % protected region % [Change context menu styles here] end
+// % protected region % [Add additional context menu styles here] off begin
+// % protected region % [Add additional context menu styles here] end

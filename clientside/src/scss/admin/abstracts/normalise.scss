@@ -19,6 +19,7 @@
 /* Document
 	 ========================================================================== */
 
+// % protected region % [Change normalised components] off begin
 /**
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in
@@ -503,3 +504,6 @@ template {
 [hidden] {
 	display: none;
 }
+// % protected region % [Change normalised components] end
+// % protected region % [Add additional normalise styles here] off begin
+// % protected region % [Add additional normalise styles here] end

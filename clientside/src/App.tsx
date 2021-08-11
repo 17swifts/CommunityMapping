@@ -20,20 +20,25 @@ import Admin from './Views/Admin';
 import Frontend from './Views/Frontend';
 import { Route, Router, Switch } from 'react-router';
 import { Provider } from 'mobx-react';
-import { store } from './Models/Store';
+import { store, StoreContext } from 'Models/Store';
 import { ApolloProvider } from 'react-apollo';
 import { default as ApolloClient, Operation } from 'apollo-boost';
 import { SERVER_URL } from 'Constants';
-import { isServerError } from './Util/GraphQLUtils';
+import { isServerError } from 'Util/GraphQLUtils';
 import { configure, runInAction } from 'mobx';
 import { createBrowserHistory } from 'history';
 import { ErrorResponse } from 'apollo-link-error';
 import { ToastContainer } from 'react-toastify';
 import GlobalModal from './Views/Components/Modal/GlobalModal';
+import { configureAuthenticator2fa } from 'Services/TwoFactor/Authenticator';
+import { TwoFactorContext, TwoFactorMethods } from 'Services/TwoFactor/Common';
+import { configureEmail2fa } from 'Services/TwoFactor/Email';
 // % protected region % [Add extra page imports here] off begin
 // % protected region % [Add extra page imports here] end
 
 export default class App extends React.Component {
+	twoFactorMethods: TwoFactorMethods = {};
+
 	constructor(props: any, context: any) {
 		super(props, context);
 		store.routerHistory = createBrowserHistory();
@@ -55,6 +60,11 @@ export default class App extends React.Component {
 		defineViewportHeight();
 		window.addEventListener('resize', () => defineViewportHeight());
 
+		// % protected region % [Customise default two factor methods here] off begin
+		configureAuthenticator2fa(this.twoFactorMethods);
+		configureEmail2fa(this.twoFactorMethods);
+		// % protected region % [Customise default two factor methods here] end
+
 		// % protected region % [Add extra constructor logic here] off begin
 		// % protected region % [Add extra constructor logic here] end
 
@@ -64,20 +74,24 @@ export default class App extends React.Component {
 		// % protected region % [Override render here] off begin
 		return (
 			<ApolloProvider client={store.apolloClient}>
-				<Provider store={store}>
-					<>
-						<Router history={store.routerHistory}>
+				<TwoFactorContext.Provider value={this.twoFactorMethods}>
+					<StoreContext.Provider value={store}>
+						<Provider store={store}>
 							<>
-								<ToastContainer className="frontend" />
+								<Router history={store.routerHistory}>
+									<>
+										<ToastContainer className="frontend" />
+									</>
+									<Switch>
+										<Route path="/admin" component={Admin} />
+										<Route path="/" component={Frontend} />
+									</Switch>
+								</Router>
+								<GlobalModal ref={ref => ref ? store.modal = ref : undefined} />
 							</>
-							<Switch>
-								<Route path="/admin" component={Admin} />
-								<Route path="/" component={Frontend} />
-							</Switch>
-						</Router>
-						<GlobalModal ref={ref => ref ? store.modal = ref : undefined} />
-					</>
-				</Provider>
+						</Provider>
+					</StoreContext.Provider>
+				</TwoFactorContext.Provider>
 			</ApolloProvider>
 		);
 		// % protected region % [Override render here] end

@@ -24,6 +24,8 @@ using SeleniumTests.Utils;
 using SeleniumTests.Enums;
 using TechTalk.SpecFlow;
 using Xunit;
+// % protected region % [Custom imports] off begin
+// % protected region % [Custom imports] end
 
 namespace SeleniumTests.Steps.BotWritten.Utility
 {
@@ -39,6 +41,7 @@ namespace SeleniumTests.Steps.BotWritten.Utility
 			_genericEntityPage = new GenericEntityPage(_contextConfiguration);
 		}
 
+		// % protected region % [Override AssertRedirectedFromToLoginPage here] off begin
 		[StepDefinition("I assert that I am redirected from (.*) to login page")]
 		public void AssertRedirectedFromToLoginPage (String entityName)
 		{
@@ -46,6 +49,7 @@ namespace SeleniumTests.Steps.BotWritten.Utility
 			var expectedPage = page.Url + "?redirect=/admin/" + entityName.ToLower();
 			_driverWait.Until(x => expectedPage == x.Url);
 		}
+		// % protected region % [Override AssertRedirectedFromToLoginPage here] end
 
 		[ObsoleteAttribute]
 		[StepDefinition("I expect the element with (.*) of (.*) to contain the text '(.*)'")]

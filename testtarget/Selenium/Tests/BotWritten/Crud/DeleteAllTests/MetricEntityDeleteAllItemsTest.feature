@@ -20,7 +20,7 @@ Feature: Delete all MetricEntity on all pages
 # % protected region % [Override feature properties here] end
 	@MetricEntity
 	Scenario: Delete all MetricEntity on all pages
-	Given I have 10 valid MetricEntity entities
+	Given I have 15 valid MetricEntity entities
 	Given I login to the site as a user
 	And I navigate to the MetricEntity backend page
 	When I select all entities on current page

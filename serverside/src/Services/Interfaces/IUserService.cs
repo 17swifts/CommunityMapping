@@ -21,6 +21,8 @@ using System.Threading.Tasks;
 using AspNet.Security.OpenIdConnect.Primitives;
 using Cis.Exceptions;
 using Cis.Models;
+using Cis.Models.Internal.Identity;
+using Cis.Utility;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 
@@ -31,19 +33,6 @@ namespace Cis.Services.Interfaces
 {
 	public interface IUserService
 	{
-		// % protected region % [Customise CheckCredentials signature here] off begin
-		/// <summary>
-		/// Check the username and password of a user.
-		/// </summary>
-		/// <param name="username">The username of the user</param>
-		/// <param name="password">The password of the user</param>
-		/// <param name="lockoutOnFailure">Flag indicating if the user account should be locked if the sign in fails</param>
-		/// <param name="validateEmailConfirmation">Weather the login should check if the email has been confirmed</param>
-		/// <returns>On success returns the user object, on failure throws an exception</returns>
-		/// <exception cref="InvalidUserPasswordException">On the username or password being invalid</exception>
-		Task<User> CheckCredentials(string username, string password, bool lockoutOnFailure = true, bool validateEmailConfirmation = true);
-		// % protected region % [Customise CheckCredentials signature here] end
-
 		/// <summary>
 		/// Confirm an email for a user
 		/// </summary>
@@ -58,7 +47,9 @@ namespace Cis.Services.Interfaces
 		/// <param name="user">The user to create the claims principal for</param>
 		/// <param name="authenticationScheme">The authentication scheme used, cookie by default</param>
 		/// <returns>The claims principal for the user</returns>
-		Task<ClaimsPrincipal> CreateUserPrincipal(User user, string authenticationScheme = "Cookies");
+		Task<ClaimsPrincipal> CreateUserPrincipal(
+			User user,
+			string authenticationScheme = StaticIdentityConstants.ApplicationScheme);
 
 		/// <summary>
 		/// Deletes a user
@@ -66,18 +57,6 @@ namespace Cis.Services.Interfaces
 		/// <param name="id">The id of the user to delete</param>
 		/// <returns>Task containing boolean indicating success</returns>
 		Task<bool> DeleteUser(Guid id);
-
-
-		// % protected region % [customize exchange signature] off begin
-		/// <summary>
-		/// Creates a authentication ticket to identify a user
-		/// </summary>
-		/// <param name="request">The OpenId request for the user</param>
-		/// <returns>The authentication ticket for the user</returns>
-		/// <exception cref="InvalidUserPasswordException">Thrown when an invalid username or password is provided</exception>
-		/// <exception cref="InvalidGrantTypeException">Thrown when an invalid OpenId grant type is provided</exception>
-		Task<AuthenticationTicket> Exchange(OpenIdConnectRequest request);
-		// % protected region % [customize exchange signature] end
 
 		/// <summary>
 		/// Gets a user result from a given claims principal

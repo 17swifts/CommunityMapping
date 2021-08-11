@@ -26,6 +26,8 @@ Timelines - graph view
 $admin-color-shapes: ("diamond" : $admin-color-support-green, "circle" : $admin-color-support-red, "square" : $admin-color-support-purple, "default" : $admin-color-primary);
 // % protected region % [Add shape definitions here] end
 
+
+// % protected region % [Change timelines view styles here] off begin
 @mixin apply-graph-shape($shape) {
 	@if $shape==diamond {
 		.item__amount {
@@ -50,9 +52,6 @@ $admin-color-shapes: ("diamond" : $admin-color-support-green, "circle" : $admin-
 			}
 		}
 	}
-
-	// % protected region % [Add additional graph-shape styling here] off begin
-	// % protected region % [Add additional graph-shape styling here] end
 
 	@else if $shape==default {
 		.item__amount {
@@ -87,9 +86,6 @@ $admin-color-shapes: ("diamond" : $admin-color-support-green, "circle" : $admin-
 			border-radius: unset;
 		}
 	}
-
-	// % protected region % [Add additional sidebar-shape styling here] off begin
-	// % protected region % [Add additional sidebar-shape styling here] end
 
 	@else if $shape==default {
 		&:before {
@@ -494,3 +490,7 @@ $admin-views: view-left, left-view, view-right, right-view, view-zoom, zoom-view
 }
 
 /*END ITEM INFO STYLING*/
+
+// % protected region % [Change timelines view styles here] end
+// % protected region % [Add additional timelines view styles here] off begin
+// % protected region % [Add additional timelines view styles here] end

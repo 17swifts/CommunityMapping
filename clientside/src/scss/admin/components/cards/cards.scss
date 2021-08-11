@@ -15,6 +15,8 @@
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
 
+
+// % protected region % [Change cards styles here] off begin
 .cards-wrapper {
 	display: flex;
 	margin: 0 auto;
@@ -106,3 +108,7 @@
 		}
 	}
 }
+
+// % protected region % [Change cards styles here] end
+// % protected region % [Add additional cards styles here] off begin
+// % protected region % [Add additional cards styles here] end

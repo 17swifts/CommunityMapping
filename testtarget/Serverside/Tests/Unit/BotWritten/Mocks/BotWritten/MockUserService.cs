@@ -1,72 +1,78 @@
-﻿/*
-  * @bot-written
-  *
-  * WARNING AND NOTICE
-  * Any access, download, storage, and/or use of this source code is subject to the terms and conditions of the
-  * Full Software Licence as accepted by you before being granted access to this source code and other materials,
-  * the terms of which can be accessed on the Codebots website at https://codebots.com/full-software-licence. Any
-  * commercial use in contravention of the terms of the Full Software Licence may be pursued by Codebots through
-  * licence termination and further legal action, and be required to indemnify Codebots for any loss or damage,
-  * including interest and costs. You are deemed to have accepted the terms of the Full Software Licence on any
-  * access, download, storage, and/or use of this source code.
-  *
-  * BOT WARNING
-  * This file is bot-written.
-  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
-  */
-
+/*
+ * @bot-written
+ *
+ * WARNING AND NOTICE
+ * Any access, download, storage, and/or use of this source code is subject to the terms and conditions of the
+ * Full Software Licence as accepted by you before being granted access to this source code and other materials,
+ * the terms of which can be accessed on the Codebots website at https://codebots.com/full-software-licence. Any
+ * commercial use in contravention of the terms of the Full Software Licence may be pursued by Codebots through
+ * licence termination and further legal action, and be required to indemnify Codebots for any loss or damage,
+ * including interest and costs. You are deemed to have accepted the terms of the Full Software Licence on any
+ * access, download, storage, and/or use of this source code.
+ *
+ * BOT WARNING
+ * This file is bot-written.
+ * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
+ */
 using System;
+using Cis.Configuration;
 using Cis.Models;
 using Cis.Services;
 using Cis.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
+using RazorLight;
 
 namespace ServersideTests.Mocks
 {
 	public class MockUserService: Mock<UserService>
 	{
+		// % protected region % [Configure MockUserService here] off begin
 		public MockUserService(
 			IOptions<IdentityOptions> identityOptions,
-			SignInManager<User> signInManager,
+			IUserClaimsPrincipalFactory<User> claimsPrincipalFactory,
+			IServiceProvider serviceProvider,
 			UserManager<User> userManager,
-			IHttpContextAccessor httpContextAccessor,
 			RoleManager<Group> roleManager,
+			RazorLightEngine razorLightEngine,
 			IBackgroundJobService backgroundJobService,
-			IConfiguration configuration) :
+			IOptions<ServerSettings> serverSettings) :
 			base(
 				identityOptions,
-				signInManager,
+				claimsPrincipalFactory,
+				serviceProvider,
 				userManager,
-				httpContextAccessor,
 				roleManager,
+				razorLightEngine,
 				backgroundJobService,
-				configuration)
+				serverSettings)
 		{
 
 		}
+		// % protected region % [Configure MockUserService here] end
 
+		// % protected region % [Configure GetMockUserService here] off begin
 		public static MockUserService GetMockUserService(
 			IOptions<IdentityOptions> identityOptions = null,
-			SignInManager<User> signInManager = null,
+			IUserClaimsPrincipalFactory<User> claimsPrincipalFactory = null,
+			IServiceProvider serviceProvider = null,
 			UserManager<User> userManager = null,
-			IHttpContextAccessor httpContextAccessor = null,
 			RoleManager<Group> roleManager = null,
+			RazorLightEngine razorLightEngine = null,
 			IBackgroundJobService backgroundJobService = null,
-			IConfiguration configuration = null)
+			IOptions<ServerSettings> serverSettings = null)
 		{
 			return new MockUserService(
 				identityOptions ?? new Mock<IOptions<IdentityOptions>>().Object,
-				signInManager ?? MockSignInManager.GetMockSignInManager(userManager: userManager ?? MockUserManager.GetMockUserManager().Object).Object,
+				claimsPrincipalFactory ?? new Mock<IUserClaimsPrincipalFactory<User>>().Object,
+				serviceProvider ?? new Mock<IServiceProvider>().Object,
 				userManager ?? MockUserManager.GetMockUserManager().Object,
-				httpContextAccessor ?? new Mock<IHttpContextAccessor>().Object,
 				roleManager ?? MockRoleManager.GetMockRoleManager().Object,
+				razorLightEngine ?? new RazorLightEngine(new Mock<IEngineHandler>().Object),
 				backgroundJobService ?? new Mock<IBackgroundJobService>().Object,
-				configuration ?? new Mock<IConfiguration>().Object);
+				serverSettings ?? new Mock<IOptions<ServerSettings>>().Object);
 		}
+		// % protected region % [Configure GetMockUserService here] end
 	}
 }

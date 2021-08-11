@@ -22,6 +22,7 @@ Workflows states and step section
 */
 
 
+// % protected region % [Change workflow state view styles here] off begin
 .workflow__states {
 	display: grid;
 	grid-template-areas: "sidelist statebuilder";
@@ -126,4 +127,6 @@ Workflows states and step section
 	}
 }
 
-
+// % protected region % [Change workflow state view styles here] end
+// % protected region % [Add additional workflows state styles here] off begin
+// % protected region % [Add additional workflows state styles here] end

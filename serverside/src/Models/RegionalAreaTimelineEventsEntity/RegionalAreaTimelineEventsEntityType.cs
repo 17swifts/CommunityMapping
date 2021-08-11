@@ -39,9 +39,9 @@ namespace Cis.Models
 			Description = @"Timeline Events Of Regional area";
 
 			// Add model fields to type
-			Field(o => o.Id, type: typeof(IdGraphType));
-			Field(o => o.Created, type: typeof(DateTimeGraphType));
-			Field(o => o.Modified, type: typeof(DateTimeGraphType));
+			Field(o => o.Id, type: typeof(NonNullGraphType<IdGraphType>));
+			Field(o => o.Created, type: typeof(NonNullGraphType<DateTimeGraphType>));
+			Field(o => o.Modified, type: typeof(NonNullGraphType<DateTimeGraphType>));
 			Field(o => o.Action, type: typeof(StringGraphType)).Description(@"The action taken");
 			Field(o => o.ActionTitle, type: typeof(StringGraphType)).Description(@"The title of the action taken");
 			Field(o => o.Description, type: typeof(StringGraphType)).Description(@"Decription of the event");

@@ -26,7 +26,7 @@ namespace SeleniumTests.PageObjects.BotWritten.UserPageObject
 {
 	public class AllUserPage : BasePage
 	{
-		public List<string> ExpectedColumnHeadings = new List<string>{"Type", "Email", "Activated"};
+		public List<string> ExpectedColumnHeadings = new List<string>{"Type", "Email", "Activated", "Two Factor Enabled"};
 		public override string Url => baseUrl + "/admin/user";
 		public IWebElement ListHeader => FindElementExt("ListHeader");
 		public IWebElement CreateNewButton => FindElementExt("CreateNewButton");

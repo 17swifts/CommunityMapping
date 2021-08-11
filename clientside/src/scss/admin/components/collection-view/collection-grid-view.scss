@@ -21,6 +21,8 @@ Collection - Grid View
 Grid view of the collection list. In replacement a table view, there are blocks of items.
 */
 
+
+// % protected region % [Change collection grid view styles here] off begin
 .collection__grid {
 	@include fadeIn(0.5s);
 	display: flex;
@@ -105,3 +107,7 @@ Grid view of the collection list. In replacement a table view, there are blocks 
 		}
 	}
 }
+
+// % protected region % [Change collection grid view styles here] end
+// % protected region % [Add additional collection grid view styles here] off begin
+// % protected region % [Add additional collection grid view styles here] end

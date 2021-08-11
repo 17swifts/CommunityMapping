@@ -961,7 +961,7 @@ $char in $admin-icons {
 		}
 	}
 }
-
+// % protected region % [Change icon sizes and padding] off begin
 *[class*='icon-'] {
 	&:before, &:after {
 		font-family: $admin-icon-name;
@@ -1025,3 +1025,6 @@ $char in $admin-icons {
 		}
 	}
 }
+// % protected region % [Change icon sizes and padding] end
+// % protected region % [Add additional icons here] off begin
+// % protected region % [Add additional icons here] end

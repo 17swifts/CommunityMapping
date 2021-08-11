@@ -17,7 +17,10 @@
 import { Model } from 'Models/Model';
 import { Symbols } from 'Symbols';
 import { ErrorType, IModelAttributeValidationError, initValidators } from '../Util';
+// % protected region % [Add extra imports and exports here] off begin
+// % protected region % [Add extra imports and exports here] end
 
+// % protected region % [Override validate here] off begin
 export default function validate(min?: number, max?: number) {
 	return (target: object, key: string) => {
 		initValidators(target, key);
@@ -61,3 +64,4 @@ export default function validate(min?: number, max?: number) {
 		);
 	};
 }
+// % protected region % [Override validate here] end

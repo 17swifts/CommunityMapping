@@ -18,7 +18,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Cis.Helpers;
 using Cis.Models;
-using Cis.Services.Interfaces;
 using Hangfire;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -34,8 +33,8 @@ namespace Cis.Utility
 	public class InitializationHostedService : IHostedService
 	{
 		private readonly ILogger<AuditLog> _logger;
-		private readonly IServiceScopeFactory _serviceScopeFactory;
 		private readonly JobStorage _jobStorage;
+		private readonly IServiceScopeFactory _serviceScopeFactory;
 		// % protected region % [Add any extra fields here] off begin
 		// % protected region % [Add any extra fields here] end
 
@@ -44,12 +43,12 @@ namespace Cis.Utility
 			// % protected region % [Add any extra constructor parameters here] off begin
 			// % protected region % [Add any extra constructor parameters here] end
 			ILogger<AuditLog> logger,
-			IServiceScopeFactory serviceScopeFactory,
-			JobStorage jobStorage)
+			JobStorage jobStorage,
+			IServiceScopeFactory serviceScopeFactory)
 		{
 			_logger = logger;
-			_serviceScopeFactory = serviceScopeFactory;
 			_jobStorage = jobStorage;
+			_serviceScopeFactory = serviceScopeFactory;
 			// % protected region % [Add any extra constructor logic here] off begin
 			// % protected region % [Add any extra constructor logic here] end
 		}

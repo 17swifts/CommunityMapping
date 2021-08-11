@@ -99,6 +99,7 @@ namespace APITests.EntityObjects.Models
 			}
 		}
 
+		// % protected region % [Customize GetInvalidMutatedJsons here] off begin
 		/// <summary>
 		/// Returns a list of invalid/mutated jsons and expected errors. The expected errors are the errors that
 		/// should be returned when trying to use the invalid/mutated jsons in a create api request.
@@ -109,6 +110,7 @@ namespace APITests.EntityObjects.Models
 			return GetInvalidEntities<ServiceCommissioningBodyEntity>()
 				.Select(x => (x.error, x.entity.ToJson()));
 		}
+		// % protected region % [Customize GetInvalidMutatedJsons here] end
 
 		public override Dictionary<string, string> ToDictionary()
 		{
@@ -126,6 +128,7 @@ namespace APITests.EntityObjects.Models
 			return entityVar;
 		}
 
+		// % protected region % [Customize ToJson here] off begin
 		public override RestSharp.JsonObject ToJson()
 		{
 			var entityVar = new RestSharp.JsonObject
@@ -153,6 +156,7 @@ namespace APITests.EntityObjects.Models
 
 			return entityVar;
 		}
+		// % protected region % [Customize ToJson here] end
 
 		public IEnumerable<FileData> GetFiles()
 		{

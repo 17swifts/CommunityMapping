@@ -115,8 +115,6 @@ export default class PageLinks extends React.Component<RouteComponentProps> {
 
 		const homeLinkGroup: ILink[] = [
 			{ path: '/admin', label: 'Home', icon: 'home', iconPos: 'icon-left' },
-			// { path: '/admin/settings', label: 'Settings', icon: 'settings', iconPos: 'icon-left', isDisabled: true }
-
 			// % protected region % [Updated your home link group here] off begin
 			// % protected region % [Updated your home link group here] end
 		];
@@ -159,13 +157,28 @@ export default class PageLinks extends React.Component<RouteComponentProps> {
 		// % protected region % [Add any new link groups here before other and bottom] end
 
 		const otherlinkGroup: ILink[] = [];
-		otherlinkGroup.push({ path: '/admin/timelines', label: 'Timelines', icon: 'timeline', iconPos: 'icon-left', isDisabled: false });
+		// % protected region % [Update the link group for the timelines extension here] off begin
+		otherlinkGroup.push(
+			{
+				path: '/admin/timelines',
+				label: 'Timelines',
+				icon: 'timeline',
+				iconPos: 'icon-left',
+				isDisabled: false
+			}
+		);
+		// % protected region % [Update the link group for the timelines extension here] end
+
+		// % protected region % [Add any additional links to otherLinkGroup here] off begin
+		// % protected region % [Add any additional links to otherLinkGroup here] end
+
 		if (otherlinkGroup.length > 0) {
 			linkGroups.push(otherlinkGroup);
 		}
 
 		const bottomlinkGroup: ILink[] = [];
 		bottomlinkGroup.push(
+			// % protected region % [Modify the utility link group here] off begin
 			{
 				path: '/admin/',
 				label: 'Utility',
@@ -199,9 +212,23 @@ export default class PageLinks extends React.Component<RouteComponentProps> {
 					},
 				],
 			}
+			// % protected region % [Modify the utility link group here] end
 		);
 
-		bottomlinkGroup.push({ path: '/logout', label: 'Logout', icon: 'room', iconPos: 'icon-left' });
+		// % protected region % [Update the logout link here] off begin
+		bottomlinkGroup.push(
+			{
+				path: '/logout',
+				label: 'Logout',
+				icon: 'room',
+				iconPos: 'icon-left'
+			}
+		);
+		// % protected region % [Update the logout link here] end
+
+		// % protected region % [Add any additional links to bottomlinkGroup here] off begin
+		// % protected region % [Add any additional links to bottomlinkGroup here] end
+
 		linkGroups.push(bottomlinkGroup);
 
 		// % protected region % [Modify your link groups here before returning] off begin

@@ -14,8 +14,6 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
-using Microsoft.Extensions.Options;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,10 +22,12 @@ using System.Net.Mail;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Cis.Helpers;
 using Cis.Services.Interfaces;
 using Cis.Utility;
+using Microsoft.Extensions.Options;
 // % protected region % [Add any extra email service imports here] off begin
 // % protected region % [Add any extra email service imports here] end
 
@@ -147,7 +147,7 @@ namespace Cis.Services
 
 		/// <inheritdoc />
 		// % protected region % [Configure SendEmail method here] off begin
-		public async Task<bool> SendEmail(EmailEntity emailToSend)
+		public async Task<bool> SendEmail(EmailEntity emailToSend, CancellationToken cancellationToken = default)
 		{
 			var to = emailToSend.To;
 			var cc = emailToSend.Cc;
@@ -193,8 +193,11 @@ namespace Cis.Services
 				.Select(attachment => new Attachment(attachment.Value, attachment.Key));
 			mailMessage.Attachments.AddRange(attachments);
 
-			//send email
-			ServicePointManager.ServerCertificateValidationCallback = CertificateValidationCallBack;
+			if (EmailAccount.BypassCertificateValidation)
+			{
+				ServicePointManager.ServerCertificateValidationCallback = CertificateValidationCallBack;
+			}
+
 			using var smtp = new SmtpClient
 			{
 				UseDefaultCredentials = false,
@@ -205,20 +208,13 @@ namespace Cis.Services
 
 			if (EmailAccount.Port > 0) smtp.Port = EmailAccount.Port;
 
-			smtp.UseDefaultCredentials = false;
-			smtp.Credentials = new NetworkCredential(EmailAccount.Username, EmailAccount.Password);
-			smtp.Host = EmailAccount.Host;
-			smtp.EnableSsl = EmailAccount.EnableSsl;
-
-			if (EmailAccount.Port > 0) smtp.Port = EmailAccount.Port;
-
 			if (EmailAccount.SaveToLocalFile)
 			{
 				FileWritingUtilities.WriteEmailToLocalFile(mailMessage);
 				return true;
 			}
 
-			await smtp.SendMailAsync(mailMessage);
+			await smtp.SendMailAsync(mailMessage, cancellationToken);
 
 			return true;
 		}

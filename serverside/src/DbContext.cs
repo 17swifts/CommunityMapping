@@ -20,9 +20,7 @@ using Hangfire.EntityFrameworkCore;
 using Npgsql;
 using Audit.EntityFramework;
 using Microsoft.AspNetCore.DataProtection.EntityFrameworkCore;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using Cis.Enums;
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
@@ -32,11 +30,9 @@ namespace Cis.Models {
 	public class CisDBContext : AuditIdentityDbContext<User, Group, Guid>, IDataProtectionKeyContext
 	// % protected region % [Change the class signature here] end
 	{
-		private readonly ILogger<CisDBContext> _logger;
-
-		public string SessionUserId { get; }
-		public string SessionUser { get; }
-		public string SessionId { get; }
+		public string SessionUserId { get; set; }
+		public string SessionUser { get; set; }
+		public string SessionId { get; set; }
 
 		// % protected region % [Add any custom class variables] off begin
 		// % protected region % [Add any custom class variables] end
@@ -61,16 +57,9 @@ namespace Cis.Models {
 		public CisDBContext(
 			// % protected region % [Add any custom constructor paramaters] off begin
 			// % protected region % [Add any custom constructor paramaters] end
-			DbContextOptions<CisDBContext> options,
-			IHttpContextAccessor httpContextAccessor,
-			ILogger<CisDBContext> logger) : base(options)
+			DbContextOptions<CisDBContext> options)
+			: base(options)
 		{
-			_logger = logger;
-
-			SessionUser = httpContextAccessor?.HttpContext?.User?.Identity?.Name;
-			SessionUserId = httpContextAccessor?.HttpContext?.User?.FindFirst("UserId")?.Value;
-			SessionId = httpContextAccessor?.HttpContext?.TraceIdentifier;
-
 			// % protected region % [Add any constructor config here] off begin
 			// % protected region % [Add any constructor config here] end
 		}
