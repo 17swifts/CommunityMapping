@@ -68,14 +68,6 @@ const getPageLinks = (): AdminLink[] => [
 		// % protected region % [Override navigation link for ServiceCommissioningBodyEntity here] end
 	},
 	{
-		// % protected region % [Override navigation link for MetricEntity here] off begin
-		path: '/admin/metricentity',
-		label: getModelDisplayName(Models.MetricEntity),
-		entity: Models.MetricEntity,
-		isMember: false
-		// % protected region % [Override navigation link for MetricEntity here] end
-	},
-	{
 		// % protected region % [Override navigation link for RegionalAreaTimelineEventsEntity here] off begin
 		path: '/admin/regionalareatimelineeventsentity',
 		label: getModelDisplayName(Models.RegionalAreaTimelineEventsEntity),

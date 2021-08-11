@@ -49,7 +49,6 @@ namespace SeleniumTests.Factories
 				"RegionalAreaEntity" => new RegionalAreaEntityDetailSection(_contextConfiguration, (RegionalAreaEntity) entity),
 				"ServiceEntity" => new ServiceEntityDetailSection(_contextConfiguration, (ServiceEntity) entity),
 				"ServiceCommissioningBodyEntity" => new ServiceCommissioningBodyEntityDetailSection(_contextConfiguration, (ServiceCommissioningBodyEntity) entity),
-				"MetricEntity" => new MetricEntityDetailSection(_contextConfiguration, (MetricEntity) entity),
 				"RegionalAreaTimelineEventsEntity" => new RegionalAreaTimelineEventsEntityDetailSection(_contextConfiguration, (RegionalAreaTimelineEventsEntity) entity),
 				_ => throw new Exception($"Cannot find entity type {entityName}"),
 			};

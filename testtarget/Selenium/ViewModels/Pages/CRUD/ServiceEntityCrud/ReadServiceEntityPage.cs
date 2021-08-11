@@ -48,6 +48,9 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.ServiceEntityCrud
 				Servicetype = Servicetype.Value.ToEnum<Servicetype>(),
 				Noservicedays = Noservicedays.Value.ToNullableInt(),
 				Investment = Investment.Value.ToNullableDouble(),
+				Startdate = Startdate.Value,
+				Enddate = Enddate.Value,
+				Active = Active.Value,
 			};
 
 			if (Guid.TryParse(RegionalAreaId.Value, out var regionalAreaId)) {

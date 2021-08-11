@@ -47,7 +47,6 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Update
 					// % protected region % [Configure entity theory data for Unauthenticated here] off begin
 					{new RegionalAreaEntity(), SecurityStringHelper.UserPermissionDenied, null},
 					{new ServiceEntity(), SecurityStringHelper.UserPermissionDenied, null},
-					{new MetricEntity(), SecurityStringHelper.UserPermissionDenied, null},
 					{new RegionalAreaTimelineEventsEntity(), SecurityStringHelper.UserPermissionDenied, null},
 					// % protected region % [Configure entity theory data for Unauthenticated here] end
 				};

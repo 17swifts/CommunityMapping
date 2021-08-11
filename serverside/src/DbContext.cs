@@ -42,7 +42,6 @@ namespace Cis.Models {
 		public DbSet<RegionalAreaEntity> RegionalAreaEntity { get; set; }
 		public DbSet<ServiceEntity> ServiceEntity { get; set; }
 		public DbSet<ServiceCommissioningBodyEntity> ServiceCommissioningBodyEntity { get; set; }
-		public DbSet<MetricEntity> MetricEntity { get; set; }
 		public DbSet<RegionalAreaTimelineEventsEntity> RegionalAreaTimelineEventsEntity { get; set; }
 		public DbSet<ServiceCommissioningBodiesServices> ServiceCommissioningBodiesServices { get; set; }
 		public DbSet<DataProtectionKey> DataProtectionKeys { get; set; }
@@ -79,7 +78,6 @@ namespace Cis.Models {
 			modelBuilder.ApplyConfiguration(new RegionalAreaEntityConfiguration());
 			modelBuilder.ApplyConfiguration(new ServiceEntityConfiguration());
 			modelBuilder.ApplyConfiguration(new ServiceCommissioningBodyEntityConfiguration());
-			modelBuilder.ApplyConfiguration(new MetricEntityConfiguration());
 			modelBuilder.ApplyConfiguration(new RegionalAreaTimelineEventsEntityConfiguration());
 			modelBuilder.ApplyConfiguration(new ServiceCommissioningBodiesServicesConfiguration());
 

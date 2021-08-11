@@ -45,7 +45,6 @@ namespace APITests.Factories
 				"RegionalAreaEntity" => RegionalAreaEntity.GetEntity(isValid, _fixedStrValues),
 				"ServiceEntity" => ServiceEntity.GetEntity(isValid, _fixedStrValues),
 				"ServiceCommissioningBodyEntity" => ServiceCommissioningBodyEntity.GetEntity(isValid, _fixedStrValues),
-				"MetricEntity" => MetricEntity.GetEntity(isValid, _fixedStrValues),
 				"RegionalAreaTimelineEventsEntity" => RegionalAreaTimelineEventsEntity.GetEntity(isValid, _fixedStrValues),
 				_ => throw new Exception($"Cannot find entity type {_type}"),
 			};

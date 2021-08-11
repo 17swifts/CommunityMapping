@@ -45,6 +45,22 @@ namespace Cis.Models {
 			builder.HasIndex(e => e.Servicetype);
 			// % protected region % [Override Servicetype index configuration here] end
 
+			// % protected region % [Override Investment index configuration here] off begin
+			builder.HasIndex(e => e.Investment);
+			// % protected region % [Override Investment index configuration here] end
+
+			// % protected region % [Override Startdate index configuration here] off begin
+			builder.HasIndex(e => e.Startdate);
+			// % protected region % [Override Startdate index configuration here] end
+
+			// % protected region % [Override Enddate index configuration here] off begin
+			builder.HasIndex(e => e.Enddate);
+			// % protected region % [Override Enddate index configuration here] end
+
+			// % protected region % [Override Active index configuration here] off begin
+			builder.HasIndex(e => e.Active);
+			// % protected region % [Override Active index configuration here] end
+
 			// % protected region % [Add any extra db model config options here] off begin
 			// % protected region % [Add any extra db model config options here] end
 		}

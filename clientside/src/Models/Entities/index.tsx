@@ -19,7 +19,6 @@ import { IAdminEntityAttributes as IAdminEntityAttributesImport } from './AdminE
 import { IRegionalAreaEntityAttributes as IRegionalAreaEntityAttributesImport } from './RegionalAreaEntity';
 import { IServiceEntityAttributes as IServiceEntityAttributesImport } from './ServiceEntity';
 import { IServiceCommissioningBodyEntityAttributes as IServiceCommissioningBodyEntityAttributesImport } from './ServiceCommissioningBodyEntity';
-import { IMetricEntityAttributes as IMetricEntityAttributesImport } from './MetricEntity';
 import { IRegionalAreaTimelineEventsEntityAttributes as IRegionalAreaTimelineEventsEntityAttributesImport } from './RegionalAreaTimelineEventsEntity';
 import { IServiceCommissioningBodiesServicesAttributes as IServiceCommissioningBodiesServicesAttributesImport } from './ServiceCommissioningBodiesServices';
 
@@ -36,9 +35,6 @@ export type IServiceEntityAttributes = IServiceEntityAttributesImport;
 
 export { default as ServiceCommissioningBodyEntity } from './ServiceCommissioningBodyEntity';
 export type IServiceCommissioningBodyEntityAttributes = IServiceCommissioningBodyEntityAttributesImport;
-
-export { default as MetricEntity } from './MetricEntity';
-export type IMetricEntityAttributes = IMetricEntityAttributesImport;
 
 export { default as RegionalAreaTimelineEventsEntity } from './RegionalAreaTimelineEventsEntity';
 export type IRegionalAreaTimelineEventsEntityAttributes = IRegionalAreaTimelineEventsEntityAttributesImport;

@@ -55,6 +55,27 @@ namespace Cis.Models
 		public Double? Investment { get; set; }
 		// % protected region % [Customise Investment here] end
 
+		// % protected region % [Customise Startdate here] off begin
+		/// <summary>
+		/// Start data of the service
+		/// </summary>
+		public DateTime? Startdate { get; set; }
+		// % protected region % [Customise Startdate here] end
+
+		// % protected region % [Customise Enddate here] off begin
+		/// <summary>
+		/// End dat of the service
+		/// </summary>
+		public DateTime? Enddate { get; set; }
+		// % protected region % [Customise Enddate here] end
+
+		// % protected region % [Customise Active here] off begin
+		/// <summary>
+		/// Whether the service is currently active
+		/// </summary>
+		public Boolean? Active { get; set; }
+		// % protected region % [Customise Active here] end
+
 
 		// % protected region % [Customise RegionalAreaId here] off begin
 		public Guid? RegionalAreaId { get; set; }
@@ -91,6 +112,9 @@ namespace Cis.Models
 				Servicetype = Servicetype,
 				Noservicedays = Noservicedays,
 				Investment = Investment,
+				Startdate = Startdate,
+				Enddate = Enddate,
+				Active = Active,
 				RegionalAreaId  = RegionalAreaId,
 				// % protected region % [Add any extra model properties here] off begin
 				// % protected region % [Add any extra model properties here] end
@@ -107,6 +131,9 @@ namespace Cis.Models
 			Servicetype = model.Servicetype;
 			Noservicedays = model.Noservicedays;
 			Investment = model.Investment;
+			Startdate = model.Startdate;
+			Enddate = model.Enddate;
+			Active = model.Active;
 			RegionalAreaId  = model.RegionalAreaId;
 
 			// % protected region % [Add any extra loading data logic here] off begin

@@ -14,6 +14,7 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
+import moment from 'moment';
 import { action, observable } from 'mobx';
 import { Model, IModelAttributes, attribute, entity } from 'Models/Model';
 import * as Models from 'Models/Entities';
@@ -42,6 +43,9 @@ export interface IServiceEntityAttributes extends IModelAttributes {
 	servicetype: Enums.servicetype;
 	noservicedays: number;
 	investment: number;
+	startdate: Date;
+	enddate: Date;
+	active: boolean;
 
 	regionalAreaId?: string;
 	regionalArea?: Models.RegionalAreaEntity | Models.IRegionalAreaEntityAttributes;
@@ -169,13 +173,67 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	public investment: number;
 	// % protected region % [Modify props to the crud options here for attribute 'Investment'] end
 
+	// % protected region % [Modify props to the crud options here for attribute 'StartDate'] off begin
+	/**
+	 * Start data of the service
+	 */
+	@Validators.Required()
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'StartDate',
+		displayType: 'datepicker',
+		order: 60,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: AttrUtils.standardiseDate,
+	})
+	public startdate: Date;
+	// % protected region % [Modify props to the crud options here for attribute 'StartDate'] end
+
+	// % protected region % [Modify props to the crud options here for attribute 'EndDate'] off begin
+	/**
+	 * End dat of the service
+	 */
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'EndDate',
+		displayType: 'datepicker',
+		order: 70,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: AttrUtils.standardiseDate,
+	})
+	public enddate: Date;
+	// % protected region % [Modify props to the crud options here for attribute 'EndDate'] end
+
+	// % protected region % [Modify props to the crud options here for attribute 'Active'] off begin
+	/**
+	 * Whether the service is currently active
+	 */
+	@Validators.Required()
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'Active',
+		displayType: 'checkbox',
+		order: 80,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: AttrUtils.standardiseBoolean,
+		displayFunction: attr => attr ? 'True' : 'False',
+	})
+	public active: boolean = false;
+	// % protected region % [Modify props to the crud options here for attribute 'Active'] end
+
 	@observable
 	@attribute()
 	@CRUD({
 		// % protected region % [Modify props to the crud options here for reference 'Regional area'] off begin
 		name: 'Regional area',
 		displayType: 'reference-combobox',
-		order: 60,
+		order: 90,
 		referenceTypeFunc: () => Models.RegionalAreaEntity,
 		// % protected region % [Modify props to the crud options here for reference 'Regional area'] end
 	})
@@ -190,7 +248,7 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 		// % protected region % [Modify props to the crud options here for reference 'Service Commissioning Bodies'] off begin
 		name: 'Service Commissioning Bodies',
 		displayType: 'reference-multicombobox',
-		order: 70,
+		order: 100,
 		isJoinEntity: true,
 		referenceTypeFunc: () => Models.ServiceCommissioningBodiesServices,
 		optionEqualFunc: makeJoinEqualsFunc('serviceCommissioningBodiesId'),
@@ -246,6 +304,23 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 			}
 			if (attributes.investment !== undefined) {
 				this.investment = attributes.investment;
+			}
+			if (attributes.startdate !== undefined) {
+				if (attributes.startdate === null) {
+					this.startdate = attributes.startdate;
+				} else {
+					this.startdate = moment(attributes.startdate).toDate();
+				}
+			}
+			if (attributes.enddate !== undefined) {
+				if (attributes.enddate === null) {
+					this.enddate = attributes.enddate;
+				} else {
+					this.enddate = moment(attributes.enddate).toDate();
+				}
+			}
+			if (attributes.active !== undefined) {
+				this.active = attributes.active;
 			}
 			if (attributes.regionalAreaId !== undefined) {
 				this.regionalAreaId = attributes.regionalAreaId;

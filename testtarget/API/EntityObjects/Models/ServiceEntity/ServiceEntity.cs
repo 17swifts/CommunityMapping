@@ -48,6 +48,17 @@ namespace APITests.EntityObjects.Models
 		// 
 		[EntityAttribute]
 		public Double? Investment { get; set; }
+		// Start data of the service
+		[Required]
+		[EntityAttribute]
+		public DateTime? Startdate { get; set; }
+		// End dat of the service
+		[EntityAttribute]
+		public DateTime? Enddate { get; set; }
+		// Whether the service is currently active
+		[Required]
+		[EntityAttribute]
+		public Boolean? Active { get; set; }
 
 		/// <summary>
 		/// Incoming one to many reference
@@ -151,6 +162,9 @@ namespace APITests.EntityObjects.Models
 				{"servicetype" , Servicetype.ToString()},
 				{"noservicedays" , Noservicedays.ToString()},
 				{"investment" , Investment.ToString()},
+				{"startdate" ,((DateTime)Startdate).ToIsoString()},
+				{"enddate" ,((DateTime)Enddate).ToIsoString()},
+				{"active" , Active.ToString()},
 			};
 
 			if (RegionalAreaId != default)
@@ -187,6 +201,18 @@ namespace APITests.EntityObjects.Models
 			if(Investment != null) 
 			{
 				entityVar["investment"] = Investment.ToString();
+			}
+			if(Startdate != null) 
+			{
+				entityVar["startdate"] = Startdate?.ToString("s");
+			}
+			if(Enddate != null) 
+			{
+				entityVar["enddate"] = Enddate?.ToString("s");
+			}
+			if(Active != null) 
+			{
+				entityVar["active"] = Active.ToString();
 			}
 			if (RegionalAreaId  != default)
 			{

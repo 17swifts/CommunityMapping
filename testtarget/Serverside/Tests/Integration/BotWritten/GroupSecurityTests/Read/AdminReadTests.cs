@@ -48,7 +48,6 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Read
 					// % protected region % [Configure entity theory data for Admin here] off begin
 					{new RegionalAreaEntity(), true, "Admin"},
 					{new ServiceEntity(), true, "Admin"},
-					{new MetricEntity(), true, "Admin"},
 					{new RegionalAreaTimelineEventsEntity(), true, "Admin"},
 					// % protected region % [Configure entity theory data for Admin here] end
 				};

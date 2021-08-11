@@ -566,8 +566,6 @@ namespace Cis
 			services.TryAddSingleton<ServiceCommissioningBodyEntityType>();
 			services.TryAddSingleton<ServiceCommissioningBodyEntityInputType>();
 			services.TryAddSingleton<ServiceCommissioningBodyEntityCreateInputType>();
-			services.TryAddSingleton<MetricEntityType>();
-			services.TryAddSingleton<MetricEntityInputType>();
 			services.TryAddSingleton<RegionalAreaTimelineEventsEntityType>();
 			services.TryAddSingleton<RegionalAreaTimelineEventsEntityInputType>();
 			services.TryAddSingleton<ServiceCommissioningBodiesServicesType>();
@@ -583,7 +581,6 @@ namespace Cis
 			GraphQL.Utilities.GraphTypeTypeRegistry.Register<RegionalAreaEntity, RegionalAreaEntityType>();
 			GraphQL.Utilities.GraphTypeTypeRegistry.Register<ServiceEntity, ServiceEntityType>();
 			GraphQL.Utilities.GraphTypeTypeRegistry.Register<ServiceCommissioningBodyEntity, ServiceCommissioningBodyEntityType>();
-			GraphQL.Utilities.GraphTypeTypeRegistry.Register<MetricEntity, MetricEntityType>();
 			GraphQL.Utilities.GraphTypeTypeRegistry.Register<RegionalAreaTimelineEventsEntity, RegionalAreaTimelineEventsEntityType>();
 			GraphQL.Utilities.GraphTypeTypeRegistry.Register<ServiceCommissioningBodiesServices, ServiceCommissioningBodiesServicesType>();
 

@@ -46,6 +46,8 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		private static By ServiceCommissioningBodiessInputElementBy => By.XPath("//*[contains(@class, 'serviceCommissioningBodies')]/div/input");
 
 		//FlatPickr Elements
+		private DateTimePickerComponent StartdateElement => new DateTimePickerComponent(_contextConfiguration, "startdate");
+		private DateTimePickerComponent EnddateElement => new DateTimePickerComponent(_contextConfiguration, "enddate");
 
 		//Attribute Headers
 		private readonly ServiceEntity _serviceEntity;
@@ -56,6 +58,9 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		private IWebElement ServicetypeHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='ServiceType']"));
 		private IWebElement NoservicedaysHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='NoServiceDays']"));
 		private IWebElement InvestmentHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Investment']"));
+		private IWebElement StartdateHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='StartDate']"));
+		private IWebElement EnddateHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='EndDate']"));
+		private IWebElement ActiveHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Active']"));
 
 		// Datepickers
 		public IWebElement CreateAtDatepickerField => _driver.FindElementExt(By.CssSelector("div.created > input[type='date']"));
@@ -83,6 +88,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 			selectorDict.Add("ServicetypeElement", (selector: "//div[contains(@class, 'servicetype')]//input", type: SelectorType.XPath));
 			selectorDict.Add("NoservicedaysElement", (selector: "//div[contains(@class, 'noservicedays')]//input", type: SelectorType.XPath));
 			selectorDict.Add("InvestmentElement", (selector: "//div[contains(@class, 'investment')]//input", type: SelectorType.XPath));
+			selectorDict.Add("ActiveElement", (selector: "//div[contains(@class, 'active')]//input", type: SelectorType.XPath));
 
 			// Reference web elements
 			selectorDict.Add("RegionalareaElement", (selector: ".input-group__dropdown.regionalAreaId > .dropdown.dropdown__container", type: SelectorType.CSS));
@@ -103,6 +109,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		private IWebElement ServicetypeElement => FindElementExt("ServicetypeElement");
 		private IWebElement NoservicedaysElement => FindElementExt("NoservicedaysElement");
 		private IWebElement InvestmentElement => FindElementExt("InvestmentElement");
+		private IWebElement ActiveElement => FindElementExt("ActiveElement");
 
 		// Return an IWebElement that can be used to sort an attribute.
 		public IWebElement GetHeaderTile(string attribute)
@@ -114,6 +121,9 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 				"ServiceType" => ServicetypeHeaderTitle,
 				"NoServiceDays" => NoservicedaysHeaderTitle,
 				"Investment" => InvestmentHeaderTitle,
+				"StartDate" => StartdateHeaderTitle,
+				"EndDate" => EnddateHeaderTitle,
+				"Active" => ActiveHeaderTitle,
 				_ => throw new Exception($"Cannot find header tile {attribute}"),
 			};
 		}
@@ -133,6 +143,12 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 					return NoservicedaysElement;
 				case "Investment":
 					return InvestmentElement;
+				case "Startdate":
+					return StartdateElement.DateTimePickerElement;
+				case "Enddate":
+					return EnddateElement.DateTimePickerElement;
+				case "Active":
+					return ActiveElement;
 				default:
 					throw new Exception($"Cannot find input element {attribute}");
 			}
@@ -162,6 +178,21 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 				case "Investment":
 					SetInvestment(Convert.ToDouble(value));
 					break;
+				case "Startdate":
+					if (DateTime.TryParse(value, out var startdateValue))
+					{
+						SetStartdate(startdateValue);
+					}
+					break;
+				case "Enddate":
+					if (DateTime.TryParse(value, out var enddateValue))
+					{
+						SetEnddate(enddateValue);
+					}
+					break;
+				case "Active":
+					SetActive(bool.Parse(value));
+					break;
 				default:
 					throw new Exception($"Cannot find input element {attribute}");
 			}
@@ -176,6 +207,9 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 				"Servicetype" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.servicetype > div > p"),
 				"Noservicedays" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.noservicedays > div > p"),
 				"Investment" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.investment > div > p"),
+				"Startdate" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.startdate > div > p"),
+				"Enddate" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.enddate > div > p"),
+				"Active" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.active > div > p"),
 				_ => throw new Exception($"No such attribute {attribute}"),
 			};
 		}
@@ -199,6 +233,9 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 			SetServicetype(_serviceEntity.Servicetype);
 			SetNoservicedays(_serviceEntity.Noservicedays);
 			SetInvestment(_serviceEntity.Investment);
+			SetStartdate(_serviceEntity.Startdate);
+			SetEnddate(_serviceEntity.Enddate);
+			SetActive(_serviceEntity.Active);
 
 			SetRegionalAreaId(_serviceEntity.RegionalAreaId?.ToString());
 			if (_serviceEntity.ServiceCommissioningBodiesIds != null)
@@ -326,6 +363,39 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 
 		private Double? GetInvestment =>
 			Convert.ToDouble(InvestmentElement.Text);
+		private void SetStartdate (DateTime? value)
+		{
+			if (value is DateTime datetimeValue)
+			{
+				StartdateElement.SetDate(datetimeValue);
+			}
+		}
+
+		private DateTime? GetStartdate =>
+			Convert.ToDateTime(StartdateElement.DateTimePickerElement.Text);
+		private void SetEnddate (DateTime? value)
+		{
+			if (value is DateTime datetimeValue)
+			{
+				EnddateElement.SetDate(datetimeValue);
+			}
+		}
+
+		private DateTime? GetEnddate =>
+			Convert.ToDateTime(EnddateElement.DateTimePickerElement.Text);
+		private void SetActive (Boolean? value)
+		{
+			if (value is bool boolValue)
+			{
+				if (ActiveElement.Selected != boolValue) {
+					ActiveElement.Click();
+				}
+			}
+		}
+
+		private Boolean? GetActive =>
+			ActiveElement.Selected;
+
 
 		// % protected region % [Add any additional getters and setters of web elements] off begin
 		// % protected region % [Add any additional getters and setters of web elements] end

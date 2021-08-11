@@ -79,6 +79,32 @@ namespace Cis.Models {
 		public Double? Investment { get; set; }
 		// % protected region % [Customise Investment here] end
 
+		/// <summary>
+		/// Start data of the service
+		/// </summary>
+		[Required]
+		// % protected region % [Customise Startdate here] off begin
+		[EntityAttribute]
+		public DateTime? Startdate { get; set; }
+		// % protected region % [Customise Startdate here] end
+
+		/// <summary>
+		/// End dat of the service
+		/// </summary>
+		// % protected region % [Customise Enddate here] off begin
+		[EntityAttribute]
+		public DateTime? Enddate { get; set; }
+		// % protected region % [Customise Enddate here] end
+
+		/// <summary>
+		/// Whether the service is currently active
+		/// </summary>
+		[Required]
+		// % protected region % [Customise Active here] off begin
+		[EntityAttribute]
+		public Boolean? Active { get; set; }
+		// % protected region % [Customise Active here] end
+
 		// % protected region % [Add any further attributes here] off begin
 		// % protected region % [Add any further attributes here] end
 

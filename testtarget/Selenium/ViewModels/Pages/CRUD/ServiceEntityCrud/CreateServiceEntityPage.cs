@@ -54,6 +54,9 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.ServiceEntityCrud
 			Servicetype.Value = serviceEntity.Servicetype.ToString();
 			Noservicedays.Value = serviceEntity.Noservicedays.ToString();
 			Investment.Value = serviceEntity.Investment.ToString();
+			Startdate.Value = serviceEntity.Startdate.GetValueOrDefault();
+			Enddate.Value = serviceEntity.Enddate.GetValueOrDefault();
+			Active.Value = serviceEntity.Active.GetValueOrDefault();
 			RegionalAreaId.Value = serviceEntity.RegionalAreaId == null ? string.Empty : serviceEntity.RegionalAreaId.ToString();
 			ServiceCommissioningBodiesIds.Value = serviceEntity.ServiceCommissioningBodiesIds?.Select(x => x.ToString());
 		}
@@ -69,6 +72,9 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.ServiceEntityCrud
 				Servicetype = Servicetype.Value.ToEnum<Servicetype>(),
 				Noservicedays = Noservicedays.Value.ToNullableInt(),
 				Investment = Investment.Value.ToNullableDouble(),
+				Startdate = Startdate.Value,
+				Enddate = Enddate.Value,
+				Active = Active.Value,
 			};
 
 			if (Guid.TryParse(RegionalAreaId.Value, out var regionalAreaId)) {

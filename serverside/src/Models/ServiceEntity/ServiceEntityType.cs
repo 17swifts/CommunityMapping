@@ -47,6 +47,9 @@ namespace Cis.Models
 			Field(o => o.Servicetype, type: typeof(EnumerationGraphType<Servicetype>)).Description(@"Whether the service is permanent or temporary ");
 			Field(o => o.Noservicedays, type: typeof(IntGraphType)).Description(@"Number of days the service is operating");
 			Field(o => o.Investment, type: typeof(FloatGraphType));
+			Field(o => o.Startdate, type: typeof(DateTimeGraphType)).Description(@"Start data of the service");
+			Field(o => o.Enddate, type: typeof(DateTimeGraphType)).Description(@"End dat of the service");
+			Field(o => o.Active, type: typeof(BooleanGraphType)).Description(@"Whether the service is currently active");
 			// % protected region % [Add any extra GraphQL fields here] off begin
 			// % protected region % [Add any extra GraphQL fields here] end
 
@@ -139,6 +142,9 @@ namespace Cis.Models
 			Field<EnumerationGraphType<Servicetype>>("Servicetype").Description = @"Whether the service is permanent or temporary ";
 			Field<IntGraphType>("Noservicedays").Description = @"Number of days the service is operating";
 			Field<FloatGraphType>("Investment");
+			Field<DateTimeGraphType>("Startdate").Description = @"Start data of the service";
+			Field<DateTimeGraphType>("Enddate").Description = @"End dat of the service";
+			Field<BooleanGraphType>("Active").Description = @"Whether the service is currently active";
 
 			// Add entity references
 			Field<IdGraphType>("RegionalAreaId");

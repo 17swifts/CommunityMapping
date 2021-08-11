@@ -36,8 +36,6 @@ namespace SeleniumTests.Utils
 					return new ServiceEntityDetailSection(contextConfiguration);
 				case "ServiceCommissioningBodyEntity":
 					return new ServiceCommissioningBodyEntityDetailSection(contextConfiguration);
-				case "MetricEntity":
-					return new MetricEntityDetailSection(contextConfiguration);
 				case "RegionalAreaTimelineEventsEntity":
 					return new RegionalAreaTimelineEventsEntityDetailSection(contextConfiguration);
 				default:

@@ -44,4 +44,16 @@ Feature: Sort ServiceEntity
 	Then I assert that Investment in ServiceEntity of type double is properly sorted in descending
 	When I sort ServiceEntity by Investment
 	Then I assert that Investment in ServiceEntity of type double is properly sorted in ascending
+	When I sort ServiceEntity by StartDate
+	Then I assert that StartDate in ServiceEntity of type Date is properly sorted in descending
+	When I sort ServiceEntity by StartDate
+	Then I assert that StartDate in ServiceEntity of type Date is properly sorted in ascending
+	When I sort ServiceEntity by EndDate
+	Then I assert that EndDate in ServiceEntity of type Date is properly sorted in descending
+	When I sort ServiceEntity by EndDate
+	Then I assert that EndDate in ServiceEntity of type Date is properly sorted in ascending
+	When I sort ServiceEntity by Active
+	Then I assert that Active in ServiceEntity of type bool is properly sorted in descending
+	When I sort ServiceEntity by Active
+	Then I assert that Active in ServiceEntity of type bool is properly sorted in ascending
 

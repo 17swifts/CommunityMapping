@@ -121,7 +121,6 @@ export default class Admin extends React.Component<RouteComponentProps> {
 						<Route path={`${this.path}/RegionalAreaEntity`} component={AdminPages.RegionalAreaEntityPage} />
 						<Route path={`${this.path}/ServiceEntity`} component={AdminPages.ServiceEntityPage} />
 						<Route path={`${this.path}/ServiceCommissioningBodyEntity`} component={AdminPages.ServiceCommissioningBodyEntityPage} />
-						<Route path={`${this.path}/MetricEntity`} component={AdminPages.MetricEntityPage} />
 						<Route path={`${this.path}/RegionalAreaTimelineEventsEntity`} component={AdminPages.RegionalAreaTimelineEventsEntityPage} />
 
 						{

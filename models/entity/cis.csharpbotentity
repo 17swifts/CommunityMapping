@@ -36,7 +36,14 @@
 			<Validators xsi:type="csharpbotEntity:ValidatorRequired"  Uuid="a54d6398-0e11-40cd-b397-edab6415cdaa"/>
 		</Attributes>
 		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="3c40f553-eeb5-4c4a-8f6c-9d54983db987" Name="NoServiceDays" DocoDescription="Number of days the service is operating" Searchable="false" Unique="false"/>
-		<Attributes xsi:type="csharpbotEntity:AttributeDecimal"  Uuid="fa58aa39-6c95-4944-8a28-78eb1d8f8b88" Name="Investment" Searchable="false" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeDecimal"  Uuid="fa58aa39-6c95-4944-8a28-78eb1d8f8b88" Name="Investment" Searchable="true" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeDate"  Uuid="27e72c7d-56cf-49d7-8357-e8c1e9866b6c" Name="StartDate" DocoDescription="Start data of the service" Searchable="true" Unique="false">
+			<Validators xsi:type="csharpbotEntity:ValidatorRequired"  Uuid="4ed84afb-df07-4bed-bfb0-17aaf1c7f613"/>
+		</Attributes>
+		<Attributes xsi:type="csharpbotEntity:AttributeDate"  Uuid="d9b8555d-397a-43d4-a901-7b90fa3140bf" Name="EndDate" DocoDescription="End dat of the service" Searchable="true" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeBoolean"  Uuid="3495711c-d209-47c8-8c54-07bc2683bb67" Name="Active" DocoDescription="Whether the service is currently active" Searchable="true" Unique="false">
+			<Validators xsi:type="csharpbotEntity:ValidatorRequired"  Uuid="c8282c13-a706-400f-9c8d-1aa32140bf66"/>
+		</Attributes>
 	</Entities>
 	<Entities xsi:type="csharpbotEntity:Entity"  Uuid="af844d6d-6624-4095-a2a1-acd3271f8137" Name="Service Commissioning Body" OrderByDirection="ASCENDING">
 		<Behaviours xsi:type="csharpbotEntity:BehaviourUser"  Uuid="0fef176b-60b8-4809-83fe-3907b2f74604"/>
@@ -49,10 +56,6 @@
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="76809f06-8427-41b4-9fdc-481a958390cc" Name="Visiting"/>
 	</Enumerations>
 	<ReferenceEnums xsi:type="csharpbotEntity:ReferenceEnum"  Source="8cd3a1fa-ea00-49d6-b996-540a11d1e6d8" Target="dc696af3-277a-4720-962f-ef86ef994e8a"/>
-	<Entities xsi:type="csharpbotEntity:Entity"  Uuid="4350469e-259c-48ab-bb0b-8fe9e13ce35a" Name="Metric" OrderByDirection="ASCENDING">
-		<Attributes xsi:type="csharpbotEntity:AttributeString"  Uuid="4cf381df-2322-4ea8-b390-8d3d4e0522a7" Name="Name" Searchable="false" Unique="false" DatabaseType="VARCHAR"/>
-		<Attributes xsi:type="csharpbotEntity:AttributeString"  Uuid="341a8c0f-45f7-48f6-a8ef-dafe427dd2b4" Name="Description" Searchable="false" Unique="false" DatabaseType="VARCHAR"/>
-	</Entities>
 	<ReferenceEntityEntities xsi:type="csharpbotEntity:ReferenceManyToMany"  Uuid="e7955813-8651-4b0f-a75f-813272bf1994" Name="Services" OppositeName="Service Commissioning Bodies" TargetOptional="true" SourceOptional="true" Source="af844d6d-6624-4095-a2a1-acd3271f8137" Target="905ab383-496b-4e43-97fb-da6847041b4a"/>
 	<ReferenceEntityEntities xsi:type="csharpbotEntity:ReferenceOneToMany"  Uuid="4a9da938-afa4-483b-969a-615717206e0e" Name="Services" OppositeName="Regional area" TargetOptional="true" SourceOptional="true" Source="1a612178-01c4-4ded-a0a0-42d1d68c0927" Target="905ab383-496b-4e43-97fb-da6847041b4a"/>
 </csharpbotEntity:EntityModel>
