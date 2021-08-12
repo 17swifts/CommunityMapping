@@ -29,7 +29,6 @@ import { VisitorsRegionalAreaEntity } from 'Models/Security/Acl/VisitorsRegional
 import { ServiceCommissioningBodyRegionalAreaEntity } from 'Models/Security/Acl/ServiceCommissioningBodyRegionalAreaEntity';
 import { AdminRegionalAreaEntity } from 'Models/Security/Acl/AdminRegionalAreaEntity';
 import { EntityFormMode } from 'Views/Components/Helpers/Common';
-import { TimelineModel } from 'Timelines/TimelineModel';
 import {SuperAdministratorScheme} from '../Security/Acl/SuperAdministratorScheme';
 // % protected region % [Add any further imports here] off begin
 // % protected region % [Add any further imports here] end
@@ -48,11 +47,8 @@ export interface IRegionalAreaEntityAttributes extends IModelAttributes {
 	ier: number;
 	ieo: number;
 	gapScore: number;
-	noservices: number;
-	totalinvestment: number;
 
 	servicess: Array<Models.ServiceEntity | Models.IServiceEntityAttributes>;
-	loggedEvents: Array<Models.RegionalAreaTimelineEventsEntity | Models.IRegionalAreaTimelineEventsEntityAttributes>;
 	// % protected region % [Add any custom attributes to the interface here] off begin
 	// % protected region % [Add any custom attributes to the interface here] end
 }
@@ -60,7 +56,7 @@ export interface IRegionalAreaEntityAttributes extends IModelAttributes {
 // % protected region % [Customise your entity metadata here] off begin
 @entity('RegionalAreaEntity', 'Regional area')
 // % protected region % [Customise your entity metadata here] end
-export default class RegionalAreaEntity extends Model implements IRegionalAreaEntityAttributes, TimelineModel  {
+export default class RegionalAreaEntity extends Model implements IRegionalAreaEntityAttributes {
 	public static acls: IAcl[] = [
 		new SuperAdministratorScheme(),
 		new VisitorsRegionalAreaEntity(),
@@ -300,43 +296,13 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	public gapScore: number;
 	// % protected region % [Modify props to the crud options here for attribute 'gap Score'] end
 
-	// % protected region % [Modify props to the crud options here for attribute 'noServices'] off begin
-	@Validators.Integer()
-	@observable
-	@attribute()
-	@CRUD({
-		name: 'noServices',
-		displayType: 'textfield',
-		order: 140,
-		searchable: true,
-		searchFunction: 'equal',
-		searchTransform: AttrUtils.standardiseInteger,
-	})
-	public noservices: number;
-	// % protected region % [Modify props to the crud options here for attribute 'noServices'] end
-
-	// % protected region % [Modify props to the crud options here for attribute 'totalInvestment'] off begin
-	@Validators.Numeric()
-	@observable
-	@attribute()
-	@CRUD({
-		name: 'totalInvestment',
-		displayType: 'textfield',
-		order: 150,
-		searchable: true,
-		searchFunction: 'equal',
-		searchTransform: AttrUtils.standardiseFloat,
-	})
-	public totalinvestment: number;
-	// % protected region % [Modify props to the crud options here for attribute 'totalInvestment'] end
-
 	@observable
 	@attribute({isReference: true})
 	@CRUD({
 		// % protected region % [Modify props to the crud options here for reference 'Services'] off begin
 		name: "Servicess",
 		displayType: 'reference-multicombobox',
-		order: 160,
+		order: 140,
 		referenceTypeFunc: () => Models.ServiceEntity,
 		referenceResolveFunction: makeFetchOneToManyFunc({
 			relationName: 'servicess',
@@ -345,22 +311,6 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 		// % protected region % [Modify props to the crud options here for reference 'Services'] end
 	})
 	public servicess: Models.ServiceEntity[] = [];
-
-	@observable
-	@attribute({isReference: true})
-	@CRUD({
-		// % protected region % [Modify props to the crud options here for reference 'Logged Event'] off begin
-		name: "Logged Events",
-		displayType: 'hidden',
-		order: 170,
-		referenceTypeFunc: () => Models.RegionalAreaTimelineEventsEntity,
-		referenceResolveFunction: makeFetchOneToManyFunc({
-			relationName: 'loggedEvents',
-			oppositeEntity: () => Models.RegionalAreaTimelineEventsEntity,
-		}),
-		// % protected region % [Modify props to the crud options here for reference 'Logged Event'] end
-	})
-	public loggedEvents: Models.RegionalAreaTimelineEventsEntity[] = [];
 
 	// % protected region % [Add any custom attributes to the model here] off begin
 	// % protected region % [Add any custom attributes to the model here] end
@@ -426,27 +376,12 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 			if (attributes.gapScore !== undefined) {
 				this.gapScore = attributes.gapScore;
 			}
-			if (attributes.noservices !== undefined) {
-				this.noservices = attributes.noservices;
-			}
-			if (attributes.totalinvestment !== undefined) {
-				this.totalinvestment = attributes.totalinvestment;
-			}
 			if (attributes.servicess !== undefined && Array.isArray(attributes.servicess)) {
 				for (const model of attributes.servicess) {
 					if (model instanceof Models.ServiceEntity) {
 						this.servicess.push(model);
 					} else {
 						this.servicess.push(new Models.ServiceEntity(model));
-					}
-				}
-			}
-			if (attributes.loggedEvents !== undefined && Array.isArray(attributes.loggedEvents)) {
-				for (const model of attributes.loggedEvents) {
-					if (model instanceof Models.RegionalAreaTimelineEventsEntity) {
-						this.loggedEvents.push(model);
-					} else {
-						this.loggedEvents.push(new Models.RegionalAreaTimelineEventsEntity(model));
 					}
 				}
 			}
@@ -466,9 +401,6 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 		servicess {
 			${Models.ServiceEntity.getAttributes().join('\n')}
 		}
-		loggedEvents {
-			${Models.RegionalAreaTimelineEventsEntity.getAttributes().join('\n')}
-		}
 	`;
 	// % protected region % [Customize Default Expands here] end
 
@@ -479,7 +411,6 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	public async saveFromCrud(formMode: EntityFormMode) {
 		const relationPath = {
 			servicess: {},
-			loggedEvents: {},
 		};
 		return this.save(
 			relationPath,
@@ -490,7 +421,6 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 						graphQlType: '[String]',
 						value: [
 							'servicess',
-							'loggedEvents',
 						]
 					},
 				],
@@ -506,15 +436,6 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 		// % protected region % [Customise the display name for this entity] off begin
 		return this.id;
 		// % protected region % [Customise the display name for this entity] end
-	}
-
-	/**
-	 * Gets the timeline event entity type for this form.
-	 */
-	public getTimelineEventEntity = () => {
-		// % protected region % [Modify the getTimelineEventEntity here] off begin
-		return Models.RegionalAreaTimelineEventsEntity;
-		// % protected region % [Modify the getTimelineEventEntity here] end
 	}
 
 

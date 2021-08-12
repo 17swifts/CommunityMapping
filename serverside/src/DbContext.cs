@@ -42,12 +42,12 @@ namespace Cis.Models {
 		public DbSet<RegionalAreaEntity> RegionalAreaEntity { get; set; }
 		public DbSet<ServiceEntity> ServiceEntity { get; set; }
 		public DbSet<ServiceCommissioningBodyEntity> ServiceCommissioningBodyEntity { get; set; }
-		public DbSet<RegionalAreaTimelineEventsEntity> RegionalAreaTimelineEventsEntity { get; set; }
 		public DbSet<ServiceCommissioningBodiesServices> ServiceCommissioningBodiesServices { get; set; }
 		public DbSet<DataProtectionKey> DataProtectionKeys { get; set; }
 
 		static CisDBContext()
 		{
+			NpgsqlConnection.GlobalTypeMapper.MapEnum<Categories>();
 			NpgsqlConnection.GlobalTypeMapper.MapEnum<Servicetype>();
 			// % protected region % [Add extra methods to the static constructor here] off begin
 			// % protected region % [Add extra methods to the static constructor here] end
@@ -71,6 +71,7 @@ namespace Cis.Models {
 			modelBuilder.OnHangfireModelCreating();
 			// % protected region % [Customise Hangfire configuration here] end
 
+			modelBuilder.HasPostgresEnum<Categories>();
 			modelBuilder.HasPostgresEnum<Servicetype>();
 			// Configure models from the entity diagram
 			modelBuilder.HasPostgresExtension("uuid-ossp");
@@ -78,7 +79,6 @@ namespace Cis.Models {
 			modelBuilder.ApplyConfiguration(new RegionalAreaEntityConfiguration());
 			modelBuilder.ApplyConfiguration(new ServiceEntityConfiguration());
 			modelBuilder.ApplyConfiguration(new ServiceCommissioningBodyEntityConfiguration());
-			modelBuilder.ApplyConfiguration(new RegionalAreaTimelineEventsEntityConfiguration());
 			modelBuilder.ApplyConfiguration(new ServiceCommissioningBodiesServicesConfiguration());
 
 			// Configure the user and group models

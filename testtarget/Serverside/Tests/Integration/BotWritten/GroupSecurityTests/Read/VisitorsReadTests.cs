@@ -48,7 +48,6 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Read
 					// % protected region % [Configure entity theory data for Visitors here] off begin
 					{new RegionalAreaEntity(), true, "Visitors"},
 					{new ServiceEntity(), false, null},
-					{new RegionalAreaTimelineEventsEntity(), true, "Visitors"},
 					// % protected region % [Configure entity theory data for Visitors here] end
 				};
 				// % protected region % [Add any extra theory data here] off begin

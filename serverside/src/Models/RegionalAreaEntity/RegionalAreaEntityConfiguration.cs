@@ -33,13 +33,6 @@ namespace Cis.Models {
 				.OnDelete(DeleteBehavior.Restrict);
 			// % protected region % [Override Servicess RegionalArea configuration here] end
 
-			// % protected region % [Override LoggedEvents Entity configuration here] off begin
-			builder
-				.HasMany(e => e.LoggedEvents)
-				.WithOne(e => e.Entity)
-				.OnDelete(DeleteBehavior.SetNull);
-			// % protected region % [Override LoggedEvents Entity configuration here] end
-
 			// % protected region % [Override Sa2id index configuration here] off begin
 			builder.HasIndex(e => e.Sa2id).IsUnique();
 			// % protected region % [Override Sa2id index configuration here] end

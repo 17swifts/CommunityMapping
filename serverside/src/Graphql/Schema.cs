@@ -66,7 +66,6 @@ namespace Cis.Graphql
 			AddModelQueryField<RegionalAreaEntityType, RegionalAreaEntity>("RegionalAreaEntity");
 			AddModelQueryField<ServiceEntityType, ServiceEntity>("ServiceEntity");
 			AddModelQueryField<ServiceCommissioningBodyEntityType, ServiceCommissioningBodyEntity>("ServiceCommissioningBodyEntity");
-			AddModelQueryField<RegionalAreaTimelineEventsEntityType, RegionalAreaTimelineEventsEntity>("RegionalAreaTimelineEventsEntity");
 
 			// Add query types for each many to many reference
 			AddModelQueryField<ServiceCommissioningBodiesServicesType, ServiceCommissioningBodiesServices>("ServiceCommissioningBodiesServices");
@@ -181,7 +180,6 @@ namespace Cis.Graphql
 			AddMutationField<ServiceCommissioningBodyEntityCreateInputType, ServiceCommissioningBodyEntityInputType, ServiceCommissioningBodyEntityType, ServiceCommissioningBodyEntity>(
 				"ServiceCommissioningBodyEntity",
 				CreateMutation.CreateUserCreateMutation<ServiceCommissioningBodyEntity, ServiceCommissioningBodyEntityRegistrationModel, ServiceCommissioningBodyEntityGraphQlRegistrationModel>("ServiceCommissioningBodyEntity"));
-			AddMutationField<RegionalAreaTimelineEventsEntityInputType, RegionalAreaTimelineEventsEntityInputType, RegionalAreaTimelineEventsEntityType, RegionalAreaTimelineEventsEntity>("RegionalAreaTimelineEventsEntity");
 
 			// Add input types for each many to many reference
 			AddMutationField<ServiceCommissioningBodiesServicesInputType, ServiceCommissioningBodiesServicesInputType, ServiceCommissioningBodiesServicesType, ServiceCommissioningBodiesServices>("ServiceCommissioningBodiesServices");

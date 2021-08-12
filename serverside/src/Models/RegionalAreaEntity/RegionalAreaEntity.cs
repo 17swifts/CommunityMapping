@@ -21,8 +21,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Cis.Helpers;
-using Cis.Models.Interfaces;
 using Cis.Enums;
 using Cis.Security;
 using Cis.Security.Acl;
@@ -38,7 +36,7 @@ namespace Cis.Models {
 	[Table("RegionalArea")]
 	// % protected region % [Configure entity attributes here] end
 	// % protected region % [Modify class declaration here] off begin
-	public class RegionalAreaEntity : IOwnerAbstractModel, ITimelineEntity  
+	public class RegionalAreaEntity : IOwnerAbstractModel 
 	// % protected region % [Modify class declaration here] end
 	{
 		[Key]
@@ -129,16 +127,6 @@ namespace Cis.Models {
 		public Double? GapScore { get; set; }
 		// % protected region % [Customise GapScore here] end
 
-		// % protected region % [Customise Noservices here] off begin
-		[EntityAttribute]
-		public int? Noservices { get; set; }
-		// % protected region % [Customise Noservices here] end
-
-		// % protected region % [Customise Totalinvestment here] off begin
-		[EntityAttribute]
-		public Double? Totalinvestment { get; set; }
-		// % protected region % [Customise Totalinvestment here] end
-
 		// % protected region % [Add any further attributes here] off begin
 		// % protected region % [Add any further attributes here] end
 
@@ -173,15 +161,6 @@ namespace Cis.Models {
 		public ICollection<ServiceEntity> Servicess { get; set; }
 		// % protected region % [Customise Servicess here] end
 
-		// % protected region % [Customise LoggedEvents here] off begin
-		/// <summary>
-		/// Incoming one to many reference
-		/// </summary>
-		/// <see cref="Cis.Models.RegionalAreaTimelineEventsEntity"/>
-		[EntityForeignKey("LoggedEvents", "Entity", false, typeof(RegionalAreaTimelineEventsEntity))]
-		public ICollection<RegionalAreaTimelineEventsEntity> LoggedEvents { get; set; }
-		// % protected region % [Customise LoggedEvents here] end
-
 		public async Task BeforeSave(
 			EntityState operation,
 			CisDBContext dbContext,
@@ -191,27 +170,6 @@ namespace Cis.Models {
 			// % protected region % [Add any initial before save logic here] off begin
 			// % protected region % [Add any initial before save logic here] end
 
-			// Create timeline event when an entity is added
-			if (operation == EntityState.Added)
-			{
-				await CreateTimelineCreateEventsAsync(dbContext, serviceProvider, cancellationToken);
-			}
-
-			// Create a timeline event when an entity is modified
-			if (operation == EntityState.Modified)
-			{
-				var original = await dbContext.RegionalAreaEntity
-					.AsNoTracking()
-					.Where(x => x.Id == Id)
-					.FirstOrDefaultAsync(cancellationToken);
-				await CreateTimelineEventsAsync(original, dbContext, serviceProvider, cancellationToken);
-			}
-
-			// Create a timeline event when the entity is going to be deleted
-			if (operation == EntityState.Deleted)
-			{
-				await CreateTimelineDeleteEventsAsync(dbContext, serviceProvider, cancellationToken);
-			}
 			// % protected region % [Add any before save logic here] off begin
 			// % protected region % [Add any before save logic here] end
 		}
@@ -256,20 +214,6 @@ namespace Cis.Models {
 
 					dbContext.ServiceEntity.UpdateRange(oldservices);
 					return oldservices.Count;
-				case "LoggedEvents":
-					var loggedEventIds = modelList.SelectMany(x => x.LoggedEvents.Select(m => m.Id)).ToList();
-					var oldloggedEvent = await dbContext.RegionalAreaTimelineEventsEntity
-						.Where(m => m.EntityId.HasValue && ids.Contains(m.EntityId.Value))
-						.Where(m => !loggedEventIds.Contains(m.Id))
-						.ToListAsync(cancellation);
-
-					foreach (var loggedEvent in oldloggedEvent)
-					{
-						loggedEvent.EntityId = null;
-					}
-
-					dbContext.RegionalAreaTimelineEventsEntity.UpdateRange(oldloggedEvent);
-					return oldloggedEvent.Count;
 				// % protected region % [Add any extra clean reference logic here] off begin
 				// % protected region % [Add any extra clean reference logic here] end
 				default:
@@ -279,176 +223,5 @@ namespace Cis.Models {
 
 		// % protected region % [Add any further references here] off begin
 		// % protected region % [Add any further references here] end
-
-		// % protected region % [Override CreateTimelineEventsAsync method here] off begin
-		public async Task CreateTimelineEventsAsync<TEntity>(
-			TEntity original,
-			CisDBContext dbContext,
-			IServiceProvider serviceProvider,
-			CancellationToken cancellationToken = default)
-			where TEntity : IOwnerAbstractModel
-		// % protected region % [Override CreateTimelineEventsAsync method here] end
-		{
-			// % protected region % [Override CreateTimelineEventsAsync type check here] off begin
-			if (!(original is RegionalAreaEntity originalEntity))
-			{
-				return;
-			}
-			// % protected region % [Override CreateTimelineEventsAsync type check here] end
-
-			var timelineEvents = new List<ITimelineEventEntity>();
-
-			// % protected region % [Override CreateTimelineEventsAsync 'Sa2id' case here] off begin
-			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
-				"RegionalAreaEntity",
-				"Sa2id",
-				 originalEntity.Sa2id,
-				 Sa2id,
-				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Sa2id' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Sa3id' case here] off begin
-			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
-				"RegionalAreaEntity",
-				"Sa3id",
-				 originalEntity.Sa3id,
-				 Sa3id,
-				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Sa3id' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Sa3name' case here] off begin
-			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
-				"RegionalAreaEntity",
-				"Sa3name",
-				 originalEntity.Sa3name,
-				 Sa3name,
-				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Sa3name' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Numofpph' case here] off begin
-			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
-				"RegionalAreaEntity",
-				"Numofpph",
-				 originalEntity.Numofpph,
-				 Numofpph,
-				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Numofpph' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Percentpphperday' case here] off begin
-			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
-				"RegionalAreaEntity",
-				"Percentpphperday",
-				 originalEntity.Percentpphperday,
-				 Percentpphperday,
-				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Percentpphperday' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Sa2name' case here] off begin
-			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
-				"RegionalAreaEntity",
-				"Sa2name",
-				 originalEntity.Sa2name,
-				 Sa2name,
-				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Sa2name' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Indigenous' case here] off begin
-			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
-				"RegionalAreaEntity",
-				"Indigenous",
-				 originalEntity.Indigenous,
-				 Indigenous,
-				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Indigenous' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Nonindigenous' case here] off begin
-			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
-				"RegionalAreaEntity",
-				"Nonindigenous",
-				 originalEntity.Nonindigenous,
-				 Nonindigenous,
-				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Nonindigenous' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Irsd' case here] off begin
-			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
-				"RegionalAreaEntity",
-				"Irsd",
-				 originalEntity.Irsd,
-				 Irsd,
-				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Irsd' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Irsad' case here] off begin
-			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
-				"RegionalAreaEntity",
-				"Irsad",
-				 originalEntity.Irsad,
-				 Irsad,
-				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Irsad' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Ier' case here] off begin
-			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
-				"RegionalAreaEntity",
-				"Ier",
-				 originalEntity.Ier,
-				 Ier,
-				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Ier' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Ieo' case here] off begin
-			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
-				"RegionalAreaEntity",
-				"Ieo",
-				 originalEntity.Ieo,
-				 Ieo,
-				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Ieo' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'GapScore' case here] off begin
-			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
-				"RegionalAreaEntity",
-				"GapScore",
-				 originalEntity.GapScore,
-				 GapScore,
-				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'GapScore' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Noservices' case here] off begin
-			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
-				"RegionalAreaEntity",
-				"Noservices",
-				 originalEntity.Noservices,
-				 Noservices,
-				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Noservices' case here] end
-			// % protected region % [Override CreateTimelineEventsAsync 'Totalinvestment' case here] off begin
-			timelineEvents.ConditionalAddUpdateEvent<RegionalAreaTimelineEventsEntity>(
-				"RegionalAreaEntity",
-				"Totalinvestment",
-				 originalEntity.Totalinvestment,
-				 Totalinvestment,
-				 Id);
-			// % protected region % [Override CreateTimelineEventsAsync 'Totalinvestment' case here] end
-
-			// % protected region % [Add any further timeline update events here] off begin
-			// % protected region % [Add any further timeline update events here] end
-
-			// % protected region % [Override CreateTimelineEventsAsync database call here] off begin
-			await dbContext.AddRangeAsync(timelineEvents, cancellationToken);
-			// % protected region % [Override CreateTimelineEventsAsync database call here] end
-		}
-
-		// % protected region % [Override CreateTimelineCreateEventsAsync here] off begin
-		public async Task CreateTimelineCreateEventsAsync(
-			CisDBContext dbContext,
-			IServiceProvider serviceProvider,
-			CancellationToken cancellationToken = default)
-		{
-			var timelineEvents = new List<ITimelineEventEntity>();
-			timelineEvents.AddCreateEvent<RegionalAreaTimelineEventsEntity>("RegionalAreaEntity", Id);
-			await dbContext.AddRangeAsync(timelineEvents, cancellationToken);
-		}
-		// % protected region % [Override CreateTimelineCreateEventsAsync here] end
-
-		// % protected region % [Override CreateTimelineDeleteEventsAsync here] off begin
-		public async Task CreateTimelineDeleteEventsAsync(
-			CisDBContext dbContext,
-			IServiceProvider serviceProvider,
-			CancellationToken cancellationToken = default)
-		{
-			var timelineEvents = new List<ITimelineEventEntity>();
-			timelineEvents.AddDeleteEvent<RegionalAreaTimelineEventsEntity>("RegionalAreaEntity", Id);
-			await dbContext.AddRangeAsync(timelineEvents, cancellationToken);
-		}
-		// % protected region % [Override CreateTimelineDeleteEventsAsync here] end
 	}
 }

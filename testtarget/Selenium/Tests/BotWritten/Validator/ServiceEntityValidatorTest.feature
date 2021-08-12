@@ -23,5 +23,4 @@ Scenario: Violate ServiceEntity validators
 Given I login to the site as a user
 And I navigate to the ServiceEntity create page
 Then I verify the Required Validator for the Name attribute for on-submit validation
-Then I verify the Required Validator for the Category attribute for on-submit validation
 Then I verify the Required Validator for the Startdate attribute for on-submit validation

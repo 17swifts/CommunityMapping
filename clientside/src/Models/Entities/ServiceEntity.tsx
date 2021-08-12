@@ -39,13 +39,13 @@ import {SuperAdministratorScheme} from '../Security/Acl/SuperAdministratorScheme
 
 export interface IServiceEntityAttributes extends IModelAttributes {
 	name: string;
-	category: string;
 	servicetype: Enums.servicetype;
+	category: Enums.categories;
+	active: boolean;
 	noservicedays: number;
 	investment: number;
 	startdate: Date;
 	enddate: Date;
-	active: boolean;
 
 	regionalAreaId?: string;
 	regionalArea?: Models.RegionalAreaEntity | Models.IRegionalAreaEntityAttributes;
@@ -99,22 +99,6 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	public name: string;
 	// % protected region % [Modify props to the crud options here for attribute 'Name'] end
 
-	// % protected region % [Modify props to the crud options here for attribute 'Category'] off begin
-	@Validators.Required()
-	@observable
-	@attribute()
-	@CRUD({
-		name: 'Category',
-		displayType: 'textfield',
-		order: 20,
-		headerColumn: true,
-		searchable: true,
-		searchFunction: 'like',
-		searchTransform: AttrUtils.standardiseString,
-	})
-	public category: string;
-	// % protected region % [Modify props to the crud options here for attribute 'Category'] end
-
 	// % protected region % [Modify props to the crud options here for attribute 'ServiceType'] off begin
 	/**
 	 * Whether the service is permanent or temporary 
@@ -125,7 +109,7 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	@CRUD({
 		name: 'ServiceType',
 		displayType: 'enum-combobox',
-		order: 30,
+		order: 20,
 		headerColumn: true,
 		searchable: true,
 		searchFunction: 'equal',
@@ -138,6 +122,46 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	public servicetype: Enums.servicetype;
 	// % protected region % [Modify props to the crud options here for attribute 'ServiceType'] end
 
+	// % protected region % [Modify props to the crud options here for attribute 'Category'] off begin
+	@Validators.Required()
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'Category',
+		displayType: 'enum-combobox',
+		order: 30,
+		headerColumn: true,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: (attr: string) => {
+			return AttrUtils.standardiseEnum(attr, Enums.categoriesOptions);
+		},
+		enumResolveFunction: makeEnumFetchFunction(Enums.categoriesOptions),
+		displayFunction: (attribute: Enums.categories) => Enums.categoriesOptions[attribute],
+	})
+	public category: Enums.categories;
+	// % protected region % [Modify props to the crud options here for attribute 'Category'] end
+
+	// % protected region % [Modify props to the crud options here for attribute 'Active'] off begin
+	/**
+	 * Whether the service is currently active
+	 */
+	@Validators.Required()
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'Active',
+		displayType: 'checkbox',
+		order: 40,
+		headerColumn: true,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: AttrUtils.standardiseBoolean,
+		displayFunction: attr => attr ? 'True' : 'False',
+	})
+	public active: boolean = false;
+	// % protected region % [Modify props to the crud options here for attribute 'Active'] end
+
 	// % protected region % [Modify props to the crud options here for attribute 'NoServiceDays'] off begin
 	/**
 	 * Number of days the service is operating
@@ -148,7 +172,7 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	@CRUD({
 		name: 'NoServiceDays',
 		displayType: 'textfield',
-		order: 40,
+		order: 50,
 		headerColumn: true,
 		searchable: true,
 		searchFunction: 'equal',
@@ -164,8 +188,7 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	@CRUD({
 		name: 'Investment',
 		displayType: 'textfield',
-		order: 50,
-		headerColumn: true,
+		order: 60,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseFloat,
@@ -183,7 +206,7 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	@CRUD({
 		name: 'StartDate',
 		displayType: 'datepicker',
-		order: 60,
+		order: 70,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseDate,
@@ -200,32 +223,13 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	@CRUD({
 		name: 'EndDate',
 		displayType: 'datepicker',
-		order: 70,
+		order: 80,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseDate,
 	})
 	public enddate: Date;
 	// % protected region % [Modify props to the crud options here for attribute 'EndDate'] end
-
-	// % protected region % [Modify props to the crud options here for attribute 'Active'] off begin
-	/**
-	 * Whether the service is currently active
-	 */
-	@Validators.Required()
-	@observable
-	@attribute()
-	@CRUD({
-		name: 'Active',
-		displayType: 'checkbox',
-		order: 80,
-		searchable: true,
-		searchFunction: 'equal',
-		searchTransform: AttrUtils.standardiseBoolean,
-		displayFunction: attr => attr ? 'True' : 'False',
-	})
-	public active: boolean = false;
-	// % protected region % [Modify props to the crud options here for attribute 'Active'] end
 
 	@observable
 	@attribute()
@@ -293,11 +297,14 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 			if (attributes.name !== undefined) {
 				this.name = attributes.name;
 			}
+			if (attributes.servicetype !== undefined) {
+				this.servicetype = attributes.servicetype;
+			}
 			if (attributes.category !== undefined) {
 				this.category = attributes.category;
 			}
-			if (attributes.servicetype !== undefined) {
-				this.servicetype = attributes.servicetype;
+			if (attributes.active !== undefined) {
+				this.active = attributes.active;
 			}
 			if (attributes.noservicedays !== undefined) {
 				this.noservicedays = attributes.noservicedays;
@@ -318,9 +325,6 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 				} else {
 					this.enddate = moment(attributes.enddate).toDate();
 				}
-			}
-			if (attributes.active !== undefined) {
-				this.active = attributes.active;
 			}
 			if (attributes.regionalAreaId !== undefined) {
 				this.regionalAreaId = attributes.regionalAreaId;

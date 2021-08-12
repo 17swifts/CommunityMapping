@@ -72,12 +72,6 @@ namespace APITests.EntityObjects.Models
 		// 
 		[EntityAttribute]
 		public Double? GapScore { get; set; }
-		// 
-		[EntityAttribute]
-		public int? Noservices { get; set; }
-		// 
-		[EntityAttribute]
-		public Double? Totalinvestment { get; set; }
 
 		/// <summary>
 		/// Outgoing one to many reference
@@ -85,13 +79,6 @@ namespace APITests.EntityObjects.Models
 		/// <see cref="Cis.Models.Services"/>
 		public List<Guid> ServicesIds { get; set; }
 		public ICollection<ServiceEntity> Servicess { get; set; }
-
-		/// <summary>
-		/// Outgoing one to many reference
-		/// </summary>
-		/// <see cref="Cis.Models.LoggedEvent"/>
-		public List<Guid> LoggedEventIds { get; set; }
-		public ICollection<RegionalAreaTimelineEventsEntity> LoggedEvents { get; set; }
 
 
 		public RegionalAreaEntity()
@@ -172,8 +159,6 @@ namespace APITests.EntityObjects.Models
 				{"ier" , Ier.ToString()},
 				{"ieo" , Ieo.ToString()},
 				{"gapScore" , GapScore.ToString()},
-				{"noservices" , Noservices.ToString()},
-				{"totalinvestment" , Totalinvestment.ToString()},
 			};
 
 
@@ -239,21 +224,9 @@ namespace APITests.EntityObjects.Models
 			{
 				entityVar["gapScore"] = GapScore.ToString();
 			}
-			if(Noservices != null) 
-			{
-				entityVar["noservices"] = Noservices;
-			}
-			if(Totalinvestment != null) 
-			{
-				entityVar["totalinvestment"] = Totalinvestment.ToString();
-			}
 			if (ServicesIds != default)
 			{
 				entityVar["servicess"] = Servicess.Select(x => x.ToJson());
-			}
-			if (LoggedEventIds != default)
-			{
-				entityVar["loggedEvents"] = LoggedEvents.Select(x => x.ToJson());
 			}
 
 			return entityVar;

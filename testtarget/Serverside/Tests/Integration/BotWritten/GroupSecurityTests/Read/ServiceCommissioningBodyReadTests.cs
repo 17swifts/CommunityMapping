@@ -48,7 +48,6 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Read
 					// % protected region % [Configure entity theory data for ServiceCommissioningBody here] off begin
 					{new RegionalAreaEntity(), true, "ServiceCommissioningBody"},
 					{new ServiceEntity(), true, "ServiceCommissioningBody"},
-					{new RegionalAreaTimelineEventsEntity(), true, "ServiceCommissioningBody"},
 					// % protected region % [Configure entity theory data for ServiceCommissioningBody here] end
 				};
 				// % protected region % [Add any extra theory data here] off begin

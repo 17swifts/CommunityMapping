@@ -34,14 +34,18 @@ namespace APITests.EntityObjects.Models
 		[Required]
 		[EntityAttribute]
 		public String Name { get; set; }
-		// 
-		[Required]
-		[EntityAttribute]
-		public String Category { get; set; }
 		// Whether the service is permanent or temporary 
 		[Required]
 		[EntityAttribute]
 		public Servicetype Servicetype { get; set; }
+		// 
+		[Required]
+		[EntityAttribute]
+		public Categories Category { get; set; }
+		// Whether the service is currently active
+		[Required]
+		[EntityAttribute]
+		public Boolean? Active { get; set; }
 		// Number of days the service is operating
 		[EntityAttribute]
 		public int? Noservicedays { get; set; }
@@ -55,10 +59,6 @@ namespace APITests.EntityObjects.Models
 		// End dat of the service
 		[EntityAttribute]
 		public DateTime? Enddate { get; set; }
-		// Whether the service is currently active
-		[Required]
-		[EntityAttribute]
-		public Boolean? Active { get; set; }
 
 		/// <summary>
 		/// Incoming one to many reference
@@ -158,13 +158,13 @@ namespace APITests.EntityObjects.Models
 			{
 				{"id" , Id.ToString()},
 				{"name" , Name},
-				{"category" , Category},
 				{"servicetype" , Servicetype.ToString()},
+				{"category" , Category.ToString()},
+				{"active" , Active.ToString()},
 				{"noservicedays" , Noservicedays.ToString()},
 				{"investment" , Investment.ToString()},
 				{"startdate" ,((DateTime)Startdate).ToIsoString()},
 				{"enddate" ,((DateTime)Enddate).ToIsoString()},
-				{"active" , Active.ToString()},
 			};
 
 			if (RegionalAreaId != default)
@@ -186,13 +186,17 @@ namespace APITests.EntityObjects.Models
 			{
 				entityVar["name"] = Name.ToString();
 			}
+			if(Servicetype != null) 
+			{
+				entityVar["servicetype"] = Servicetype.ToString();
+			}
 			if(Category != null) 
 			{
 				entityVar["category"] = Category.ToString();
 			}
-			if(Servicetype != null) 
+			if(Active != null) 
 			{
-				entityVar["servicetype"] = Servicetype.ToString();
+				entityVar["active"] = Active.ToString();
 			}
 			if(Noservicedays != null) 
 			{
@@ -209,10 +213,6 @@ namespace APITests.EntityObjects.Models
 			if(Enddate != null) 
 			{
 				entityVar["enddate"] = Enddate?.ToString("s");
-			}
-			if(Active != null) 
-			{
-				entityVar["active"] = Active.ToString();
 			}
 			if (RegionalAreaId  != default)
 			{

@@ -155,29 +155,6 @@ namespace ServersideTests.Tests.Integration.BotWritten
 		}
 		// % protected region % [Customise Service Commissioning Body Entity crud tests here] end
 
-		// % protected region % [Customise Regional area Timeline Events Entity crud tests here] off begin
-		[Fact]
-		public async void RegionalAreaTimelineEventsEntityControllerGetTest()
-		{
-			// Arrange
-			using var controller = _serviceProvider.GetRequiredService<RegionalAreaTimelineEventsEntityController>();
-			var entities = new EntityFactory<RegionalAreaTimelineEventsEntity>(10)
-				.UseAttributes()
-				.UseReferences()
-				.UseOwner(Guid.NewGuid())
-				.Generate()
-				.ToList();
-			_database.AddRange(entities);
-			await _database.SaveChangesAsync();
-
-			// Act
-			var data = await controller.Get(null, default);
-
-			// Assert
-			data.Data.Select(d => d.Id).Should().Contain(entities.Select(d => d.Id));
-		}
-		// % protected region % [Customise Regional area Timeline Events Entity crud tests here] end
-
 	// % protected region % [Add any additional tests here] off begin
 	// % protected region % [Add any additional tests here] end
 	}

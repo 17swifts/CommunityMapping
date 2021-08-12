@@ -36,8 +36,6 @@ namespace SeleniumTests.Utils
 					return new ServiceEntityDetailSection(contextConfiguration);
 				case "ServiceCommissioningBodyEntity":
 					return new ServiceCommissioningBodyEntityDetailSection(contextConfiguration);
-				case "RegionalAreaTimelineEventsEntity":
-					return new RegionalAreaTimelineEventsEntityDetailSection(contextConfiguration);
 				default:
 					throw new Exception($"Cannot find detail section for type {entityName}");
 			}

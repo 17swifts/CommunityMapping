@@ -31,10 +31,6 @@ namespace Cis.Models
 		public String Name { get; set; }
 		// % protected region % [Customise Name here] end
 
-		// % protected region % [Customise Category here] off begin
-		public String Category { get; set; }
-		// % protected region % [Customise Category here] end
-
 		// % protected region % [Customise Servicetype here] off begin
 		/// <summary>
 		/// Whether the service is permanent or temporary 
@@ -43,6 +39,19 @@ namespace Cis.Models
 		[JsonConverter(typeof(StringEnumConverter))]
 		public Servicetype Servicetype { get; set; }
 		// % protected region % [Customise Servicetype here] end
+
+		// % protected region % [Customise Category here] off begin
+		[JsonProperty("category")]
+		[JsonConverter(typeof(StringEnumConverter))]
+		public Categories Category { get; set; }
+		// % protected region % [Customise Category here] end
+
+		// % protected region % [Customise Active here] off begin
+		/// <summary>
+		/// Whether the service is currently active
+		/// </summary>
+		public Boolean? Active { get; set; }
+		// % protected region % [Customise Active here] end
 
 		// % protected region % [Customise Noservicedays here] off begin
 		/// <summary>
@@ -68,13 +77,6 @@ namespace Cis.Models
 		/// </summary>
 		public DateTime? Enddate { get; set; }
 		// % protected region % [Customise Enddate here] end
-
-		// % protected region % [Customise Active here] off begin
-		/// <summary>
-		/// Whether the service is currently active
-		/// </summary>
-		public Boolean? Active { get; set; }
-		// % protected region % [Customise Active here] end
 
 
 		// % protected region % [Customise RegionalAreaId here] off begin
@@ -108,13 +110,13 @@ namespace Cis.Models
 				Created = Created,
 				Modified = Modified,
 				Name = Name,
-				Category = Category,
 				Servicetype = Servicetype,
+				Category = Category,
+				Active = Active,
 				Noservicedays = Noservicedays,
 				Investment = Investment,
 				Startdate = Startdate,
 				Enddate = Enddate,
-				Active = Active,
 				RegionalAreaId  = RegionalAreaId,
 				// % protected region % [Add any extra model properties here] off begin
 				// % protected region % [Add any extra model properties here] end
@@ -127,13 +129,13 @@ namespace Cis.Models
 			Created = model.Created;
 			Modified = model.Modified;
 			Name = model.Name;
-			Category = model.Category;
 			Servicetype = model.Servicetype;
+			Category = model.Category;
+			Active = model.Active;
 			Noservicedays = model.Noservicedays;
 			Investment = model.Investment;
 			Startdate = model.Startdate;
 			Enddate = model.Enddate;
-			Active = model.Active;
 			RegionalAreaId  = model.RegionalAreaId;
 
 			// % protected region % [Add any extra loading data logic here] off begin

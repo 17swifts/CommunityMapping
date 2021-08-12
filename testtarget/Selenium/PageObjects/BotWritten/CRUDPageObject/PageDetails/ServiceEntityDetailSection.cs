@@ -54,13 +54,13 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 
 		//Attribute Header Titles
 		private IWebElement NameHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Name']"));
-		private IWebElement CategoryHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Category']"));
 		private IWebElement ServicetypeHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='ServiceType']"));
+		private IWebElement CategoryHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Category']"));
+		private IWebElement ActiveHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Active']"));
 		private IWebElement NoservicedaysHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='NoServiceDays']"));
 		private IWebElement InvestmentHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Investment']"));
 		private IWebElement StartdateHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='StartDate']"));
 		private IWebElement EnddateHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='EndDate']"));
-		private IWebElement ActiveHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Active']"));
 
 		// Datepickers
 		public IWebElement CreateAtDatepickerField => _driver.FindElementExt(By.CssSelector("div.created > input[type='date']"));
@@ -84,11 +84,11 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		{
 			// Attribute web elements
 			selectorDict.Add("NameElement", (selector: "//div[contains(@class, 'name')]//input", type: SelectorType.XPath));
-			selectorDict.Add("CategoryElement", (selector: "//div[contains(@class, 'category')]//input", type: SelectorType.XPath));
 			selectorDict.Add("ServicetypeElement", (selector: "//div[contains(@class, 'servicetype')]//input", type: SelectorType.XPath));
+			selectorDict.Add("CategoryElement", (selector: "//div[contains(@class, 'category')]//input", type: SelectorType.XPath));
+			selectorDict.Add("ActiveElement", (selector: "//div[contains(@class, 'active')]//input", type: SelectorType.XPath));
 			selectorDict.Add("NoservicedaysElement", (selector: "//div[contains(@class, 'noservicedays')]//input", type: SelectorType.XPath));
 			selectorDict.Add("InvestmentElement", (selector: "//div[contains(@class, 'investment')]//input", type: SelectorType.XPath));
-			selectorDict.Add("ActiveElement", (selector: "//div[contains(@class, 'active')]//input", type: SelectorType.XPath));
 
 			// Reference web elements
 			selectorDict.Add("RegionalareaElement", (selector: ".input-group__dropdown.regionalAreaId > .dropdown.dropdown__container", type: SelectorType.CSS));
@@ -105,11 +105,11 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 
 		//Attribute web Elements
 		private IWebElement NameElement => FindElementExt("NameElement");
-		private IWebElement CategoryElement => FindElementExt("CategoryElement");
 		private IWebElement ServicetypeElement => FindElementExt("ServicetypeElement");
+		private IWebElement CategoryElement => FindElementExt("CategoryElement");
+		private IWebElement ActiveElement => FindElementExt("ActiveElement");
 		private IWebElement NoservicedaysElement => FindElementExt("NoservicedaysElement");
 		private IWebElement InvestmentElement => FindElementExt("InvestmentElement");
-		private IWebElement ActiveElement => FindElementExt("ActiveElement");
 
 		// Return an IWebElement that can be used to sort an attribute.
 		public IWebElement GetHeaderTile(string attribute)
@@ -117,13 +117,13 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 			return attribute switch
 			{
 				"Name" => NameHeaderTitle,
-				"Category" => CategoryHeaderTitle,
 				"ServiceType" => ServicetypeHeaderTitle,
+				"Category" => CategoryHeaderTitle,
+				"Active" => ActiveHeaderTitle,
 				"NoServiceDays" => NoservicedaysHeaderTitle,
 				"Investment" => InvestmentHeaderTitle,
 				"StartDate" => StartdateHeaderTitle,
 				"EndDate" => EnddateHeaderTitle,
-				"Active" => ActiveHeaderTitle,
 				_ => throw new Exception($"Cannot find header tile {attribute}"),
 			};
 		}
@@ -135,10 +135,12 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 			{
 				case "Name":
 					return NameElement;
-				case "Category":
-					return CategoryElement;
 				case "Servicetype":
 					return ServicetypeElement;
+				case "Category":
+					return CategoryElement;
+				case "Active":
+					return ActiveElement;
 				case "Noservicedays":
 					return NoservicedaysElement;
 				case "Investment":
@@ -147,8 +149,6 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 					return StartdateElement.DateTimePickerElement;
 				case "Enddate":
 					return EnddateElement.DateTimePickerElement;
-				case "Active":
-					return ActiveElement;
 				default:
 					throw new Exception($"Cannot find input element {attribute}");
 			}
@@ -161,11 +161,14 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 				case "Name":
 					SetName(value);
 					break;
-				case "Category":
-					SetCategory(value);
-					break;
 				case "Servicetype":
 					SetServicetype((Servicetype)Enum.Parse(typeof(Servicetype), value));
+					break;
+				case "Category":
+					SetCategory((Categories)Enum.Parse(typeof(Categories), value));
+					break;
+				case "Active":
+					SetActive(bool.Parse(value));
 					break;
 				case "Noservicedays":
 					int? noservicedays = null;
@@ -190,9 +193,6 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 						SetEnddate(enddateValue);
 					}
 					break;
-				case "Active":
-					SetActive(bool.Parse(value));
-					break;
 				default:
 					throw new Exception($"Cannot find input element {attribute}");
 			}
@@ -203,13 +203,13 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 			return attribute switch
 			{
 				"Name" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.name > div > p"),
-				"Category" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.category > div > p"),
 				"Servicetype" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.servicetype > div > p"),
+				"Category" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.category > div > p"),
+				"Active" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.active > div > p"),
 				"Noservicedays" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.noservicedays > div > p"),
 				"Investment" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.investment > div > p"),
 				"Startdate" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.startdate > div > p"),
 				"Enddate" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.enddate > div > p"),
-				"Active" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.active > div > p"),
 				_ => throw new Exception($"No such attribute {attribute}"),
 			};
 		}
@@ -229,13 +229,13 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		{
 			// % protected region % [Configure entity application here] off begin
 			SetName(_serviceEntity.Name);
-			SetCategory(_serviceEntity.Category);
 			SetServicetype(_serviceEntity.Servicetype);
+			SetCategory(_serviceEntity.Category);
+			SetActive(_serviceEntity.Active);
 			SetNoservicedays(_serviceEntity.Noservicedays);
 			SetInvestment(_serviceEntity.Investment);
 			SetStartdate(_serviceEntity.Startdate);
 			SetEnddate(_serviceEntity.Enddate);
-			SetActive(_serviceEntity.Active);
 
 			SetRegionalAreaId(_serviceEntity.RegionalAreaId?.ToString());
 			if (_serviceEntity.ServiceCommissioningBodiesIds != null)
@@ -325,16 +325,6 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		private String GetName =>
 			NameElement.Text;
 
-		private void SetCategory (String value)
-		{
-			TypingUtils.InputEntityAttributeByClass(_driver, "category", value, _isFastText);
-			CategoryElement.SendKeys(Keys.Tab);
-			CategoryElement.SendKeys(Keys.Escape);
-		}
-
-		private String GetCategory =>
-			CategoryElement.Text;
-
 		private void SetServicetype (Servicetype value)
 		{
 			TypingUtils.InputEntityAttributeByClass(_driver, "servicetype", value.ToString(), _isFastText);
@@ -342,6 +332,26 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 
 		private Servicetype GetServicetype =>
 			(Servicetype)Enum.Parse(typeof(Servicetype), ServicetypeElement.Text);
+		private void SetCategory (Categories value)
+		{
+			TypingUtils.InputEntityAttributeByClass(_driver, "category", value.ToString(), _isFastText);
+		}
+
+		private Categories GetCategory =>
+			(Categories)Enum.Parse(typeof(Categories), CategoryElement.Text);
+		private void SetActive (Boolean? value)
+		{
+			if (value is bool boolValue)
+			{
+				if (ActiveElement.Selected != boolValue) {
+					ActiveElement.Click();
+				}
+			}
+		}
+
+		private Boolean? GetActive =>
+			ActiveElement.Selected;
+
 		private void SetNoservicedays (int? value)
 		{
 			if (value is int intValue)
@@ -383,19 +393,6 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 
 		private DateTime? GetEnddate =>
 			Convert.ToDateTime(EnddateElement.DateTimePickerElement.Text);
-		private void SetActive (Boolean? value)
-		{
-			if (value is bool boolValue)
-			{
-				if (ActiveElement.Selected != boolValue) {
-					ActiveElement.Click();
-				}
-			}
-		}
-
-		private Boolean? GetActive =>
-			ActiveElement.Selected;
-
 
 		// % protected region % [Add any additional getters and setters of web elements] off begin
 		// % protected region % [Add any additional getters and setters of web elements] end

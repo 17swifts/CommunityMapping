@@ -49,7 +49,6 @@ namespace APITests.Tests.BotWritten
 			{
 				new EntityFactory("RegionalAreaEntity"),
 				new EntityFactory("ServiceEntity"),
-				new EntityFactory("RegionalAreaTimelineEventsEntity"),
 			};
 		}
 		// % protected region % [Customize CreateInvalidEntity here] off begin

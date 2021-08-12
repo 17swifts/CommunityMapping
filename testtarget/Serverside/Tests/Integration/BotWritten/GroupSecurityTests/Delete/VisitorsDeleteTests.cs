@@ -47,7 +47,6 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Delete
 					// % protected region % [Configure entity theory data for Visitors here] off begin
 					{new RegionalAreaEntity(), SecurityStringHelper.UserPermissionDenied, "Visitors"},
 					{new ServiceEntity(), SecurityStringHelper.UserPermissionDenied, "Visitors"},
-					{new RegionalAreaTimelineEventsEntity(), SecurityStringHelper.UserPermissionDenied, "Visitors"},
 					// % protected region % [Configure entity theory data for Visitors here] end
 				};
 				// % protected region % [Add any extra theory data here] off begin

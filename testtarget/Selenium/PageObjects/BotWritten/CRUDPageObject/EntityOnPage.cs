@@ -40,10 +40,6 @@ namespace SeleniumTests.PageObjects.CRUDPageObject
 		public IWebElement SelectCheckbox => ListElement.FindElement(SelectCheckboxBy);
 		public readonly By ViewButtonBy = By.XPath(".//*[contains(@class,'icon-look')]");
 		public IWebElement ViewButton => ListElement.FindElement(ViewButtonBy);
-		public readonly By MoreButtonBy = By.XPath(".//*[contains(@class,'icon-more-horizontal')]");
-		public IWebElement MoreButton => ListElement.FindElement(MoreButtonBy);
-		public readonly By TimelineButtonBy = By.XPath("//button[.='View timeline']");
-		public IWebElement TimelineButton => Driver.FindElement(TimelineButtonBy);
 
 		public void SelectItem(bool select)
 		{

@@ -67,14 +67,6 @@ const getPageLinks = (): AdminLink[] => [
 		isMember: true
 		// % protected region % [Override navigation link for ServiceCommissioningBodyEntity here] end
 	},
-	{
-		// % protected region % [Override navigation link for RegionalAreaTimelineEventsEntity here] off begin
-		path: '/admin/regionalareatimelineeventsentity',
-		label: getModelDisplayName(Models.RegionalAreaTimelineEventsEntity),
-		entity: Models.RegionalAreaTimelineEventsEntity,
-		isMember: false
-		// % protected region % [Override navigation link for RegionalAreaTimelineEventsEntity here] end
-	},
 	// % protected region % [Add any extra page links here] off begin
 	// % protected region % [Add any extra page links here] end
 ];
@@ -149,17 +141,6 @@ export default class PageLinks extends React.Component<RouteComponentProps> {
 		// % protected region % [Add any new link groups here before other and bottom] end
 
 		const otherlinkGroup: ILink[] = [];
-		// % protected region % [Update the link group for the timelines extension here] off begin
-		otherlinkGroup.push(
-			{
-				path: '/admin/timelines',
-				label: 'Timelines',
-				icon: 'timeline',
-				iconPos: 'icon-left',
-				isDisabled: false
-			}
-		);
-		// % protected region % [Update the link group for the timelines extension here] end
 
 		// % protected region % [Add any additional links to otherLinkGroup here] off begin
 		// % protected region % [Add any additional links to otherLinkGroup here] end

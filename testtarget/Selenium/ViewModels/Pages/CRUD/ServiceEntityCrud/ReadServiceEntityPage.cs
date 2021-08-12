@@ -44,13 +44,13 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.ServiceEntityCrud
 			var serviceEntity =  new ServiceEntity
 			{
 				Name = Name.Value,
-				Category = Category.Value,
 				Servicetype = Servicetype.Value.ToEnum<Servicetype>(),
+				Category = Category.Value.ToEnum<Categories>(),
+				Active = Active.Value,
 				Noservicedays = Noservicedays.Value.ToNullableInt(),
 				Investment = Investment.Value.ToNullableDouble(),
 				Startdate = Startdate.Value,
 				Enddate = Enddate.Value,
-				Active = Active.Value,
 			};
 
 			if (Guid.TryParse(RegionalAreaId.Value, out var regionalAreaId)) {

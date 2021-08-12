@@ -21,6 +21,5 @@ namespace SeleniumTests.Enums
 	{
 		USERS,
 		ENTITIES,
-		TIMELINES,
 	}
 }

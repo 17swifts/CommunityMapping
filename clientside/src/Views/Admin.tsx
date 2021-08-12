@@ -26,7 +26,6 @@ import StyleguidePage from './Pages/Admin/StyleguidePage';
 import Spinner from 'Views/Components/Spinner/Spinner';
 import { Redirect, Route, RouteComponentProps, Switch } from 'react-router';
 import { store } from "Models/Store";
-import TimelinePage from "./Pages/Admin/Timelines/TimelinePage";
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
 
@@ -116,12 +115,10 @@ export default class Admin extends React.Component<RouteComponentProps> {
 						{/* Admin entity pages */}
 						<Route exact={true} path={`${this.path}`} component={AdminPage} />
 						<Route path={`${this.path}/User`} component={AllUsersPage} />
-						<Route path={`${this.path}/Timelines`} component={TimelinePage} />
 						<Route path={`${this.path}/AdminEntity`} component={AdminPages.AdminEntityPage} />
 						<Route path={`${this.path}/RegionalAreaEntity`} component={AdminPages.RegionalAreaEntityPage} />
 						<Route path={`${this.path}/ServiceEntity`} component={AdminPages.ServiceEntityPage} />
 						<Route path={`${this.path}/ServiceCommissioningBodyEntity`} component={AdminPages.ServiceCommissioningBodyEntityPage} />
-						<Route path={`${this.path}/RegionalAreaTimelineEventsEntity`} component={AdminPages.RegionalAreaTimelineEventsEntityPage} />
 
 						{
 						// % protected region % [Add any extra page routes here] off begin

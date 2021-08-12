@@ -18,6 +18,5 @@ export { default as AdminEntityPage } from './AdminEntityPage';
 export { default as RegionalAreaEntityPage } from './RegionalAreaEntityPage';
 export { default as ServiceEntityPage } from './ServiceEntityPage';
 export { default as ServiceCommissioningBodyEntityPage } from './ServiceCommissioningBodyEntityPage';
-export { default as RegionalAreaTimelineEventsEntityPage } from './RegionalAreaTimelineEventsEntityPage';
 // % protected region % [Add any further admin page exports here] off begin
 // % protected region % [Add any further admin page exports here] end

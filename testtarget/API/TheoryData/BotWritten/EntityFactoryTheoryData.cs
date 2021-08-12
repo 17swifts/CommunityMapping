@@ -44,7 +44,6 @@ namespace APITests.TheoryData.BotWritten
 			Add(new EntityFactory("RegionalAreaEntity"), 1);
 			Add(new EntityFactory("ServiceEntity"), 1);
 			Add(new EntityFactory("ServiceCommissioningBodyEntity"), 1);
-			Add(new EntityFactory("RegionalAreaTimelineEventsEntity"), 1);
 			// % protected region % [Modify UserEntityFactorySingleTheoryData entities here] end
 		}
 	}
@@ -58,7 +57,6 @@ namespace APITests.TheoryData.BotWritten
 			Add(new EntityFactory("RegionalAreaEntity"), 1);
 			Add(new EntityFactory("ServiceEntity"), 1);
 			Add(new EntityFactory("ServiceCommissioningBodyEntity"), 1);
-			Add(new EntityFactory("RegionalAreaTimelineEventsEntity"), 1);
 			// % protected region % [Modify UserEntityFactorySingleTheoryData entities here] end
 		}
 	}
@@ -72,7 +70,6 @@ namespace APITests.TheoryData.BotWritten
 			Add(new EntityFactory("RegionalAreaEntity"));
 			Add(new EntityFactory("ServiceEntity"));
 			Add(new EntityFactory("ServiceCommissioningBodyEntity"));
-			Add(new EntityFactory("RegionalAreaTimelineEventsEntity"));
 			// % protected region % [Modify UserEntityFactorySingleTheoryData entities here] end
 		}
 	}
@@ -86,7 +83,6 @@ namespace APITests.TheoryData.BotWritten
 			Add(new EntityFactory("RegionalAreaEntity"), numEntities);
 			Add(new EntityFactory("ServiceEntity"), numEntities);
 			Add(new EntityFactory("ServiceCommissioningBodyEntity"), numEntities);
-			Add(new EntityFactory("RegionalAreaTimelineEventsEntity"), numEntities);
 			// % protected region % [Modify UserEntityFactorySingleTheoryData entities here] end
 		}
 	}

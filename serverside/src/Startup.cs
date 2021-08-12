@@ -513,7 +513,6 @@ namespace Cis
 			services.TryAddScoped<IBackgroundJobService, BackgroundJobService>();
 			services.TryAddScoped<IAuditService, AuditService>();
 			services.TryAddScoped<IXsrfService, XsrfService>();
-			services.TryAddScoped<ITimelineGroupingService, TimelineGroupingService>();
 			services.TryAddScoped<IPerformContextAccessor, PerformContextAccessor>();
 			services.TryAddScoped<ISignInService, SignInService>();
 			services.TryAddScoped<ICookieStore, DistributedCacheCookieStore>();
@@ -566,14 +565,13 @@ namespace Cis
 			services.TryAddSingleton<ServiceCommissioningBodyEntityType>();
 			services.TryAddSingleton<ServiceCommissioningBodyEntityInputType>();
 			services.TryAddSingleton<ServiceCommissioningBodyEntityCreateInputType>();
-			services.TryAddSingleton<RegionalAreaTimelineEventsEntityType>();
-			services.TryAddSingleton<RegionalAreaTimelineEventsEntityInputType>();
 			services.TryAddSingleton<ServiceCommissioningBodiesServicesType>();
 			services.TryAddSingleton<ServiceCommissioningBodiesServicesInputType>();
 			// % protected region % [Register additional graphql types here] off begin
 			// % protected region % [Register additional graphql types here] end
 
 			// Register enum GraphQl types
+			services.TryAddSingleton<EnumerationGraphType<Categories>>();
 			services.TryAddSingleton<EnumerationGraphType<Servicetype>>();
 
 			// Connect the database type to the GraphQL type
@@ -581,7 +579,6 @@ namespace Cis
 			GraphQL.Utilities.GraphTypeTypeRegistry.Register<RegionalAreaEntity, RegionalAreaEntityType>();
 			GraphQL.Utilities.GraphTypeTypeRegistry.Register<ServiceEntity, ServiceEntityType>();
 			GraphQL.Utilities.GraphTypeTypeRegistry.Register<ServiceCommissioningBodyEntity, ServiceCommissioningBodyEntityType>();
-			GraphQL.Utilities.GraphTypeTypeRegistry.Register<RegionalAreaTimelineEventsEntity, RegionalAreaTimelineEventsEntityType>();
 			GraphQL.Utilities.GraphTypeTypeRegistry.Register<ServiceCommissioningBodiesServices, ServiceCommissioningBodiesServicesType>();
 
 			GraphQL.Utilities.GraphTypeTypeRegistry.Register<WhereExpression, WhereType>();

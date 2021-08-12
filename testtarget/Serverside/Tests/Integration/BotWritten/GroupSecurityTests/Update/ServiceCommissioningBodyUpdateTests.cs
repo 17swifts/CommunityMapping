@@ -47,7 +47,6 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Update
 					// % protected region % [Configure entity theory data for ServiceCommissioningBody here] off begin
 					{new RegionalAreaEntity(), SecurityStringHelper.UserPermissionDenied, "ServiceCommissioningBody"},
 					{new ServiceEntity(), SecurityStringHelper.UserPermissionDenied, "ServiceCommissioningBody"},
-					{new RegionalAreaTimelineEventsEntity(), SecurityStringHelper.UserPermissionDenied, "ServiceCommissioningBody"},
 					// % protected region % [Configure entity theory data for ServiceCommissioningBody here] end
 				};
 				// % protected region % [Add any extra theory data here] off begin

@@ -29,6 +29,5 @@ namespace SeleniumTests.Enums
 	{
 		REGIONAL_AREA_ENTITY,
 		SERVICE_ENTITY,
-		REGIONAL_AREA_TIMELINE_EVENTS_ENTITY,
 	}
 }

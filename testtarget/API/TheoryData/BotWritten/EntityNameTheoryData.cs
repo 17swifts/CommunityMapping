@@ -29,7 +29,6 @@ namespace APITests.TheoryData.BotWritten
 			Add("regionalAreaEntitys");
 			Add("serviceEntitys");
 			Add("serviceCommissioningBodyEntitys");
-			Add("regionalAreaTimelineEventsEntitys");
 			// % protected region % [Modify EntityNamePluralizedTheoryData entities here] end
 		}
 
@@ -44,7 +43,6 @@ namespace APITests.TheoryData.BotWritten
 			Add("regionalAreaEntity");
 			Add("serviceEntity");
 			Add("serviceCommissioningBodyEntity");
-			Add("regionalAreaTimelineEventsEntity");
 			// % protected region % [Modify EntityNameTheoryData entities here] end
 		}
 	}

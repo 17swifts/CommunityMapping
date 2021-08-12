@@ -43,13 +43,13 @@ namespace Cis.Models
 			Field(o => o.Created, type: typeof(NonNullGraphType<DateTimeGraphType>));
 			Field(o => o.Modified, type: typeof(NonNullGraphType<DateTimeGraphType>));
 			Field(o => o.Name, type: typeof(StringGraphType));
-			Field(o => o.Category, type: typeof(StringGraphType));
 			Field(o => o.Servicetype, type: typeof(EnumerationGraphType<Servicetype>)).Description(@"Whether the service is permanent or temporary ");
+			Field(o => o.Category, type: typeof(EnumerationGraphType<Categories>));
+			Field(o => o.Active, type: typeof(BooleanGraphType)).Description(@"Whether the service is currently active");
 			Field(o => o.Noservicedays, type: typeof(IntGraphType)).Description(@"Number of days the service is operating");
 			Field(o => o.Investment, type: typeof(FloatGraphType));
 			Field(o => o.Startdate, type: typeof(DateTimeGraphType)).Description(@"Start data of the service");
 			Field(o => o.Enddate, type: typeof(DateTimeGraphType)).Description(@"End dat of the service");
-			Field(o => o.Active, type: typeof(BooleanGraphType)).Description(@"Whether the service is currently active");
 			// % protected region % [Add any extra GraphQL fields here] off begin
 			// % protected region % [Add any extra GraphQL fields here] end
 
@@ -138,13 +138,13 @@ namespace Cis.Models
 			Field<DateTimeGraphType>("Created");
 			Field<DateTimeGraphType>("Modified");
 			Field<StringGraphType>("Name");
-			Field<StringGraphType>("Category");
 			Field<EnumerationGraphType<Servicetype>>("Servicetype").Description = @"Whether the service is permanent or temporary ";
+			Field<EnumerationGraphType<Categories>>("Category");
+			Field<BooleanGraphType>("Active").Description = @"Whether the service is currently active";
 			Field<IntGraphType>("Noservicedays").Description = @"Number of days the service is operating";
 			Field<FloatGraphType>("Investment");
 			Field<DateTimeGraphType>("Startdate").Description = @"Start data of the service";
 			Field<DateTimeGraphType>("Enddate").Description = @"End dat of the service";
-			Field<BooleanGraphType>("Active").Description = @"Whether the service is currently active";
 
 			// Add entity references
 			Field<IdGraphType>("RegionalAreaId");

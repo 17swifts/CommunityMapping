@@ -54,8 +54,6 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.RegionalAreaEntityCrud
 			Ier.Value = regionalAreaEntity.Ier.ToString();
 			Ieo.Value = regionalAreaEntity.Ieo.ToString();
 			GapScore.Value = regionalAreaEntity.GapScore.ToString();
-			Noservices.Value = regionalAreaEntity.Noservices.ToString();
-			Totalinvestment.Value = regionalAreaEntity.Totalinvestment.ToString();
 			ServicesIds.Value = regionalAreaEntity.ServicesIds?.Select(x => x.ToString());
 		}
 		// % protected region % [Override set values here] end
@@ -78,8 +76,6 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.RegionalAreaEntityCrud
 				Ier = Ier.Value.ToNullableInt(),
 				Ieo = Ieo.Value.ToNullableInt(),
 				GapScore = GapScore.Value.ToNullableDouble(),
-				Noservices = Noservices.Value.ToNullableInt(),
-				Totalinvestment = Totalinvestment.Value.ToNullableDouble(),
 			};
 
 			regionalAreaEntity.ServicesIds = ServicesIds.Value.Select(Guid.Parse).ToList();;

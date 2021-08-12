@@ -55,8 +55,6 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.RegionalAreaEntityCrud
 				Ier = Ier.Value.ToNullableInt(),
 				Ieo = Ieo.Value.ToNullableInt(),
 				GapScore = GapScore.Value.ToNullableDouble(),
-				Noservices = Noservices.Value.ToNullableInt(),
-				Totalinvestment = Totalinvestment.Value.ToNullableDouble(),
 			};
 
 			regionalAreaEntity.ServicesIds = ServicesIds.Value.Select(Guid.Parse).ToList();;

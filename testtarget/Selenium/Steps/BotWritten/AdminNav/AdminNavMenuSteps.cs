@@ -62,9 +62,6 @@ namespace SeleniumTests.Steps.BotWritten.AdminNav
 				case AdminSubMenuType.ENTITIES:
 					adminNavSection.AdminNavIconEntities.ClickWithWait(_driverWait);
 					break;
-				case AdminSubMenuType.TIMELINES:
-					adminNavSection.AdminNavIconTimelines.ClickWithWait(_driverWait);
-					break;
 				default:
 					throw new ArgumentException("Invalid Submenu Type: " + subMenuType);
 			}

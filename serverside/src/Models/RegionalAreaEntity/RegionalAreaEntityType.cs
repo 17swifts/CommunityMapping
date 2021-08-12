@@ -54,8 +54,6 @@ namespace Cis.Models
 			Field(o => o.Ier, type: typeof(IntGraphType)).Description(@"The Index of Economic Resources (IER) focuses on the financial aspects of relative socio-economic advantage and disadvantage, by summarising variables related to income and wealth. ");
 			Field(o => o.Ieo, type: typeof(IntGraphType)).Description(@"The Index of Education and Occupation (IEO) is designed to reflect the educational and occupational level of communities. ");
 			Field(o => o.GapScore, type: typeof(FloatGraphType));
-			Field(o => o.Noservices, type: typeof(IntGraphType));
-			Field(o => o.Totalinvestment, type: typeof(FloatGraphType));
 			// % protected region % [Add any extra GraphQL fields here] off begin
 			// % protected region % [Add any extra GraphQL fields here] end
 
@@ -97,42 +95,6 @@ namespace Cis.Models
 					return loader.LoadAsync(context.Source.Id);
 				});
 
-			// GraphQL reference to entity RegionalAreaTimelineEventsEntity via reference LoggedEvent
-			Field<ListGraphType<NonNullGraphType<RegionalAreaTimelineEventsEntityType>>, IEnumerable<RegionalAreaTimelineEventsEntity>>()
-				.Name("LoggedEvents")
-				.AddCommonArguments()
-				.ResolveAsync(async context =>
-				{
-					var graphQlContext = (CisGraphQlContext) context.UserContext;
-					var accessor = graphQlContext.ServiceProvider.GetRequiredService<IDataLoaderContextAccessor>();
-
-					var loader = accessor.Context.GetOrAddCollectionBatchLoader<Guid?, RegionalAreaTimelineEventsEntity>(
-						string.Join("-", context.ResponsePath.Where(x => x is string)) + "GetLoggedEventsForRegionalAreaEntity",
-						async keys =>
-						{
-							var args = new CommonArguments(context);
-							var query = QueryHelpers.CreateResolveFunction<RegionalAreaTimelineEventsEntity>(context, new ReadOptions {DisableAudit = true});
-							var results = await query
-								.Where(x => x.EntityId.HasValue && keys.Contains(x.EntityId))
-								.Select(x => x.EntityId.Value)
-								.Distinct()
-								.SelectMany(x => query
-									.Where(y => y.EntityId == x)
-									.AddIdCondition(args.Id)
-									.AddIdsCondition(args.Ids)
-									.AddWhereFilter(args.Where)
-									.AddConditionalWhereFilter(args.Conditions)
-									.AddConditionalHasFilter(args.Has, ((CisGraphQlContext) context.UserContext).ServiceProvider)
-									.AddOrderBys(args.OrderBy)
-									.AddSkip(args.Skip)
-									.AddTake(args.Take))
-								.ToListAsync(context.CancellationToken);
-							return results.ToLookup(x => x.EntityId, x => x);
-						});
-
-					return loader.LoadAsync(context.Source.Id);
-				});
-
 			// % protected region % [Add any extra GraphQL references here] off begin
 			// % protected region % [Add any extra GraphQL references here] end
 		}
@@ -165,14 +127,11 @@ namespace Cis.Models
 			Field<IntGraphType>("Ier").Description = @"The Index of Economic Resources (IER) focuses on the financial aspects of relative socio-economic advantage and disadvantage, by summarising variables related to income and wealth. ";
 			Field<IntGraphType>("Ieo").Description = @"The Index of Education and Occupation (IEO) is designed to reflect the educational and occupational level of communities. ";
 			Field<FloatGraphType>("GapScore");
-			Field<IntGraphType>("Noservices");
-			Field<FloatGraphType>("Totalinvestment");
 
 			// Add entity references
 
 			// Add references to foreign models to allow nested creation
 			Field<ListGraphType<ServiceEntityInputType>>("Servicess");
-			Field<ListGraphType<RegionalAreaTimelineEventsEntityInputType>>("LoggedEvents");
 
 			// % protected region % [Add any extra GraphQL input fields here] off begin
 			// % protected region % [Add any extra GraphQL input fields here] end

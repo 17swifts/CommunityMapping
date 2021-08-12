@@ -48,7 +48,6 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Read
 					// % protected region % [Configure entity theory data for Unauthenticated here] off begin
 					{new RegionalAreaEntity(), true, null},
 					{new ServiceEntity(), false, null},
-					{new RegionalAreaTimelineEventsEntity(), true, null},
 					// % protected region % [Configure entity theory data for Unauthenticated here] end
 				};
 				// % protected region % [Add any extra theory data here] off begin

@@ -47,7 +47,7 @@ Scenario: Verify the number of Admin Submenus
 	When I click on Users Nav link on the Admin Nav section
 	Then I assert that 3 Nav links are displayed
 	When I click on Entities Nav link on the Admin Nav section
-	Then I assert that 3 Nav links are displayed
+	Then I assert that 2 Nav links are displayed
 # % protected region % [Modify the test content of 'Verify the number of Admin Submenus' here] end
 
 # % protected region % [Modify the test content of 'Verify the admin submenus' here] off begin
@@ -67,5 +67,4 @@ Scenario: Verify the admin submenus
 	| Entities |
 	| Regional area |
 	| Service |
-	| Regional area Timeline Events |
 # % protected region % [Modify the test content of 'Verify the admin submenus' here] end

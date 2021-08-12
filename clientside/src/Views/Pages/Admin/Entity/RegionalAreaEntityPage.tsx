@@ -21,8 +21,6 @@ import * as Models from 'Models/Entities';
 import EntityCRUD from 'Views/Components/CRUD/EntityCRUD';
 import { PageWrapper } from 'Views/Components/PageWrapper/PageWrapper';
 import SecuredPage from 'Views/Components/Security/SecuredPage';
-import {MenuItemEventHandler} from "react-contexify/lib/types";
-import {RegionalAreaEntity} from "Models/Entities";
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
 
@@ -39,11 +37,6 @@ export default class RegionalAreaEntityPage extends React.Component<RouteCompone
 			<PageWrapper {...this.props}>
 				<EntityCRUD
 					modelType={Models.RegionalAreaEntity}
-					actionsMore={[{
-						label: 'View timeline',
-						onEntityClick: (args: MenuItemEventHandler, entity: RegionalAreaEntity) =>
-							this.props.history.push(`/admin/timelines/graph/Regional area/${entity.id}`)
-					}]}
 					{...this.props}
 				/>
 			</PageWrapper>

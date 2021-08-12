@@ -43,13 +43,13 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.ServiceEntityCrud
 		public void SetValues(ServiceEntity serviceEntity)
 		{
 			Name.Value = serviceEntity.Name;
-			Category.Value = serviceEntity.Category;
 			Servicetype.Value = serviceEntity.Servicetype.ToString();
+			Category.Value = serviceEntity.Category.ToString();
+			Active.Value = serviceEntity.Active.GetValueOrDefault();
 			Noservicedays.Value = serviceEntity.Noservicedays.ToString();
 			Investment.Value = serviceEntity.Investment.ToString();
 			Startdate.Value = serviceEntity.Startdate.GetValueOrDefault();
 			Enddate.Value = serviceEntity.Enddate.GetValueOrDefault();
-			Active.Value = serviceEntity.Active.GetValueOrDefault();
 			RegionalAreaId.Value = serviceEntity.RegionalAreaId == null ? string.Empty : serviceEntity.RegionalAreaId.ToString();
 			ServiceCommissioningBodiesIds.Value = serviceEntity.ServiceCommissioningBodiesIds?.Select(x => x.ToString());
 		}
@@ -61,13 +61,13 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.ServiceEntityCrud
 			var serviceEntity =  new ServiceEntity
 			{
 				Name = Name.Value,
-				Category = Category.Value,
 				Servicetype = Servicetype.Value.ToEnum<Servicetype>(),
+				Category = Category.Value.ToEnum<Categories>(),
+				Active = Active.Value,
 				Noservicedays = Noservicedays.Value.ToNullableInt(),
 				Investment = Investment.Value.ToNullableDouble(),
 				Startdate = Startdate.Value,
 				Enddate = Enddate.Value,
-				Active = Active.Value,
 			};
 
 			if (Guid.TryParse(RegionalAreaId.Value, out var regionalAreaId)) {

@@ -51,12 +51,6 @@ namespace Cis.Models {
 		public String Name { get; set; }
 		// % protected region % [Customise Name here] end
 
-		[Required]
-		// % protected region % [Customise Category here] off begin
-		[EntityAttribute]
-		public String Category { get; set; }
-		// % protected region % [Customise Category here] end
-
 		/// <summary>
 		/// Whether the service is permanent or temporary 
 		/// </summary>
@@ -65,6 +59,21 @@ namespace Cis.Models {
 		[EntityAttribute]
 		public Servicetype Servicetype { get; set; }
 		// % protected region % [Customise Servicetype here] end
+
+		[Required]
+		// % protected region % [Customise Category here] off begin
+		[EntityAttribute]
+		public Categories Category { get; set; }
+		// % protected region % [Customise Category here] end
+
+		/// <summary>
+		/// Whether the service is currently active
+		/// </summary>
+		[Required]
+		// % protected region % [Customise Active here] off begin
+		[EntityAttribute]
+		public Boolean? Active { get; set; }
+		// % protected region % [Customise Active here] end
 
 		/// <summary>
 		/// Number of days the service is operating
@@ -95,15 +104,6 @@ namespace Cis.Models {
 		[EntityAttribute]
 		public DateTime? Enddate { get; set; }
 		// % protected region % [Customise Enddate here] end
-
-		/// <summary>
-		/// Whether the service is currently active
-		/// </summary>
-		[Required]
-		// % protected region % [Customise Active here] off begin
-		[EntityAttribute]
-		public Boolean? Active { get; set; }
-		// % protected region % [Customise Active here] end
 
 		// % protected region % [Add any further attributes here] off begin
 		// % protected region % [Add any further attributes here] end

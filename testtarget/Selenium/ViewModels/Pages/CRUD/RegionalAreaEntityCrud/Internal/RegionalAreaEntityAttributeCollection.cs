@@ -39,10 +39,7 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.RegionalAreaEntityCrud.Internal
 		public AttributeTextField Ier => new(By.CssSelector("div.ier"), ContextConfiguration);
 		public AttributeTextField Ieo => new(By.CssSelector("div.ieo"), ContextConfiguration);
 		public AttributeTextField GapScore => new(By.CssSelector("div.gapScore"), ContextConfiguration);
-		public AttributeTextField Noservices => new(By.CssSelector("div.noservices"), ContextConfiguration);
-		public AttributeTextField Totalinvestment => new(By.CssSelector("div.totalinvestment"), ContextConfiguration);
 		public AttributeReferenceMultiCombobox ServicesIds => new(By.CssSelector("div.servicess"), ContextConfiguration);
-		public AttributeReferenceMultiCombobox LoggedEventIds => new(By.CssSelector("div.loggedEvents"), ContextConfiguration);
 		// % protected region % [Override class properties here] end
 
 		// % protected region % [Override constructor here] off begin

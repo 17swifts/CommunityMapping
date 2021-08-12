@@ -284,7 +284,7 @@ Auditing has been enabled for your application. All CRUD (create, read, update a
 The admin section of your application allows users with administrator access to access the backend of the application. This includes data management tables for every entity in the application.  This ensures that even if an entity is not directly manageable in the application's front-end, the data can still be handled by admin users. The following additional services are also included:
 
 * Data tables for user management
-* Configuration for the Timelines Extension
+
 To access the admin section of the application, you can either click the button in the top bar or navigate to the `/admin` route directly. Both of these options will only be available when the user is logged in and they have been granted administrator access, otherwise the top bar won't be shown, and any attempt to access the route directly will redirect to the 403 page.
 
 ### Design system docs
@@ -420,9 +420,9 @@ For more details, see [Selenium tests with C#Bot](https://codebots.com/docs/sele
 
 ## Extensions
 
-Your app is using: [Timeline](https://codebots.com/docs/timelines-extension-overview), [User](https://codebots.com/docs/user-extension-overview)
+Your app is using: [User](https://codebots.com/docs/user-extension-overview)
 
-You aren't using: [Forms](https://codebots.com/docs/forms-extension-overview), [Workflow](https://codebots.com/docs/workflow-extension-overview)
+You aren't using: [Forms](https://codebots.com/docs/forms-extension-overview), [Timeline](https://codebots.com/docs/timelines-extension-overview), [Workflow](https://codebots.com/docs/workflow-extension-overview)
 
 Extensions are how you can add in pre-built functionality into your app. There are a whole range of extensions you can use. Add them into either the Entity or Interface diagram and build with the bots to see how they work.
 

@@ -29,3 +29,5 @@ When I click the filter Button on the ServiceEntity page
 Then The filter panel shows up with correct information
 When I enter the enum filter servicetype with the same value in the entity just created and click
 Then The enum value created for ServiceType is in each row of the the collection content
+When I enter the enum filter category with the same value in the entity just created and click
+Then The enum value created for Category is in each row of the the collection content
