@@ -14,7 +14,7 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
-
+@use "sass:math";
 // Mixins
 // Mixins are one step more than variables. For instance you can use mxins to put in flexbox and it's browser prefixes,
 // or consistent patterns like borders for particular components. Like variables, if you find yourself writing code over and over
@@ -237,7 +237,7 @@ div {
 }
 */
 @mixin responsive-ratio($x, $y, $pseudo: false) {
-	$padding: unquote(($y / $x) * 100 + '%');
+	$padding: unquote(math.div($y, $x) * 100 + '%');
 
 	@if $pseudo {
 		&:before {
@@ -267,14 +267,14 @@ div {
 		border-left: $size solid transparent;
 		border-right: $size solid transparent;
 		border-top: $size solid $color;
-		margin-top: 0 - round($size / 2.5);
+		margin-top: 0 - round(math.div($size, 2.5));
 	}
 
 	@else if $direction==up {
 		border-left: $size solid transparent;
 		border-right: $size solid transparent;
 		border-bottom: $size solid $color;
-		margin-bottom: 0 - round($size / 2.5);
+		margin-bottom: 0 - round(math.div($size, 2.5));
 	}
 
 	@else if $direction==right {

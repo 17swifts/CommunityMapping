@@ -19,10 +19,13 @@ import { ReactWrapper } from 'enzyme';
 // % protected region % [Add extra imports here] off begin
 // % protected region % [Add extra imports here] end
 
+// % protected region % [Customise sleep here] off begin
 export const sleep = (milliseconds: number) => {
 	return new Promise(resolve => setTimeout(resolve, milliseconds))
 };
+// % protected region % [Customise sleep here] end
 
+// % protected region % [Customise pollComponent here] off begin
 export const pollComponent = async (component: ReactWrapper<any, any>, assertion: () => boolean) => {
 	let pollCount = 0;
 	while (pollCount < pollingTimeout/pollingInterval) {
@@ -35,13 +38,16 @@ export const pollComponent = async (component: ReactWrapper<any, any>, assertion
 	}
 	throw 'Assertion Failed';
 };
+// % protected region % [Customise pollComponent here] end
 
+// % protected region % [Customise placeholder test here] off begin
 // Add placeholder test so yarn test doesn't throw empty test file exception
 describe('Place Holder', function () {
 	it('placeholder', () => {
 		expect(1).toEqual(1);
 	})
 });
+// % protected region % [Customise placeholder test here] end
 
 // % protected region % [Add extra methods here] off begin
 // % protected region % [Add extra methods here] end

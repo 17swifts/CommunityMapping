@@ -21,18 +21,18 @@ import Frontend from './Views/Frontend';
 import { Route, Router, Switch } from 'react-router';
 import { Provider } from 'mobx-react';
 import { store, StoreContext } from 'Models/Store';
-import { ApolloProvider } from 'react-apollo';
-import { default as ApolloClient, Operation } from 'apollo-boost';
+import { ApolloProvider, ApolloClient, InMemoryCache, HttpLink, from, ApolloLink } from '@apollo/client';
 import { SERVER_URL } from 'Constants';
 import { isServerError } from 'Util/GraphQLUtils';
-import { configure, runInAction } from 'mobx';
+import { configure } from 'mobx';
 import { createBrowserHistory } from 'history';
-import { ErrorResponse } from 'apollo-link-error';
 import { ToastContainer } from 'react-toastify';
 import GlobalModal from './Views/Components/Modal/GlobalModal';
 import { configureAuthenticator2fa } from 'Services/TwoFactor/Authenticator';
 import { TwoFactorContext, TwoFactorMethods } from 'Services/TwoFactor/Common';
 import { configureEmail2fa } from 'Services/TwoFactor/Email';
+import { onError } from '@apollo/client/link/error';
+import { logout } from 'Util/NavigationUtils';
 // % protected region % [Add extra page imports here] off begin
 // % protected region % [Add extra page imports here] end
 
@@ -44,9 +44,12 @@ export default class App extends React.Component {
 		store.routerHistory = createBrowserHistory();
 
 		store.apolloClient = new ApolloClient({
-			uri: `${SERVER_URL}/api/graphql`,
-			request: this.onApolloRequest,
-			onError: this.onApolloError,
+			link: from([
+				this.apolloXsrfLink,
+				this.apolloErrorLink,
+				new HttpLink({ uri: `${SERVER_URL}/api/graphql` }),
+			]),
+			cache: new InMemoryCache(),
 		});
 
 		// All state changes should be run in an action so enforce that
@@ -99,28 +102,24 @@ export default class App extends React.Component {
 
 	/**
 	 * Request handler for the apollo client
-	 * @param operation
 	 */
-	private onApolloRequest = async (operation: Operation) => {
+	private apolloXsrfLink = new ApolloLink((operation, next) => {
 		operation.setContext({
 			headers: {
 				'X-XSRF-TOKEN': Cookies.get('XSRF-TOKEN'),
 			},
 		});
-	};
+		return next(operation);
+	});
 
 	/**
 	 * Error Handler for the apollo client
-	 * @param error
 	 */
-	private onApolloError = (error: ErrorResponse) => {
-		if (isServerError(error.networkError) && error.networkError.statusCode === 401) {
-			runInAction(() => {
-				store.clearLoggedInUser();
-				store.routerHistory.push(`/login?redirect=${store.routerHistory.location.pathname}`);
-			});
+	private apolloErrorLink = onError(({ networkError }) => {
+		if (isServerError(networkError) && networkError.statusCode === 401) {
+			logout(store.routerHistory.location.pathname);
 		}
-	};
+	});
 
 	// % protected region % [Add extra methods here] off begin
 	// % protected region % [Add extra methods here] end

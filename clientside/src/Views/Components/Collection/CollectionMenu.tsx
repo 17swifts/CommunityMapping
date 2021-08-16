@@ -23,7 +23,6 @@ import If from 'Views/Components/If/If';
 import classNames from 'classnames';
 import { ICollectionHeaderProps } from './CollectionHeaders';
 import { ICollectionBulkActionProps } from './Collection';
-import PaginationData from "Models/PaginationData";
 import CollectionFilterPanel, { ICollectionFilterPanelProps } from './CollectionFilterPanel';
 import SearchForm from 'Views/Components/SearchForm/SearchForm';
 
@@ -40,10 +39,10 @@ interface ICollectionMenuProps<T> {
 	cancelAllSelection?: () => void;
 	totalSelectedItems: number;
 	selectedBulkActions?: Array<ICollectionBulkActionProps<T>>;
-	pagination?: PaginationData;
 	showSelectAll?: boolean;
 	onSelectAll?: () => void;
 	filterOrientationRow?: boolean;
+	totalRecords: number;
 	// % protected region % [Add any extra ICollectionMenuProps fields here] off begin
 	// % protected region % [Add any extra ICollectionMenuProps fields here] end
 }
@@ -139,9 +138,9 @@ class CollectionMenu<T> extends React.Component<ICollectionMenuProps<T>> {
 						<p className="crud__selection--count">
 							<span className="selection-count">{totalSelectedItems}</span> items are selected
 						</p>
-						<If condition={this.props.showSelectAll && !!this.props.pagination}>
+						<If condition={this.props.showSelectAll}>
 							<Button className="crud__selection--select-all" onClick={this.props.onSelectAll} display={Display.Text}>
-								Select all {this.props.pagination ? this.props.pagination.totalRecords : null} items
+								Select all {this.props.totalRecords} items
 							</Button>
 						</If>
 						<Button className="crud__selection--cancel" onClick={this.props.cancelAllSelection}>Cancel</Button>

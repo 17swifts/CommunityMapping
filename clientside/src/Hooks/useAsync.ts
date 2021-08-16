@@ -70,7 +70,8 @@ export function useAsync<T = any, E = any>(fn: () => Promise<T>, deps?: readonly
 					setType('error');
 				});
 			})
-	}, deps);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [ fn, ...(deps ?? []) ]);
 
 	// Cast to any since we know better than the compiler in this case. Since the function has an explicit return type
 	// the function will be externally consistent.

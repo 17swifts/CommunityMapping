@@ -18,14 +18,14 @@ import * as React from 'react';
 // % protected region % [Add any further imports here] off begin
 // % protected region % [Add any further imports here] end
 
-export interface ITooltipProps<T> {
+export interface ITooltipProps {
 	id: string;
 	content: React.ReactNode;
 	// % protected region % [Add extra props here] off begin
 	// % protected region % [Add extra props here] end
 }
 
-export class Tooltip<T> extends React.Component<ITooltipProps<T>, any> {
+export class Tooltip extends React.Component<ITooltipProps> {
 	public render(){
 		// % protected region % [Override render here] off begin
 		const {id, content} = this.props;

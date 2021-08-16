@@ -38,13 +38,12 @@ Styling for basic navigation, vertical navigation and horizontal navigation.
 
 			//This is for sublinks
 			&.nav__parent-link--active {
-
-				a {
+				.nav__link {
 					color: $color-primary;
 				}
 			}
 
-			a {
+			.nav__link {
 				color: rgba(get-contrasting-text-color($background), 0.7);
 				text-decoration: none;
 				padding: $space-xxs;
@@ -64,7 +63,7 @@ Styling for basic navigation, vertical navigation and horizontal navigation.
 			&.active {
 				@include transform-timing($animation-time);
 
-				a {
+				.nav__link {
 					color: $color-primary;
 					@include transform-timing($animation-time);
 				}
@@ -412,7 +411,8 @@ Styling for basic navigation, vertical navigation and horizontal navigation.
 			overflow: hidden;
 		}
 
-		>a {
+		>.nav__expand-icon {
+			border: none;
 			display: flex;
 			align-items: center;
 			justify-content: center;

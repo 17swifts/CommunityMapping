@@ -15,13 +15,12 @@
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
 import * as React from 'react';
-import { QueryResult, Query, OperationVariables } from 'react-apollo';
 import { DocumentNode } from 'graphql';
 import { Model } from 'Models/Model';
-import { PaginationQueryOptions } from 'Models/PaginationData';
-import { getFetchAllQuery, getFetchAllConditional } from 'Util/EntityUtils';
-import { observer } from 'mobx-react';
+import { getFetchAllConditional, getFetchAllQuery } from 'Util/EntityUtils';
 import { isOrCondition } from 'Util/GraphQLUtils';
+import { QueryResult, useQuery } from '@apollo/client';
+import { useObserver } from 'mobx-react';
 // % protected region % [Add extra imports here] off begin
 // % protected region % [Add extra imports here] end
 
@@ -41,6 +40,7 @@ export type Comparators = 'contains'
 	// % protected region % [Add extra comparators here] end
 	;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export interface IOrderByCondition<T> {
 	path: string;
 	descending?: boolean;
@@ -68,6 +68,7 @@ export type CaseComparisonPascalCase = 'CurrentCulture'
 	// % protected region % [Add extra pascal case comparators here] end
 	;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface BaseWhereCondition<T> {
 	path: string;
 	comparison: Comparators;
@@ -89,6 +90,8 @@ export interface IWhereConditionApi<T> extends BaseWhereCondition<T> {
 	// % protected region % [Add any extra api where condition fields here] end
 }
 
+export type HasCondition<T> = { path: keyof T, conditions?: IWhereCondition<T>[][], negate?: boolean };
+
 export interface IModelQueryVariables<T> {
 	skip?: number;
 	take?: number;
@@ -100,69 +103,70 @@ export interface IModelQueryVariables<T> {
 }
 
 export interface IModelQueryProps<T extends Model, TData = any> {
-	children: (result: QueryResult<TData, OperationVariables>) => JSX.Element | null;
+	children: (result: QueryResult<TData>) => React.ReactNode;
 	model: {new(json?: {}): T};
 	conditions?: Array<IWhereCondition<T>> | Array<Array<IWhereCondition<T>>>;
 	ids?: string[];
-	orderBy?: IOrderByCondition<T>;
+	has?: HasCondition<T>[][]
+	orderBy?: IOrderByCondition<T> | IOrderByCondition<T>[];
 	customQuery?: DocumentNode;
-	pagination: PaginationQueryOptions;
 	useListExpands?: boolean;
 	expandString?: string;
+	perPage: number;
+	page: number;
 	// % protected region % [Add any extra model query props here] off begin
 	// % protected region % [Add any extra model query props here] end
 }
 
-@observer
-class ModelQuery<T extends Model,TData = any> extends React.Component<IModelQueryProps<T, TData>> {
-	// % protected region % [Add any extra class methods here] off begin
-	// % protected region % [Add any extra class methods here] end
+function ModelQuery<T extends Model,TData = any>(props: IModelQueryProps<T, TData>) {
+	// % protected region % [Customize model query here] off begin
+	const { customQuery, children, useListExpands, model, conditions, expandString } = props;
 
-	public render() {
-		// % protected region % [Customize render here] off begin
-		let fetchAllQuery;
-
-		if (isOrCondition(this.props.conditions)) {
-			fetchAllQuery = getFetchAllConditional(this.props.model, this.props.expandString, this.props.useListExpands);
-		} else {
-			fetchAllQuery = getFetchAllQuery(this.props.model, this.props.expandString, this.props.useListExpands);
-		}
-
-		return (
-			<Query
-				fetchPolicy="network-only"
-				notifyOnNetworkStatusChange={true}
-				query={this.props.customQuery || fetchAllQuery}
-				variables={this.constructVariables()}>
-				{this.props.children}
-			</Query>
-		);
-		// % protected region % [Customize render here] end
+	let fetchAllQuery;
+	if (isOrCondition(conditions)) {
+		fetchAllQuery = getFetchAllConditional(model, expandString, useListExpands);
+	} else {
+		fetchAllQuery = getFetchAllQuery(model, expandString, useListExpands);
 	}
+	const result = useQuery(customQuery ?? fetchAllQuery, {
+		fetchPolicy: 'network-only',
+		notifyOnNetworkStatusChange: true,
+		variables: constructVariables(props),
+	});
 
-	private constructVariables() {
-		// % protected region % [Customize construct variables method here] off begin
-		const { conditions, ids, orderBy : orderByProp, pagination } = this.props;
-		const { page, perPage } = pagination;
+	return useObserver(() => <>{children(result)}</>);
+	// % protected region % [Customize model query here] end
+}
 
-		let orderBy: IOrderByCondition<T> = {
-			path: new this.props.model().getDisplayAttribute(),
+function constructVariables<T extends Model,TData = any>(props: IModelQueryProps<T, TData>) {
+	// % protected region % [Customize construct variables method here] off begin
+	const { conditions, ids, orderBy : orderByProp, page, perPage, has } = props;
+
+	let orderBy: IOrderByCondition<T>[];
+
+	if (orderByProp === undefined) {
+		orderBy = [{
+			path: new props.model().getDisplayAttribute(),
 			descending: false
-		};
-
-		if (orderByProp) {
-			orderBy = orderByProp;
-		}
-
-		return {
-			skip: page * perPage,
-			take: perPage,
-			args: conditions,
-			orderBy: [orderBy],
-			ids,
-		};
-		// % protected region % [Customize construct variables method here] end
+		}];
+	} else if (Array.isArray(orderByProp)) {
+		orderBy = [...orderByProp];
+	} else {
+		orderBy = [orderByProp];
 	}
+
+	// Also sort by id so any unstable sorting has another unique value to sort against 
+	orderBy.push({ path: 'id' });
+
+	return {
+		skip: page * perPage,
+		take: perPage,
+		args: conditions,
+		orderBy,
+		has,
+		ids,
+	};
+	// % protected region % [Customize construct variables method here] end
 }
 
 // % protected region % [Customize default export here] off begin

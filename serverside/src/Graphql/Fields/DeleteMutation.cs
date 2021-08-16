@@ -23,6 +23,7 @@ using Cis.Graphql.Types;
 using Cis.Helpers;
 using Cis.Models;
 using Cis.Services;
+using Cis.Utility;
 using GraphQL;
 // % protected region % [Add any further imports here] off begin
 // % protected region % [Add any further imports here] end
@@ -57,10 +58,11 @@ namespace Cis.Graphql.Fields
 					var deletedIds = await crudService.Delete<TModel>(ids);
 					return IdObject.FromList(deletedIds);
 				}
-				catch (AggregateException exception)
+				catch (Exception exception)
 				{
-					context.Errors.AddRange(
-						exception.InnerExceptions.Select(error => new ExecutionError(error.Message)));
+					context.Errors.AddRange(ExceptionMessageProcessor
+						.GetProcessedErrors(exception)
+						.Select(x => new ExecutionError(x)));
 					return new List<TModel>();
 				}
 			};
@@ -93,11 +95,12 @@ namespace Cis.Graphql.Fields
 				{
 					return await crudService.ConditionalDelete(models);
 				}
-				catch (AggregateException exception)
+				catch (Exception exception)
 				{
-					context.Errors.AddRange(
-						exception.InnerExceptions.Select(error => new ExecutionError(error.Message)));
-					return false;
+					context.Errors.AddRange(ExceptionMessageProcessor
+						.GetProcessedErrors(exception)
+						.Select(x => new ExecutionError(x)));
+					return new List<TModel>();
 				}
 			};
 			// % protected region % [Override CreateConditionalDeleteMutation here] end

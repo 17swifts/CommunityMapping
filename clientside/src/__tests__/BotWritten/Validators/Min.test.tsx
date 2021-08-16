@@ -14,10 +14,12 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
-
 import { Model } from 'Models/Model';
 import * as Validators from 'Validators';
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
+// % protected region % [Customise MinimumValidatorTheoryData here] off begin
 const MinimumValidatorTheoryData = [
 	[12, true],
 	[11, false],
@@ -27,16 +29,26 @@ const MinimumValidatorTheoryData = [
 	[13, true],
 	[500, true]
 ];
+// % protected region % [Customise MinimumValidatorTheoryData here] end
 
+// % protected region % [Customise MinTestNumber here] off begin
 const MinTestNumber = 12;
+// % protected region % [Customise MinTestNumber here] end
 
+// % protected region % [Customise TestModel here] off begin
 class TestModel extends Model {
 	@Validators.Min(MinTestNumber)
 	testNumber: number
 }
+// % protected region % [Customise TestModel here] end
 
+// % protected region % [Customise Minimum Validators tests label here] off begin
 describe('Minimum Validators', () => {
+// % protected region % [Customise Minimum Validators tests label here] end
+	// % protected region % [Customise validation to be test label here] off begin
 	test.each(MinimumValidatorTheoryData)('we expect %p, validation to be %p', async (inputNumber, isValid) => {
+	// % protected region % [Customise validation to be test label here] end
+		// % protected region % [Customise validation to be test here] off begin
 		expect.assertions(1);
 		if (typeof (inputNumber) === 'number') {
 			let testModel = new TestModel()
@@ -51,5 +63,11 @@ describe('Minimum Validators', () => {
 				}
 			});
 		}
+		// % protected region % [Customise validation to be test here] end
 	});
+	// % protected region % [Add any extra tests here] off begin
+	// % protected region % [Add any extra tests here] end
 });
+
+// % protected region % [Add any extra content here] off begin
+// % protected region % [Add any extra content here] end

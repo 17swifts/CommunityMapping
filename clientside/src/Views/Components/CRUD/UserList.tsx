@@ -20,7 +20,6 @@ import {Button, Display} from '../Button/Button';
 import {observer} from "mobx-react";
 import { SERVER_URL } from 'Constants';
 import Collection, {ICollectionItemActionProps} from '../Collection/Collection';
-import {PaginationQueryOptions} from 'Models/PaginationData';
 import axios from 'axios';
 import {SecurityService} from 'Services/SecurityService';
 import { ServiceCommissioningBodyEntity,  AdminEntity, } from 'Models/Entities';
@@ -89,10 +88,15 @@ class UserListInternal extends React.Component<UserListInternalProps> {
 	@observable
 	private users: IUser[] = [];
 
-	private paginationQueryOptions: PaginationQueryOptions = new PaginationQueryOptions();
-
 	@observable
 	private totalRecords: number;
+
+	@observable
+	private pageNo = 0;
+
+	private get perPage() {
+		return 10;
+	}
 
 	private sortParams : IOrderByCondition<any> = {
 		path: "id",
@@ -105,8 +109,8 @@ class UserListInternal extends React.Component<UserListInternalProps> {
 	@computed
 	private get urlParams() {
 		return {
-			PageNo: this.paginationQueryOptions.page + 1,
-			PageSize: this.paginationQueryOptions.perPage
+			PageNo: this.pageNo + 1,
+			PageSize: this.perPage
 		};
 	}
 
@@ -148,6 +152,12 @@ class UserListInternal extends React.Component<UserListInternalProps> {
 	public componentDidMount() {
 		this.fetchData();
 	};
+
+	@action
+	private onPageChange = (pageNo: number) => {
+		this.pageNo = pageNo;
+		this.fetchData();
+	}
 
 	private fetchData = () => {
 		axios.post(`${SERVER_URL}/api/account/users`, {
@@ -348,8 +358,10 @@ class UserListInternal extends React.Component<UserListInternalProps> {
 					collection={this.users}
 					onSearchTriggered={this.onSearchTriggered}
 					headers={this.userCollectionHeaders}
-					pagination={{totalRecords: this.totalRecords, queryOptions: this.paginationQueryOptions}}
-					onPageChange={this.fetchData}
+					onPageChange={this.onPageChange}
+					pageNo={this.pageNo}
+					perPage={this.perPage}
+					totalRecords={this.totalRecords}
 					actionsMore={[
 						{
 							customItem: <Button>Toggle activation</Button>,
@@ -506,7 +518,7 @@ class UserListInternal extends React.Component<UserListInternalProps> {
 
 	@action
 	protected onSearchTriggered = (searchTerm: string) => {
-		this.paginationQueryOptions.page = 0;
+		this.pageNo = 0;
 		this.search.searchTerm = searchTerm.trim();
 		this.fetchData();
 	}

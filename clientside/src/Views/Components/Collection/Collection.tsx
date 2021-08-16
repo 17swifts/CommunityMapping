@@ -20,11 +20,10 @@ import { observer } from 'mobx-react';
 import {action, computed, observable} from 'mobx';
 import If from '../If/If';
 import CollectionMenu from './CollectionMenu';
-import Pagination from '../Pagination/Pagination';
+import Pagination, { CommonPaginationOptions } from '../Pagination/Pagination';
 import { ReactNode } from 'react';
 import CollectionRow from './CollectionRow';
 import CollectionHeaders, { ICollectionHeaderProps, ICollectionHeaderPropsPrivate } from './CollectionHeaders';
-import IPaginationData from 'Models/PaginationData';
 import * as uuid from 'uuid';
 import classNames from 'classnames';
 import { union, intersectionWith, isEqual, pullAllWith } from 'lodash';
@@ -132,32 +131,38 @@ export interface ICollectionListProps<T> {
 	// % protected region % [Add any extra ICollectionListProps fields here] end
 }
 
-export interface ICollectionProps<T> extends ICollectionListProps<T> {
+export interface ICollectionProps<T> extends ICollectionListProps<T>, CommonPaginationOptions {
 	/** The collection to display */
 	collection: T[];
 	/** Should the pagination be hidden */
 	hidePagination?: boolean;
-	/** The pagination data for the collection */
-	pagination?: IPaginationData;
-	/** Function to call on page change */
-	onPageChange?: () => void;
 	filterOrientationRow?: boolean;
 	// % protected region % [Add any extra ICollectionProps fields here] off begin
 	// % protected region % [Add any extra ICollectionProps fields here] end
 }
 
 /**
- * Displays a collection of items
+ * Displays a collection of items.
+ * 
+ * By default this collection will handle its state internally. If the pageNo prop is given then the pagination will
+ * become controlled and must be handled externally.
  */
 @observer
-export default class Collection<T> extends React.Component<ICollectionProps<T>, any> {
+export default class Collection<T> extends React.Component<ICollectionProps<T>> {
+	/**
+	 * Is the pagination currently controlled. 
+	 */
+	get isPaginationControlled() {
+		return this.props.pageNo !== undefined;
+	}
+
 	/**
 	 * The currently selected items on the page
 	 */
 	@observable
 	private _selectedItems: T[] = [];
 	@computed
-	private get selectedItems() {
+	get selectedItems() {
 		if (this.props.getSelectedItems) {
 			return this.props.getSelectedItems();
 		}
@@ -165,10 +170,36 @@ export default class Collection<T> extends React.Component<ICollectionProps<T>, 
 	}
 
 	/**
+	 * The current page number. The first page is page 0.
+	 */
+	@observable
+	private _pageNo: number = 0;
+	@computed
+	get pageNo() {
+		return this.props.pageNo ?? this._pageNo;
+	}
+	set pageNo(value) {
+		// Providing a page number makes this a managed component, so call the appropriate function on the props
+		// Otherwise fallback to unmanaged functionality
+		if (this.props.pageNo !== undefined) {
+			this.props.onPageChange?.(value);
+		} else {
+			this._pageNo = value;
+		}
+	}
+
+	/**
+	 * The number of items per page
+	 */
+	get perPage() {
+		return this.props.perPage ?? 10;
+	}
+
+	/**
 	 * The headers of the collection
 	 */
 	@computed
-	private get headers(): Array<ICollectionHeaderPropsPrivate<T>> {
+	get headers(): Array<ICollectionHeaderPropsPrivate<T>> {
 		return this.props.headers.map(header => {
 			const computedHeader: ICollectionHeaderPropsPrivate<T> = {...header};
 
@@ -183,28 +214,56 @@ export default class Collection<T> extends React.Component<ICollectionProps<T>, 
 	}
 
 	/**
+	 * The data to display on the current page.
+	 */
+	@computed
+	get pageData(): T[] {
+		const { collection, filter } = this.props;
+
+		let data = collection;
+		if (filter) {
+			data = collection.filter(filter);
+		}
+
+		// If we are an uncontrolled component then handle pagination internally
+		if (!this.isPaginationControlled) {
+			const pageStartIdx = this.pageNo * this.perPage;
+			data = data.slice(pageStartIdx, pageStartIdx + this.perPage);
+		}
+
+		return data;
+	}
+
+	/**
 	 * Should the all items checkbox be selected
 	 */
 	@computed
-	private get allChecked() {
-		return ((intersectionWith(this.selectedItems, this.props.collection, isEqual).length === this.props.collection.length) && (this.props.collection.length > 0));
+	get allChecked() {
+		// If the component is uncontrolled then this needs to handle the internal pagination.
+		if (!this.isPaginationControlled) {
+			const selectedPageItems = intersectionWith(this.selectedItems, this.pageData, isEqual);
+			return selectedPageItems.length === this.pageData.length;
+		}
+
+		// If the component is controlled then pagination is handled externally. This means that for the all box to be
+		// checked, all items in the provided collection are selected.
+		const selectedItems = intersectionWith(this.selectedItems, this.props.collection, isEqual);
+		return (selectedItems.length === this.props.collection.length) && (this.props.collection.length > 0);
 	}
 
 	/**
 	 * The total number of items that exist over all pages
 	 */
 	@computed
-	private get totalItems() {
-		return this.props.pagination
-			? this.props.pagination.totalRecords
-			: this.props.collection.length;
+	get totalItems() {
+		return this.props.totalRecords ?? this.props.collection.length;
 	}
 
 	/**
 	 * Gets the number of items that have been checked
 	 */
 	@computed
-	private get selectedItemsCount() {
+	get selectedItemsCount() {
 		if (this.props.menuCountFunction) {
 			return this.props.menuCountFunction(this.selectedItems);
 		}
@@ -215,7 +274,7 @@ export default class Collection<T> extends React.Component<ICollectionProps<T>, 
 	 * Should the select all items on all pages button be shown
 	 */
 	@computed
-	private get showSelectAll() {
+	get showSelectAll() {
 		return this.allChecked && this.totalItems > this.selectedItemsCount;
 	};
 
@@ -233,15 +292,13 @@ export default class Collection<T> extends React.Component<ICollectionProps<T>, 
 					filterConfig={this.props.menuFilterConfig}
 					onSearchTriggered={this.props.onSearchTriggered}
 					additionalActions={this.props.additionalActions}
-					cancelAllSelection={() => {
-						this.cancelAllSelection();
-					}}
-					pagination={this.props.pagination}
+					cancelAllSelection={this.cancelAllSelection}
 					showSelectAll={this.showSelectAll}
 					onSelectAll={this.checkAllPages}
 					totalSelectedItems={this.selectedItemsCount}
 					selectedBulkActions={this.props.selectedBulkActions}
 					filterOrientationRow={this.props.filterOrientationRow}
+					totalRecords={this.totalItems}
 				/>
 				{this.list()}
 				{this.pagination()}
@@ -254,15 +311,21 @@ export default class Collection<T> extends React.Component<ICollectionProps<T>, 
 	/**
 	 * The collection pagination component
 	 */
-	public pagination = () => {
-		const { pagination, hidePagination } = this.props;
-		if (hidePagination || !pagination) {
+	private pagination = () => {
+		const { hidePagination, showGoToPageBox } = this.props;
+		if (hidePagination) {
 			return null;
 		}
 
 		return (
 			<section className="collection__load">
-				<Pagination pagination={pagination} onPageChange={this.props.onPageChange}/>
+				<Pagination
+					onPageChange={this.onPageChange}
+					perPage={this.perPage}
+					pageNo={this.pageNo}
+					totalRecords={this.totalItems}
+					showGoToPageBox={showGoToPageBox ?? false}
+				/>
 			</section>
 		);
 	}
@@ -273,14 +336,15 @@ export default class Collection<T> extends React.Component<ICollectionProps<T>, 
 	private list = () => {
 		const collectionId = uuid.v4();
 		// % protected region % [change any classes for all collectionlists] off begin
-		const className = classNames('collection__list', `${this.props.expandList ? 'collection__list--expandable' : null}`);
+		const expandClassName = this.props.expandList ? 'collection__list--expandable' : null;
+		const className = classNames('collection__list', expandClassName);
 		// % protected region % [change any classes for all collectionlists] end
 		return (
 			<section aria-label="collection list" className={className}>
 				<table>
 					{this.header()}
 					<tbody>
-						{this.row({id: collectionId}) }
+						{this.row({ id: collectionId })}
 					</tbody>
 				</table>
 			</section>
@@ -293,10 +357,9 @@ export default class Collection<T> extends React.Component<ICollectionProps<T>, 
 	 * @param props Contains the id of the row
 	 */
 	private row = (props: {id: string}) => {
-		const filter = this.props.filter || (() => true);
 		return (
 			<>
-				{this.props.collection.filter(filter).map((item, idx) => {
+				{this.pageData.map((item, idx) => {
 					return (
 						<CollectionRow
 							selectableItems={this.props.selectableItems}
@@ -345,7 +408,7 @@ export default class Collection<T> extends React.Component<ICollectionProps<T>, 
 	 * @param items The items to change
 	 */
 	@action
-	private selectItems(checked: boolean, items: T[]) {
+	selectItems = (checked: boolean, items: T[]) => {
 		if (this.props.itemSelectionChanged) {
 			this.props.itemSelectionChanged(checked, items);
 		} else {
@@ -365,7 +428,7 @@ export default class Collection<T> extends React.Component<ICollectionProps<T>, 
 	 * @param checkedItem The item that was checked
 	 */
 	@action
-	private onRowChecked = (event: React.ChangeEvent<HTMLInputElement>, checked: boolean, checkedItem: T) => {
+	onRowChecked = (event: React.ChangeEvent<HTMLInputElement>, checked: boolean, checkedItem: T) => {
 		this.selectItems(checked, [checkedItem]);
 	}
 
@@ -374,26 +437,39 @@ export default class Collection<T> extends React.Component<ICollectionProps<T>, 
 	 * @param event The checkbox change event
 	 * @param checked Weather the checkbox was checked or unchecked
 	 */
-	private onCheckedAll = (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => {
-		this.selectItems(checked, this.props.collection);
+	onCheckedAll = (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => {
+		this.selectItems(checked, this.pageData);
 	}
 
 	/**
 	 * Callback for when the select all pages button was pressed
 	 */
-	private checkAllPages = () => {
-		if (this.props.onCheckedAllPages) {
-			this.selectItems(true, this.props.onCheckedAllPages(true));
+	checkAllPages = () => {
+		// If the component is managed then all page checks need to be done in the parent component
+		if (this.isPaginationControlled) {
+			if (this.props.onCheckedAllPages) {
+				this.selectItems(true, this.props.onCheckedAllPages(true));
+			}
+		} else {
+			this.selectItems(true, this.props.collection);
 		}
 	}
 
 	/**
 	 * Callback when the cancel selection button was pressed
 	 */
-	private cancelAllSelection() {
+	cancelAllSelection = () => {
 		this.selectItems(false, this.props.collection);
 		if(this.props.cancelAllSelection) {
 			this.props.cancelAllSelection();
 		}
+	}
+
+	/**
+	 * Callback for page changes.
+	 * @param pageNo The page number to change to.
+	 */
+	onPageChange = (pageNo: number) => {
+		this.pageNo = pageNo;
 	}
 }

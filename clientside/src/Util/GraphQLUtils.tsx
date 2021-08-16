@@ -14,9 +14,11 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
-import { ServerError, ServerParseError } from 'apollo-link-http-common';
-import { ErrorResponse } from 'apollo-link-error';
 import { CaseComparison, CaseComparisonPascalCase, IWhereCondition } from 'Views/Components/ModelCollection/ModelQuery';
+import { ServerError, ServerParseError } from '@apollo/client';
+import { ErrorResponse } from '@apollo/client/link/error';
+// % protected region % [Add extra imports here] off begin
+// % protected region % [Add extra imports here] end
 
 /**
  * Check if a GraphQL error is a server error(instead of a GraphQL error)
@@ -25,13 +27,7 @@ import { CaseComparison, CaseComparisonPascalCase, IWhereCondition } from 'Views
  * @returns boolean, if the error is ServerError and have error['statusCode']
  */
 export function isServerError(error: Error | ServerError | ServerParseError | undefined): error is ServerError | ServerParseError {
-	if (error === undefined) {
-		return false;
-	}
-	if (error['statusCode'] === undefined) {
-		return false;
-	}
-	return true;
+	return error !== undefined && 'statusCode' in error;
 }
 
 export function getTheNetworkError(response: ErrorResponse): string | null {

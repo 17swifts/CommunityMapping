@@ -18,23 +18,36 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { FieldSet } from 'Views/Components/FieldSet/FieldSet';
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
+// % protected region % [Customise container here] off begin
 let container: HTMLElement | null;
+// % protected region % [Customise container here] end
 
+// % protected region % [Customise beforeEach here] off begin
 beforeEach(() => {
 	container = document.createElement('div');
 	document.body.appendChild(container);
 });
+// % protected region % [Customise beforeEach here] end
 
+// % protected region % [Customise afterEach here] off begin
 afterEach(() => {
 	if (container) {
 		document.body.removeChild(container);
 		container = null;
 	}
 });
+// % protected region % [Customise afterEach here] end
 
+// % protected region % [Customise FieldSet component test label here] off begin
 describe("FieldSet component", () => {
+// % protected region % [Customise FieldSet component test label here] end
+	// % protected region % [Display Legend tag and content of the fieldSet label here] off begin
 	it("Display Legend tag and content of the fieldSet", () => {
+	// % protected region % [Display Legend tag and content of the fieldSet label here] end
+	// % protected region % [Display Legend tag and content of the fieldSet content here] off begin
 		act(() => {
 			ReactDOM.render(<FieldSet
 				id='1'
@@ -58,5 +71,8 @@ describe("FieldSet component", () => {
 			}
 		}
 	});
-
+	// % protected region % [Display Legend tag and content of the fieldSet content here] end
 });
+
+// % protected region % [Add any extra tests here] off begin
+// % protected region % [Add any extra tests here] end

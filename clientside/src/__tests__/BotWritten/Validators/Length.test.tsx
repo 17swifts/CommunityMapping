@@ -14,10 +14,12 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
-
 import { Model } from 'Models/Model';
 import * as Validators from 'Validators';
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
+// % protected region % [Customise MinimumLengthValidatorTheoryData here] off begin
 // TODO: add a rand string library to replace these hard coded strings below.
 const MinimumLengthValidatorTheoryData = [
 	["Star Wars", true],
@@ -26,7 +28,9 @@ const MinimumLengthValidatorTheoryData = [
 	["Star", false],
 	["", false],
 ];
+// % protected region % [Customise MinimumLengthValidatorTheoryData here] end
 
+// % protected region % [Customise MaximumLengthValidatorTheoryData here] off begin
 const MaximumLengthValidatorTheoryData = [
 	["Star Wars", true],
 	["Star Wars Th", true],
@@ -36,7 +40,9 @@ const MaximumLengthValidatorTheoryData = [
 	["Star Wars The", false],
 	["Star Wars The Empire Strikes Back", false],
 ];
+// % protected region % [Customise MaximumLengthValidatorTheoryData here] end
 
+// % protected region % [Customise MinimumMaximumLengthValidatorTheoryData here] off begin
 const MinimumMaximumLengthValidatorTheoryData = [
 	["Star Wars", true],
 	["Star Wars Th", true],
@@ -46,10 +52,14 @@ const MinimumMaximumLengthValidatorTheoryData = [
 	["Star Wars The", false],
 	["Star Wars The Empire Strikes Back", false],
 ];
+// % protected region % [Customise MinimumMaximumLengthValidatorTheoryData here] end
 
+// % protected region % [Customise Min and Max here] off begin
 const MinTestNumber = 6;
 const MaxTestNumber = 12;
+// % protected region % [Customise Min and Max here] end
 
+// % protected region % [Customise TestModel here] off begin
 class TestModel extends Model {
 	@Validators.Length(MinTestNumber, MaxTestNumber)
 	testString: string
@@ -58,9 +68,15 @@ class TestModel extends Model {
 	@Validators.Length(undefined, MaxTestNumber)
 	maximumString: string
 }
+// % protected region % [Customise TestModel here] end
 
+// % protected region % [Customise Length Validators tests label here] off begin
 describe('Length Validators', () => {
+// % protected region % [Customise Length Validators tests label here] end
+	// % protected region % [Customise min and max validation test label here] off begin
 	test.each(MinimumMaximumLengthValidatorTheoryData)('we expect %p, min and max validation to be %p', async (inputString, isValid) => {
+	// % protected region % [Customise min and max validation test label here] end
+		// % protected region % [Customise min and max validation test here] off begin
 		expect.assertions(1);
 		if (typeof inputString !== 'string' || typeof isValid !== 'boolean') {
 			throw "Invalid test arguments";
@@ -77,9 +93,13 @@ describe('Length Validators', () => {
 				expect(errors).toEqual([`The length of this field is not ${MinTestNumber} and ${MaxTestNumber}. Actual Length: ${inputString.length}`]);
 			}
 		});
+		// % protected region % [Customise min and max validation test here] end
 	});
 
+	// % protected region % [Customise min validation test label here] off begin
 	test.each(MinimumLengthValidatorTheoryData)('we expect %p, min validation to be %p', async (inputString, isValid) => {
+	// % protected region % [Customise min validation test label here] end
+		// % protected region % [Customise min validation test here] off begin
 		expect.assertions(1);
 		if (typeof inputString !== 'string' || typeof isValid !== 'boolean') {
 			throw "Invalid test arguments";
@@ -96,9 +116,13 @@ describe('Length Validators', () => {
 				expect(errors).toEqual([`The length of this field is not greater than ${MinTestNumber}. Actual Length: ${inputString.length}`]);
 			}
 		});
+		// % protected region % [Customise min validation test here] end
 	});
 
+	// % protected region % [Customise  max validation test label here] off begin
 	test.each(MaximumLengthValidatorTheoryData)('we expect %p, max validation to be %p', async (inputString, isValid) => {
+	// % protected region % [Customise  max validation test label here] end
+		// % protected region % [Customise  max validation test here] off begin
 		expect.assertions(1);
 		if (typeof inputString !== 'string' || typeof isValid !== 'boolean') {
 			throw "Invalid test arguments";
@@ -115,5 +139,11 @@ describe('Length Validators', () => {
 				expect(errors).toEqual([`The length of this field is not less than ${MaxTestNumber}. Actual Length: ${inputString.length}`]);
 			}
 		});
+		// % protected region % [Customise  max validation test here] end
 	});
+	// % protected region % [Add any extra tests here] off begin
+	// % protected region % [Add any extra tests here] end
 });
+
+// % protected region % [Add any extra content here] off begin
+// % protected region % [Add any extra content here] end

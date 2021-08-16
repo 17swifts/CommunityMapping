@@ -18,15 +18,24 @@ import { mount } from 'enzyme';
 import React from "react";
 import { Checkbox } from 'Views/Components/Checkbox/Checkbox';
 import { CheckboxGroup } from 'Views/Components/Checkbox/CheckboxGroup';
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
+// % protected region % [Customise Checkbox Group Component test label here] off begin
 describe('Checkbox Group Component', () => {
+// % protected region % [Customise Checkbox Group Component test label here] end
+	// % protected region % [Customise Checkbox Group Component test content label here] off begin
 	it('a change event on each checkbox, only affects one of the checkboxes', () => {
+	// % protected region % [Customise Checkbox Group Component test content label here] end
+		// % protected region % [Customise model here] off begin
 		let model = {
 			"item1": false,
 			"item2": false,
 			"item3": false,
 		}
+		// % protected region % [Customise model here] end
 
+		// % protected region % [Customise CheckboxGroup here] off begin
 		let group = <CheckboxGroup
 			label="Header for this checkbox group" >
 			<Checkbox model={model}
@@ -48,9 +57,13 @@ describe('Checkbox Group Component', () => {
 			>
 			</Checkbox>
 		</CheckboxGroup>;
+		// % protected region % [Customise CheckboxGroup here] end
 
+		// % protected region % [Customise mount here] off begin
 		const component = mount(group);
+		// % protected region % [Customise mount here] end
 
+		// % protected region % [Customise assertions here] off begin
 		component.find('#checkbox-1-field').simulate('change', { target: { checked: true } });
 		expect(model.item1).toEqual(true);
 		expect(model.item2).toEqual(false);
@@ -63,5 +76,9 @@ describe('Checkbox Group Component', () => {
 		expect(model.item1).toEqual(true);
 		expect(model.item2).toEqual(true);
 		expect(model.item3).toEqual(true);
+		// % protected region % [Customise assertions here] end
 	});
 });
+
+// % protected region % [Add any extra content here] off begin
+// % protected region % [Add any extra content here] end

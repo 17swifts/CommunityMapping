@@ -18,7 +18,6 @@ import Axios from 'axios';
 import { SERVER_URL } from 'Constants';
 import axios from 'axios';
 import { IUserResult } from 'Models/Store';
-import { buildUrl } from 'Util/FetchUtils';
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
 

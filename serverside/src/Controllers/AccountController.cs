@@ -348,6 +348,7 @@ namespace Cis.Controllers
 		[ProducesResponseType(200)]
 		public async Task<IActionResult> ResetPasswordRequest([FromBody]UsernameModel userModel)
 		{
+			await using var timeBuffer = new TimeBufferedSection(100);
 			try
 			{
 				var user = await _userManager.Users.FirstAsync(u => u.UserName == userModel.Username);
@@ -373,6 +374,7 @@ namespace Cis.Controllers
 		[ProducesResponseType(401)]
 		public async Task<IActionResult> ResetPassword(ResetPasswordModel details)
 		{
+			await using var timeBuffer = new TimeBufferedSection(100);
 			try
 			{
 				var user = _userManager.Users.FirstOrDefault(u => u.UserName == details.Username);

@@ -29,7 +29,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Npgsql;
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
 
@@ -110,7 +109,12 @@ namespace Cis.Controllers
 				_identityService.User,
 				cancellation);
 
-			await _documentWriter.WriteAsync(Response.Body, RenderResult(result), cancellation);
+			if (result.Errors?.Count > 0)
+			{
+				Response.StatusCode = (int)HttpStatusCode.BadRequest;
+			}
+
+			await _documentWriter.WriteAsync(Response.Body, result, cancellation);
 			// % protected region % [Change post method here] end
 		}
 
@@ -144,50 +148,13 @@ namespace Cis.Controllers
 				_identityService.User,
 				cancellation);
 
-			await _documentWriter.WriteAsync(Response.Body, RenderResult(result), cancellation);
-			// % protected region % [Change get method here] end
-		}
-
-		/// <summary>
-		/// Correctly renders the Graphql result for returning to the user
-		/// </summary>
-		/// <param name="result">The graphql execution result</param>
-		/// <returns>The graphql execution result with better formatting</returns>
-		private ExecutionResult RenderResult(ExecutionResult result)
-		{
-			// % protected region % [Change RenderResult here] off begin
 			if (result.Errors?.Count > 0)
 			{
-				var newEx = new ExecutionErrors();
-				foreach (var error in result.Errors)
-				{
-					var ex = error.InnerException;
-					if (ex is PostgresException pgException)
-					{
-						if (string.IsNullOrWhiteSpace(pgException.MessageText))
-						{
-							newEx.Add(error);
-						}
-						else
-						{
-							newEx.Add(new ExecutionError(pgException.MessageText));
-						}
-					}
-					else
-					{
-						newEx.Add(error);
-					}
-
-					_logger.LogError(
-						"Graphql error message: {Error}\nException: {Exception}",
-						error.Message,
-						ex?.ToString());
-				}
-				result.Errors = newEx;
 				Response.StatusCode = (int)HttpStatusCode.BadRequest;
 			}
-			return result;
-			// % protected region % [Change RenderResult here] end
+
+			await _documentWriter.WriteAsync(Response.Body, result, cancellation);
+			// % protected region % [Change get method here] end
 		}
 
 		/// <summary>

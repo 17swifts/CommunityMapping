@@ -14,26 +14,20 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
-import { observable, action } from 'mobx';
+// % protected region % [Add extra imports here] off begin
+// % protected region % [Add extra imports here] end
 
-export interface IPaginationQueryOptions {
-	page: number;
-	perPage: number;
+export function isNotNull<T>(value: T): value is Exclude<T, null> {
+	return value !== null;
 }
 
-export class PaginationQueryOptions implements IPaginationQueryOptions {
-	@observable
-	public page: number = 0;
-	@observable
-	public perPage = 10;
-	@action
-	public gotoPage = (pageNo: number) => {
-		this.page = pageNo;
-	}
+export function isNotUndefined<T>(value: T): value is Exclude<T, undefined> {
+	return value !== undefined;
 }
 
-
-export default interface IPaginationData {
-	queryOptions: PaginationQueryOptions;
-	totalRecords: number;
+export function isNotNullOrUndefined<T>(value: T): value is Exclude<Exclude<T, undefined>, null> {
+	return value !== undefined && value !== null;
 }
+
+// % protected region % [Add any extra methods here] off begin
+// % protected region % [Add any extra methods here] end

@@ -68,9 +68,9 @@ namespace SeleniumTests.PageObjects
 			selectorDict.Add("AdminNavSubLink", (selector: "//ul[contains(@class,'nav__sublinks--visible')]", type: SelectorType.XPath));
 
 			// Admin Nav Icons
-			selectorDict.Add("AdminNavToggle", (selector: "//a[contains(@class,'expand-icon')]", type: SelectorType.XPath));
-			selectorDict.Add("AdminNavIconUsers", (selector: "//a[contains(@class,'icon-person-group')]", type: SelectorType.XPath));
-			selectorDict.Add("AdminNavIconEntities", (selector: "//a[contains(@class,'icon-list')]", type: SelectorType.XPath));
+			selectorDict.Add("AdminNavToggle", (selector: "//button[contains(@class,'expand-icon')]", type: SelectorType.XPath));
+			selectorDict.Add("AdminNavIconUsers", (selector: "//button[contains(@class,'icon-person-group')]", type: SelectorType.XPath));
+			selectorDict.Add("AdminNavIconEntities", (selector: "//button[contains(@class,'icon-list')]", type: SelectorType.XPath));
 			selectorDict.Add("AdminNavIconLogout", (selector: "//a[contains(@class,'icon-room')]", type: SelectorType.XPath));
 			// % protected region % [Modify the existing selectors or add additional selectors here] end
 		}

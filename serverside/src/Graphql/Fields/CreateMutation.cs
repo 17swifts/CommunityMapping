@@ -72,10 +72,11 @@ namespace Cis.Graphql.Fields
 
 					return data;
 				}
-				catch (AggregateException exception)
+				catch (Exception exception)
 				{
-					context.Errors.AddRange(
-						exception.InnerExceptions.Select(error => new ExecutionError(error.Message)));
+					context.Errors.AddRange(ExceptionMessageProcessor
+						.GetProcessedErrors(exception)
+						.Select(x => new ExecutionError(x)));
 					return new List<TModel>();
 				}
 			};
@@ -116,10 +117,11 @@ namespace Cis.Graphql.Fields
 						Files = graphQlContext.Files,
 					});
 				}
-				catch (AggregateException exception)
+				catch (Exception exception)
 				{
-					context.Errors.AddRange(
-						exception.InnerExceptions.Select(error => new ExecutionError(error.Message)));
+					context.Errors.AddRange(ExceptionMessageProcessor
+						.GetProcessedErrors(exception)
+						.Select(x => new ExecutionError(x)));
 					return new List<TModel>();
 				}
 			};

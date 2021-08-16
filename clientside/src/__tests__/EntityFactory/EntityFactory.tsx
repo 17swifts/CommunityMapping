@@ -18,6 +18,7 @@ import { IModelType, Model } from 'Models/Model';
 // % protected region % [Add extra imports here] off begin
 // % protected region % [Add extra imports here] end
 
+// % protected region % [Customise EntityFactory here] off begin
 export class EntityFactory<T extends Model> {
 	private _useAttributes: boolean = true;
 	private _userReferences: boolean = true;
@@ -38,13 +39,16 @@ export class EntityFactory<T extends Model> {
 	};
 	public Generate = (): T[] => [ new this.model() ];
 }
+// % protected region % [Customise EntityFactory here] end
 
+// % protected region % [Customise placeholder test here] off begin
 // Add placeholder test so yarn test doesn't throw empty test file exception
 describe('Place Holder', function () {
 	it('placeholder', () => {
 		expect(1).toEqual(1);
 	})
 });
+// % protected region % [Customise placeholder test here] end
 
 // % protected region % [Add extra methods here] off begin
 // % protected region % [Add extra methods here] end

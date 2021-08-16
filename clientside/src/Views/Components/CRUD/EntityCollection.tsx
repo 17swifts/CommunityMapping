@@ -15,6 +15,7 @@
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
 import * as React from 'react';
+import { QueryResult } from '@apollo/client';
 import Collection, {
 	expandFn,
 	ICollectionActionProps,
@@ -33,11 +34,8 @@ import Spinner from '../Spinner/Spinner';
 import { ICollectionHeaderProps } from '../Collection/CollectionHeaders';
 import ModelQuery, { IOrderByCondition, IWhereCondition } from '../ModelCollection/ModelQuery';
 import { ICollectionFilterPanelProps, IFilter } from '../Collection/CollectionFilterPanel';
-import { PaginationQueryOptions } from 'Models/PaginationData';
-import { QueryResult } from 'react-apollo';
 import { lowerCaseFirst } from 'Util/StringUtils';
 import { SecurityService } from 'Services/SecurityService';
-import { OperationVariables } from 'apollo-boost';
 import * as _ from 'lodash';
 import classNames from 'classnames';
 import { confirmModal } from '../Modal/ModalUtils';
@@ -132,9 +130,6 @@ class EntityCollection<T extends Model> extends React.Component<IEntityCollectio
 	// % protected region % [Customize _orderBy method here] end
 
 	@observable
-	public paginationQueryOptions: PaginationQueryOptions = new PaginationQueryOptions();
-
-	@observable
 	public allSelectedItemIds: string[] = new Array<string>();
 
 	@observable
@@ -142,6 +137,9 @@ class EntityCollection<T extends Model> extends React.Component<IEntityCollectio
 
 	@observable
 	public allPagesSelected: boolean = false;
+
+	@observable
+	public pageNo: number = 0;
 
 	@computed
 	public get security() {
@@ -163,7 +161,11 @@ class EntityCollection<T extends Model> extends React.Component<IEntityCollectio
 	// % protected region % [Customize collectionFilters method here] off begin
 	@computed
 	public get collectionFilters() {
-		let conditions = this.getSearchConditions();
+		let conditions: IWhereCondition<Model>[][] = [];
+		const searchConditions = this.getSearchConditions();
+		if (searchConditions) {
+			conditions = [...searchConditions];
+		}
 		let filterConditions: IWhereCondition<Model>[][] | undefined;
 
 		if (this.filterApplied) {
@@ -190,6 +192,12 @@ class EntityCollection<T extends Model> extends React.Component<IEntityCollectio
 	}
 	// % protected region % [Customize collectionFilters method here] end
 
+	// % protected region % [Customize perPage method here] off begin
+	private get perPage() {
+		return this.props.perPage ?? 10;
+	}
+	// % protected region % [Customize perPage method here] end
+
 	// % protected region % [Customize url method here] off begin
 	public get url() {
 		const { url, match } = this.props;
@@ -215,23 +223,15 @@ class EntityCollection<T extends Model> extends React.Component<IEntityCollectio
 	}
 	// % protected region % [Customize constructor method here] end
 
-	// % protected region % [Customize componentDidUpdate method here] off begin
-	componentDidUpdate() {
-		runInAction(() => {
-			this.paginationQueryOptions.page = 0;
-		});
-	}
-	// % protected region % [Customize componentDidUpdate method here] end
-
 	// % protected region % [Customize render method here] off begin
 	public render() {
-		const { perPage, modelType } = this.props;
-		runInAction(() => this.paginationQueryOptions.perPage = perPage || 10);
+		const { modelType } = this.props;
 		return (
 			<>
 				<ModelQuery
 					model={modelType}
-					pagination={this.paginationQueryOptions}
+					page={this.pageNo}
+					perPage={this.perPage}
 					orderBy={this._orderBy}
 					conditions={this.collectionFilters}
 					useListExpands
@@ -244,7 +244,7 @@ class EntityCollection<T extends Model> extends React.Component<IEntityCollectio
 	// % protected region % [Customize render method here] end
 
 	// % protected region % [Customize renderCollection method here] off begin
-	protected renderCollection = (result: QueryResult<any, OperationVariables>) : JSX.Element => {
+	protected renderCollection = (result: QueryResult) : JSX.Element => {
 
 		const { loading, error, data, refetch } = result;
 		if (error) {
@@ -261,7 +261,7 @@ class EntityCollection<T extends Model> extends React.Component<IEntityCollectio
 
 		this.models = [];
 		const dataModelName = lowerCaseFirst(modelName + 's');
-		if (data[dataModelName]) {
+		if (data?.[dataModelName]) {
 			this.models = data[dataModelName].map((e: any) => new modelType(e));
 		}
 
@@ -270,7 +270,7 @@ class EntityCollection<T extends Model> extends React.Component<IEntityCollectio
 
 		const countName = `count${modelName}s`;
 		let totalRecords = 0;
-		if (data[countName]) {
+		if (data?.[countName]) {
 			totalRecords = data[countName]['number'];
 		}
 
@@ -358,7 +358,10 @@ class EntityCollection<T extends Model> extends React.Component<IEntityCollectio
 					onSearchTriggered={this.onSearchTriggered}
 					menuFilterConfig={this.filterConfig}
 					collection={this.models}
-					pagination={{totalRecords, queryOptions: this.paginationQueryOptions }}
+					totalRecords={totalRecords}
+					perPage={this.perPage}
+					pageNo={this.pageNo}
+					onPageChange={this.onPageChange}
 					itemSelectionChanged={this.itemSelectionChanged}
 					cancelAllSelection={this.cancelAllSelection}
 					menuCountFunction={menuCountFunction}
@@ -739,6 +742,13 @@ class EntityCollection<T extends Model> extends React.Component<IEntityCollectio
 		return new this.props.modelType().getSearchConditions(this.search.searchTerm);
 	}
 	// % protected region % [Customize getSearchConditions method here] end
+
+	// % protected region % [Customize onPageChange method here] off begin
+	@action
+	private onPageChange = (pageNo: number) => {
+		this.pageNo = pageNo;
+	}
+	// % protected region % [Customize onPageChange method here] end
 
 	// % protected region % [Add any extra EntityCollection fields here] off begin
 	// % protected region % [Add any extra EntityCollection fields here] end

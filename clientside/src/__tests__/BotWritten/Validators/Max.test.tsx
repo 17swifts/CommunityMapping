@@ -14,10 +14,12 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
-
 import { Model } from 'Models/Model';
 import * as Validators from 'Validators';
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
+// % protected region % [Customise MaximumValidatorTheoryData here] off begin
 const MaximumValidatorTheoryData = [
 	[12, true],
 	[11, true],
@@ -27,16 +29,26 @@ const MaximumValidatorTheoryData = [
 	[13, false],
 	[500, false]
 ];
+// % protected region % [Customise MaximumValidatorTheoryData here] end
 
+// % protected region % [Customise MaxTestNumber here] off begin
 const MaxTestNumber = 12;
+// % protected region % [Customise MaxTestNumber here] end
 
+// % protected region % [Customise TestModel here] off begin
 class TestModel extends Model {
 	@Validators.Max(MaxTestNumber)
 	testNumber: number
 }
+// % protected region % [Customise TestModel here] end
 
+// % protected region % [Customise Max Validators tests label here] off begin
 describe('Max Validators', () => {
+// % protected region % [Customise Max Validators tests label here] end
+	// % protected region % [Customise validation to be test label here] off begin
 	test.each(MaximumValidatorTheoryData)('we expect %p, validation to be %p', async (inputNumber, isValid) => {
+	// % protected region % [Customise validation to be test label here] end
+		// % protected region % [Customise validation to be test here] off begin
 		expect.assertions(1);
 		if (typeof (inputNumber) === 'number') {
 			let testModel = new TestModel()
@@ -51,5 +63,11 @@ describe('Max Validators', () => {
 				}
 			});
 		}
+		// % protected region % [Customise validation to be test here] end
 	});
+	// % protected region % [Add any extra tests here] off begin
+	// % protected region % [Add any extra tests here] end
 });
+
+// % protected region % [Add any extra content here] off begin
+// % protected region % [Add any extra content here] end

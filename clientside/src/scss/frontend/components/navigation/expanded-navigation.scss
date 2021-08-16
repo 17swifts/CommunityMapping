@@ -70,9 +70,11 @@ Expanded navigation is the vertical navigation that expands displaying titles ne
 					position: inherit;
 				}
 
-				a {
+				.nav__link {
 					display: flex;
-					border-bottom: none;
+					line-height: $body-line-height;
+					border: none;
+					background: transparent;
 				}
 			}
 
@@ -81,28 +83,33 @@ Expanded navigation is the vertical navigation that expands displaying titles ne
 			}
 		}
 
-		a {
+		.nav__link {
 			&:before {
 				margin: 0 $space-xs;
 			}
 		}
 
 		//Expanding arrow at the bottom
-		>a {
+		>.nav__expand-icon {
 			margin: 0 $space-xxs $space-md;
+			padding: 0;
 			cursor: pointer;
-				color: get-contrasting-text-color($grey-1);
+			color: rgba(get-contrasting-text-color($background), 0.7);
+			border: none;
+			background: transparent;
+			text-align: left;
 
 			@include media(xs, sm, md) {
 				margin: .5rem $space-xxs;
 			}
 
-			&:hover,
-			&:active,
-			&:focus {
-				color: $hover-state;
+			&:before {
+				margin: 0 $space-xs;
+			}
+
+			&:hover, &:active {
+				color: $black;
 				border-bottom: none;
-				@include transform-timing($quick-animation-time);
 			}
 		}
 	}
@@ -135,7 +142,7 @@ Expanded navigation is the vertical navigation that expands displaying titles ne
 			}
 		}
 
-		a {
+		.nav__link {
 			span {
 				width: 0;
 				opacity: 0;

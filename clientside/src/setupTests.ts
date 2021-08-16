@@ -15,7 +15,7 @@
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
 import * as enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 // % protected region % [Add any extra index imports here] off begin
 // % protected region % [Add any extra index imports here] end
 

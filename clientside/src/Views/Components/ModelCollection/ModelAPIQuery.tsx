@@ -14,15 +14,11 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
-import * as React from 'react';
-import _ from 'lodash';
-import axios, { AxiosResponse } from 'axios';
+import React, { useState } from 'react';
+import { useAsync } from 'Hooks/useAsync';
+import axios from 'axios';
 import { Model } from 'Models/Model';
-import { PaginationQueryOptions } from 'Models/PaginationData';
-import { getModelName } from 'Util/EntityUtils';
-import { observer } from 'mobx-react';
 import { SERVER_URL } from 'Constants';
-import { observable, action, runInAction, computed } from 'mobx';
 import { lowerCaseFirst } from 'Util/StringUtils';
 import { modelName as modelNameSymbol } from 'Symbols';
 import { IWhereCondition } from './ModelQuery';
@@ -75,107 +71,90 @@ export interface IModelAPIQueryProps<T extends Model, TData = any> {
 	searchStr?: string;
 	orderBy?: IOrderByCondition<T>;
 	url: string;
-	pagination: PaginationQueryOptions;
+	pageNo: number;
+	perPage: number;
 }
 
-@observer
-class ModelAPIQuery<T extends Model, TData = any> extends React.Component<IModelAPIQueryProps<T, TData>> {
-	@observable
-	private requestState: 'loading' | 'error' | 'done' = 'loading';
-
-	private oldProps: IModelAPIQueryProps<T, TData>;
-
-	private requestData: { data: Array<T>, totalCount: number };
-
-	private requestError?: string;
-
-	public componentDidMount = () => {
-		this.oldProps = _.cloneDeep(this.props);
-		this.makeQuery();
+function constructVariables<T extends Model>(
+	model: { new(json?: {}): T },
+	pageNo: number,
+	perPage: number,
+	searchStr?: string,
+	orderByProp?: IOrderByCondition<T>,
+	moreParams?: ApiQueryParams) {
+	let orderBy: IOrderByCondition<T> = { path: new model().getDisplayAttribute(), descending: false };
+	if (orderByProp) {
+		orderBy = orderByProp;
 	}
 
-	public componentDidUpdate() {
-		if (
-			!_.isEqual(this.props, this.oldProps)
-			||
-			!!this.props.pagination && !!this.oldProps.pagination && this.props.pagination.page !== this.oldProps.pagination.page
-		) {
-			// if this query is not made due to the pageNo change, then the pageNo should be reset to 0
-			// in case the new query result doesn't have this page no
-			if (!!this.props.pagination && !!this.oldProps.pagination && this.props.pagination.page === this.oldProps.pagination.page) {
-				runInAction(() => {
-					this.props.pagination.page = 0;
-				});
-			}
-			this.makeQuery();
-			this.oldProps = _.cloneDeep(this.props);
-		}
-	}
+	return {
+		pageNo: (!isNaN(pageNo) && pageNo >= 0) ? (pageNo + 1) : undefined,  // matching the backend pagination which starts from page 1
+		pageSize: perPage ?? undefined,
+		searchStr: searchStr ?? undefined,
+		orderBy: orderBy.path ?? undefined,
+		descending: orderBy.descending,
+		...moreParams
+	};
+}
 
-	@action
-	private makeQuery = () => {
-		this.requestState = 'loading';
+function ModelAPIQuery<T extends Model, TData = any>(props: IModelAPIQueryProps<T, TData>) {
+	const {
+		model,
+		pageNo,
+		perPage,
+		searchStr,
+		orderBy,
+		moreParams,
+		children,
+		conditions,
+		ids,
+	} = props;
 
-		const modelName: string = this.props.model[modelNameSymbol];
-		const lowerModelName = lowerCaseFirst(modelName);
-		const url = this.props.url || `${SERVER_URL}/api/${lowerModelName}`;
+	const modelName: string = props.model[modelNameSymbol];
+	const lowerModelName = lowerCaseFirst(modelName);
+	const url = props.url ?? `${SERVER_URL}/api/${lowerModelName}`;
 
-		axios.get(url, { params: this.constructVariables })
-			.then(this.onSuccess)
-			.catch(this.onError);
-	}
+	const [ refetch, setRefetch ] = useState(0);
 
-	@action
-	private onSuccess = (data: AxiosResponse) => {
-		this.requestData = data.data;
-		this.requestState = 'done';
-	}
+	const { type, error, data } = useAsync(() => {
+		const variables = constructVariables(
+			model,
+			pageNo,
+			perPage,
+			searchStr,
+			orderBy,
+			moreParams
+		);
+		return axios.get<{ data: Array<T>, totalCount: number }>(url, { params: variables })
+			.then(x => x.data);
+	}, [
+		children,
+		model,
+		conditions,
+		moreParams,
+		ids,
+		searchStr,
+		orderBy,
+		url,
+		pageNo,
+		perPage,
+		refetch,
+	]);
 
-	@action
-	private onError = (data: AxiosResponse) => {
-		this.requestData = data.data;
-		this.requestState = 'error';
-		this.requestError = data.statusText;
-	}
-
-	public render() {
-		const modelName = getModelName(this.props.model);
-
-		if (this.props.pagination.page < 0) {
-			return null;
-		}
-
-		return this.props.children({
-			loading: this.requestState === 'loading',
-			success: this.requestState === 'done',
-			error: this.requestError,
-			refetch: this.makeQuery,
-			data: {
-				[`${lowerCaseFirst(modelName)}s`]: this.requestData ? this.requestData.data : [],
-				[`count${modelName}s`]: { number: this.requestData ? this.requestData.totalCount : 0 }
-			},
-		});
-	}
-
-	@computed
-	private get constructVariables() {
-		const { orderBy: orderByProp, pagination, moreParams } = this.props;
-		const { page, perPage } = pagination;
-
-		let orderBy: IOrderByCondition<T> = { path: new this.props.model().getDisplayAttribute(), descending: false };
-		if (orderByProp) {
-			orderBy = orderByProp;
-		}
-
-		return {
-			pageNo: (!isNaN(page) && page >= 0) ? (page + 1) : undefined,  // matching the backend pagination which starts from page 1
-			pageSize: perPage || undefined,
-			searchStr: this.props.searchStr || undefined,
-			orderBy: orderBy.path || undefined,
-			descending: orderBy.descending,
-			...moreParams
-		};
-	}
+	return (
+		<>
+			{props.children({
+				loading: type === 'loading',
+				success: type === 'data',
+				error: error,
+				refetch: () => setRefetch(old => ++old),
+				data: {
+					[`${lowerCaseFirst(modelName)}s`]: data ? data.data : [],
+					[`count${modelName}s`]: { number: data ? data.totalCount : 0 }
+				},
+			})}
+		</>
+	)
 }
 
 export default ModelAPIQuery;

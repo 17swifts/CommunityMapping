@@ -73,9 +73,11 @@ Expanded navigation is the vertical navigation that expands displaying titles ne
 					position: inherit;
 				}
 
-				a {
+				.nav__link {
 					display: flex;
-					border-bottom: none;
+					line-height: $admin-body-line-height;
+					border: none;
+					background: transparent;
 				}
 			}
 
@@ -84,25 +86,31 @@ Expanded navigation is the vertical navigation that expands displaying titles ne
 			}
 		}
 
-		a {
+		.nav__link {
 			&:before {
 				margin: 0 $admin-space-xs;
 			}
 		}
 
 		//Expanding arrow
-		>a {
+		>.nav__expand-icon {
 			margin: 0 $admin-space-xxs $admin-space-md;
+			padding: 0;
 			cursor: pointer;
-			color: $admin-color-secondary;
+			color: rgba($admin-color-primary, 0.7);
+			border: none;
+			background: transparent;
+			text-align: left;
 
 			@include media(xs, sm, md) {
 				margin: .5rem $admin-space-xxs;
 			}
 
-			&:hover,
-			&:active,
-			&:focus {
+			&:before {
+				margin: 0 $admin-space-xs;
+			}
+
+			&:hover, &:active {
 				color: $admin-black;
 				border-bottom: none;
 			}
@@ -121,6 +129,12 @@ Expanded navigation is the vertical navigation that expands displaying titles ne
 				@include cubic-bezier-ease-in(width, $admin-quick-animation-time);
 			}
 		}
+
+		>.nav__expand-icon {
+			padding: 0;
+			border: none;
+			background: transparent;
+		}
 	}
 
 	/****** Nav collapsed *****/
@@ -137,7 +151,7 @@ Expanded navigation is the vertical navigation that expands displaying titles ne
 			}
 		}
 
-		a {
+		.nav__link {
 			span {
 				width: 0;
 				opacity: 0;
@@ -150,7 +164,6 @@ Expanded navigation is the vertical navigation that expands displaying titles ne
 			pointer-events: auto;
 		}
 	}
-
 }
 
 // % protected region % [Change expanded navigation styles here] end

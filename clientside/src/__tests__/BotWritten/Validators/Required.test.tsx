@@ -14,25 +14,35 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
-
 import { Model } from 'Models/Model';
 import * as Validators from 'Validators';
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
+// % protected region % [Customise RequiredValidatorTheoryData here] off begin
 const RequiredValidatorTheoryData = [
 	["", false],
 	[undefined, false],
 	[null, false],
 	["Hello Wordl!!", true]
 ];
+// % protected region % [Customise RequiredValidatorTheoryData here] end
 
+// % protected region % [Customise TestModel here] off begin
 class TestModel extends Model {
 	@Validators.Required()
 	testName: string | null | undefined | boolean
 }
+// % protected region % [Customise TestModel here] end
 
+// % protected region % [Customise Required Validators test label here] off begin
 describe('Required Validators', () => {
+// % protected region % [Customise Required Validators test label here] end
+	// % protected region % [Customise Required Validators validation to be test label here] off begin
 	//@ts-ignore
 	test.each(RequiredValidatorTheoryData)('we expect %p, validation to be %p', async (inputString, isValid) => {
+	// % protected region % [Customise Required Validators validation to be test label here] end
+		// % protected region % [Customise Required Validators validation to be test here] off begin
 		expect.assertions(1);
 
 		let testModel = new TestModel()
@@ -47,5 +57,11 @@ describe('Required Validators', () => {
 				expect(errors).toEqual(["This field is required"]);
 			}
 		});
+		// % protected region % [Customise Required Validators validation to be test here] end
 	});
+	// % protected region % [Add any extra tests here] off begin
+	// % protected region % [Add any extra tests here] end
 });
+
+// % protected region % [Add any extra content here] off begin
+// % protected region % [Add any extra content here] end

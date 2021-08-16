@@ -14,6 +14,7 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
+@use "sass:math";
 /* -------------------------------- 
 Layout
 https://medium.com/codyhouse/create-your-design-system-part-2-grid-layout-aa961d59b8d6
@@ -47,7 +48,7 @@ $admin-grid-columns: 12 !default;
 
 //round flex items' width 
 @function round-width ($admin-i) {
-	$admin-width: floor(100 * $admin-i * 100/ $admin-grid-columns) / 100;
+	$admin-width: math.div(floor(100 * $admin-i * math.div(100, $admin-grid-columns)), 100);
 	@return $admin-width#{"%"};
 }
 

@@ -26,6 +26,7 @@ import { ButtonGroup, Alignment } from '../Button/ButtonGroup';
 // % protected region % [Add extra imports and exports here] off begin
 // % protected region % [Add extra imports and exports here] end
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export interface IFilter<T> {
 	/** The column name to filter on */
 	path: string;

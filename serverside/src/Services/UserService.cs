@@ -97,7 +97,7 @@ namespace Cis.Services
 		private readonly IServiceProvider _serviceProvider;
 		private readonly UserManager<User> _userManager;
 		private readonly RoleManager<Group> _roleManager;
-		private readonly RazorLightEngine _razorLightEngine;
+		private readonly IRazorLightEngine _razorLightEngine;
 		private readonly IBackgroundJobService _backgroundJobService;
 		private readonly ServerSettings _serverSettings;
 		// % protected region % [Add any extra readonly fields here] off begin
@@ -111,7 +111,7 @@ namespace Cis.Services
 			IServiceProvider serviceProvider,
 			UserManager<User> userManager,
 			RoleManager<Group> roleManager,
-			RazorLightEngine razorLightEngine,
+			IRazorLightEngine razorLightEngine,
 			IBackgroundJobService backgroundJobService,
 			IOptions<ServerSettings> serverSettings)
 		{
@@ -259,7 +259,11 @@ namespace Cis.Services
 		public async Task<IdentityResult> ConfirmEmail(string email, string token)
 		{
 			// % protected region % [Change confirm email method here] off begin
-			var user = await _userManager.Users.FirstAsync(u => u.Email == email);
+			var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Email == email);
+			if (user == null)
+			{
+				return IdentityResult.Failed(new IdentityErrorDescriber().InvalidToken());
+			}
 			user.LockoutEnd = null;
 			return await _userManager.ConfirmEmailAsync(user, token);
 			// % protected region % [Change confirm email method here] end

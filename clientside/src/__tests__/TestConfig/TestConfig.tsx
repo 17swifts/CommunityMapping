@@ -14,25 +14,26 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
-import { default as ApolloClient, NetworkStatus } from 'apollo-boost';
-import { QueryOptions } from 'apollo-client/core/watchQueryOptions';
-import { ApolloQueryResult } from 'apollo-client/core/types';
 import { store } from 'Models/Store';
 import { SERVER_URL } from 'Constants';
-
+import { ApolloClient, ApolloQueryResult, InMemoryCache, NetworkStatus, QueryOptions } from '@apollo/client';
 // % protected region % [Add extra imports here] off begin
 // % protected region % [Add extra imports here] end
 
+// % protected region % [Customise config here] off begin
 export const pollingInterval = 100;
 export const pollingTimeout = 1000;
 
 let storedGraphqlResponses: {[key: string]: {}} = {};
+// % protected region % [Customise config here] end
 
+// % protected region % [Customise setupGraphQlMocking here] off begin
 export function setupGraphQlMocking(graphqlResponses: {[key: string]: {}}) {
 	storedGraphqlResponses = {...storedGraphqlResponses, ...graphqlResponses};
 
 	store.apolloClient = new ApolloClient({
 		uri: `${SERVER_URL}/api/graphql`,
+		cache: new InMemoryCache(),
 	});
 
 	store.apolloClient.query = (options: QueryOptions): Promise<ApolloQueryResult<any>> => {
@@ -48,19 +49,21 @@ export function setupGraphQlMocking(graphqlResponses: {[key: string]: {}}) {
 			return resolve({
 				data: graphqlResponse,
 				loading: false,
-				stale: false,
 				networkStatus: NetworkStatus.ready
 			})
 		})
 	};
 }
+// % protected region % [Customise setupGraphQlMocking here] end
 
+// % protected region % [Customise placeholder test here] off begin
 // Add placeholder test so yarn test doesn't throw empty test file exception
 describe('Place Holder', function () {
 	it('placeholder', () => {
 		expect(1).toEqual(1);
 	})
 });
+// % protected region % [Customise placeholder test here] end
 
 // % protected region % [Add extra methods here] off begin
 // % protected region % [Add extra methods here] end

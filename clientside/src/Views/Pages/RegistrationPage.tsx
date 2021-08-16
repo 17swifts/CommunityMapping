@@ -26,7 +26,6 @@ import * as queryString from 'querystring';
 import { ButtonGroup, Alignment } from 'Views/Components/Button/ButtonGroup';
 import If from 'Views/Components/If/If';
 import { Combobox } from 'Views/Components/Combobox/Combobox';
-import * as Models from '../../Models/Entities';
 import _ from 'lodash';
 import { Model } from 'Models/Model';
 import { isRequired } from 'Util/EntityUtils';

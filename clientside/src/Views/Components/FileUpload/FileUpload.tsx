@@ -26,6 +26,7 @@ import { observer } from 'mobx-react';
 import { Button, Display } from 'Views/Components/Button/Button';
 import { FileUploadPreview } from 'Views/Components/FileUpload/UploadPreview';
 import If from 'Views/Components/If/If';
+import { formatBytes } from 'Util/StringUtils';
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
 
@@ -138,6 +139,10 @@ export interface FileUploadProps<T> {
 	 * Override to be used for the choose file button text.
 	 */
 	buttonText?: string;
+	/**
+	 * Maximum allowed file size in bytes.
+	 */
+	maxFileSize?: number;
 	// % protected region % [Override props here] end
 
 	// % protected region % [Add any extra props here] off begin
@@ -201,20 +206,27 @@ class FileUpload<T> extends React.Component<FileUploadProps<T>> {
 	// % protected region % [Override setFile here] off begin
 	@action
 	public setFile = (file: File) => {
-		if (this.props.onChange) {
-			return this.props.onChange(file);
+		const { modelProperty, maxFileSize, onAfterChange, onChange, model } = this.props;
+
+		if (onChange) {
+			return onChange(file);
 		}
 
 		this.internalErrors = [];
 		if (!this.validateContentType(file)) {
-			const message =  `Content type ${file.type} is not valid for ${this.acceptType}`;
+			const message = `Content type ${file.type} is not valid for ${this.acceptType}`;
 			this.internalErrors.push(message);
-			console.warn(message);
+		}
+		if (maxFileSize !== undefined && file.size > maxFileSize) {
+			const message = `Maximum allowed file size is ${formatBytes(maxFileSize)}`;
+			this.internalErrors.push(message);
+		}
+		if (this.internalErrors.length > 0) {
 			return false;
 		}
 
-		(this.props.model[this.props.modelProperty] as File) = file;
-		this.props.onAfterChange?.(file);
+		(model[modelProperty] as File) = file;
+		onAfterChange?.(file);
 
 		return true;
 	};
@@ -376,6 +388,7 @@ class FileUpload<T> extends React.Component<FileUploadProps<T>> {
 					labelVisible={labelVisible}
 					errors={this.errors}>
 					<input
+						className="file-input__picker"
 						ref={instance => this.inputRef = instance}
 						style={{display: 'none'}}
 						aria-hidden="true"

@@ -14,6 +14,7 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
+@use "sass:math";
 
 /* ----------Pick your brand colours here ----------*/
 /* -------------------------------------------------*/
@@ -124,7 +125,7 @@ Change and add functions according to your project.
     $backLum: luminance($back) + .05;
     $foreLum: luminance($front) + .05;
 
-    @return max($backLum, $foreLum) / min($backLum, $foreLum);
+    @return math.div(max($backLum, $foreLum), min($backLum, $foreLum));
 }
 
 // Determine whether to use dark or light text on top of given color.
@@ -446,14 +447,14 @@ $linear-channel-values:
 		border-left: $size solid transparent;
 		border-right: $size solid transparent;
 		border-top: $size solid $color;
-		margin-top: 0 - round($size / 2.5);
+		margin-top: 0 - round(math.div($size, 2.5));
 	}
 
 	@else if $direction==up {
 		border-left: $size solid transparent;
 		border-right: $size solid transparent;
 		border-bottom: $size solid $color;
-		margin-bottom: 0 - round($size / 2.5);
+		margin-bottom: 0 - round(math.div($size, 2.5));
 	}
 
 	@else if $direction==right {

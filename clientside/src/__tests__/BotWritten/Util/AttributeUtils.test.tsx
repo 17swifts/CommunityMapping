@@ -14,9 +14,11 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
-
 import {standardiseInteger, standardiseBoolean} from '../../../Util/AttributeUtils';
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
+// % protected region % [Customise standardIntTheoryData here] off begin
 const standardIntTheoryData = [
 	["52", {"query": "52"}],
 	["52.5", null],
@@ -24,7 +26,9 @@ const standardIntTheoryData = [
 	[undefined, null],
 	["NaN", null],
 ];
+// % protected region % [Customise standardIntTheoryData here] end
 
+// % protected region % [Customise standardBoolTheoryData here] off begin
 const standardBoolTheoryData = [
 	["52", null],
 	["52.5", null],
@@ -33,8 +37,12 @@ const standardBoolTheoryData = [
 	["false", {"query": "false"}],
 	["NaN", null],
 ];
+// % protected region % [Customise standardBoolTheoryData here] end
 
+// % protected region % [Customise standardise integer function test label here] off begin
 describe("Test standardise integer function with different inputs", () => {
+// % protected region % [Customise standardise integer function test label here] end
+	// % protected region % [Customise standardise integer function test here] off begin
 	test.each(standardIntTheoryData)(
 		"given %p input we expect to return %p", (inputString, expectedOutput) => {
 			if (typeof(inputString) === 'string'){
@@ -44,9 +52,13 @@ describe("Test standardise integer function with different inputs", () => {
 			}
 		}
 	);
+	// % protected region % [Customise standardise integer function test here] end
 });
 
+// % protected region % [Customise standardise bool function with different test label here] off begin
 describe("Test standardise bool function with different inputs", () => {
+// % protected region % [Customise standardise bool function with different test label here] end
+	// % protected region % [Customise standardise bool function with different test here] off begin
 	test.each(standardBoolTheoryData)(
 		"given %p input we expect to return %p", (inputString, expectedOutput) => {
 			if (typeof(inputString) === 'string'){
@@ -56,4 +68,8 @@ describe("Test standardise bool function with different inputs", () => {
 			}
 		}
 	);
+	// % protected region % [Customise standardise bool function with different test here] end
 });
+
+// % protected region % [Add any extra content here] off begin
+// % protected region % [Add any extra content here] end

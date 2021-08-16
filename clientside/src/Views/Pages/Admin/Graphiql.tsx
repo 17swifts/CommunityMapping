@@ -15,24 +15,18 @@
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
 import * as React from 'react';
-import Cookies from 'js-cookie';
 import { SERVER_URL } from 'Constants';
-// @ts-ignore
-import GraphiQL from 'graphiql';
+import GraphiQL, { Fetcher } from 'graphiql';
+import Axios, { AxiosError } from 'axios';
+import { FetcherResultPayload } from '@graphiql/toolkit/src/create-fetcher/types';
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
 
-const graphiQLFetcher = (graphQLParams: {}) => {
+const graphiQLFetcher: Fetcher = (graphQLParams, opts) => {
 	// % protected region % [Customise GraphiQL fetcher here] off begin
-	const token = Cookies.get('XSRF-TOKEN');
-	return fetch(`${SERVER_URL}/api/graphql`, {
-		method: 'post',
-		headers: {
-			'Content-Type': 'application/json',
-			'X-XSRF-TOKEN': token ? token : '',
-		},
-		body: JSON.stringify(graphQLParams),
-	}).then(response => response.json());
+	return Axios.post(`${SERVER_URL}/api/graphql`, graphQLParams, { headers: opts?.headers })
+		.then((x: FetcherResultPayload) => x.data)
+		.catch((x: AxiosError<FetcherResultPayload>) => x.response?.data);
 	// % protected region % [Customise GraphiQL fetcher here] end
 }
 
@@ -40,7 +34,7 @@ export default function GraphiQl() {
 	// % protected region % [Customise GraphiQL component here] off begin
 	return (
 		<div className="graphiql-content-container body-content">
-			<GraphiQL fetcher={graphiQLFetcher}/>
+			<GraphiQL fetcher={graphiQLFetcher} />
 		</div>
 	);
 	// % protected region % [Customise GraphiQL component here] end

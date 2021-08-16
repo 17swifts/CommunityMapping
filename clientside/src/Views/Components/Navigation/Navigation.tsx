@@ -87,8 +87,16 @@ class Navigation<T extends ILink> extends React.Component<INavigationProps<T>> {
 		if (!this.alwaysExpanded) {
 			navClassName = classNames(navClassName, this.navCollapsed ? 'nav--collapsed' : 'nav--expanded');
 			expandButton = (
-				<a className={classNames('link-rm-txt-dec expand-icon', this.navCollapsed ? 'icon-menu' : 'icon-menu', 'icon-left')} 
-					onClick={this.onClickNavCollapse} />
+				<button
+					className={classNames(
+						'nav__expand-icon',
+						'link-rm-txt-dec',
+						'expand-icon',
+						'icon-menu',
+						'icon-only',
+					)} 
+					onClick={this.onClickNavCollapse}
+				/>
 			);
 		}
 

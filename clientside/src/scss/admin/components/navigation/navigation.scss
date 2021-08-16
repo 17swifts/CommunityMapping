@@ -45,7 +45,7 @@ Styling for basic navigation, vertical navigation and horizontal navigation.
 				}
 			}
 
-			a {
+			.nav__link {
 				color: rgba($admin-color-primary, 0.7);
 				text-decoration: none;
 				padding: $admin-space-xxs;
@@ -66,7 +66,7 @@ Styling for basic navigation, vertical navigation and horizontal navigation.
 				background-color: $admin-grey-10;
 				@include transform-timing($admin-animation-time);
 
-				a {
+				.nav__link {
 					color: $admin-white;
 					@include transform-timing($admin-animation-time);
 				}
@@ -412,7 +412,8 @@ Styling for basic navigation, vertical navigation and horizontal navigation.
 			overflow: hidden;
 		}
 
-		>a {
+		>.nav__expand-icon {
+			border: none;
 			display: flex;
 			align-items: center;
 			justify-content: center;

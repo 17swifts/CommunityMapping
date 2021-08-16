@@ -31,6 +31,7 @@ using Cis.Models;
 using Cis.Models.Internal.Identity;
 using Cis.Services.Interfaces;
 using Cis.Services.TwoFactor;
+using Cis.Utility;
 
 // % protected region % [Customise Authorization Library imports here] off begin
 using AspNet.Security.OpenIdConnect.Primitives;
@@ -107,6 +108,7 @@ namespace Cis.Controllers
 		[Produces("application/json")]
 		public async Task<ActionResult<OpenIdConnectResponse>> Exchange([ModelBinder(typeof(OpenIddictMvcBinder))] OpenIdConnectRequest request)
 		{
+			await using var timeBuffer = new TimeBufferedSection(100);
 			try
 			{
 				var ticket = await _signInService.Exchange(request);
@@ -147,6 +149,7 @@ namespace Cis.Controllers
 		[HttpPost("login")]
 		public async Task<IActionResult> Login([FromBody]LoginDetails details)
 		{
+			await using var timeBuffer = new TimeBufferedSection(100);
 			var user = await _userManager.FindByNameAsync(details.Username);
 			var result = SignInResult.Failed;
 			if (user != null)

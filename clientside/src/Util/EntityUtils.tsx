@@ -33,7 +33,7 @@ import {
 import { lowerCaseFirst } from './StringUtils';
 import { store } from 'Models/Store';
 import { Symbols } from 'Symbols';
-import { IOrderByCondition, IWhereCondition } from 'Views/Components/ModelCollection/ModelQuery';
+import { HasCondition, IOrderByCondition, IWhereCondition } from 'Views/Components/ModelCollection/ModelQuery';
 import * as AttrUtils from 'Util/AttributeUtils';
 import { IWhereConditionApi } from 'Views/Components/ModelCollection/ModelQuery';
 // % protected region % [Add extra imports here] off begin
@@ -182,12 +182,13 @@ export type manyToManyOptions = {
 	joinEntity: () => { new(attrs?: any): Model, getAttributes(): string[], getFiles(): {name: string, blob: string}[] },
 	oppositeEntity: () => { new(attrs?: any): Model, getAttributes(): string[], getFiles(): {name: string, blob: string}[] },
 	args?: (query: string, existingArgs: Array<Array<IWhereCondition<any>>>) => Array<Array<IWhereCondition<any>>>,
-	orderBy?: Array<IOrderByCondition<any>>;
+	orderBy?: Array<IOrderByCondition<any>>,
 	take?: number,
 	skip?: number,
 	case?: string,
-	id?: string;
-	ids?: Array<String>
+	id?: string,
+	ids?: Array<String>,
+	has?: (query: string, existingArgs: HasCondition<any>[][]) => HasCondition<any>[][],
 	// % protected region % [Add additional manyToManyOptions attributes here] off begin
 	// % protected region % [Add additional manyToManyOptions attributes here] end
 };
@@ -233,6 +234,7 @@ export function makeFetchManyToManyFunc(options: manyToManyOptions) {
 					skip: options.skip,
 					take: options.take ?? 10,
 					orderBy: options.orderBy,
+					has: options.has ? options.has(queryString, []) : undefined,
 				}
 			})
 			.then(result => {

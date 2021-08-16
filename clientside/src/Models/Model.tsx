@@ -15,35 +15,42 @@
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
 import * as uuid from 'uuid';
-import { observable, runInAction, computed } from 'mobx';
+import _ from 'lodash';
+import axios from 'axios';
+import gql from 'graphql-tag';
+import moment from 'moment';
+import { action, computed, observable, runInAction } from 'mobx';
 import {
-	validator as validatorSymbol,
+	APPLICATION_ID,
 	attributes as attributesSymbol,
 	crudOptions,
-	references as referencesSymbol,
-	modelName as modelNameSymbol,
 	displayName as displayNameSymbol,
 	fileAttributes,
-	APPLICATION_ID,
+	modelName as modelNameSymbol,
+	references as referencesSymbol,
+	validator as validatorSymbol,
 } from 'Symbols';
 import { store } from './Store';
-import gql from 'graphql-tag';
 import { lowerCaseFirst } from 'Util/StringUtils';
-import { ICRUDOptions, AttributeCRUDOptions } from './CRUDOptions';
-import moment from 'moment';
-import { IModelAttributeValidationError, IModelValidator, IEntityValidationErrors, IAttributeValidationErrorInfo, PropertyType, IFormFieldValidationError } from 'Validators/Util';
+import { AttributeCRUDOptions, ICRUDOptions } from './CRUDOptions';
+import {
+	IAttributeValidationErrorInfo,
+	IEntityValidationErrors,
+	IFormFieldValidationError,
+	IModelAttributeValidationError,
+	IModelValidator,
+	PropertyType
+} from 'Validators/Util';
 import { IAcl } from './Security/IAcl';
-import { IOrderByCondition, IWhereCondition, Comparators } from '../Views/Components/ModelCollection/ModelQuery';
+import { Comparators, IOrderByCondition, IWhereCondition } from '../Views/Components/ModelCollection/ModelQuery';
 import { getFetchAllConditional, getModelName } from '../Util/EntityUtils';
-import { ErrorResponse } from 'apollo-link-error';
 import { getTheNetworkError } from 'Util/GraphQLUtils';
 import { ICollectionFilterPanelProps } from 'Views/Components/Collection/CollectionFilterPanel';
-import _ from 'lodash';
-import co from "co";
 import { EntityFormMode } from 'Views/Components/Helpers/Common';
-import axios from 'axios';
 import { SERVER_URL } from 'Constants';
 import { DocumentNode } from 'graphql';
+import { isNotNull } from 'Util/TypeGuards';
+import { ErrorResponse } from '@apollo/client/link/error';
 // % protected region % [Add any further imports here] off begin
 // % protected region % [Add any further imports here] end
 
@@ -311,85 +318,79 @@ export class Model implements IModelAttributes {
 	 */
 	public validate(path: {} = {}): Promise<IEntityValidationErrors> {
 		let that: Model = this;
-		var promise = new Promise<IEntityValidationErrors>((resolve, reject) => {
-			//@ts-ignore
-			co(function* () {
-				let results: IEntityValidationErrors = {};
-				if (that[validatorSymbol]) {
-					const ownErrorsArrray: IModelAttributeValidationError[] =
-						(yield Promise.all(
-							(that[validatorSymbol] as IModelValidator[]).map(
-								(validator) => validator(that)
-							))
-						)
-						.filter(
-							(error: IModelAttributeValidationError) => {
-								if(!_.some(path, _.isEmpty)){
-									return !!error;
-								} else {
-									return (!!error && !!error.attributeName && (path as object).hasOwnProperty(error.attributeName)) ? !!error : null;
-								}
-							}
-						);
-
-					const ownErrors = ownErrorsArrray.reduce((errors, error) => {
-						if (errors[error.attributeName] === undefined) {
-							errors[error.attributeName] = {
-								type: PropertyType.OWN,
-								errors: { [`${error.errorType}`]: [error.errorMessage] } as IFormFieldValidationError
-							}
-						}
-						else {
-							let errs = errors[error.attributeName].errors;
-							if(errs[error.errorType] === undefined){
-								errs[error.errorType] = [error.errorMessage];
+		const promise = new Promise<IEntityValidationErrors>(async (resolve, reject) => {
+			let results: IEntityValidationErrors = {};
+			if (that[validatorSymbol]) {
+				const promises = await Promise.all(
+					(that[validatorSymbol] as IModelValidator[]).map(
+						(validator) => validator(that)
+					));
+				const ownErrorsArray: IModelAttributeValidationError[] = promises
+					.filter(
+						(error) => {
+							if(!_.some(path, _.isEmpty)){
+								return !!error;
 							} else {
-								errs[error.errorType].push(error.errorMessage);
+								return (!!error && !!error.attributeName && (path as object).hasOwnProperty(error.attributeName)) ? !!error : null;
 							}
 						}
-						return errors;
-					}, {} as IEntityValidationErrors);
+					)
+					.filter(isNotNull);
 
-					results = { ...results, ...ownErrors };
-				}
+				const ownErrors = ownErrorsArray.reduce((errors, error) => {
+					if (errors[error.attributeName] === undefined) {
+						errors[error.attributeName] = {
+							type: PropertyType.OWN,
+							errors: { [`${error.errorType}`]: [error.errorMessage] } as IFormFieldValidationError
+						}
+					}
+					else {
+						let errs = errors[error.attributeName].errors;
+						if(errs[error.errorType] === undefined){
+							errs[error.errorType] = [error.errorMessage];
+						} else {
+							errs[error.errorType].push(error.errorMessage);
+						}
+					}
+					return errors;
+				}, {} as IEntityValidationErrors);
 
-				const referencesToValidate = Object.keys(path).filter(key => that.references.includes(key));
+				results = { ...results, ...ownErrors };
+			}
 
-				for (const reference of referencesToValidate) {
-					if (Array.isArray(that[reference])) {
-						const childrenErrors: IEntityValidationErrors[] = (yield Promise.all(
-							that[reference].map(
-								(item: Model) => item.validate(path[reference])
-							))
-						).map((oneChildErrors: IEntityValidationErrors) => {
+			const referencesToValidate = Object.keys(path).filter(key => that.references.includes(key));
+
+			for (const reference of referencesToValidate) {
+				if (Array.isArray(that[reference])) {
+					const refs: Model[] = that[reference];
+					const childrenPromises = await Promise.all(refs.map(item => item.validate(path[reference])));
+					const childrenErrors: IEntityValidationErrors[] = childrenPromises
+						.map((oneChildErrors) => {
 							if (Object.keys(oneChildErrors).length > 0) {
 								return oneChildErrors;
 							}
 							return null;
-						});
+						})
+						.filter(isNotNull);
 
-						results[reference] = {
-							type: PropertyType.CHILDREN,
-							target: that[reference],
-							errors: childrenErrors
-						} as IAttributeValidationErrorInfo;
-					} else {
-						const referenceErrors = (yield that[reference].validate(path[reference])) as IEntityValidationErrors;
-						if (Object.keys(referenceErrors).length > 0) {
-							results[reference] = { type: PropertyType.REFERENCE, target: that[reference], errors: referenceErrors } as IAttributeValidationErrorInfo;
-						}
+					results[reference] = {
+						type: PropertyType.CHILDREN,
+						target: that[reference],
+						errors: childrenErrors
+					} as IAttributeValidationErrorInfo;
+				} else {
+					const referenceErrors = (await that[reference].validate(path[reference])) as IEntityValidationErrors;
+					if (Object.keys(referenceErrors).length > 0) {
+						results[reference] = { type: PropertyType.REFERENCE, target: that[reference], errors: referenceErrors } as IAttributeValidationErrorInfo;
 					}
 				}
+			}
 
-				runInAction(() => {
-					that.validationErrors = results;
-				});
-				return results;
-			}).then(function (results: any) {
-				resolve(results as IEntityValidationErrors);
-			}, function (err: any) {
-				reject(err);
+			runInAction(() => {
+				that.validationErrors = results;
 			});
+			resolve(results);
+			return results;
 		});
 
 		return promise;
@@ -400,25 +401,24 @@ export class Model implements IModelAttributes {
 	 * @example
 	 * myModel.clearErrors();
 	 */
-	public clearErrors(): void {
-		runInAction(() => {
-			this.validationErrors = {};
-			for (const reference of this.references) {
-				if (Array.isArray(this[reference])) {
-					(this[reference] as Model[]).forEach((model) => {
-						if(!!model){
-							model.clearErrors();
-						}
-					});
-				} else {
-					if(!!this[reference]){
-						if(typeof (this[reference] as Model).clearErrors === 'function') {
-							(this[reference] as Model).clearErrors();
-						}
+	@action
+	public clearErrors = () => {
+		this.validationErrors = {};
+		for (const reference of this.references) {
+			if (Array.isArray(this[reference])) {
+				(this[reference] as Model[]).forEach((model) => {
+					if(!!model){
+						model.clearErrors();
+					}
+				});
+			} else {
+				if(!!this[reference]){
+					if(typeof (this[reference] as Model).clearErrors === 'function') {
+						(this[reference] as Model).clearErrors();
 					}
 				}
 			}
-		});
+		}
 	}
 
 	/**
@@ -679,15 +679,12 @@ export class Model implements IModelAttributes {
 
 				},
 			})
-			.then((response) => {
+			.then(action((response) => {
 				const data = response.data[functionName][0];
-				runInAction(() => {
-					Object.assign(this, data);
-				});
-			})
+				Object.assign(this, data);
+			}))
 			.catch((response: ErrorResponse) => {
-				const errorMessage = getTheNetworkError(response);
-				throw errorMessage;
+				throw getTheNetworkError(response);
 			});
 	}
 
@@ -808,12 +805,10 @@ export class Model implements IModelAttributes {
 
 						},
 					})
-					.then((response) => {
+					.then(action((response) => {
 						const data = response.data[functionName][0];
-						runInAction(() => {
-							this.assignAttributes(data);
-						});
-					});
+						this.assignAttributes(data);
+					}));
 			case 'multipart/form-data':
 				const data = new FormData();
 				data.append('variables', JSON.stringify(queryVariables));
@@ -828,12 +823,10 @@ export class Model implements IModelAttributes {
 					method: 'POST',
 					url: `${SERVER_URL}/api/graphql`,
 					data: data,
-				}).then((response) => {
+				}).then(action((response) => {
 					const data = response.data.data[functionName][0];
-					runInAction(() => {
-						this.assignAttributes(data);
-					});
-				});
+					this.assignAttributes(data);
+				}));
 			default:
 				return Promise.reject("Invalid content type");
 

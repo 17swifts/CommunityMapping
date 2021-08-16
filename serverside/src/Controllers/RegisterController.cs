@@ -88,6 +88,7 @@ namespace Cis.Controllers
 		[AllowAnonymous]
 		public async Task<IActionResult> ConfirmEmail([FromBody] ConfirmEmailModel model)
 		{
+			await using var timeBuffer = new TimeBufferedSection(100);
 			var result = await _userService.ConfirmEmail(model.Email, model.Token);
 
 			if (!result.Succeeded)

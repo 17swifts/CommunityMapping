@@ -122,12 +122,12 @@ class NavigationLink extends React.Component<INavigationLinkProps> {
 			>
 				{
 					(this.props.isParent || this.props.isDisabled)
-						? <a className={classNames(this.icon, this.iconPos)} aria-label={typeof label === "string" ? label : undefined}>{textNode}</a>
+						? <button className={classNames(this.icon, this.iconPos, 'nav__link')} aria-label={typeof label === "string" ? label : undefined}>{textNode}</button>
 						: this.props.customComponent !== undefined
 						? this.props.customComponent
 						: this.props.useATag
-						? <a href={path} rel="noopener noreferrer" className={classNames(this.icon, this.iconPos)} target={'_blank'} aria-label={typeof label === "string" ? label : undefined}>{textNode}</a>
-						: <Link to={path} className={classNames(this.icon, this.iconPos)} aria-label={typeof label === "string" ? label : undefined}>{textNode}</Link>
+						? <a href={path} rel="noopener noreferrer" className={classNames(this.icon, this.iconPos, 'nav__link')} target={'_blank'} aria-label={typeof label === "string" ? label : undefined}>{textNode}</a>
+						: <Link to={path} className={classNames(this.icon, this.iconPos, 'nav__link')} aria-label={typeof label === "string" ? label : undefined}>{textNode}</Link>
 				}
 				{subLinksNode}
 			</li>

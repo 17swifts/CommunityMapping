@@ -38,7 +38,7 @@ namespace Cis.Services.TwoFactor.Methods
 		private readonly UserManager<User> _userManager;
 		private readonly IBackgroundJobService _backgroundJobService;
 		private readonly IEmailService _emailService;
-		private readonly RazorLightEngine _razorLightEngine;
+		private readonly IRazorLightEngine _razorLightEngine;
 		private readonly EmailTokenProvider<User> _emailTokenProvider;
 		private readonly IServiceProvider _serviceProvider;
 
@@ -50,7 +50,7 @@ namespace Cis.Services.TwoFactor.Methods
 			UserManager<User> userManager,
 			IBackgroundJobService backgroundJobService,
 			IEmailService emailService,
-			RazorLightEngine razorLightEngine,
+			IRazorLightEngine razorLightEngine,
 			EmailTokenProvider<User> emailTokenProvider,
 			IServiceProvider serviceProvider)
 		{

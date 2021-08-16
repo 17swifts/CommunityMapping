@@ -15,9 +15,8 @@
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
 import * as React from 'react';
-import { store } from '../../../Models/Store';
+import { store } from 'Models/Store';
 import { Button, Display } from '../Button/Button';
-
 // % protected region % [Add any additional includes] off begin
 // % protected region % [Add any additional includes] end
 
@@ -36,7 +35,7 @@ export interface IConfirmModalOptions {
  * @returns A promise that is resolved on the user confirming or rejected on the user cancelling
  */
 export function confirmModal(title: string, message: React.ReactNode, options: IConfirmModalOptions = {}) {
-	return new Promise((resolve, reject) => {
+	return new Promise<void>((resolve, reject) => {
 		const onConfirm = () => {
 			store.modal.hide();
 			resolve();
@@ -101,7 +100,7 @@ export interface IAlertModalProps {
  * @returns A promise that is resolved when the modal is closed
  */
 export function alertModal(title: string, message: React.ReactNode, options: IAlertModalProps = {}) {
-	return new Promise((resolve) => {
+	return new Promise<void>((resolve) => {
 		const onClose = () => {
 			store.modal.hide();
 			resolve();

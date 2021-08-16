@@ -16,9 +16,9 @@
  */
 import { createContext } from 'react';
 import { History } from 'history';
-import { default as ApolloClient } from 'apollo-boost';
 import { action, computed, observable } from 'mobx';
 import { IGlobalModal } from 'Views/Components/Modal/GlobalModal';
+import { ApolloClient } from '@apollo/client';
 // % protected region % [Add any extra store imports here] off begin
 // % protected region % [Add any extra store imports here] end
 

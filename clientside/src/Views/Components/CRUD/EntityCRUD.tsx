@@ -34,7 +34,7 @@ import { AttributeCRUDOptions } from 'Models/CRUDOptions';
 
 interface IEntityCRUDProps<T extends Model> extends RouteComponentProps {
 	/** The type of model to render */
-	modelType: IModelType;
+	modelType: IModelType<T>;
 	/** Function to determine the expanded content of the list */
 	expandList?: expandFn<T>;
 	/** Function to determine whether expand button, to display expand list, shows */
@@ -85,6 +85,11 @@ interface IEntityCRUDProps<T extends Model> extends RouteComponentProps {
 	additionalActions?: React.ReactNode[];
 	/** Function to mutate the attribute options before it is rendered */
 	mutateOptions?: (model: Model | Model[], options: AttributeCRUDOptions[], formMode: EntityFormMode) => AttributeCRUDOptions[];
+	/** 
+	 * Function to call to save an entity. If this prop is not provided then the entities saveFromCrud method will be
+	 * called instead.
+	 */
+	saveFn?: (entity: T, formMode: EntityFormMode) => Promise<void>;
 	// % protected region % [Add any extra props here] off begin
 	// % protected region % [Add any extra props here] end
 }
@@ -219,7 +224,7 @@ class EntityCRUD<T extends Model> extends React.Component<IEntityCRUDProps<T>> {
 
 	protected renderEntityCreate = (routeProps: RouteComponentProps) => {
 		// % protected region % [Override create component render here] off begin
-		const { modelType, mutateOptions } = this.props;
+		const { modelType, mutateOptions, saveFn } = this.props;
 		const modelDisplayName = getModelDisplayName(modelType);
 		return (
 			<EntityAttributeList
@@ -230,6 +235,7 @@ class EntityCRUD<T extends Model> extends React.Component<IEntityCRUDProps<T>> {
 				formMode={EntityFormMode.CREATE}
 				modelType={modelType}
 				mutateOptions={mutateOptions}
+				saveFn={saveFn}
 			/>
 		);
 		// % protected region % [Override create component render here] end
@@ -237,13 +243,14 @@ class EntityCRUD<T extends Model> extends React.Component<IEntityCRUDProps<T>> {
 
 	protected renderEntityEdit = (routeProps: RouteComponentProps) => {
 		// % protected region % [Override edit component render here] off begin
-		const { modelType, mutateOptions } = this.props;
+		const { modelType, mutateOptions, saveFn } = this.props;
 		return (
 			<EntityEdit
 				{...routeProps}
 				modelType={modelType}
 				formMode={EntityFormMode.EDIT}
 				mutateOptions={mutateOptions}
+				saveFn={saveFn}
 			/>
 		);
 		// % protected region % [Override edit component render here] end
@@ -251,13 +258,14 @@ class EntityCRUD<T extends Model> extends React.Component<IEntityCRUDProps<T>> {
 
 	protected renderEntityView = (routeProps: RouteComponentProps) => {
 		// % protected region % [Override read component render here] off begin
-		const { modelType, mutateOptions } = this.props;
+		const { modelType, mutateOptions, saveFn } = this.props;
 		return (
 			<EntityEdit
 				{...routeProps}
 				modelType={modelType}
 				formMode={EntityFormMode.VIEW}
 				mutateOptions={mutateOptions}
+				saveFn={saveFn}
 			/>
 		);
 		// % protected region % [Override read component render here] end

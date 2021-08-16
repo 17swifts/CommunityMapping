@@ -15,23 +15,24 @@
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
 import * as React from 'react';
+import { AttributeCRUDOptions } from 'Models/CRUDOptions';
 import { Model, IModelType } from 'Models/Model';
 import { RouteComponentProps } from 'react-router';
-import { observer, inject } from 'mobx-react';
 import EntityAttributeList from './EntityAttributeList';
 import { EntityFormMode } from '../Helpers/Common'
-import { Query, QueryResult } from 'react-apollo';
 import { getFetchSingleQuery, getModelDisplayName, getModelName } from 'Util/EntityUtils';
 import { lowerCaseFirst } from 'Util/StringUtils';
-import { AttributeCRUDOptions } from 'Models/CRUDOptions';
+import { useQuery } from '@apollo/client';
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
 
 interface IEntityEditProps<T extends Model> extends RouteComponentProps<IEntityEditRouteParams> {
-	modelType: IModelType;
+	modelType: IModelType<T>;
 	formMode: EntityFormMode;
 	/** Function to mutate the attribute options before it is rendered */
 	mutateOptions?: (model: Model | Model[], options: AttributeCRUDOptions[], formMode: EntityFormMode) => AttributeCRUDOptions[];
+	/** Function to call when saving the entity. If this is not provided then model.saveFromCrud is called instead. */
+	saveFn?: (entity: T, formMode: EntityFormMode) => Promise<void>;
 	// % protected region % [Add any extra props here] off begin
 	// % protected region % [Add any extra props here] end
 }
@@ -42,45 +43,58 @@ interface IEntityEditRouteParams {
 	// % protected region % [Add any extra route params here] end
 }
 
-@inject('store')
-@observer
-class EntityEdit<T extends Model> extends React.Component<IEntityEditProps<T>, any> {
-	public render() {
-		const { formMode, modelType, mutateOptions } = this.props;
-		const query = getFetchSingleQuery(modelType);
-		const modelName = getModelDisplayName(modelType);
-		const dataReturnName = lowerCaseFirst(getModelName(modelType));
+function EntityEdit<T extends Model>(props: IEntityEditProps<T>) {
+	// % protected region % [Customise setup here] off begin
+	const { modelType, formMode, match, mutateOptions, saveFn } = props;
+	const query = getFetchSingleQuery(modelType);
+	const modelName = getModelDisplayName(modelType);
+	const dataReturnName = lowerCaseFirst(getModelName(modelType));
 
-		const title = `${this.props.formMode === 'create' ? 'Create' : (this.props.formMode === 'edit' ? 'Edit' : 'View')} ${modelName}`;
-		const sectionClassName = 'crud__' + this.props.formMode;
-		const options = { title, sectionClassName };
+	const title = `${formMode === 'create' ? 'Create' : (formMode === 'edit' ? 'Edit' : 'View')} ${modelName}`;
+	const sectionClassName = 'crud__' + formMode;
+	const options = { title, sectionClassName };
+	// % protected region % [Customise setup here] end
 
-		if (this.props.match.params.id === null) {
-			throw new Error('Expected id of model to fetch for edit');
-		}
-
-		/* Refetch the model */
-		return (
-			<Query query={query} fetchPolicy="network-only" variables={{ "args": [{ "path": "id", "comparison": "equal", "value": this.props.match.params.id }] }}>
-				{({ loading, error, data }: QueryResult) => {
-					if (loading) {
-						return <div>Loading {modelName}...</div>;
-					}
-					if (error) {
-						return <div>Error Loading {modelName}</div>;
-					}
-					return (<EntityAttributeList
-						{...this.props}
-						model={new modelType(data[dataReturnName])}
-						{...options}
-						formMode={formMode}
-						modelType={modelType}
-						mutateOptions={mutateOptions}
-					/>);
-				}}
-			</Query>
-		);
+	// % protected region % [Customise route errors here] off begin
+	if (match.params.id === null) {
+		throw new Error('Expected id of model to fetch for edit');
 	}
+	// % protected region % [Customise route errors here] end
+
+	// % protected region % [Customise query here] off begin
+	const { loading, error, data } = useQuery(query, {
+		fetchPolicy: 'network-only',
+		variables: { "args": [{ "path": "id", "comparison": "equal", "value": match.params.id }] }
+	});
+	// % protected region % [Customise query here] end
+
+	// % protected region % [Customise loading here] off begin
+	if (loading) {
+		return <div>Loading {modelName}...</div>;
+	}
+	// % protected region % [Customise loading here] end
+
+	// % protected region % [Customise error handling here] off begin
+	if (error) {
+		return <div>Error Loading {modelName}</div>;
+	}
+	// % protected region % [Customise error handling here] end
+
+	// % protected region % [Customise render here] off begin
+	return (
+		<EntityAttributeList
+			{...props}
+			model={new modelType(data[dataReturnName])}
+			{...options}
+			formMode={formMode}
+			modelType={modelType}
+			mutateOptions={mutateOptions}
+			saveFn={saveFn}
+		/>
+	);
+	// % protected region % [Customise render here] end
 }
 
+// % protected region % [Customise default export here] off begin
 export default EntityEdit;
+// % protected region % [Customise default export here] end

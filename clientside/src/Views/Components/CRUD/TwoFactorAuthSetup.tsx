@@ -66,7 +66,7 @@ function EnableTwoFactorAuth({ userName, close }: TwoFactorAuthSetupProps) {
 
 		// Otherwise set the ui in the state
 		setContent(method.content);
-	}, [ selectedMethodType ]);
+	}, [ selectedMethodType, close, store.userName, twoFactorMethods, userName ]);
 	// % protected region % [Customise EnableTwoFactorAuth effect hook here] end
 
 	// If there is no selected method type then prompt the user to select one.

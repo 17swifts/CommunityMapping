@@ -525,7 +525,7 @@ namespace Cis
 
 			// % protected region % [Configure razor light engine here] off begin
 			// Register razor light templating engine
-			services.TryAddSingleton(_ => new RazorLightEngineBuilder()
+			services.TryAddSingleton<IRazorLightEngine>(_ => new RazorLightEngineBuilder()
 				.UseEmbeddedResourcesProject(typeof(Startup).Assembly)
 				.UseMemoryCachingProvider()
 				.Build());

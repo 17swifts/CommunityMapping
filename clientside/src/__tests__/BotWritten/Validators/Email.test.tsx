@@ -15,7 +15,10 @@
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
 import { isEmail } from 'Validators/Functions/Email';
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
+// % protected region % [Customise setup here] off begin
 const EmailValidatorTheoryData = [
 	["a", false],
 	["a@examplecom", false],
@@ -28,8 +31,12 @@ const EmailValidatorTheoryData = [
 	["test@example.com.au", true],
 	["test@example.edu.au", true],
 ];
+// % protected region % [Customise setup here] end
 
+// % protected region % [Customise Email Validators test label here] off begin
 describe('Email Validators', () => {
+// % protected region % [Customise Email Validators test label here] end
+	// % protected region % [Customise Email Validators test here] off begin
 	test.each(EmailValidatorTheoryData)('we expect %p, email validation to be %p', (inputString, expectedValidation) => {
 		if (typeof(inputString) === 'string'){
 			expect(isEmail(inputString)).toEqual(expectedValidation);
@@ -37,4 +44,8 @@ describe('Email Validators', () => {
 			expect(false);
 		}
 	});
+	// % protected region % [Customise Email Validators test here] end
 });
+
+// % protected region % [Add any extra content here] off begin
+// % protected region % [Add any extra content here] end

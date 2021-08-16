@@ -16,6 +16,7 @@
  */
 import * as React from 'react';
 import _ from 'lodash';
+import { ApolloError, ApolloQueryResult, OperationVariables } from '@apollo/client';
 import Collection, { ICollectionListProps } from '../Collection/Collection';
 import { Model } from 'Models/Model';
 import { action, observable, runInAction } from 'mobx';
@@ -24,10 +25,8 @@ import { Button, ICbButtonProps } from '../Button/Button';
 import { lowerCaseFirst } from 'Util/StringUtils';
 import { DocumentNode } from 'graphql';
 import Spinner from '../Spinner/Spinner';
-import { PaginationQueryOptions } from 'Models/PaginationData';
 import { ICollectionHeaderProps } from '../Collection/CollectionHeaders';
 import ModelQuery, { IWhereCondition } from './ModelQuery';
-import { ApolloError, ApolloQueryResult, OperationVariables } from 'apollo-boost';
 import ModelAPIQuery, { ApiQueryParams } from './ModelAPIQuery';
 import { ICollectionFilterPanelProps, IFilter } from '../Collection/CollectionFilterPanel';
 import { isOrCondition } from 'Util/GraphQLUtils';
@@ -90,9 +89,13 @@ export class ModelCollection<T extends Model> extends React.Component<IModelColl
 	private searchStr?: string;
 
 	@observable
-	private paginationQueryOptions: PaginationQueryOptions = new PaginationQueryOptions();
+	private pageNo = 0;
 
-	public refetch: refetchFunc<T> | (() => void) = (data) => new Promise(resolve => resolve());
+	private get perPage() {
+		return this.props.perPage ?? 20;
+	}
+
+	public refetch: refetchFunc<T> | (() => void) = () => undefined;
 
 	// % protected region % [Override constructor here] off begin
 	constructor(props: IModelCollectionProps<T>, context: any) {
@@ -109,15 +112,8 @@ export class ModelCollection<T extends Model> extends React.Component<IModelColl
 			onApplyFilter: this.onApplyFilter,
 			onFilterChanged: this.onFilterChanged
 		}
-		this.paginationQueryOptions.perPage = this.props.perPage || 20;
 	}
 	// % protected region % [Override constructor here] end
-
-	componentDidUpdate() {
-		runInAction(() => {
-			this.paginationQueryOptions.page = 0;
-		});
-	}
 
 	public render() {
 		const model = new this.props.model();
@@ -246,7 +242,10 @@ export class ModelCollection<T extends Model> extends React.Component<IModelColl
 						collection={this.models}
 						orderBy={this.orderBy}
 						hidePagination={this.props.hidePagination}
-						pagination={{ queryOptions: this.paginationQueryOptions, totalRecords }}
+						pageNo={this.pageNo}
+						totalRecords={totalRecords}
+						perPage={this.perPage}
+						onPageChange={this.onPageChange}
 						menuFilterConfig={this.filterConfig}
 					/>
 				</>
@@ -261,7 +260,8 @@ export class ModelCollection<T extends Model> extends React.Component<IModelColl
 					moreParams={this.props.getMoreParams ? this.props.getMoreParams(this.filterConfig.filters, this.filterApplied) : undefined}
 					ids={ids}
 					searchStr={this.props.searchStr}
-					pagination={this.paginationQueryOptions}
+					pageNo={this.pageNo}
+					perPage={this.perPage}
 					model={modelConstruct}
 					orderBy={this.orderBy}>
 					{({ loading, success, error, data, refetch }) => {
@@ -275,7 +275,8 @@ export class ModelCollection<T extends Model> extends React.Component<IModelColl
 				<ModelQuery
 					conditions={conditions}
 					ids={ids}
-					pagination={this.paginationQueryOptions}
+					page={this.pageNo}
+					perPage={this.perPage}
 					customQuery={customQuery}
 					model={modelConstruct}
 					orderBy={this.orderBy}>
@@ -316,4 +317,11 @@ export class ModelCollection<T extends Model> extends React.Component<IModelColl
 		this.filterApplied = false;
 	};
 	// % protected region % [Override onFilterChanged method here] end
+
+	// % protected region % [Override onPageChange method here] off begin
+	@action
+	protected onPageChange = (pageNo: number) => {
+		this.pageNo = pageNo;
+	}
+	// % protected region % [Override onPageChange method here] end
 }

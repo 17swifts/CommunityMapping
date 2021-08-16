@@ -14,9 +14,11 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
-
 import { isIP } from 'Validators/Functions/IpAddress';
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
+// % protected region % [Customise setup here] off begin
 const IPAddressValidatorTheoryData = [
 	['127.0.0.1', true],
 	['192.168.1.1', true],
@@ -34,8 +36,12 @@ const IPAddressValidatorTheoryData = [
 	['sdfsdfsdfsdf', false],
 	['-brr', false],
 ];
+// % protected region % [Customise setup here] end
 
+// % protected region % [Customise IPAddress Validators tests label here] off begin
 describe('IPAddress Validators', () => {
+// % protected region % [Customise IPAddress Validators tests label here] end
+	// % protected region % [Customise IPAddress Validators tests here] off begin
 	test.each(IPAddressValidatorTheoryData)('we expect %p, ip validation to be %p', (inputString, expectedValidation) => {
 		if (typeof (inputString) === 'string') {
 			expect(isIP(inputString)).toEqual(expectedValidation);
@@ -43,4 +49,8 @@ describe('IPAddress Validators', () => {
 			expect(false);
 		}
 	});
+	// % protected region % [Customise IPAddress Validators tests here] end
 });
+
+// % protected region % [Add any extra content here] off begin
+// % protected region % [Add any extra content here] end

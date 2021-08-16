@@ -16,6 +16,9 @@
  */
 import * as React from 'react';
 import * as queryString from "querystring";
+import _ from 'lodash';
+import { isApolloError } from '@apollo/client';
+import Spinner from 'Views/Components/Spinner/Spinner';
 import { Model } from 'Models/Model';
 import { RouteComponentProps } from 'react-router';
 import { observer } from 'mobx-react';
@@ -24,7 +27,6 @@ import { store } from 'Models/Store';
 import FormErrors from './FormErrors';
 import { observable, action, computed } from 'mobx';
 import { IEntityValidationErrors } from 'Validators/Util';
-import { safeLookup } from 'Util/IterableUtils';
 import alert from 'Util/ToastifyUtils';
 import { SecurityService } from 'Services/SecurityService';
 import { IAcl } from 'Models/Security/IAcl';
@@ -32,7 +34,6 @@ import { Form } from '../Form/Form';
 import {AttributeFormMode, EntityFormMode} from '../Helpers/Common';
 import { EntityFormLayout } from '../EntityFormLayout/EntityFormLayout';
 import { AttributeCRUDOptions } from 'Models/CRUDOptions';
-
 // % protected region % [Add extra page imports here] off begin
 // % protected region % [Add extra page imports here] end
 
@@ -54,17 +55,22 @@ interface IEntityCreateProps<T extends Model> extends RouteComponentProps {
 	attributeBehaviours?: Array<IEntityAttributeBehaviour>;
 	/** Function to mutate the attribute options before it is rendered */
 	mutateOptions?: (model: Model | Model[], options: AttributeCRUDOptions[], formMode: EntityFormMode) => AttributeCRUDOptions[];
+	/** Function to call when saving the entity. If this is not provided then model.saveFromCrud is called instead. */
+	saveFn?: (entity: T, formMode: EntityFormMode) => Promise<void>;
 }
 
 // % protected region % [Add extra implementation here] off begin
 // % protected region % [Add extra implementation here] end
 
 @observer
-class EntityAttributeList<T extends Model> extends React.Component<IEntityCreateProps<T>, any> {
+class EntityAttributeList<T extends Model> extends React.Component<IEntityCreateProps<T>> {
 	@observable
 	private _generalFormError: React.ReactNode;
 	private validationPath: {} = {};
 	private hasSubmittedOnce: boolean;
+
+	@observable
+	private showSpinner = false;
 
 	@computed
 	private get generalFormError(): React.ReactNode{
@@ -89,6 +95,7 @@ class EntityAttributeList<T extends Model> extends React.Component<IEntityCreate
 		const { title, modelType, formMode, customFields, sectionClassName } = this.props;
 		return (
 			<div className="crud-component">
+				{this.showSpinner && <Spinner />}
 				<section className={sectionClassName}>
 					<FormErrors error={this.generalFormError} detailedErrors={this.detailedFormError} />
 					{SecurityService.canUpdate(modelType) && formMode === EntityFormMode.VIEW
@@ -140,14 +147,45 @@ class EntityAttributeList<T extends Model> extends React.Component<IEntityCreate
 		const modelName = model.getModelDisplayName();
 		model.clearErrors();
 
-		model.validate(this.props.customRelationPath).then(() => {
+		model.validate(this.props.customRelationPath).then(action(() => {
 			if (model.hasValidationError) {
 				this.hasSubmittedOnce = true;
 				return;
 			}
 
-			return model.saveFromCrud(this.props.formMode)
-				.then((result) => {
+			const saveResult = new Promise<void>((resolve, reject) => {
+				if (this.props.saveFn) {
+					this.props.saveFn(model, this.props.formMode)
+						.then(resolve)
+						.catch(reject);
+				} else {
+					model.saveFromCrud(this.props.formMode)
+						.then(resolve)
+						.catch((error: Error) => {
+							if (isApolloError(error)) {
+								if (error.graphQLErrors.length > 0) {
+									reject(error.graphQLErrors.map((x: {message: string}) => x.message));
+								} else if (
+									error.networkError !== null
+									&& 'result' in error.networkError
+									&& error.networkError.result.errors
+									&& error.networkError.result.errors.length > 0
+								) {
+									reject(error.networkError.result.errors.map((x: {message: string}) => x.message));
+								} else {
+									reject([error.message]);
+								}
+							} else {
+								reject([error.message]);
+							}
+						});
+				}
+			});
+
+			this.showSpinner = true;
+			return saveResult
+				.then(action(result => {
+					this.showSpinner = false;
 					const actionDone = this.props.formMode === 'create'
 						? 'added'
 						: (this.props.formMode === 'edit' ? 'edited' : '');
@@ -162,45 +200,22 @@ class EntityAttributeList<T extends Model> extends React.Component<IEntityCreate
 					} else {
 						store.routerHistory.goBack();
 					}
-				})
-				.catch((error) => {
-					console.error(`Failed adding ${modelName}`, error);
-
-					if (typeof error === 'string') {
-						alert(error, 'error');
-					}
-
-					const errors: Array<{code: string, message: string}> | undefined = safeLookup(
-						error,
-						'networkError',
-						'result',
-						'errors',
-						{map: (x: any) => {
-							return {
-								code: safeLookup(x, 'extensions', 'data', 'Code'),
-								message: safeLookup(x, 'extensions', 'data', 'Detail'),
-							};
-						}}
-					);
+				}))
+				.catch(action((errors: readonly string[]) => {
+					this.showSpinner = false;
 
 					if (errors && errors.length) {
-						const errorCodes = errors.map(x => x.code);
-						let detailedError = 'Could not save entity.';
+						const uniqueErrors = _.uniq(errors).join(', ');
+						let detailedError = 'Could not save entity';
+						alert(uniqueErrors, 'error');
 
-						if (errorCodes.indexOf("23505") >= 0) {
-							detailedError += ' A duplicate reference was found.';
-						}
-
-						this.setErrors(
-							detailedError,
-							{},
-							errors.map(x => x.message).join(' '));
-						return;
+						this.setErrors(detailedError, {}, uniqueErrors);
+					} else {
+						this.setErrors('Could not save entity', {});
+						console.error('Crud Save Error', errors);
 					}
-
-					this.setErrors(error.message, {});
-				});
-			}
+				}));
+			})
 		);
 	}
 

@@ -18,10 +18,9 @@ import * as React from 'react';
 import { throttle } from 'lodash';
 import classNames from 'classnames';
 import { observer } from 'mobx-react';
-import { contextMenu, Menu, Item, Submenu } from 'react-contexify';
+import { contextMenu, Menu, Item, Submenu, ItemParams } from 'react-contexify';
 import { Button } from '../Button/Button';
 import { IconPositions } from '../Helpers/Common';
-import { MenuItemEventHandler } from 'react-contexify/lib/types';
 import { BodyContentContext } from '../PageWrapper/BodyContent';
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
@@ -41,7 +40,7 @@ export interface IContextMenuItemProps {
 	/** Should the label be displayed*/
 	showLabel?: boolean;
 	/** Callback function on click */
-	onClick?: (args: MenuItemEventHandler) => any;
+	onClick?: (args: ItemParams) => any;
 	/**
 	 * A custom button that is displayed, instead of the one provided by the collection.
 	 * If this field is provided then the label, icon and class related properties are ignored.
@@ -118,9 +117,6 @@ export class ContextMenu extends React.Component<IContextMenuProps> {
 	context: React.ContextType<typeof BodyContentContext> | undefined;
 	// % protected region % [Customise the static context here] end
 
-	/** Ref of the rendered menu */
-	menuRef = React.createRef<Menu>();
-
 	/** The parent element which the scroll listener is attached to */
 	get parent() {
 		// % protected region % [Customise the parent getter here] off begin
@@ -134,7 +130,7 @@ export class ContextMenu extends React.Component<IContextMenuProps> {
 	/** Parent scroll callback. This will close the current menu */
 	onScroll = () => {
 		// % protected region % [Customise the onScroll method here] off begin
-		this.menuRef.current?.hide();
+		contextMenu.hideAll();
 		// % protected region % [Customise the onScroll method here] end
 	}
 
@@ -187,10 +183,11 @@ export class ContextMenu extends React.Component<IContextMenuProps> {
 		// % protected region % [Customise the render method here] off begin
 		const menuItems = this.getSubMenu(this.props.actions, this.props.menuId);
 		return (
-			<Menu key={this.props.menuId} 
+			<Menu
+				key={this.props.menuId} 
 				id={this.props.menuId} 
-				className={classNames(this.props.location, this.props.className)} 
-				ref={this.menuRef}>
+				className={classNames(this.props.location, this.props.className)}
+			>
 				{menuItems}
 			</Menu>
 		);
@@ -218,7 +215,7 @@ export class ContextMenu extends React.Component<IContextMenuProps> {
 					menuItemNode = menuItem.customItem ?? '-';
 				}
 
-				return <Item onClick={(args) => menuItem.onClick?.(args)} key={itemKey}>
+				return <Item onClick={menuItem.onClick} key={itemKey}>
 					{menuItemNode}
 				</Item>;
 			} else {

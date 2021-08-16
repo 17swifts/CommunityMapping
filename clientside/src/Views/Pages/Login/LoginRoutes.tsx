@@ -58,7 +58,10 @@ function LoginRoutes(props: LoginRoutesProps) {
 			{/* Routes for each two factor page */}
 			{twoFactorMethodKeys.map(x => {
 				const method = twoFactorMethods[x];
-				const onLogin = method.onLogin({ onTwoFactorSuccess });
+				const onLogin = method.onLogin({
+					onTwoFactorSuccess,
+					rememberMe: rememberMe === 'true',
+				});
 
 				if (onLogin.required) {
 					const route = `${path}/2fa/${x.toLocaleLowerCase()}`;

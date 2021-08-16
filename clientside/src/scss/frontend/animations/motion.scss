@@ -27,6 +27,7 @@ addition to your desired animation. IE:
 @include bounce(3s)
 @include slow */
 
+@use "sass:math";
 @import 'animatelibrary.scss';
 
 @mixin heightScaleIn($duration: linear) {
@@ -84,8 +85,8 @@ addition to your desired animation. IE:
 }
 
 @mixin bounceMove($duration) {
-	animation: bounceMove $duration linear infinite, move $duration * 6 linear infinite $duration / 2.5;
-	-webkit-animation: bounceMove $duration linear infinite, move $duration * 6 linear infinite $duration / 2.5;
+	animation: bounceMove $duration linear infinite, move $duration * 6 linear infinite math.div($duration, 2.5);
+	-webkit-animation: bounceMove $duration linear infinite, move $duration * 6 linear infinite math.div($duration, 2.5);
 
 }
 

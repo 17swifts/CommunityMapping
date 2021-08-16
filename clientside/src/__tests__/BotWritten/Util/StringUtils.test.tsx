@@ -14,9 +14,11 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
-
 import {camelCase, camelCaseIntoWords, lowerCaseFirst, lowerCaseNoSpaces, noSpaces} from '../../../Util/StringUtils';
+// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] end
 
+// % protected region % [Customise setup here] off begin
 const camelCasesTheoryData = [
 	["star wars", "starWars"],
 	["star Wars", "starWars"],
@@ -26,11 +28,19 @@ const camelCasesTheoryData = [
 	["star", "star"],
 	["star wars a new hope", "starWarsANewHope"],
 ];
+// % protected region % [Customise setup here] end
 
+// % protected region % [Customise camel casing string function test label here] off begin
 describe("Test camel casing string function with different inputs", () => {
+// % protected region % [Customise camel casing string function test label here] end
+	// % protected region % [Customise camel casing string function test here] off begin
 	test.each(camelCasesTheoryData)(
 		"given %p input we expect to return %p", (inputString, expectedOutput) => {
 			expect(camelCase(inputString)).toEqual(expectedOutput);
 		}
 	);
+	// % protected region % [Customise camel casing string function test here] end
 });
+
+// % protected region % [Add any extra content here] off begin
+// % protected region % [Add any extra content here] end

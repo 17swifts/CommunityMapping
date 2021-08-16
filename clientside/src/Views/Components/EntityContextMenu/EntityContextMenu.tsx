@@ -16,13 +16,12 @@
  */
 import * as React from "react";
 import { observer } from 'mobx-react';
-import { contextMenu } from 'react-contexify';
+import { contextMenu, ItemParams } from 'react-contexify';
 import { IContextMenuProps, ContextMenu, IContextMenuItemProps, isItemGroup, IContextMenuItemGroup } from '../ContextMenu/ContextMenu';
-import { MenuItemEventHandler } from 'react-contexify/lib/types';
 
 export interface IEntityContextMenuItemActionProps<T> extends IContextMenuItemProps {
 	/** Callback function on click with entity */
-	onEntityClick: (args: MenuItemEventHandler, entity: T) => any;
+	onEntityClick: (args: ItemParams, entity: T) => any;
 	condition?: (model: T) => boolean; 
 }
 
@@ -63,7 +62,7 @@ export class EntityContextMenu<T> extends React.Component<IEntityContextMenuProp
 
 	private addEntityProps = (action: IEntityContextMenuItemActionProps<T>) => {
 		const newOnClick = action.onClick ||
-			((args: MenuItemEventHandler) => { 
+			((args: ItemParams) => {
 				action.onEntityClick(args, this.props.entity) 
 			});
 		return {
