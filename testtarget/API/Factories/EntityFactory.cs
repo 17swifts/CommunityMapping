@@ -96,6 +96,8 @@ namespace APITests.Factories
 							return ((ServiceEntity)entity).Servicetype.ToString();
 						case "Category":
 							return ((ServiceEntity)entity).Category.ToString();
+						case "Gender":
+							return ((ServiceEntity)entity).Gender.ToString();
 						default:
 							return null;
 					}

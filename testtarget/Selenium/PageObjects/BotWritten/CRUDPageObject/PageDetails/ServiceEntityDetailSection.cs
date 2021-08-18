@@ -54,6 +54,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 
 		//Attribute Header Titles
 		private IWebElement NameHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Name']"));
+		private IWebElement DescriptionHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Description']"));
 		private IWebElement ServicetypeHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='ServiceType']"));
 		private IWebElement CategoryHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Category']"));
 		private IWebElement ActiveHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Active']"));
@@ -61,6 +62,9 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		private IWebElement InvestmentHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Investment']"));
 		private IWebElement StartdateHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='StartDate']"));
 		private IWebElement EnddateHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='EndDate']"));
+		private IWebElement GenderHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='Gender']"));
+		private IWebElement AgeminHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='AgeMin']"));
+		private IWebElement AgemaxHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='AgeMax']"));
 
 		// Datepickers
 		public IWebElement CreateAtDatepickerField => _driver.FindElementExt(By.CssSelector("div.created > input[type='date']"));
@@ -84,11 +88,15 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		{
 			// Attribute web elements
 			selectorDict.Add("NameElement", (selector: "//div[contains(@class, 'name')]//input", type: SelectorType.XPath));
+			selectorDict.Add("DescriptionElement", (selector: "//div[contains(@class, 'description')]//input", type: SelectorType.XPath));
 			selectorDict.Add("ServicetypeElement", (selector: "//div[contains(@class, 'servicetype')]//input", type: SelectorType.XPath));
 			selectorDict.Add("CategoryElement", (selector: "//div[contains(@class, 'category')]//input", type: SelectorType.XPath));
 			selectorDict.Add("ActiveElement", (selector: "//div[contains(@class, 'active')]//input", type: SelectorType.XPath));
 			selectorDict.Add("NoservicedaysElement", (selector: "//div[contains(@class, 'noservicedays')]//input", type: SelectorType.XPath));
 			selectorDict.Add("InvestmentElement", (selector: "//div[contains(@class, 'investment')]//input", type: SelectorType.XPath));
+			selectorDict.Add("GenderElement", (selector: "//div[contains(@class, 'gender')]//input", type: SelectorType.XPath));
+			selectorDict.Add("AgeminElement", (selector: "//div[contains(@class, 'agemin')]//input", type: SelectorType.XPath));
+			selectorDict.Add("AgemaxElement", (selector: "//div[contains(@class, 'agemax')]//input", type: SelectorType.XPath));
 
 			// Reference web elements
 			selectorDict.Add("RegionalareaElement", (selector: ".input-group__dropdown.regionalAreaId > .dropdown.dropdown__container", type: SelectorType.CSS));
@@ -105,11 +113,15 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 
 		//Attribute web Elements
 		private IWebElement NameElement => FindElementExt("NameElement");
+		private IWebElement DescriptionElement => FindElementExt("DescriptionElement");
 		private IWebElement ServicetypeElement => FindElementExt("ServicetypeElement");
 		private IWebElement CategoryElement => FindElementExt("CategoryElement");
 		private IWebElement ActiveElement => FindElementExt("ActiveElement");
 		private IWebElement NoservicedaysElement => FindElementExt("NoservicedaysElement");
 		private IWebElement InvestmentElement => FindElementExt("InvestmentElement");
+		private IWebElement GenderElement => FindElementExt("GenderElement");
+		private IWebElement AgeminElement => FindElementExt("AgeminElement");
+		private IWebElement AgemaxElement => FindElementExt("AgemaxElement");
 
 		// Return an IWebElement that can be used to sort an attribute.
 		public IWebElement GetHeaderTile(string attribute)
@@ -117,6 +129,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 			return attribute switch
 			{
 				"Name" => NameHeaderTitle,
+				"Description" => DescriptionHeaderTitle,
 				"ServiceType" => ServicetypeHeaderTitle,
 				"Category" => CategoryHeaderTitle,
 				"Active" => ActiveHeaderTitle,
@@ -124,6 +137,9 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 				"Investment" => InvestmentHeaderTitle,
 				"StartDate" => StartdateHeaderTitle,
 				"EndDate" => EnddateHeaderTitle,
+				"Gender" => GenderHeaderTitle,
+				"AgeMin" => AgeminHeaderTitle,
+				"AgeMax" => AgemaxHeaderTitle,
 				_ => throw new Exception($"Cannot find header tile {attribute}"),
 			};
 		}
@@ -135,6 +151,8 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 			{
 				case "Name":
 					return NameElement;
+				case "Description":
+					return DescriptionElement;
 				case "Servicetype":
 					return ServicetypeElement;
 				case "Category":
@@ -149,6 +167,12 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 					return StartdateElement.DateTimePickerElement;
 				case "Enddate":
 					return EnddateElement.DateTimePickerElement;
+				case "Gender":
+					return GenderElement;
+				case "Agemin":
+					return AgeminElement;
+				case "Agemax":
+					return AgemaxElement;
 				default:
 					throw new Exception($"Cannot find input element {attribute}");
 			}
@@ -160,6 +184,9 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 			{
 				case "Name":
 					SetName(value);
+					break;
+				case "Description":
+					SetDescription(value);
 					break;
 				case "Servicetype":
 					SetServicetype((Servicetype)Enum.Parse(typeof(Servicetype), value));
@@ -193,6 +220,25 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 						SetEnddate(enddateValue);
 					}
 					break;
+				case "Gender":
+					SetGender((Gender)Enum.Parse(typeof(Gender), value));
+					break;
+				case "Agemin":
+					int? agemin = null;
+					if (int.TryParse(value, out var intAgemin))
+					{
+						agemin = intAgemin;
+					}
+					SetAgemin(agemin);
+					break;
+				case "Agemax":
+					int? agemax = null;
+					if (int.TryParse(value, out var intAgemax))
+					{
+						agemax = intAgemax;
+					}
+					SetAgemax(agemax);
+					break;
 				default:
 					throw new Exception($"Cannot find input element {attribute}");
 			}
@@ -203,6 +249,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 			return attribute switch
 			{
 				"Name" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.name > div > p"),
+				"Description" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.description > div > p"),
 				"Servicetype" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.servicetype > div > p"),
 				"Category" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.category > div > p"),
 				"Active" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.active > div > p"),
@@ -210,6 +257,9 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 				"Investment" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.investment > div > p"),
 				"Startdate" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.startdate > div > p"),
 				"Enddate" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.enddate > div > p"),
+				"Gender" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.gender > div > p"),
+				"Agemin" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.agemin > div > p"),
+				"Agemax" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.agemax > div > p"),
 				_ => throw new Exception($"No such attribute {attribute}"),
 			};
 		}
@@ -229,6 +279,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		{
 			// % protected region % [Configure entity application here] off begin
 			SetName(_serviceEntity.Name);
+			SetDescription(_serviceEntity.Description);
 			SetServicetype(_serviceEntity.Servicetype);
 			SetCategory(_serviceEntity.Category);
 			SetActive(_serviceEntity.Active);
@@ -236,6 +287,9 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 			SetInvestment(_serviceEntity.Investment);
 			SetStartdate(_serviceEntity.Startdate);
 			SetEnddate(_serviceEntity.Enddate);
+			SetGender(_serviceEntity.Gender);
+			SetAgemin(_serviceEntity.Agemin);
+			SetAgemax(_serviceEntity.Agemax);
 
 			SetRegionalAreaId(_serviceEntity.RegionalAreaId?.ToString());
 			if (_serviceEntity.ServiceCommissioningBodiesIds != null)
@@ -325,6 +379,16 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		private String GetName =>
 			NameElement.Text;
 
+		private void SetDescription (String value)
+		{
+			TypingUtils.InputEntityAttributeByClass(_driver, "description", value, _isFastText);
+			DescriptionElement.SendKeys(Keys.Tab);
+			DescriptionElement.SendKeys(Keys.Escape);
+		}
+
+		private String GetDescription =>
+			DescriptionElement.Text;
+
 		private void SetServicetype (Servicetype value)
 		{
 			TypingUtils.InputEntityAttributeByClass(_driver, "servicetype", value.ToString(), _isFastText);
@@ -393,6 +457,35 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 
 		private DateTime? GetEnddate =>
 			Convert.ToDateTime(EnddateElement.DateTimePickerElement.Text);
+		private void SetGender (Gender value)
+		{
+			TypingUtils.InputEntityAttributeByClass(_driver, "gender", value.ToString(), _isFastText);
+		}
+
+		private Gender GetGender =>
+			(Gender)Enum.Parse(typeof(Gender), GenderElement.Text);
+		private void SetAgemin (int? value)
+		{
+			if (value is int intValue)
+			{
+				TypingUtils.InputEntityAttributeByClass(_driver, "agemin", intValue.ToString(), _isFastText);
+			}
+		}
+
+		private int? GetAgemin =>
+			int.Parse(AgeminElement.Text);
+
+		private void SetAgemax (int? value)
+		{
+			if (value is int intValue)
+			{
+				TypingUtils.InputEntityAttributeByClass(_driver, "agemax", intValue.ToString(), _isFastText);
+			}
+		}
+
+		private int? GetAgemax =>
+			int.Parse(AgemaxElement.Text);
+
 
 		// % protected region % [Add any additional getters and setters of web elements] off begin
 		// % protected region % [Add any additional getters and setters of web elements] end

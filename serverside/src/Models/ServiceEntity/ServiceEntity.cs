@@ -51,6 +51,11 @@ namespace Cis.Models {
 		public String Name { get; set; }
 		// % protected region % [Customise Name here] end
 
+		// % protected region % [Customise Description here] off begin
+		[EntityAttribute]
+		public String Description { get; set; }
+		// % protected region % [Customise Description here] end
+
 		/// <summary>
 		/// Whether the service is permanent or temporary 
 		/// </summary>
@@ -104,6 +109,21 @@ namespace Cis.Models {
 		[EntityAttribute]
 		public DateTime? Enddate { get; set; }
 		// % protected region % [Customise Enddate here] end
+
+		// % protected region % [Customise Gender here] off begin
+		[EntityAttribute]
+		public Gender Gender { get; set; }
+		// % protected region % [Customise Gender here] end
+
+		// % protected region % [Customise Agemin here] off begin
+		[EntityAttribute]
+		public int? Agemin { get; set; }
+		// % protected region % [Customise Agemin here] end
+
+		// % protected region % [Customise Agemax here] off begin
+		[EntityAttribute]
+		public int? Agemax { get; set; }
+		// % protected region % [Customise Agemax here] end
 
 		// % protected region % [Add any further attributes here] off begin
 		// % protected region % [Add any further attributes here] end

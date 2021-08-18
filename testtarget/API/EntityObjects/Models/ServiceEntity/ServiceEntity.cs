@@ -34,6 +34,9 @@ namespace APITests.EntityObjects.Models
 		[Required]
 		[EntityAttribute]
 		public String Name { get; set; }
+		// 
+		[EntityAttribute]
+		public String Description { get; set; }
 		// Whether the service is permanent or temporary 
 		[Required]
 		[EntityAttribute]
@@ -59,6 +62,15 @@ namespace APITests.EntityObjects.Models
 		// End dat of the service
 		[EntityAttribute]
 		public DateTime? Enddate { get; set; }
+		// 
+		[EntityAttribute]
+		public Gender Gender { get; set; }
+		// 
+		[EntityAttribute]
+		public int? Agemin { get; set; }
+		// 
+		[EntityAttribute]
+		public int? Agemax { get; set; }
 
 		/// <summary>
 		/// Incoming one to many reference
@@ -158,6 +170,7 @@ namespace APITests.EntityObjects.Models
 			{
 				{"id" , Id.ToString()},
 				{"name" , Name},
+				{"description" , Description},
 				{"servicetype" , Servicetype.ToString()},
 				{"category" , Category.ToString()},
 				{"active" , Active.ToString()},
@@ -165,6 +178,9 @@ namespace APITests.EntityObjects.Models
 				{"investment" , Investment.ToString()},
 				{"startdate" ,((DateTime)Startdate).ToIsoString()},
 				{"enddate" ,((DateTime)Enddate).ToIsoString()},
+				{"gender" , Gender.ToString()},
+				{"agemin" , Agemin.ToString()},
+				{"agemax" , Agemax.ToString()},
 			};
 
 			if (RegionalAreaId != default)
@@ -185,6 +201,10 @@ namespace APITests.EntityObjects.Models
 			if(Name != null) 
 			{
 				entityVar["name"] = Name.ToString();
+			}
+			if(Description != null) 
+			{
+				entityVar["description"] = Description.ToString();
 			}
 			if(Servicetype != null) 
 			{
@@ -213,6 +233,18 @@ namespace APITests.EntityObjects.Models
 			if(Enddate != null) 
 			{
 				entityVar["enddate"] = Enddate?.ToString("s");
+			}
+			if(Gender != null) 
+			{
+				entityVar["gender"] = Gender.ToString();
+			}
+			if(Agemin != null) 
+			{
+				entityVar["agemin"] = Agemin;
+			}
+			if(Agemax != null) 
+			{
+				entityVar["agemax"] = Agemax;
 			}
 			if (RegionalAreaId  != default)
 			{

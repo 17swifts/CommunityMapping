@@ -20,6 +20,7 @@ export type categories =
 	'ABORIGINAL_SERVICE' |
 		'ACCOMMODATION_SERVICE' |
 		'ADVOCACY_SERVICE' |
+		'ALCOHOL_AND_DRUG_SERVICE' |
 		'ANIMAL_SERVICE' |
 		'ARTS_AND_CREATIVES' |
 		'CHILD_SERVICE' |
@@ -51,6 +52,7 @@ export const categoriesOptions: { [key in categories]: string } = {
 	ABORIGINAL_SERVICE: 'Aboriginal Service',
 	ACCOMMODATION_SERVICE: 'Accommodation Service',
 	ADVOCACY_SERVICE: 'Advocacy Service',
+	ALCOHOL_AND_DRUG_SERVICE: 'Alcohol and Drug Service',
 	ANIMAL_SERVICE: 'Animal Service',
 	ARTS_AND_CREATIVES: 'Arts and Creatives',
 	CHILD_SERVICE: 'Child Service',
@@ -89,6 +91,21 @@ export const servicetypeOptions: { [key in servicetype]: string } = {
 	PERMANENT: 'Permanent',
 	VISITING: 'Visiting',
 	// % protected region % [Override servicetype display fields here] end
+};
+
+export type gender =
+	// % protected region % [Override gender keys here] off begin
+	'FEMALE' |
+		'MALE' |
+		'OTHER';
+	// % protected region % [Override gender keys here] end
+
+export const genderOptions: { [key in gender]: string } = {
+	// % protected region % [Override gender display fields here] off begin
+	FEMALE: 'Female',
+	MALE: 'Male',
+	OTHER: 'Other',
+	// % protected region % [Override gender display fields here] end
 };
 
 // % protected region % [Add any extra enums here] off begin

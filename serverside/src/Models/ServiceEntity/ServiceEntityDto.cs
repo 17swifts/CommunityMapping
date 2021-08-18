@@ -31,6 +31,10 @@ namespace Cis.Models
 		public String Name { get; set; }
 		// % protected region % [Customise Name here] end
 
+		// % protected region % [Customise Description here] off begin
+		public String Description { get; set; }
+		// % protected region % [Customise Description here] end
+
 		// % protected region % [Customise Servicetype here] off begin
 		/// <summary>
 		/// Whether the service is permanent or temporary 
@@ -78,6 +82,20 @@ namespace Cis.Models
 		public DateTime? Enddate { get; set; }
 		// % protected region % [Customise Enddate here] end
 
+		// % protected region % [Customise Gender here] off begin
+		[JsonProperty("gender")]
+		[JsonConverter(typeof(StringEnumConverter))]
+		public Gender Gender { get; set; }
+		// % protected region % [Customise Gender here] end
+
+		// % protected region % [Customise Agemin here] off begin
+		public int? Agemin { get; set; }
+		// % protected region % [Customise Agemin here] end
+
+		// % protected region % [Customise Agemax here] off begin
+		public int? Agemax { get; set; }
+		// % protected region % [Customise Agemax here] end
+
 
 		// % protected region % [Customise RegionalAreaId here] off begin
 		public Guid? RegionalAreaId { get; set; }
@@ -110,6 +128,7 @@ namespace Cis.Models
 				Created = Created,
 				Modified = Modified,
 				Name = Name,
+				Description = Description,
 				Servicetype = Servicetype,
 				Category = Category,
 				Active = Active,
@@ -117,6 +136,9 @@ namespace Cis.Models
 				Investment = Investment,
 				Startdate = Startdate,
 				Enddate = Enddate,
+				Gender = Gender,
+				Agemin = Agemin,
+				Agemax = Agemax,
 				RegionalAreaId  = RegionalAreaId,
 				// % protected region % [Add any extra model properties here] off begin
 				// % protected region % [Add any extra model properties here] end
@@ -129,6 +151,7 @@ namespace Cis.Models
 			Created = model.Created;
 			Modified = model.Modified;
 			Name = model.Name;
+			Description = model.Description;
 			Servicetype = model.Servicetype;
 			Category = model.Category;
 			Active = model.Active;
@@ -136,6 +159,9 @@ namespace Cis.Models
 			Investment = model.Investment;
 			Startdate = model.Startdate;
 			Enddate = model.Enddate;
+			Gender = model.Gender;
+			Agemin = model.Agemin;
+			Agemax = model.Agemax;
 			RegionalAreaId  = model.RegionalAreaId;
 
 			// % protected region % [Add any extra loading data logic here] off begin

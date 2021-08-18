@@ -573,6 +573,7 @@ namespace Cis
 			// Register enum GraphQl types
 			services.TryAddSingleton<EnumerationGraphType<Categories>>();
 			services.TryAddSingleton<EnumerationGraphType<Servicetype>>();
+			services.TryAddSingleton<EnumerationGraphType<Gender>>();
 
 			// Connect the database type to the GraphQL type
 			GraphQL.Utilities.GraphTypeTypeRegistry.Register<AdminEntity, AdminEntityType>();

@@ -28,6 +28,10 @@ Feature: Sort ServiceEntity
 	Then I assert that Name in ServiceEntity of type String is properly sorted in descending
 	When I sort ServiceEntity by Name
 	Then I assert that Name in ServiceEntity of type String is properly sorted in ascending
+	When I sort ServiceEntity by Description
+	Then I assert that Description in ServiceEntity of type String is properly sorted in descending
+	When I sort ServiceEntity by Description
+	Then I assert that Description in ServiceEntity of type String is properly sorted in ascending
 	When I sort ServiceEntity by ServiceType
 	Then I assert that ServiceType in ServiceEntity of type String is properly sorted in descending
 	When I sort ServiceEntity by ServiceType
@@ -56,4 +60,16 @@ Feature: Sort ServiceEntity
 	Then I assert that EndDate in ServiceEntity of type Date is properly sorted in descending
 	When I sort ServiceEntity by EndDate
 	Then I assert that EndDate in ServiceEntity of type Date is properly sorted in ascending
+	When I sort ServiceEntity by Gender
+	Then I assert that Gender in ServiceEntity of type String is properly sorted in descending
+	When I sort ServiceEntity by Gender
+	Then I assert that Gender in ServiceEntity of type String is properly sorted in ascending
+	When I sort ServiceEntity by AgeMin
+	Then I assert that AgeMin in ServiceEntity of type int is properly sorted in descending
+	When I sort ServiceEntity by AgeMin
+	Then I assert that AgeMin in ServiceEntity of type int is properly sorted in ascending
+	When I sort ServiceEntity by AgeMax
+	Then I assert that AgeMax in ServiceEntity of type int is properly sorted in descending
+	When I sort ServiceEntity by AgeMax
+	Then I assert that AgeMax in ServiceEntity of type int is properly sorted in ascending
 

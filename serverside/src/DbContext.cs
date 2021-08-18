@@ -49,6 +49,7 @@ namespace Cis.Models {
 		{
 			NpgsqlConnection.GlobalTypeMapper.MapEnum<Categories>();
 			NpgsqlConnection.GlobalTypeMapper.MapEnum<Servicetype>();
+			NpgsqlConnection.GlobalTypeMapper.MapEnum<Gender>();
 			// % protected region % [Add extra methods to the static constructor here] off begin
 			// % protected region % [Add extra methods to the static constructor here] end
 		}
@@ -73,6 +74,7 @@ namespace Cis.Models {
 
 			modelBuilder.HasPostgresEnum<Categories>();
 			modelBuilder.HasPostgresEnum<Servicetype>();
+			modelBuilder.HasPostgresEnum<Gender>();
 			// Configure models from the entity diagram
 			modelBuilder.HasPostgresExtension("uuid-ossp");
 			modelBuilder.ApplyConfiguration(new AdminEntityConfiguration());

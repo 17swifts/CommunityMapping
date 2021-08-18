@@ -21,37 +21,12 @@ namespace Cis.Enums
 {
 	// % protected region % [Add any custom attributes here] off begin
 	// % protected region % [Add any custom attributes here] end
-	public enum Categories
+	public enum Gender
 	{
 		// % protected region % [Customise existing enum literals here] off begin
-		ABORIGINAL_SERVICE,
-		ACCOMMODATION_SERVICE,
-		ADVOCACY_SERVICE,
-		ALCOHOL_AND_DRUG_SERVICE,
-		ANIMAL_SERVICE,
-		ARTS_AND_CREATIVES,
-		CHILD_SERVICE,
-		COMMUNICATION_AND_INFORMATION,
-		COMMUNITY_CENTRES_HALLS_AND_FACILITIES,
-		COMMUNITY_CLUB,
-		CRISIS_AND_EMERGENCY_SERVICE,
-		CULTURAL_AND_MIGRANT_SERVICE,
-		DISABILITY_SERVICE,
-		EDUCATION,
-		EMPLOYMENT_AND_TRAINING,
-		ENVIRONMENT_AND_CONSERVATION,
-		HEALTH_SERVICE,
-		INFORMATION_AND_COUNSELLING,
-		LEGAL_SERVICE,
-		INDUSTRY_AND_FUNDING_BODIES,
-		RECREATION_AND_LEISURE,
-		RELIGION_AND_PHILOSOPHY,
-		SELF_HELP,
-		SPORT,
-		TRANSPORT_SERVICE,
-		VOLUNTEERING,
-		WELFARE_ASSISTANCE,
-		YOUTH_SERVICE,
+		FEMALE,
+		MALE,
+		OTHER,
 		// % protected region % [Customise existing enum literals here] end
 
 		// % protected region % [Add custom enum literals here] off begin

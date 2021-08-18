@@ -39,6 +39,7 @@ import {SuperAdministratorScheme} from '../Security/Acl/SuperAdministratorScheme
 
 export interface IServiceEntityAttributes extends IModelAttributes {
 	name: string;
+	description: string;
 	servicetype: Enums.servicetype;
 	category: Enums.categories;
 	active: boolean;
@@ -46,6 +47,9 @@ export interface IServiceEntityAttributes extends IModelAttributes {
 	investment: number;
 	startdate: Date;
 	enddate: Date;
+	gender: Enums.gender;
+	agemin: number;
+	agemax: number;
 
 	regionalAreaId?: string;
 	regionalArea?: Models.RegionalAreaEntity | Models.IRegionalAreaEntityAttributes;
@@ -99,6 +103,21 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	public name: string;
 	// % protected region % [Modify props to the crud options here for attribute 'Name'] end
 
+	// % protected region % [Modify props to the crud options here for attribute 'Description'] off begin
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'Description',
+		displayType: 'textfield',
+		order: 20,
+		headerColumn: true,
+		searchable: true,
+		searchFunction: 'like',
+		searchTransform: AttrUtils.standardiseString,
+	})
+	public description: string;
+	// % protected region % [Modify props to the crud options here for attribute 'Description'] end
+
 	// % protected region % [Modify props to the crud options here for attribute 'ServiceType'] off begin
 	/**
 	 * Whether the service is permanent or temporary 
@@ -109,7 +128,7 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	@CRUD({
 		name: 'ServiceType',
 		displayType: 'enum-combobox',
-		order: 20,
+		order: 30,
 		headerColumn: true,
 		searchable: true,
 		searchFunction: 'equal',
@@ -129,7 +148,7 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	@CRUD({
 		name: 'Category',
 		displayType: 'enum-combobox',
-		order: 30,
+		order: 40,
 		headerColumn: true,
 		searchable: true,
 		searchFunction: 'equal',
@@ -152,7 +171,7 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	@CRUD({
 		name: 'Active',
 		displayType: 'checkbox',
-		order: 40,
+		order: 50,
 		headerColumn: true,
 		searchable: true,
 		searchFunction: 'equal',
@@ -172,8 +191,7 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	@CRUD({
 		name: 'NoServiceDays',
 		displayType: 'textfield',
-		order: 50,
-		headerColumn: true,
+		order: 60,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseInteger,
@@ -188,7 +206,7 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	@CRUD({
 		name: 'Investment',
 		displayType: 'textfield',
-		order: 60,
+		order: 70,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseFloat,
@@ -206,7 +224,7 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	@CRUD({
 		name: 'StartDate',
 		displayType: 'datepicker',
-		order: 70,
+		order: 80,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseDate,
@@ -223,7 +241,7 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	@CRUD({
 		name: 'EndDate',
 		displayType: 'datepicker',
-		order: 80,
+		order: 90,
 		searchable: true,
 		searchFunction: 'equal',
 		searchTransform: AttrUtils.standardiseDate,
@@ -231,13 +249,61 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	public enddate: Date;
 	// % protected region % [Modify props to the crud options here for attribute 'EndDate'] end
 
+	// % protected region % [Modify props to the crud options here for attribute 'Gender'] off begin
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'Gender',
+		displayType: 'enum-combobox',
+		order: 100,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: (attr: string) => {
+			return AttrUtils.standardiseEnum(attr, Enums.genderOptions);
+		},
+		enumResolveFunction: makeEnumFetchFunction(Enums.genderOptions),
+		displayFunction: (attribute: Enums.gender) => Enums.genderOptions[attribute],
+	})
+	public gender: Enums.gender;
+	// % protected region % [Modify props to the crud options here for attribute 'Gender'] end
+
+	// % protected region % [Modify props to the crud options here for attribute 'AgeMin'] off begin
+	@Validators.Integer()
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'AgeMin',
+		displayType: 'textfield',
+		order: 110,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: AttrUtils.standardiseInteger,
+	})
+	public agemin: number;
+	// % protected region % [Modify props to the crud options here for attribute 'AgeMin'] end
+
+	// % protected region % [Modify props to the crud options here for attribute 'AgeMax'] off begin
+	@Validators.Integer()
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'AgeMax',
+		displayType: 'textfield',
+		order: 120,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: AttrUtils.standardiseInteger,
+	})
+	public agemax: number;
+	// % protected region % [Modify props to the crud options here for attribute 'AgeMax'] end
+
 	@observable
 	@attribute()
 	@CRUD({
 		// % protected region % [Modify props to the crud options here for reference 'Regional area'] off begin
 		name: 'Regional area',
 		displayType: 'reference-combobox',
-		order: 90,
+		order: 130,
 		referenceTypeFunc: () => Models.RegionalAreaEntity,
 		// % protected region % [Modify props to the crud options here for reference 'Regional area'] end
 	})
@@ -252,7 +318,7 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 		// % protected region % [Modify props to the crud options here for reference 'Service Commissioning Bodies'] off begin
 		name: 'Service Commissioning Bodies',
 		displayType: 'reference-multicombobox',
-		order: 100,
+		order: 140,
 		isJoinEntity: true,
 		referenceTypeFunc: () => Models.ServiceCommissioningBodiesServices,
 		optionEqualFunc: makeJoinEqualsFunc('serviceCommissioningBodiesId'),
@@ -297,6 +363,9 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 			if (attributes.name !== undefined) {
 				this.name = attributes.name;
 			}
+			if (attributes.description !== undefined) {
+				this.description = attributes.description;
+			}
 			if (attributes.servicetype !== undefined) {
 				this.servicetype = attributes.servicetype;
 			}
@@ -325,6 +394,15 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 				} else {
 					this.enddate = moment(attributes.enddate).toDate();
 				}
+			}
+			if (attributes.gender !== undefined) {
+				this.gender = attributes.gender;
+			}
+			if (attributes.agemin !== undefined) {
+				this.agemin = attributes.agemin;
+			}
+			if (attributes.agemax !== undefined) {
+				this.agemax = attributes.agemax;
 			}
 			if (attributes.regionalAreaId !== undefined) {
 				this.regionalAreaId = attributes.regionalAreaId;

@@ -44,6 +44,7 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.ServiceEntityCrud
 			var serviceEntity =  new ServiceEntity
 			{
 				Name = Name.Value,
+				Description = Description.Value,
 				Servicetype = Servicetype.Value.ToEnum<Servicetype>(),
 				Category = Category.Value.ToEnum<Categories>(),
 				Active = Active.Value,
@@ -51,6 +52,9 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.ServiceEntityCrud
 				Investment = Investment.Value.ToNullableDouble(),
 				Startdate = Startdate.Value,
 				Enddate = Enddate.Value,
+				Gender = Gender.Value.ToEnum<Gender>(),
+				Agemin = Agemin.Value.ToNullableInt(),
+				Agemax = Agemax.Value.ToNullableInt(),
 			};
 
 			if (Guid.TryParse(RegionalAreaId.Value, out var regionalAreaId)) {

@@ -31,3 +31,5 @@ When I enter the enum filter servicetype with the same value in the entity just 
 Then The enum value created for ServiceType is in each row of the the collection content
 When I enter the enum filter category with the same value in the entity just created and click
 Then The enum value created for Category is in each row of the the collection content
+When I enter the enum filter gender with the same value in the entity just created and click
+Then The enum value created for Gender is in each row of the the collection content

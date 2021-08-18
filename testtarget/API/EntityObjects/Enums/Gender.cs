@@ -20,43 +20,18 @@ using TestDataLib;
 
 namespace EntityObject.Enums
 {
-	public enum Categories
+	public enum Gender
 	{
-		ABORIGINAL_SERVICE,
-		ACCOMMODATION_SERVICE,
-		ADVOCACY_SERVICE,
-		ALCOHOL_AND_DRUG_SERVICE,
-		ANIMAL_SERVICE,
-		ARTS_AND_CREATIVES,
-		CHILD_SERVICE,
-		COMMUNICATION_AND_INFORMATION,
-		COMMUNITY_CENTRES_HALLS_AND_FACILITIES,
-		COMMUNITY_CLUB,
-		CRISIS_AND_EMERGENCY_SERVICE,
-		CULTURAL_AND_MIGRANT_SERVICE,
-		DISABILITY_SERVICE,
-		EDUCATION,
-		EMPLOYMENT_AND_TRAINING,
-		ENVIRONMENT_AND_CONSERVATION,
-		HEALTH_SERVICE,
-		INFORMATION_AND_COUNSELLING,
-		LEGAL_SERVICE,
-		INDUSTRY_AND_FUNDING_BODIES,
-		RECREATION_AND_LEISURE,
-		RELIGION_AND_PHILOSOPHY,
-		SELF_HELP,
-		SPORT,
-		TRANSPORT_SERVICE,
-		VOLUNTEERING,
-		WELFARE_ASSISTANCE,
-		YOUTH_SERVICE,
+		FEMALE,
+		MALE,
+		OTHER,
 	}
 
-	internal static class CategoriesEnum
+	internal static class GenderEnum
 	{
-		public static Categories GetRandomCategories() => new Fixture().Create<Categories>();
+		public static Gender GetRandomGender() => new Fixture().Create<Gender>();
 
-		public static string GetInvalidCategories()
+		public static string GetInvalidGender()
 		{
 			return DataUtils.RandString(charType: CharType.FIXTURE_STRING);
 		}

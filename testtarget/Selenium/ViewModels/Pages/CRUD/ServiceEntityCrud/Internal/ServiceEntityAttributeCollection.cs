@@ -27,6 +27,7 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.ServiceEntityCrud.Internal
 	{
 		// % protected region % [Override class properties here] off begin
 		public AttributeTextField Name => new(By.CssSelector("div.name"), ContextConfiguration);
+		public AttributeTextField Description => new(By.CssSelector("div.description"), ContextConfiguration);
 		public AttributeEnumCombobox Servicetype => new(By.CssSelector("div.servicetype"), ContextConfiguration);
 		public AttributeEnumCombobox Category => new(By.CssSelector("div.category"), ContextConfiguration);
 		public AttributeCheckbox Active => new(By.CssSelector("div.active"), ContextConfiguration);
@@ -34,6 +35,9 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.ServiceEntityCrud.Internal
 		public AttributeTextField Investment => new(By.CssSelector("div.investment"), ContextConfiguration);
 		public AttributeDatePicker Startdate => new(By.CssSelector("div.startdate"), ContextConfiguration);
 		public AttributeDatePicker Enddate => new(By.CssSelector("div.enddate"), ContextConfiguration);
+		public AttributeEnumCombobox Gender => new(By.CssSelector("div.gender"), ContextConfiguration);
+		public AttributeTextField Agemin => new(By.CssSelector("div.agemin"), ContextConfiguration);
+		public AttributeTextField Agemax => new(By.CssSelector("div.agemax"), ContextConfiguration);
 		public AttributeReferenceCombobox RegionalAreaId => new(By.CssSelector("div.regionalAreaId"), ContextConfiguration);
 		public AttributeReferenceMultiCombobox ServiceCommissioningBodiesIds => new(By.CssSelector("div.serviceCommissioningBodiess"), ContextConfiguration);
 		// % protected region % [Override class properties here] end
