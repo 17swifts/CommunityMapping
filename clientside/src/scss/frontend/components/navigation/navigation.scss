@@ -22,7 +22,7 @@ Styling for basic navigation, vertical navigation and horizontal navigation.
 */
 
 /****** General navigation styling shared amongst all navigation *****/
-// % protected region % [Change generic navigation styles here] off begin
+// % protected region % [Change generic navigation styles here] on begin
 .nav {
 	display: flex;
 
@@ -83,14 +83,15 @@ Styling for basic navigation, vertical navigation and horizontal navigation.
 
 /****** Horizontal navigation (usually placed left) *****/
 /****** Note that if you are working on the expanded navigation ie the a tag to expand the nav - go to expanded-navigation.scss ******/
-// % protected region % [Change vertical navigation styles here] off begin
+// % protected region % [Change vertical navigation styles here] on begin
 .nav--vertical {
+	background-color: transparent;
 	overflow: auto;
 	flex-direction: column;
 	left: 0;
 	grid-area: navvertical;
 	height: 100%;
-	box-shadow: convert-rem(-2px) convert-rem(4px) convert-rem(7px) convert-rem(-1px);
+	box-shadow: convert-rem(0px) convert-rem(0px) convert-rem(8px) convert-rem(-2px) $grey-6;
 
 	>ul {
 		margin: 0;
