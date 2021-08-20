@@ -25,18 +25,15 @@ export function getFrontendNavLinks(pageProps: RouteComponentProps): ILink[][] {
 	// % protected region % [Add any logic before displaying page links here] end
 	return [
 		[
-			// % protected region % [Customise top nav section here] off begin
-			{label: "Home", path: '/', icon: "home", iconPos: 'icon-left'}
+			// % protected region % [Customise top nav section here] on begin
+			//{label: "Home", path: '/', icon: "home", iconPos: 'icon-left'},
+			{label: "Profile", path: '/myprofile', icon: "person", iconPos: 'icon-left', subLinks: [{label: "My Details", path: '/myprofile', icon: "person", iconPos: 'icon-left'}, {label: "My Services", path: '/myservices', icon: "actions", iconPos: 'icon-left'}]},
 			// % protected region % [Customise top nav section here] end
 		],
 		[
-			// % protected region % [Customise middle nav section here] off begin
-			{label: "Service Profile", path: '/serviceprofile', icon: "files", iconPos: 'icon-left'},
-			{label: "Community Profile", path: '/communityprofile', icon: "files", iconPos: 'icon-left'},
-			{label: "Service  Dashboard", path: '/servicedashboard', icon: "files", iconPos: 'icon-left'},
-			{label: "My Profile", path: '/myprofile', icon: "files", iconPos: 'icon-left'},
-			{label: "My Services", path: '/myservices', icon: "files", iconPos: 'icon-left'},
-			{label: "Services", path: '/services', icon: "files", iconPos: 'icon-left'},
+			// % protected region % [Customise middle nav section here] on begin
+			{label: "Service Profile", path: '/serviceprofile', icon: "roadmap", iconPos: 'icon-left', subLinks: [{label: "Service Profile", path: '/serviceprofile', icon: "raodmap", iconPos: 'icon-left'},{label: "Service  Dashboard", path: '/servicedashboard', icon: "chart-pie", iconPos: 'icon-left'},{label: "Services", path: '/services', icon: "actions", iconPos: 'icon-left'}]},
+			{label: "Community Profile", path: '/communityprofile', icon: "map", iconPos: 'icon-left'},
 			// % protected region % [Customise middle nav section here] end
 		],
 		[
