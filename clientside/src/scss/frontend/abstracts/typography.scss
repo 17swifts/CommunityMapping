@@ -14,7 +14,6 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
-@use "sass:math";
 /* --------------------------------
 Typography
 https://medium.com/codyhouse/create-your-design-system-part-1-typography-7c630d9092bd
@@ -50,8 +49,8 @@ $text-scale-ratio: 1.333;
 $text-label: 1rem;
 
 /* Type scale */
-$text-xs: calc(math.div(1rem, (#{$text-scale-ratio} * #{$text-scale-ratio})));
-$text-sm: calc(math.div(1rem, #{$text-scale-ratio}));
+$text-xs: calc(1rem / (#{$text-scale-ratio} * #{$text-scale-ratio}));
+$text-sm: calc(1rem / #{$text-scale-ratio});
 $text-md: calc(1rem * #{$text-scale-ratio});
 $text-lg: calc(1rem * (#{$text-scale-ratio} * #{$text-scale-ratio}));
 $text-xl: calc(1rem * (#{$text-scale-ratio} * #{$text-scale-ratio} * #{$text-scale-ratio}));

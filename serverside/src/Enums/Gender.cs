@@ -27,6 +27,7 @@ namespace Cis.Enums
 		FEMALE,
 		MALE,
 		OTHER,
+		BOTH,
 		// % protected region % [Customise existing enum literals here] end
 
 		// % protected region % [Add custom enum literals here] off begin

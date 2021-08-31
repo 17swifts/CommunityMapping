@@ -142,7 +142,6 @@ export default class ServiceEntity extends Model implements IServiceEntityAttrib
 	// % protected region % [Modify props to the crud options here for attribute 'ServiceType'] end
 
 	// % protected region % [Modify props to the crud options here for attribute 'Category'] off begin
-	@Validators.Required()
 	@observable
 	@attribute()
 	@CRUD({
