@@ -61,6 +61,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		private IWebElement IerHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='ier']"));
 		private IWebElement IeoHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='ieo']"));
 		private IWebElement GapScoreHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='gap Score']"));
+		private IWebElement AustralianrankHeaderTitle => _driver.FindElementExt(By.XPath("//th[text()='AustralianRank']"));
 
 		// Datepickers
 		public IWebElement CreateAtDatepickerField => _driver.FindElementExt(By.CssSelector("div.created > input[type='date']"));
@@ -96,6 +97,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 			selectorDict.Add("IerElement", (selector: "//div[contains(@class, 'ier')]//input", type: SelectorType.XPath));
 			selectorDict.Add("IeoElement", (selector: "//div[contains(@class, 'ieo')]//input", type: SelectorType.XPath));
 			selectorDict.Add("GapScoreElement", (selector: "//div[contains(@class, 'gapScore')]//input", type: SelectorType.XPath));
+			selectorDict.Add("AustralianrankElement", (selector: "//div[contains(@class, 'australianrank')]//input", type: SelectorType.XPath));
 
 			// Reference web elements
 			selectorDict.Add("ServicesElement", (selector: ".input-group__dropdown.servicess > .dropdown.dropdown__container", type: SelectorType.CSS));
@@ -121,6 +123,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 		private IWebElement IerElement => FindElementExt("IerElement");
 		private IWebElement IeoElement => FindElementExt("IeoElement");
 		private IWebElement GapScoreElement => FindElementExt("GapScoreElement");
+		private IWebElement AustralianrankElement => FindElementExt("AustralianrankElement");
 
 		// Return an IWebElement that can be used to sort an attribute.
 		public IWebElement GetHeaderTile(string attribute)
@@ -140,6 +143,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 				"ier" => IerHeaderTitle,
 				"ieo" => IeoHeaderTitle,
 				"gap Score" => GapScoreHeaderTitle,
+				"AustralianRank" => AustralianrankHeaderTitle,
 				_ => throw new Exception($"Cannot find header tile {attribute}"),
 			};
 		}
@@ -175,6 +179,8 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 					return IeoElement;
 				case "GapScore":
 					return GapScoreElement;
+				case "Australianrank":
+					return AustralianrankElement;
 				default:
 					throw new Exception($"Cannot find input element {attribute}");
 			}
@@ -258,6 +264,14 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 				case "GapScore":
 					SetGapScore(Convert.ToDouble(value));
 					break;
+				case "Australianrank":
+					int? australianrank = null;
+					if (int.TryParse(value, out var intAustralianrank))
+					{
+						australianrank = intAustralianrank;
+					}
+					SetAustralianrank(australianrank);
+					break;
 				default:
 					throw new Exception($"Cannot find input element {attribute}");
 			}
@@ -280,6 +294,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 				"Ier" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.ier > div > p"),
 				"Ieo" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.ieo > div > p"),
 				"GapScore" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.gapScore > div > p"),
+				"Australianrank" => WebElementUtils.GetElementAsBy(SelectorPathType.CSS, "div.australianrank > div > p"),
 				_ => throw new Exception($"No such attribute {attribute}"),
 			};
 		}
@@ -311,6 +326,7 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 			SetIer(_regionalAreaEntity.Ier);
 			SetIeo(_regionalAreaEntity.Ieo);
 			SetGapScore(_regionalAreaEntity.GapScore);
+			SetAustralianrank(_regionalAreaEntity.Australianrank);
 
 			if (_regionalAreaEntity.ServicesIds != null)
 			{
@@ -504,6 +520,17 @@ namespace SeleniumTests.PageObjects.CRUDPageObject.PageDetails
 
 		private Double? GetGapScore =>
 			Convert.ToDouble(GapScoreElement.Text);
+		private void SetAustralianrank (int? value)
+		{
+			if (value is int intValue)
+			{
+				TypingUtils.InputEntityAttributeByClass(_driver, "australianrank", intValue.ToString(), _isFastText);
+			}
+		}
+
+		private int? GetAustralianrank =>
+			int.Parse(AustralianrankElement.Text);
+
 
 		// % protected region % [Add any additional getters and setters of web elements] off begin
 		// % protected region % [Add any additional getters and setters of web elements] end

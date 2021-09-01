@@ -25,6 +25,7 @@ namespace EntityObject.Enums
 		FEMALE,
 		MALE,
 		OTHER,
+		BOTH,
 	}
 
 	internal static class GenderEnum
