@@ -65,7 +65,6 @@ namespace Cis.Models {
 		public Servicetype Servicetype { get; set; }
 		// % protected region % [Customise Servicetype here] end
 
-		[Required]
 		// % protected region % [Customise Category here] off begin
 		[EntityAttribute]
 		public Categories Category { get; set; }

@@ -97,7 +97,8 @@ export type gender =
 	// % protected region % [Override gender keys here] off begin
 	'FEMALE' |
 		'MALE' |
-		'OTHER';
+		'OTHER' |
+		'BOTH';
 	// % protected region % [Override gender keys here] end
 
 export const genderOptions: { [key in gender]: string } = {
@@ -105,6 +106,7 @@ export const genderOptions: { [key in gender]: string } = {
 	FEMALE: 'Female',
 	MALE: 'Male',
 	OTHER: 'Other',
+	BOTH: 'Both',
 	// % protected region % [Override gender display fields here] end
 };
 

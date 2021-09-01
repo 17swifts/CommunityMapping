@@ -54,6 +54,7 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.RegionalAreaEntityCrud
 			Ier.Value = regionalAreaEntity.Ier.ToString();
 			Ieo.Value = regionalAreaEntity.Ieo.ToString();
 			GapScore.Value = regionalAreaEntity.GapScore.ToString();
+			Australianrank.Value = regionalAreaEntity.Australianrank.ToString();
 			ServicesIds.Value = regionalAreaEntity.ServicesIds?.Select(x => x.ToString());
 		}
 		// % protected region % [Override set values here] end
@@ -76,6 +77,7 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.RegionalAreaEntityCrud
 				Ier = Ier.Value.ToNullableInt(),
 				Ieo = Ieo.Value.ToNullableInt(),
 				GapScore = GapScore.Value.ToNullableDouble(),
+				Australianrank = Australianrank.Value.ToNullableInt(),
 			};
 
 			regionalAreaEntity.ServicesIds = ServicesIds.Value.Select(Guid.Parse).ToList();;

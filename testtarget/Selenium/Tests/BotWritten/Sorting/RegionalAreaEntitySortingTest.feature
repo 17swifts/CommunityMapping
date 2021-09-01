@@ -76,4 +76,8 @@ Feature: Sort RegionalAreaEntity
 	Then I assert that gap Score in RegionalAreaEntity of type double is properly sorted in descending
 	When I sort RegionalAreaEntity by gap Score
 	Then I assert that gap Score in RegionalAreaEntity of type double is properly sorted in ascending
+	When I sort RegionalAreaEntity by AustralianRank
+	Then I assert that AustralianRank in RegionalAreaEntity of type int is properly sorted in descending
+	When I sort RegionalAreaEntity by AustralianRank
+	Then I assert that AustralianRank in RegionalAreaEntity of type int is properly sorted in ascending
 

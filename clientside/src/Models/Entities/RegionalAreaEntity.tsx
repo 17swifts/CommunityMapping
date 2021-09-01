@@ -47,6 +47,7 @@ export interface IRegionalAreaEntityAttributes extends IModelAttributes {
 	ier: number;
 	ieo: number;
 	gapScore: number;
+	australianrank: number;
 
 	servicess: Array<Models.ServiceEntity | Models.IServiceEntityAttributes>;
 	// % protected region % [Add any custom attributes to the interface here] off begin
@@ -296,13 +297,28 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 	public gapScore: number;
 	// % protected region % [Modify props to the crud options here for attribute 'gap Score'] end
 
+	// % protected region % [Modify props to the crud options here for attribute 'AustralianRank'] off begin
+	@Validators.Integer()
+	@observable
+	@attribute()
+	@CRUD({
+		name: 'AustralianRank',
+		displayType: 'textfield',
+		order: 140,
+		searchable: true,
+		searchFunction: 'equal',
+		searchTransform: AttrUtils.standardiseInteger,
+	})
+	public australianrank: number;
+	// % protected region % [Modify props to the crud options here for attribute 'AustralianRank'] end
+
 	@observable
 	@attribute({isReference: true})
 	@CRUD({
 		// % protected region % [Modify props to the crud options here for reference 'Services'] off begin
 		name: "Servicess",
 		displayType: 'reference-multicombobox',
-		order: 140,
+		order: 150,
 		referenceTypeFunc: () => Models.ServiceEntity,
 		referenceResolveFunction: makeFetchOneToManyFunc({
 			relationName: 'servicess',
@@ -375,6 +391,9 @@ export default class RegionalAreaEntity extends Model implements IRegionalAreaEn
 			}
 			if (attributes.gapScore !== undefined) {
 				this.gapScore = attributes.gapScore;
+			}
+			if (attributes.australianrank !== undefined) {
+				this.australianrank = attributes.australianrank;
 			}
 			if (attributes.servicess !== undefined && Array.isArray(attributes.servicess)) {
 				for (const model of attributes.servicess) {

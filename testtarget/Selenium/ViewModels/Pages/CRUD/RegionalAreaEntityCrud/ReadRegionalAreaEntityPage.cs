@@ -55,6 +55,7 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.RegionalAreaEntityCrud
 				Ier = Ier.Value.ToNullableInt(),
 				Ieo = Ieo.Value.ToNullableInt(),
 				GapScore = GapScore.Value.ToNullableDouble(),
+				Australianrank = Australianrank.Value.ToNullableInt(),
 			};
 
 			regionalAreaEntity.ServicesIds = ServicesIds.Value.Select(Guid.Parse).ToList();;

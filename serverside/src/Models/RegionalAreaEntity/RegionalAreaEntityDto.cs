@@ -91,6 +91,10 @@ namespace Cis.Models
 		public Double? GapScore { get; set; }
 		// % protected region % [Customise GapScore here] end
 
+		// % protected region % [Customise Australianrank here] off begin
+		public int? Australianrank { get; set; }
+		// % protected region % [Customise Australianrank here] end
+
 
 		// % protected region % [Add any extra attributes here] off begin
 		// % protected region % [Add any extra attributes here] end
@@ -131,6 +135,7 @@ namespace Cis.Models
 				Ier = Ier,
 				Ieo = Ieo,
 				GapScore = GapScore,
+				Australianrank = Australianrank,
 				// % protected region % [Add any extra model properties here] off begin
 				// % protected region % [Add any extra model properties here] end
 			};
@@ -154,6 +159,7 @@ namespace Cis.Models
 			Ier = model.Ier;
 			Ieo = model.Ieo;
 			GapScore = model.GapScore;
+			Australianrank = model.Australianrank;
 
 			// % protected region % [Add any extra loading data logic here] off begin
 			// % protected region % [Add any extra loading data logic here] end

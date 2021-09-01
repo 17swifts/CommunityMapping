@@ -72,6 +72,9 @@ namespace APITests.EntityObjects.Models
 		// 
 		[EntityAttribute]
 		public Double? GapScore { get; set; }
+		// 
+		[EntityAttribute]
+		public int? Australianrank { get; set; }
 
 		/// <summary>
 		/// Outgoing one to many reference
@@ -159,6 +162,7 @@ namespace APITests.EntityObjects.Models
 				{"ier" , Ier.ToString()},
 				{"ieo" , Ieo.ToString()},
 				{"gapScore" , GapScore.ToString()},
+				{"australianrank" , Australianrank.ToString()},
 			};
 
 
@@ -223,6 +227,10 @@ namespace APITests.EntityObjects.Models
 			if(GapScore != null) 
 			{
 				entityVar["gapScore"] = GapScore.ToString();
+			}
+			if(Australianrank != null) 
+			{
+				entityVar["australianrank"] = Australianrank;
 			}
 			if (ServicesIds != default)
 			{

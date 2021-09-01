@@ -42,7 +42,6 @@ namespace APITests.EntityObjects.Models
 		[EntityAttribute]
 		public Servicetype Servicetype { get; set; }
 		// 
-		[Required]
 		[EntityAttribute]
 		public Categories Category { get; set; }
 		// Whether the service is currently active
