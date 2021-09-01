@@ -39,6 +39,7 @@ namespace SeleniumTests.ViewModels.Pages.CRUD.RegionalAreaEntityCrud.Internal
 		public AttributeTextField Ier => new(By.CssSelector("div.ier"), ContextConfiguration);
 		public AttributeTextField Ieo => new(By.CssSelector("div.ieo"), ContextConfiguration);
 		public AttributeTextField GapScore => new(By.CssSelector("div.gapScore"), ContextConfiguration);
+		public AttributeTextField Australianrank => new(By.CssSelector("div.australianrank"), ContextConfiguration);
 		public AttributeReferenceMultiCombobox ServicesIds => new(By.CssSelector("div.servicess"), ContextConfiguration);
 		// % protected region % [Override class properties here] end
 

@@ -21,6 +21,7 @@
 		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="2bb0288e-17c7-4598-9de1-06930a72a5f2" Name="ier" DocoDescription="The Index of Economic Resources (IER) focuses on the financial aspects of relative socio-economic advantage and disadvantage, by summarising variables related to income and wealth. " Searchable="false" Unique="false"/>
 		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="10188cf8-ed06-42db-bcd4-03820e96453d" Name="ieo" DocoDescription="The Index of Education and Occupation (IEO) is designed to reflect the educational and occupational level of communities. " Searchable="false" Unique="false"/>
 		<Attributes xsi:type="csharpbotEntity:AttributeDecimal"  Uuid="9b58f6fe-ad43-465b-9b1c-18433119c319" Name="gap Score" Searchable="true" Unique="false"/>
+		<Attributes xsi:type="csharpbotEntity:AttributeInteger"  Uuid="ff756b5c-626e-4bb4-8903-848509e71bea" Name="AustralianRank" Searchable="false" Unique="false"/>
 	</Entities>
 	<Entities xsi:type="csharpbotEntity:Entity"  Uuid="905ab383-496b-4e43-97fb-da6847041b4a" Name="Service" OrderByDirection="ASCENDING">
 		<Attributes xsi:type="csharpbotEntity:AttributeString"  Uuid="c36be93a-f731-402d-b5a3-32d2f71c024f" Name="Name" Searchable="true" Unique="false" DatabaseType="VARCHAR">

@@ -127,6 +127,11 @@ namespace Cis.Models {
 		public Double? GapScore { get; set; }
 		// % protected region % [Customise GapScore here] end
 
+		// % protected region % [Customise Australianrank here] off begin
+		[EntityAttribute]
+		public int? Australianrank { get; set; }
+		// % protected region % [Customise Australianrank here] end
+
 		// % protected region % [Add any further attributes here] off begin
 		// % protected region % [Add any further attributes here] end
 
