@@ -1,0 +1,4114 @@
+{
+  "301011001": {
+    "sa2Id": "301011001",
+    "sa2Name": "Alexandra Hills",
+    "irsd": "1015",
+    "irsad": "987",
+    "ier": "1027",
+    "ieo": "953"
+  },
+  "301011002": {
+    "sa2Id": "301011002",
+    "sa2Name": "Belmont - Gumdale",
+    "irsd": "1089",
+    "irsad": "1093",
+    "ier": "1113",
+    "ieo": "1063"
+  },
+  "301011003": {
+    "sa2Id": "301011003",
+    "sa2Name": "Birkdale",
+    "irsd": "1049",
+    "irsad": "1034",
+    "ier": "1062",
+    "ieo": "999"
+  },
+  "301011004": {
+    "sa2Id": "301011004",
+    "sa2Name": "Capalaba",
+    "irsd": "1013",
+    "irsad": "991",
+    "ier": "1021",
+    "ieo": "957"
+  },
+  "301011005": {
+    "sa2Id": "301011005",
+    "sa2Name": "Thorneside",
+    "irsd": "998",
+    "irsad": "983",
+    "ier": "983",
+    "ieo": "978"
+  },
+  "301011006": {
+    "sa2Id": "301011006",
+    "sa2Name": "Wellington Point",
+    "irsd": "1066",
+    "irsad": "1062",
+    "ier": "1080",
+    "ieo": "1039"
+  },
+  "301021007": {
+    "sa2Id": "301021007",
+    "sa2Name": "Cleveland",
+    "irsd": "1011",
+    "irsad": "1009",
+    "ier": "1001",
+    "ieo": "1013"
+  },
+  "301021008": {
+    "sa2Id": "301021008",
+    "sa2Name": "Ormiston",
+    "irsd": "1064",
+    "irsad": "1067",
+    "ier": "1072",
+    "ieo": "1057"
+  },
+  "301021009": {
+    "sa2Id": "301021009",
+    "sa2Name": "Redland Bay",
+    "irsd": "1044",
+    "irsad": "1033",
+    "ier": "1079",
+    "ieo": "982"
+  },
+  "301021011": {
+    "sa2Id": "301021011",
+    "sa2Name": "Sheldon - Mount Cotton",
+    "irsd": "1096",
+    "irsad": "1088",
+    "ier": "1134",
+    "ieo": "1037"
+  },
+  "301021012": {
+    "sa2Id": "301021012",
+    "sa2Name": "Thornlands",
+    "irsd": "1070",
+    "irsad": "1067",
+    "ier": "1097",
+    "ieo": "1025"
+  },
+  "301021013": {
+    "sa2Id": "301021013",
+    "sa2Name": "Victoria Point",
+    "irsd": "1023",
+    "irsad": "1004",
+    "ier": "1039",
+    "ieo": "971"
+  },
+  "301021527": {
+    "sa2Id": "301021527",
+    "sa2Name": "Redland Islands",
+    "irsd": "851",
+    "irsad": "852",
+    "ier": "890",
+    "ieo": "904"
+  },
+  "301031015": {
+    "sa2Id": "301031015",
+    "sa2Name": "Manly - Lota",
+    "irsd": "1046",
+    "irsad": "1050",
+    "ier": "1036",
+    "ieo": "1060"
+  },
+  "301031016": {
+    "sa2Id": "301031016",
+    "sa2Name": "Manly West",
+    "irsd": "1042",
+    "irsad": "1037",
+    "ier": "1039",
+    "ieo": "1023"
+  },
+  "301031017": {
+    "sa2Id": "301031017",
+    "sa2Name": "Murarrie",
+    "irsd": "1055",
+    "irsad": "1066",
+    "ier": "1054",
+    "ieo": "1050"
+  },
+  "301031018": {
+    "sa2Id": "301031018",
+    "sa2Name": "Tingalpa",
+    "irsd": "1041",
+    "irsad": "1026",
+    "ier": "1029",
+    "ieo": "1006"
+  },
+  "301031019": {
+    "sa2Id": "301031019",
+    "sa2Name": "Wakerley",
+    "irsd": "1112",
+    "irsad": "1136",
+    "ier": "1146",
+    "ieo": "1101"
+  },
+  "301031020": {
+    "sa2Id": "301031020",
+    "sa2Name": "Wynnum",
+    "irsd": "1016",
+    "irsad": "1019",
+    "ier": "1005",
+    "ieo": "1027"
+  },
+  "301031021": {
+    "sa2Id": "301031021",
+    "sa2Name": "Wynnum West - Hemmant",
+    "irsd": "997",
+    "irsad": "984",
+    "ier": "998",
+    "ieo": "964"
+  },
+  "302011022": {
+    "sa2Id": "302011022",
+    "sa2Name": "Bald Hills",
+    "irsd": "1039",
+    "irsad": "1013",
+    "ier": "1038",
+    "ieo": "973"
+  },
+  "302011023": {
+    "sa2Id": "302011023",
+    "sa2Name": "Bridgeman Downs",
+    "irsd": "1109",
+    "irsad": "1126",
+    "ier": "1136",
+    "ieo": "1101"
+  },
+  "302011024": {
+    "sa2Id": "302011024",
+    "sa2Name": "Carseldine",
+    "irsd": "1057",
+    "irsad": "1058",
+    "ier": "1051",
+    "ieo": "1054"
+  },
+  "302011025": {
+    "sa2Id": "302011025",
+    "sa2Name": "Everton Park",
+    "irsd": "1057",
+    "irsad": "1047",
+    "ier": "1004",
+    "ieo": "1058"
+  },
+  "302011026": {
+    "sa2Id": "302011026",
+    "sa2Name": "McDowall",
+    "irsd": "1099",
+    "irsad": "1096",
+    "ier": "1089",
+    "ieo": "1080"
+  },
+  "302021027": {
+    "sa2Id": "302021027",
+    "sa2Name": "Aspley",
+    "irsd": "1052",
+    "irsad": "1047",
+    "ier": "1033",
+    "ieo": "1041"
+  },
+  "302021028": {
+    "sa2Id": "302021028",
+    "sa2Name": "Chermside",
+    "irsd": "975",
+    "irsad": "975",
+    "ier": "885",
+    "ieo": "1020"
+  },
+  "302021029": {
+    "sa2Id": "302021029",
+    "sa2Name": "Chermside West",
+    "irsd": "1065",
+    "irsad": "1054",
+    "ier": "1039",
+    "ieo": "1044"
+  },
+  "302021030": {
+    "sa2Id": "302021030",
+    "sa2Name": "Geebung",
+    "irsd": "1052",
+    "irsad": "1041",
+    "ier": "1029",
+    "ieo": "1028"
+  },
+  "302021031": {
+    "sa2Id": "302021031",
+    "sa2Name": "Kedron - Gordon Park",
+    "irsd": "1066",
+    "irsad": "1075",
+    "ier": "1014",
+    "ieo": "1091"
+  },
+  "302021032": {
+    "sa2Id": "302021032",
+    "sa2Name": "Stafford",
+    "irsd": "1009",
+    "irsad": "1013",
+    "ier": "952",
+    "ieo": "1048"
+  },
+  "302021033": {
+    "sa2Id": "302021033",
+    "sa2Name": "Stafford Heights",
+    "irsd": "1032",
+    "irsad": "1031",
+    "ier": "1011",
+    "ieo": "1043"
+  },
+  "302021034": {
+    "sa2Id": "302021034",
+    "sa2Name": "Wavell Heights",
+    "irsd": "1082",
+    "irsad": "1089",
+    "ier": "1060",
+    "ieo": "1089"
+  },
+  "302031035": {
+    "sa2Id": "302031035",
+    "sa2Name": "Boondall",
+    "irsd": "1024",
+    "irsad": "1009",
+    "ier": "1011",
+    "ieo": "991"
+  },
+  "302031036": {
+    "sa2Id": "302031036",
+    "sa2Name": "Brisbane Airport",
+    "irsd": "1095",
+    "irsad": "1134",
+    "ier": "1169",
+    "ieo": "1093"
+  },
+  "302031037": {
+    "sa2Id": "302031037",
+    "sa2Name": "Eagle Farm - Pinkenba",
+    "irsd": "1056",
+    "irsad": "1063",
+    "ier": "976",
+    "ieo": "1063"
+  },
+  "302031038": {
+    "sa2Id": "302031038",
+    "sa2Name": "Northgate - Virginia",
+    "irsd": "1045",
+    "irsad": "1049",
+    "ier": "1006",
+    "ieo": "1045"
+  },
+  "302031039": {
+    "sa2Id": "302031039",
+    "sa2Name": "Nudgee - Banyo",
+    "irsd": "1043",
+    "irsad": "1038",
+    "ier": "1027",
+    "ieo": "1021"
+  },
+  "302031040": {
+    "sa2Id": "302031040",
+    "sa2Name": "Nundah",
+    "irsd": "1038",
+    "irsad": "1041",
+    "ier": "941",
+    "ieo": "1071"
+  },
+  "302041041": {
+    "sa2Id": "302041041",
+    "sa2Name": "Bracken Ridge",
+    "irsd": "1035",
+    "irsad": "1014",
+    "ier": "1035",
+    "ieo": "988"
+  },
+  "302041042": {
+    "sa2Id": "302041042",
+    "sa2Name": "Brighton (Qld)",
+    "irsd": "1033",
+    "irsad": "1024",
+    "ier": "1028",
+    "ieo": "1023"
+  },
+  "302041043": {
+    "sa2Id": "302041043",
+    "sa2Name": "Deagon",
+    "irsd": "981",
+    "irsad": "970",
+    "ier": "965",
+    "ieo": "979"
+  },
+  "302041044": {
+    "sa2Id": "302041044",
+    "sa2Name": "Sandgate - Shorncliffe",
+    "irsd": "1031",
+    "irsad": "1039",
+    "ier": "1005",
+    "ieo": "1066"
+  },
+  "302041045": {
+    "sa2Id": "302041045",
+    "sa2Name": "Taigum - Fitzgibbon",
+    "irsd": "1010",
+    "irsad": "1000",
+    "ier": "982",
+    "ieo": "1002"
+  },
+  "302041046": {
+    "sa2Id": "302041046",
+    "sa2Name": "Zillmere",
+    "irsd": "941",
+    "irsad": "938",
+    "ier": "896",
+    "ieo": "955"
+  },
+  "303011047": {
+    "sa2Id": "303011047",
+    "sa2Name": "Camp Hill",
+    "irsd": "1101",
+    "irsad": "1122",
+    "ier": "1079",
+    "ieo": "1126"
+  },
+  "303011048": {
+    "sa2Id": "303011048",
+    "sa2Name": "Cannon Hill",
+    "irsd": "1065",
+    "irsad": "1071",
+    "ier": "1026",
+    "ieo": "1065"
+  },
+  "303011049": {
+    "sa2Id": "303011049",
+    "sa2Name": "Carina",
+    "irsd": "1058",
+    "irsad": "1057",
+    "ier": "1011",
+    "ieo": "1071"
+  },
+  "303011050": {
+    "sa2Id": "303011050",
+    "sa2Name": "Carina Heights",
+    "irsd": "1023",
+    "irsad": "1030",
+    "ier": "971",
+    "ieo": "1061"
+  },
+  "303011051": {
+    "sa2Id": "303011051",
+    "sa2Name": "Carindale",
+    "irsd": "1092",
+    "irsad": "1105",
+    "ier": "1106",
+    "ieo": "1083"
+  },
+  "303021052": {
+    "sa2Id": "303021052",
+    "sa2Name": "Annerley",
+    "irsd": "1037",
+    "irsad": "1056",
+    "ier": "942",
+    "ieo": "1107"
+  },
+  "303021053": {
+    "sa2Id": "303021053",
+    "sa2Name": "Coorparoo",
+    "irsd": "1081",
+    "irsad": "1096",
+    "ier": "1010",
+    "ieo": "1123"
+  },
+  "303021054": {
+    "sa2Id": "303021054",
+    "sa2Name": "Fairfield - Dutton Park",
+    "irsd": "1036",
+    "irsad": "1064",
+    "ier": "945",
+    "ieo": "1123"
+  },
+  "303021055": {
+    "sa2Id": "303021055",
+    "sa2Name": "Greenslopes",
+    "irsd": "1054",
+    "irsad": "1069",
+    "ier": "956",
+    "ieo": "1110"
+  },
+  "303021056": {
+    "sa2Id": "303021056",
+    "sa2Name": "Holland Park",
+    "irsd": "1037",
+    "irsad": "1057",
+    "ier": "1010",
+    "ieo": "1089"
+  },
+  "303021057": {
+    "sa2Id": "303021057",
+    "sa2Name": "Holland Park West",
+    "irsd": "1075",
+    "irsad": "1086",
+    "ier": "1037",
+    "ieo": "1102"
+  },
+  "303021058": {
+    "sa2Id": "303021058",
+    "sa2Name": "Woolloongabba",
+    "irsd": "1020",
+    "irsad": "1051",
+    "ier": "901",
+    "ieo": "1102"
+  },
+  "303021059": {
+    "sa2Id": "303021059",
+    "sa2Name": "Yeronga",
+    "irsd": "1068",
+    "irsad": "1090",
+    "ier": "1006",
+    "ieo": "1127"
+  },
+  "303031060": {
+    "sa2Id": "303031060",
+    "sa2Name": "Eight Mile Plains",
+    "irsd": "1041",
+    "irsad": "1054",
+    "ier": "1022",
+    "ieo": "1059"
+  },
+  "303031061": {
+    "sa2Id": "303031061",
+    "sa2Name": "Macgregor (Qld)",
+    "irsd": "998",
+    "irsad": "1019",
+    "ier": "965",
+    "ieo": "1038"
+  },
+  "303031062": {
+    "sa2Id": "303031062",
+    "sa2Name": "Mansfield (Qld)",
+    "irsd": "1041",
+    "irsad": "1038",
+    "ier": "1022",
+    "ieo": "1046"
+  },
+  "303031063": {
+    "sa2Id": "303031063",
+    "sa2Name": "Mount Gravatt",
+    "irsd": "1031",
+    "irsad": "1038",
+    "ier": "991",
+    "ieo": "1067"
+  },
+  "303031064": {
+    "sa2Id": "303031064",
+    "sa2Name": "Rochedale - Burbank",
+    "irsd": "1100",
+    "irsad": "1125",
+    "ier": "1139",
+    "ieo": "1101"
+  },
+  "303031065": {
+    "sa2Id": "303031065",
+    "sa2Name": "Upper Mount Gravatt",
+    "irsd": "1006",
+    "irsad": "1016",
+    "ier": "948",
+    "ieo": "1045"
+  },
+  "303031066": {
+    "sa2Id": "303031066",
+    "sa2Name": "Wishart",
+    "irsd": "1061",
+    "irsad": "1060",
+    "ier": "1043",
+    "ieo": "1062"
+  },
+  "303041067": {
+    "sa2Id": "303041067",
+    "sa2Name": "Coopers Plains",
+    "irsd": "968",
+    "irsad": "978",
+    "ier": "921",
+    "ieo": "1012"
+  },
+  "303041068": {
+    "sa2Id": "303041068",
+    "sa2Name": "Moorooka",
+    "irsd": "1032",
+    "irsad": "1039",
+    "ier": "978",
+    "ieo": "1071"
+  },
+  "303041069": {
+    "sa2Id": "303041069",
+    "sa2Name": "Robertson",
+    "irsd": "1007",
+    "irsad": "1038",
+    "ier": "986",
+    "ieo": "1064"
+  },
+  "303041070": {
+    "sa2Id": "303041070",
+    "sa2Name": "Salisbury - Nathan",
+    "irsd": "1037",
+    "irsad": "1033",
+    "ier": "998",
+    "ieo": "1041"
+  },
+  "303041071": {
+    "sa2Id": "303041071",
+    "sa2Name": "Tarragindi",
+    "irsd": "1096",
+    "irsad": "1110",
+    "ier": "1084",
+    "ieo": "1118"
+  },
+  "303051072": {
+    "sa2Id": "303051072",
+    "sa2Name": "Algester",
+    "irsd": "1017",
+    "irsad": "1003",
+    "ier": "1012",
+    "ieo": "989"
+  },
+  "303051073": {
+    "sa2Id": "303051073",
+    "sa2Name": "Calamvale - Stretton",
+    "irsd": "1049",
+    "irsad": "1056",
+    "ier": "1051",
+    "ieo": "1053"
+  },
+  "303051074": {
+    "sa2Id": "303051074",
+    "sa2Name": "Pallara - Willawong",
+    "irsd": "1050",
+    "irsad": "1061",
+    "ier": "1093",
+    "ieo": "1027"
+  },
+  "303051075": {
+    "sa2Id": "303051075",
+    "sa2Name": "Parkinson - Drewvale",
+    "irsd": "1066",
+    "irsad": "1064",
+    "ier": "1092",
+    "ieo": "1029"
+  },
+  "303051076": {
+    "sa2Id": "303051076",
+    "sa2Name": "Rocklea - Acacia Ridge",
+    "irsd": "887",
+    "irsad": "891",
+    "ier": "892",
+    "ieo": "897"
+  },
+  "303061077": {
+    "sa2Id": "303061077",
+    "sa2Name": "Kuraby",
+    "irsd": "1034",
+    "irsad": "1046",
+    "ier": "1047",
+    "ieo": "1049"
+  },
+  "303061078": {
+    "sa2Id": "303061078",
+    "sa2Name": "Runcorn",
+    "irsd": "1005",
+    "irsad": "1007",
+    "ier": "981",
+    "ieo": "1020"
+  },
+  "303061079": {
+    "sa2Id": "303061079",
+    "sa2Name": "Sunnybank",
+    "irsd": "973",
+    "irsad": "997",
+    "ier": "953",
+    "ieo": "1016"
+  },
+  "303061080": {
+    "sa2Id": "303061080",
+    "sa2Name": "Sunnybank Hills",
+    "irsd": "1004",
+    "irsad": "1015",
+    "ier": "1002",
+    "ieo": "1019"
+  },
+  "304011081": {
+    "sa2Id": "304011081",
+    "sa2Name": "Jindalee - Mount Ommaney",
+    "irsd": "1089",
+    "irsad": "1095",
+    "ier": "1088",
+    "ieo": "1097"
+  },
+  "304011082": {
+    "sa2Id": "304011082",
+    "sa2Name": "Middle Park - Jamboree Heights",
+    "irsd": "1071",
+    "irsad": "1065",
+    "ier": "1058",
+    "ieo": "1066"
+  },
+  "304011083": {
+    "sa2Id": "304011083",
+    "sa2Name": "Riverhills",
+    "irsd": "1061",
+    "irsad": "1049",
+    "ier": "1035",
+    "ieo": "1049"
+  },
+  "304011084": {
+    "sa2Id": "304011084",
+    "sa2Name": "Seventeen Mile Rocks - Sinnamon Park",
+    "irsd": "1095",
+    "irsad": "1109",
+    "ier": "1100",
+    "ieo": "1116"
+  },
+  "304011085": {
+    "sa2Id": "304011085",
+    "sa2Name": "Westlake",
+    "irsd": "1108",
+    "irsad": "1123",
+    "ier": "1126",
+    "ieo": "1113"
+  },
+  "304021086": {
+    "sa2Id": "304021086",
+    "sa2Name": "Bellbowrie - Moggill",
+    "irsd": "1097",
+    "irsad": "1106",
+    "ier": "1110",
+    "ieo": "1108"
+  },
+  "304021087": {
+    "sa2Id": "304021087",
+    "sa2Name": "Brookfield - Kenmore Hills",
+    "irsd": "1116",
+    "irsad": "1146",
+    "ier": "1138",
+    "ieo": "1151"
+  },
+  "304021088": {
+    "sa2Id": "304021088",
+    "sa2Name": "Chapel Hill",
+    "irsd": "1114",
+    "irsad": "1140",
+    "ier": "1110",
+    "ieo": "1155"
+  },
+  "304021089": {
+    "sa2Id": "304021089",
+    "sa2Name": "Fig Tree Pocket",
+    "irsd": "1127",
+    "irsad": "1170",
+    "ier": "1162",
+    "ieo": "1169"
+  },
+  "304021090": {
+    "sa2Id": "304021090",
+    "sa2Name": "Kenmore",
+    "irsd": "1098",
+    "irsad": "1119",
+    "ier": "1085",
+    "ieo": "1142"
+  },
+  "304021091": {
+    "sa2Id": "304021091",
+    "sa2Name": "Pinjarra Hills - Pullenvale",
+    "irsd": "1126",
+    "irsad": "1161",
+    "ier": "1163",
+    "ieo": "1162"
+  },
+  "304031092": {
+    "sa2Id": "304031092",
+    "sa2Name": "Chelmer - Graceville",
+    "irsd": "1117",
+    "irsad": "1145",
+    "ier": "1107",
+    "ieo": "1160"
+  },
+  "304031093": {
+    "sa2Id": "304031093",
+    "sa2Name": "Corinda",
+    "irsd": "1064",
+    "irsad": "1082",
+    "ier": "1039",
+    "ieo": "1117"
+  },
+  "304031094": {
+    "sa2Id": "304031094",
+    "sa2Name": "Indooroopilly",
+    "irsd": "1068",
+    "irsad": "1097",
+    "ier": "975",
+    "ieo": "1145"
+  },
+  "304031095": {
+    "sa2Id": "304031095",
+    "sa2Name": "Sherwood",
+    "irsd": "1081",
+    "irsad": "1098",
+    "ier": "1037",
+    "ieo": "1117"
+  },
+  "304031096": {
+    "sa2Id": "304031096",
+    "sa2Name": "St Lucia",
+    "irsd": "1036",
+    "irsad": "1096",
+    "ier": "889",
+    "ieo": "1197"
+  },
+  "304031097": {
+    "sa2Id": "304031097",
+    "sa2Name": "Taringa",
+    "irsd": "1078",
+    "irsad": "1100",
+    "ier": "947",
+    "ieo": "1155"
+  },
+  "304041098": {
+    "sa2Id": "304041098",
+    "sa2Name": "Enoggera",
+    "irsd": "1045",
+    "irsad": "1053",
+    "ier": "969",
+    "ieo": "1088"
+  },
+  "304041099": {
+    "sa2Id": "304041099",
+    "sa2Name": "Enoggera Reservoir",
+    "irsd": "-",
+    "irsad": "-",
+    "ier": "-",
+    "ieo": "1184"
+  },
+  "304041100": {
+    "sa2Id": "304041100",
+    "sa2Name": "Keperra",
+    "irsd": "989",
+    "irsad": "990",
+    "ier": "969",
+    "ieo": "1024"
+  },
+  "304041101": {
+    "sa2Id": "304041101",
+    "sa2Name": "Mitchelton",
+    "irsd": "1059",
+    "irsad": "1068",
+    "ier": "1025",
+    "ieo": "1091"
+  },
+  "304041103": {
+    "sa2Id": "304041103",
+    "sa2Name": "The Gap",
+    "irsd": "1100",
+    "irsad": "1114",
+    "ier": "1095",
+    "ieo": "1125"
+  },
+  "304041104": {
+    "sa2Id": "304041104",
+    "sa2Name": "Upper Kedron - Ferny Grove",
+    "irsd": "1091",
+    "irsad": "1090",
+    "ier": "1088",
+    "ieo": "1075"
+  },
+  "305011105": {
+    "sa2Id": "305011105",
+    "sa2Name": "Brisbane City",
+    "irsd": "1025",
+    "irsad": "1083",
+    "ier": "872",
+    "ieo": "1129"
+  },
+  "305011106": {
+    "sa2Id": "305011106",
+    "sa2Name": "Fortitude Valley",
+    "irsd": "1038",
+    "irsad": "1064",
+    "ier": "871",
+    "ieo": "1099"
+  },
+  "305011107": {
+    "sa2Id": "305011107",
+    "sa2Name": "Highgate Hill",
+    "irsd": "1025",
+    "irsad": "1058",
+    "ier": "931",
+    "ieo": "1121"
+  },
+  "305011108": {
+    "sa2Id": "305011108",
+    "sa2Name": "Kangaroo Point",
+    "irsd": "1059",
+    "irsad": "1085",
+    "ier": "934",
+    "ieo": "1110"
+  },
+  "305011109": {
+    "sa2Id": "305011109",
+    "sa2Name": "New Farm",
+    "irsd": "1069",
+    "irsad": "1099",
+    "ier": "957",
+    "ieo": "1140"
+  },
+  "305011110": {
+    "sa2Id": "305011110",
+    "sa2Name": "South Brisbane",
+    "irsd": "1038",
+    "irsad": "1082",
+    "ier": "895",
+    "ieo": "1136"
+  },
+  "305011111": {
+    "sa2Id": "305011111",
+    "sa2Name": "Spring Hill",
+    "irsd": "979",
+    "irsad": "1028",
+    "ier": "834",
+    "ieo": "1069"
+  },
+  "305011112": {
+    "sa2Id": "305011112",
+    "sa2Name": "West End",
+    "irsd": "1044",
+    "irsad": "1084",
+    "ier": "939",
+    "ieo": "1140"
+  },
+  "305021113": {
+    "sa2Id": "305021113",
+    "sa2Name": "Balmoral",
+    "irsd": "1092",
+    "irsad": "1119",
+    "ier": "1064",
+    "ieo": "1129"
+  },
+  "305021114": {
+    "sa2Id": "305021114",
+    "sa2Name": "Bulimba",
+    "irsd": "1105",
+    "irsad": "1145",
+    "ier": "1075",
+    "ieo": "1147"
+  },
+  "305021115": {
+    "sa2Id": "305021115",
+    "sa2Name": "East Brisbane",
+    "irsd": "1060",
+    "irsad": "1084",
+    "ier": "960",
+    "ieo": "1117"
+  },
+  "305021116": {
+    "sa2Id": "305021116",
+    "sa2Name": "Hawthorne",
+    "irsd": "1110",
+    "irsad": "1146",
+    "ier": "1080",
+    "ieo": "1148"
+  },
+  "305021117": {
+    "sa2Id": "305021117",
+    "sa2Name": "Morningside - Seven Hills",
+    "irsd": "1070",
+    "irsad": "1088",
+    "ier": "1011",
+    "ieo": "1108"
+  },
+  "305021118": {
+    "sa2Id": "305021118",
+    "sa2Name": "Norman Park",
+    "irsd": "1108",
+    "irsad": "1136",
+    "ier": "1073",
+    "ieo": "1136"
+  },
+  "305031119": {
+    "sa2Id": "305031119",
+    "sa2Name": "Albion",
+    "irsd": "1084",
+    "irsad": "1094",
+    "ier": "982",
+    "ieo": "1111"
+  },
+  "305031120": {
+    "sa2Id": "305031120",
+    "sa2Name": "Alderley",
+    "irsd": "1090",
+    "irsad": "1106",
+    "ier": "1033",
+    "ieo": "1135"
+  },
+  "305031121": {
+    "sa2Id": "305031121",
+    "sa2Name": "Ascot",
+    "irsd": "1082",
+    "irsad": "1109",
+    "ier": "1036",
+    "ieo": "1134"
+  },
+  "305031122": {
+    "sa2Id": "305031122",
+    "sa2Name": "Clayfield",
+    "irsd": "1071",
+    "irsad": "1087",
+    "ier": "1005",
+    "ieo": "1113"
+  },
+  "305031123": {
+    "sa2Id": "305031123",
+    "sa2Name": "Grange",
+    "irsd": "1113",
+    "irsad": "1136",
+    "ier": "1100",
+    "ieo": "1137"
+  },
+  "305031124": {
+    "sa2Id": "305031124",
+    "sa2Name": "Hamilton (Qld)",
+    "irsd": "1090",
+    "irsad": "1109",
+    "ier": "1015",
+    "ieo": "1123"
+  },
+  "305031125": {
+    "sa2Id": "305031125",
+    "sa2Name": "Hendra",
+    "irsd": "1093",
+    "irsad": "1125",
+    "ier": "1104",
+    "ieo": "1121"
+  },
+  "305031126": {
+    "sa2Id": "305031126",
+    "sa2Name": "Kelvin Grove - Herston",
+    "irsd": "1013",
+    "irsad": "1067",
+    "ier": "883",
+    "ieo": "1154"
+  },
+  "305031127": {
+    "sa2Id": "305031127",
+    "sa2Name": "Newmarket",
+    "irsd": "1062",
+    "irsad": "1082",
+    "ier": "986",
+    "ieo": "1116"
+  },
+  "305031128": {
+    "sa2Id": "305031128",
+    "sa2Name": "Newstead - Bowen Hills",
+    "irsd": "1102",
+    "irsad": "1132",
+    "ier": "968",
+    "ieo": "1166"
+  },
+  "305031129": {
+    "sa2Id": "305031129",
+    "sa2Name": "Wilston",
+    "irsd": "1103",
+    "irsad": "1132",
+    "ier": "1075",
+    "ieo": "1136"
+  },
+  "305031130": {
+    "sa2Id": "305031130",
+    "sa2Name": "Windsor",
+    "irsd": "1070",
+    "irsad": "1091",
+    "ier": "984",
+    "ieo": "1116"
+  },
+  "305031131": {
+    "sa2Id": "305031131",
+    "sa2Name": "Wooloowin - Lutwyche",
+    "irsd": "1064",
+    "irsad": "1080",
+    "ier": "995",
+    "ieo": "1100"
+  },
+  "305041132": {
+    "sa2Id": "305041132",
+    "sa2Name": "Ashgrove",
+    "irsd": "1109",
+    "irsad": "1135",
+    "ier": "1089",
+    "ieo": "1144"
+  },
+  "305041133": {
+    "sa2Id": "305041133",
+    "sa2Name": "Auchenflower",
+    "irsd": "1102",
+    "irsad": "1127",
+    "ier": "998",
+    "ieo": "1159"
+  },
+  "305041134": {
+    "sa2Id": "305041134",
+    "sa2Name": "Bardon",
+    "irsd": "1115",
+    "irsad": "1148",
+    "ier": "1101",
+    "ieo": "1154"
+  },
+  "305041135": {
+    "sa2Id": "305041135",
+    "sa2Name": "Paddington - Milton",
+    "irsd": "1103",
+    "irsad": "1137",
+    "ier": "1018",
+    "ieo": "1166"
+  },
+  "305041136": {
+    "sa2Id": "305041136",
+    "sa2Name": "Red Hill (Qld)",
+    "irsd": "1084",
+    "irsad": "1116",
+    "ier": "1012",
+    "ieo": "1148"
+  },
+  "305041137": {
+    "sa2Id": "305041137",
+    "sa2Name": "Toowong",
+    "irsd": "1087",
+    "irsad": "1112",
+    "ier": "961",
+    "ieo": "1163"
+  },
+  "306011138": {
+    "sa2Id": "306011138",
+    "sa2Name": "Brinsmead",
+    "irsd": "1074",
+    "irsad": "1058",
+    "ier": "1066",
+    "ieo": "1049"
+  },
+  "306011139": {
+    "sa2Id": "306011139",
+    "sa2Name": "Clifton Beach - Kewarra Beach",
+    "irsd": "1039",
+    "irsad": "1027",
+    "ier": "1025",
+    "ieo": "1038"
+  },
+  "306011140": {
+    "sa2Id": "306011140",
+    "sa2Name": "Freshwater - Stratford",
+    "irsd": "1046",
+    "irsad": "1043",
+    "ier": "1017",
+    "ieo": "1079"
+  },
+  "306011141": {
+    "sa2Id": "306011141",
+    "sa2Name": "Redlynch",
+    "irsd": "1065",
+    "irsad": "1053",
+    "ier": "1068",
+    "ieo": "1045"
+  },
+  "306011142": {
+    "sa2Id": "306011142",
+    "sa2Name": "Trinity Beach - Smithfield",
+    "irsd": "1037",
+    "irsad": "1025",
+    "ier": "1019",
+    "ieo": "1028"
+  },
+  "306011143": {
+    "sa2Id": "306011143",
+    "sa2Name": "Yorkeys Knob - Machans Beach",
+    "irsd": "973",
+    "irsad": "960",
+    "ier": "936",
+    "ieo": "1003"
+  },
+  "306021144": {
+    "sa2Id": "306021144",
+    "sa2Name": "Bentley Park",
+    "irsd": "979",
+    "irsad": "959",
+    "ier": "994",
+    "ieo": "941"
+  },
+  "306021145": {
+    "sa2Id": "306021145",
+    "sa2Name": "Cairns City",
+    "irsd": "959",
+    "irsad": "970",
+    "ier": "863",
+    "ieo": "1033"
+  },
+  "306021146": {
+    "sa2Id": "306021146",
+    "sa2Name": "Earlville - Bayview Heights",
+    "irsd": "994",
+    "irsad": "975",
+    "ier": "986",
+    "ieo": "973"
+  },
+  "306021147": {
+    "sa2Id": "306021147",
+    "sa2Name": "Edmonton",
+    "irsd": "956",
+    "irsad": "932",
+    "ier": "974",
+    "ieo": "910"
+  },
+  "306021148": {
+    "sa2Id": "306021148",
+    "sa2Name": "Gordonvale - Trinity",
+    "irsd": "985",
+    "irsad": "964",
+    "ier": "1002",
+    "ieo": "952"
+  },
+  "306021149": {
+    "sa2Id": "306021149",
+    "sa2Name": "Kanimbla - Mooroobool",
+    "irsd": "985",
+    "irsad": "979",
+    "ier": "992",
+    "ieo": "974"
+  },
+  "306021151": {
+    "sa2Id": "306021151",
+    "sa2Name": "Manoora",
+    "irsd": "795",
+    "irsad": "818",
+    "ier": "780",
+    "ieo": "893"
+  },
+  "306021152": {
+    "sa2Id": "306021152",
+    "sa2Name": "Manunda",
+    "irsd": "829",
+    "irsad": "845",
+    "ier": "812",
+    "ieo": "888"
+  },
+  "306021153": {
+    "sa2Id": "306021153",
+    "sa2Name": "Mount Sheridan",
+    "irsd": "1025",
+    "irsad": "999",
+    "ier": "1020",
+    "ieo": "987"
+  },
+  "306021154": {
+    "sa2Id": "306021154",
+    "sa2Name": "Westcourt - Bungalow",
+    "irsd": "854",
+    "irsad": "870",
+    "ier": "823",
+    "ieo": "926"
+  },
+  "306021155": {
+    "sa2Id": "306021155",
+    "sa2Name": "White Rock",
+    "irsd": "928",
+    "irsad": "911",
+    "ier": "934",
+    "ieo": "906"
+  },
+  "306021156": {
+    "sa2Id": "306021156",
+    "sa2Name": "Whitfield - Edge Hill",
+    "irsd": "1018",
+    "irsad": "1016",
+    "ier": "992",
+    "ieo": "1040"
+  },
+  "306021157": {
+    "sa2Id": "306021157",
+    "sa2Name": "Woree",
+    "irsd": "868",
+    "irsad": "865",
+    "ier": "850",
+    "ieo": "888"
+  },
+  "306031158": {
+    "sa2Id": "306031158",
+    "sa2Name": "Babinda",
+    "irsd": "967",
+    "irsad": "943",
+    "ier": "987",
+    "ieo": "925"
+  },
+  "306031159": {
+    "sa2Id": "306031159",
+    "sa2Name": "Innisfail",
+    "irsd": "879",
+    "irsad": "877",
+    "ier": "893",
+    "ieo": "887"
+  },
+  "306031160": {
+    "sa2Id": "306031160",
+    "sa2Name": "Johnstone",
+    "irsd": "965",
+    "irsad": "935",
+    "ier": "983",
+    "ieo": "911"
+  },
+  "306031161": {
+    "sa2Id": "306031161",
+    "sa2Name": "Tully",
+    "irsd": "944",
+    "irsad": "922",
+    "ier": "957",
+    "ieo": "906"
+  },
+  "306031163": {
+    "sa2Id": "306031163",
+    "sa2Name": "Yarrabah",
+    "irsd": "518",
+    "irsad": "651",
+    "ier": "566",
+    "ieo": "789"
+  },
+  "306041164": {
+    "sa2Id": "306041164",
+    "sa2Name": "Daintree",
+    "irsd": "953",
+    "irsad": "929",
+    "ier": "957",
+    "ieo": "939"
+  },
+  "306041165": {
+    "sa2Id": "306041165",
+    "sa2Name": "Port Douglas",
+    "irsd": "1017",
+    "irsad": "996",
+    "ier": "977",
+    "ieo": "1017"
+  },
+  "306051166": {
+    "sa2Id": "306051166",
+    "sa2Name": "Atherton",
+    "irsd": "958",
+    "irsad": "937",
+    "ier": "961",
+    "ieo": "939"
+  },
+  "306051167": {
+    "sa2Id": "306051167",
+    "sa2Name": "Herberton",
+    "irsd": "866",
+    "irsad": "861",
+    "ier": "913",
+    "ieo": "888"
+  },
+  "306051168": {
+    "sa2Id": "306051168",
+    "sa2Name": "Kuranda",
+    "irsd": "976",
+    "irsad": "969",
+    "ier": "980",
+    "ieo": "1010"
+  },
+  "306051169": {
+    "sa2Id": "306051169",
+    "sa2Name": "Malanda - Yungaburra",
+    "irsd": "992",
+    "irsad": "973",
+    "ier": "996",
+    "ieo": "982"
+  },
+  "306051170": {
+    "sa2Id": "306051170",
+    "sa2Name": "Mareeba",
+    "irsd": "919",
+    "irsad": "907",
+    "ier": "942",
+    "ieo": "899"
+  },
+  "307011171": {
+    "sa2Id": "307011171",
+    "sa2Name": "Balonne",
+    "irsd": "973",
+    "irsad": "963",
+    "ier": "985",
+    "ieo": "962"
+  },
+  "307011172": {
+    "sa2Id": "307011172",
+    "sa2Name": "Chinchilla",
+    "irsd": "964",
+    "irsad": "949",
+    "ier": "975",
+    "ieo": "939"
+  },
+  "307011173": {
+    "sa2Id": "307011173",
+    "sa2Name": "Goondiwindi",
+    "irsd": "999",
+    "irsad": "973",
+    "ier": "1000",
+    "ieo": "953"
+  },
+  "307011174": {
+    "sa2Id": "307011174",
+    "sa2Name": "Inglewood - Waggamba",
+    "irsd": "937",
+    "irsad": "932",
+    "ier": "977",
+    "ieo": "944"
+  },
+  "307011175": {
+    "sa2Id": "307011175",
+    "sa2Name": "Miles - Wandoan",
+    "irsd": "975",
+    "irsad": "964",
+    "ier": "989",
+    "ieo": "968"
+  },
+  "307011176": {
+    "sa2Id": "307011176",
+    "sa2Name": "Roma",
+    "irsd": "1001",
+    "irsad": "979",
+    "ier": "980",
+    "ieo": "967"
+  },
+  "307011177": {
+    "sa2Id": "307011177",
+    "sa2Name": "Roma Region",
+    "irsd": "989",
+    "irsad": "985",
+    "ier": "1034",
+    "ieo": "980"
+  },
+  "307011178": {
+    "sa2Id": "307011178",
+    "sa2Name": "Tara",
+    "irsd": "859",
+    "irsad": "869",
+    "ier": "937",
+    "ieo": "908"
+  },
+  "307021179": {
+    "sa2Id": "307021179",
+    "sa2Name": "Crows Nest - Rosalie",
+    "irsd": "944",
+    "irsad": "932",
+    "ier": "984",
+    "ieo": "944"
+  },
+  "307021180": {
+    "sa2Id": "307021180",
+    "sa2Name": "Jondaryan",
+    "irsd": "949",
+    "irsad": "932",
+    "ier": "993",
+    "ieo": "898"
+  },
+  "307021181": {
+    "sa2Id": "307021181",
+    "sa2Name": "Millmerran",
+    "irsd": "938",
+    "irsad": "921",
+    "ier": "983",
+    "ieo": "897"
+  },
+  "307021182": {
+    "sa2Id": "307021182",
+    "sa2Name": "Pittsworth",
+    "irsd": "991",
+    "irsad": "966",
+    "ier": "1017",
+    "ieo": "939"
+  },
+  "307021183": {
+    "sa2Id": "307021183",
+    "sa2Name": "Wambo",
+    "irsd": "974",
+    "irsad": "951",
+    "ier": "983",
+    "ieo": "936"
+  },
+  "307031184": {
+    "sa2Id": "307031184",
+    "sa2Name": "Clifton - Greenmount",
+    "irsd": "989",
+    "irsad": "973",
+    "ier": "1021",
+    "ieo": "967"
+  },
+  "307031185": {
+    "sa2Id": "307031185",
+    "sa2Name": "Southern Downs - East",
+    "irsd": "980",
+    "irsad": "959",
+    "ier": "1021",
+    "ieo": "955"
+  },
+  "307031186": {
+    "sa2Id": "307031186",
+    "sa2Name": "Southern Downs - West",
+    "irsd": "956",
+    "irsad": "939",
+    "ier": "998",
+    "ieo": "950"
+  },
+  "307031187": {
+    "sa2Id": "307031187",
+    "sa2Name": "Stanthorpe",
+    "irsd": "910",
+    "irsad": "899",
+    "ier": "929",
+    "ieo": "911"
+  },
+  "307031188": {
+    "sa2Id": "307031188",
+    "sa2Name": "Stanthorpe Region",
+    "irsd": "955",
+    "irsad": "938",
+    "ier": "992",
+    "ieo": "943"
+  },
+  "307031189": {
+    "sa2Id": "307031189",
+    "sa2Name": "Warwick",
+    "irsd": "922",
+    "irsad": "902",
+    "ier": "947",
+    "ieo": "897"
+  },
+  "308011190": {
+    "sa2Id": "308011190",
+    "sa2Name": "Central Highlands - East",
+    "irsd": "924",
+    "irsad": "919",
+    "ier": "925",
+    "ieo": "893"
+  },
+  "308011191": {
+    "sa2Id": "308011191",
+    "sa2Name": "Central Highlands - West",
+    "irsd": "993",
+    "irsad": "976",
+    "ier": "1017",
+    "ieo": "937"
+  },
+  "308011192": {
+    "sa2Id": "308011192",
+    "sa2Name": "Emerald",
+    "irsd": "1024",
+    "irsad": "997",
+    "ier": "1018",
+    "ieo": "940"
+  },
+  "308031205": {
+    "sa2Id": "308031205",
+    "sa2Name": "Berserker",
+    "irsd": "877",
+    "irsad": "863",
+    "ier": "876",
+    "ieo": "861"
+  },
+  "308031206": {
+    "sa2Id": "308031206",
+    "sa2Name": "Bouldercombe",
+    "irsd": "968",
+    "irsad": "944",
+    "ier": "1024",
+    "ieo": "904"
+  },
+  "308031207": {
+    "sa2Id": "308031207",
+    "sa2Name": "Emu Park",
+    "irsd": "940",
+    "irsad": "926",
+    "ier": "955",
+    "ieo": "913"
+  },
+  "308031208": {
+    "sa2Id": "308031208",
+    "sa2Name": "Frenchville - Mount Archer",
+    "irsd": "1008",
+    "irsad": "983",
+    "ier": "1001",
+    "ieo": "962"
+  },
+  "308031209": {
+    "sa2Id": "308031209",
+    "sa2Name": "Glenlee - Rockyview",
+    "irsd": "1072",
+    "irsad": "1043",
+    "ier": "1119",
+    "ieo": "974"
+  },
+  "308031210": {
+    "sa2Id": "308031210",
+    "sa2Name": "Gracemere",
+    "irsd": "959",
+    "irsad": "936",
+    "ier": "981",
+    "ieo": "903"
+  },
+  "308031211": {
+    "sa2Id": "308031211",
+    "sa2Name": "Lakes Creek",
+    "irsd": "905",
+    "irsad": "889",
+    "ier": "926",
+    "ieo": "864"
+  },
+  "308031212": {
+    "sa2Id": "308031212",
+    "sa2Name": "Mount Morgan",
+    "irsd": "784",
+    "irsad": "793",
+    "ier": "864",
+    "ieo": "820"
+  },
+  "308031213": {
+    "sa2Id": "308031213",
+    "sa2Name": "Norman Gardens",
+    "irsd": "1005",
+    "irsad": "993",
+    "ier": "1014",
+    "ieo": "973"
+  },
+  "308031214": {
+    "sa2Id": "308031214",
+    "sa2Name": "Park Avenue",
+    "irsd": "926",
+    "irsad": "899",
+    "ier": "918",
+    "ieo": "890"
+  },
+  "308031215": {
+    "sa2Id": "308031215",
+    "sa2Name": "Parkhurst - Kawana",
+    "irsd": "955",
+    "irsad": "935",
+    "ier": "960",
+    "ieo": "917"
+  },
+  "308031216": {
+    "sa2Id": "308031216",
+    "sa2Name": "Rockhampton - West",
+    "irsd": "946",
+    "irsad": "929",
+    "ier": "943",
+    "ieo": "944"
+  },
+  "308031217": {
+    "sa2Id": "308031217",
+    "sa2Name": "Rockhampton City",
+    "irsd": "828",
+    "irsad": "837",
+    "ier": "851",
+    "ieo": "868"
+  },
+  "308031218": {
+    "sa2Id": "308031218",
+    "sa2Name": "Rockhampton Region - East",
+    "irsd": "985",
+    "irsad": "964",
+    "ier": "1032",
+    "ieo": "928"
+  },
+  "308031219": {
+    "sa2Id": "308031219",
+    "sa2Name": "Rockhampton Region - North",
+    "irsd": "986",
+    "irsad": "967",
+    "ier": "1028",
+    "ieo": "944"
+  },
+  "308031220": {
+    "sa2Id": "308031220",
+    "sa2Name": "Rockhampton Region - West",
+    "irsd": "1012",
+    "irsad": "986",
+    "ier": "1064",
+    "ieo": "940"
+  },
+  "308031222": {
+    "sa2Id": "308031222",
+    "sa2Name": "The Range - Allenstown",
+    "irsd": "995",
+    "irsad": "993",
+    "ier": "969",
+    "ieo": "1014"
+  },
+  "308031223": {
+    "sa2Id": "308031223",
+    "sa2Name": "Yeppoon",
+    "irsd": "994",
+    "irsad": "976",
+    "ier": "1002",
+    "ieo": "955"
+  },
+  "308041528": {
+    "sa2Id": "308041528",
+    "sa2Name": "Banana",
+    "irsd": "997",
+    "irsad": "977",
+    "ier": "1027",
+    "ieo": "938"
+  },
+  "308041529": {
+    "sa2Id": "308041529",
+    "sa2Name": "Biloela",
+    "irsd": "996",
+    "irsad": "967",
+    "ier": "997",
+    "ieo": "912"
+  },
+  "308051530": {
+    "sa2Id": "308051530",
+    "sa2Name": "Agnes Water - Miriam Vale",
+    "irsd": "922",
+    "irsad": "906",
+    "ier": "967",
+    "ieo": "896"
+  },
+  "308051531": {
+    "sa2Id": "308051531",
+    "sa2Name": "Boyne Island - Tannum Sands",
+    "irsd": "1014",
+    "irsad": "999",
+    "ier": "1031",
+    "ieo": "939"
+  },
+  "308051533": {
+    "sa2Id": "308051533",
+    "sa2Name": "Clinton - New Auckland",
+    "irsd": "995",
+    "irsad": "978",
+    "ier": "1000",
+    "ieo": "928"
+  },
+  "308051534": {
+    "sa2Id": "308051534",
+    "sa2Name": "Gladstone",
+    "irsd": "917",
+    "irsad": "917",
+    "ier": "884",
+    "ieo": "914"
+  },
+  "308051535": {
+    "sa2Id": "308051535",
+    "sa2Name": "Gladstone Hinterland",
+    "irsd": "994",
+    "irsad": "977",
+    "ier": "1050",
+    "ieo": "902"
+  },
+  "308051536": {
+    "sa2Id": "308051536",
+    "sa2Name": "Kin Kora - Sun Valley",
+    "irsd": "985",
+    "irsad": "959",
+    "ier": "990",
+    "ieo": "912"
+  },
+  "308051538": {
+    "sa2Id": "308051538",
+    "sa2Name": "Telina - Toolooa",
+    "irsd": "1002",
+    "irsad": "985",
+    "ier": "1016",
+    "ieo": "928"
+  },
+  "308051539": {
+    "sa2Id": "308051539",
+    "sa2Name": "West Gladstone",
+    "irsd": "932",
+    "irsad": "924",
+    "ier": "917",
+    "ieo": "910"
+  },
+  "309011224": {
+    "sa2Id": "309011224",
+    "sa2Name": "Broadbeach Waters",
+    "irsd": "1061",
+    "irsad": "1067",
+    "ier": "1059",
+    "ieo": "1062"
+  },
+  "309011225": {
+    "sa2Id": "309011225",
+    "sa2Name": "Burleigh Heads",
+    "irsd": "1028",
+    "irsad": "1023",
+    "ier": "984",
+    "ieo": "1045"
+  },
+  "309011226": {
+    "sa2Id": "309011226",
+    "sa2Name": "Burleigh Waters",
+    "irsd": "1036",
+    "irsad": "1021",
+    "ier": "1031",
+    "ieo": "1005"
+  },
+  "309011227": {
+    "sa2Id": "309011227",
+    "sa2Name": "Mermaid Beach - Broadbeach",
+    "irsd": "1030",
+    "irsad": "1022",
+    "ier": "944",
+    "ieo": "1045"
+  },
+  "309011228": {
+    "sa2Id": "309011228",
+    "sa2Name": "Mermaid Waters",
+    "irsd": "1024",
+    "irsad": "1020",
+    "ier": "1012",
+    "ieo": "1017"
+  },
+  "309011229": {
+    "sa2Id": "309011229",
+    "sa2Name": "Miami",
+    "irsd": "1030",
+    "irsad": "1022",
+    "ier": "973",
+    "ieo": "1041"
+  },
+  "309021230": {
+    "sa2Id": "309021230",
+    "sa2Name": "Coolangatta",
+    "irsd": "973",
+    "irsad": "963",
+    "ier": "915",
+    "ieo": "1000"
+  },
+  "309021231": {
+    "sa2Id": "309021231",
+    "sa2Name": "Currumbin - Tugun",
+    "irsd": "1014",
+    "irsad": "1001",
+    "ier": "980",
+    "ieo": "1020"
+  },
+  "309021232": {
+    "sa2Id": "309021232",
+    "sa2Name": "Currumbin Waters",
+    "irsd": "1013",
+    "irsad": "994",
+    "ier": "1022",
+    "ieo": "977"
+  },
+  "309021233": {
+    "sa2Id": "309021233",
+    "sa2Name": "Elanora",
+    "irsd": "1031",
+    "irsad": "1010",
+    "ier": "1043",
+    "ieo": "989"
+  },
+  "309021234": {
+    "sa2Id": "309021234",
+    "sa2Name": "Palm Beach",
+    "irsd": "1006",
+    "irsad": "996",
+    "ier": "975",
+    "ieo": "1008"
+  },
+  "309031235": {
+    "sa2Id": "309031235",
+    "sa2Name": "Arundel",
+    "irsd": "1023",
+    "irsad": "1010",
+    "ier": "1026",
+    "ieo": "996"
+  },
+  "309031236": {
+    "sa2Id": "309031236",
+    "sa2Name": "Biggera Waters",
+    "irsd": "980",
+    "irsad": "976",
+    "ier": "933",
+    "ieo": "997"
+  },
+  "309031237": {
+    "sa2Id": "309031237",
+    "sa2Name": "Coombabah",
+    "irsd": "955",
+    "irsad": "930",
+    "ier": "951",
+    "ieo": "933"
+  },
+  "309031238": {
+    "sa2Id": "309031238",
+    "sa2Name": "Labrador",
+    "irsd": "931",
+    "irsad": "925",
+    "ier": "898",
+    "ieo": "958"
+  },
+  "309031239": {
+    "sa2Id": "309031239",
+    "sa2Name": "Paradise Point - Hollywell",
+    "irsd": "1054",
+    "irsad": "1051",
+    "ier": "1047",
+    "ieo": "1040"
+  },
+  "309031240": {
+    "sa2Id": "309031240",
+    "sa2Name": "Runaway Bay",
+    "irsd": "1033",
+    "irsad": "1023",
+    "ier": "1022",
+    "ieo": "1019"
+  },
+  "309041241": {
+    "sa2Id": "309041241",
+    "sa2Name": "Guanaba - Springbrook",
+    "irsd": "1031",
+    "irsad": "1021",
+    "ier": "1053",
+    "ieo": "1019"
+  },
+  "309041242": {
+    "sa2Id": "309041242",
+    "sa2Name": "Tamborine - Canungra",
+    "irsd": "1038",
+    "irsad": "1025",
+    "ier": "1059",
+    "ieo": "1032"
+  },
+  "309051243": {
+    "sa2Id": "309051243",
+    "sa2Name": "Currumbin Valley - Tallebudgera",
+    "irsd": "1062",
+    "irsad": "1056",
+    "ier": "1115",
+    "ieo": "1033"
+  },
+  "309051244": {
+    "sa2Id": "309051244",
+    "sa2Name": "Mudgeeraba - Bonogin",
+    "irsd": "1051",
+    "irsad": "1040",
+    "ier": "1075",
+    "ieo": "1021"
+  },
+  "309051245": {
+    "sa2Id": "309051245",
+    "sa2Name": "Reedy Creek - Andrews",
+    "irsd": "1060",
+    "irsad": "1061",
+    "ier": "1094",
+    "ieo": "1041"
+  },
+  "309061246": {
+    "sa2Id": "309061246",
+    "sa2Name": "Carrara",
+    "irsd": "1026",
+    "irsad": "1006",
+    "ier": "1012",
+    "ieo": "997"
+  },
+  "309061247": {
+    "sa2Id": "309061247",
+    "sa2Name": "Highland Park",
+    "irsd": "1010",
+    "irsad": "984",
+    "ier": "1028",
+    "ieo": "967"
+  },
+  "309061248": {
+    "sa2Id": "309061248",
+    "sa2Name": "Nerang - Mount Nathan",
+    "irsd": "981",
+    "irsad": "962",
+    "ier": "1000",
+    "ieo": "950"
+  },
+  "309061249": {
+    "sa2Id": "309061249",
+    "sa2Name": "Pacific Pines - Gaven",
+    "irsd": "1033",
+    "irsad": "1019",
+    "ier": "1057",
+    "ieo": "984"
+  },
+  "309061250": {
+    "sa2Id": "309061250",
+    "sa2Name": "Worongary - Tallai",
+    "irsd": "1056",
+    "irsad": "1052",
+    "ier": "1106",
+    "ieo": "1023"
+  },
+  "309071251": {
+    "sa2Id": "309071251",
+    "sa2Name": "Coomera",
+    "irsd": "1019",
+    "irsad": "1016",
+    "ier": "1016",
+    "ieo": "995"
+  },
+  "309071252": {
+    "sa2Id": "309071252",
+    "sa2Name": "Helensvale",
+    "irsd": "1043",
+    "irsad": "1035",
+    "ier": "1068",
+    "ieo": "1000"
+  },
+  "309071253": {
+    "sa2Id": "309071253",
+    "sa2Name": "Hope Island",
+    "irsd": "1076",
+    "irsad": "1080",
+    "ier": "1064",
+    "ieo": "1067"
+  },
+  "309071254": {
+    "sa2Id": "309071254",
+    "sa2Name": "Jacobs Well - Alberton",
+    "irsd": "1011",
+    "irsad": "984",
+    "ier": "1046",
+    "ieo": "936"
+  },
+  "309071255": {
+    "sa2Id": "309071255",
+    "sa2Name": "Ormeau - Yatala",
+    "irsd": "1044",
+    "irsad": "1030",
+    "ier": "1079",
+    "ieo": "987"
+  },
+  "309071256": {
+    "sa2Id": "309071256",
+    "sa2Name": "Oxenford - Maudsland",
+    "irsd": "1034",
+    "irsad": "1017",
+    "ier": "1067",
+    "ieo": "978"
+  },
+  "309071257": {
+    "sa2Id": "309071257",
+    "sa2Name": "Pimpama",
+    "irsd": "993",
+    "irsad": "977",
+    "ier": "987",
+    "ieo": "963"
+  },
+  "309071258": {
+    "sa2Id": "309071258",
+    "sa2Name": "Upper Coomera - Willow Vale",
+    "irsd": "1027",
+    "irsad": "1012",
+    "ier": "1054",
+    "ieo": "974"
+  },
+  "309081259": {
+    "sa2Id": "309081259",
+    "sa2Name": "Clear Island Waters",
+    "irsd": "1067",
+    "irsad": "1073",
+    "ier": "1072",
+    "ieo": "1066"
+  },
+  "309081260": {
+    "sa2Id": "309081260",
+    "sa2Name": "Merrimac",
+    "irsd": "1004",
+    "irsad": "983",
+    "ier": "981",
+    "ieo": "988"
+  },
+  "309081261": {
+    "sa2Id": "309081261",
+    "sa2Name": "Robina",
+    "irsd": "1045",
+    "irsad": "1039",
+    "ier": "1022",
+    "ieo": "1036"
+  },
+  "309081262": {
+    "sa2Id": "309081262",
+    "sa2Name": "Varsity Lakes",
+    "irsd": "1011",
+    "irsad": "1008",
+    "ier": "971",
+    "ieo": "1025"
+  },
+  "309091263": {
+    "sa2Id": "309091263",
+    "sa2Name": "Ashmore",
+    "irsd": "1018",
+    "irsad": "1006",
+    "ier": "1013",
+    "ieo": "1005"
+  },
+  "309091264": {
+    "sa2Id": "309091264",
+    "sa2Name": "Molendinar",
+    "irsd": "1005",
+    "irsad": "1003",
+    "ier": "1016",
+    "ieo": "991"
+  },
+  "309091265": {
+    "sa2Id": "309091265",
+    "sa2Name": "Parkwood",
+    "irsd": "1030",
+    "irsad": "1027",
+    "ier": "1042",
+    "ieo": "1008"
+  },
+  "309091540": {
+    "sa2Id": "309091540",
+    "sa2Name": "Southport - North",
+    "irsd": "928",
+    "irsad": "939",
+    "ier": "847",
+    "ieo": "1000"
+  },
+  "309091541": {
+    "sa2Id": "309091541",
+    "sa2Name": "Southport - South",
+    "irsd": "973",
+    "irsad": "978",
+    "ier": "928",
+    "ieo": "1017"
+  },
+  "309101267": {
+    "sa2Id": "309101267",
+    "sa2Name": "Benowa",
+    "irsd": "1054",
+    "irsad": "1064",
+    "ier": "1064",
+    "ieo": "1064"
+  },
+  "309101268": {
+    "sa2Id": "309101268",
+    "sa2Name": "Bundall",
+    "irsd": "1065",
+    "irsad": "1077",
+    "ier": "1077",
+    "ieo": "1070"
+  },
+  "309101269": {
+    "sa2Id": "309101269",
+    "sa2Name": "Main Beach",
+    "irsd": "1061",
+    "irsad": "1064",
+    "ier": "981",
+    "ieo": "1093"
+  },
+  "309101270": {
+    "sa2Id": "309101270",
+    "sa2Name": "Surfers Paradise",
+    "irsd": "979",
+    "irsad": "983",
+    "ier": "900",
+    "ieo": "1012"
+  },
+  "310011271": {
+    "sa2Id": "310011271",
+    "sa2Name": "Darra - Sumner",
+    "irsd": "955",
+    "irsad": "959",
+    "ier": "960",
+    "ieo": "966"
+  },
+  "310011272": {
+    "sa2Id": "310011272",
+    "sa2Name": "Durack",
+    "irsd": "922",
+    "irsad": "932",
+    "ier": "954",
+    "ieo": "930"
+  },
+  "310011273": {
+    "sa2Id": "310011273",
+    "sa2Name": "Forest Lake - Doolandella",
+    "irsd": "1020",
+    "irsad": "1013",
+    "ier": "1028",
+    "ieo": "998"
+  },
+  "310011274": {
+    "sa2Id": "310011274",
+    "sa2Name": "Inala - Richlands",
+    "irsd": "754",
+    "irsad": "798",
+    "ier": "827",
+    "ieo": "823"
+  },
+  "310011275": {
+    "sa2Id": "310011275",
+    "sa2Name": "Oxley (Qld)",
+    "irsd": "1052",
+    "irsad": "1051",
+    "ier": "1028",
+    "ieo": "1067"
+  },
+  "310011276": {
+    "sa2Id": "310011276",
+    "sa2Name": "Wacol",
+    "irsd": "763",
+    "irsad": "793",
+    "ier": "822",
+    "ieo": "810"
+  },
+  "310021277": {
+    "sa2Id": "310021277",
+    "sa2Name": "Boonah",
+    "irsd": "987",
+    "irsad": "963",
+    "ier": "1025",
+    "ieo": "941"
+  },
+  "310021278": {
+    "sa2Id": "310021278",
+    "sa2Name": "Esk",
+    "irsd": "922",
+    "irsad": "908",
+    "ier": "965",
+    "ieo": "923"
+  },
+  "310021280": {
+    "sa2Id": "310021280",
+    "sa2Name": "Lockyer Valley - East",
+    "irsd": "934",
+    "irsad": "917",
+    "ier": "993",
+    "ieo": "898"
+  },
+  "310021281": {
+    "sa2Id": "310021281",
+    "sa2Name": "Lowood",
+    "irsd": "931",
+    "irsad": "918",
+    "ier": "996",
+    "ieo": "899"
+  },
+  "310021282": {
+    "sa2Id": "310021282",
+    "sa2Name": "Rosewood",
+    "irsd": "974",
+    "irsad": "952",
+    "ier": "1014",
+    "ieo": "925"
+  },
+  "310031283": {
+    "sa2Id": "310031283",
+    "sa2Name": "Brassall",
+    "irsd": "941",
+    "irsad": "928",
+    "ier": "953",
+    "ieo": "922"
+  },
+  "310031284": {
+    "sa2Id": "310031284",
+    "sa2Name": "Bundamba",
+    "irsd": "920",
+    "irsad": "902",
+    "ier": "929",
+    "ieo": "892"
+  },
+  "310031285": {
+    "sa2Id": "310031285",
+    "sa2Name": "Churchill - Yamanto",
+    "irsd": "989",
+    "irsad": "959",
+    "ier": "999",
+    "ieo": "920"
+  },
+  "310031286": {
+    "sa2Id": "310031286",
+    "sa2Name": "Ipswich - Central",
+    "irsd": "931",
+    "irsad": "933",
+    "ier": "910",
+    "ieo": "975"
+  },
+  "310031287": {
+    "sa2Id": "310031287",
+    "sa2Name": "Ipswich - East",
+    "irsd": "917",
+    "irsad": "906",
+    "ier": "918",
+    "ieo": "917"
+  },
+  "310031288": {
+    "sa2Id": "310031288",
+    "sa2Name": "Ipswich - North",
+    "irsd": "1049",
+    "irsad": "1033",
+    "ier": "1082",
+    "ieo": "1003"
+  },
+  "310031289": {
+    "sa2Id": "310031289",
+    "sa2Name": "Karalee - Barellan Point",
+    "irsd": "1080",
+    "irsad": "1066",
+    "ier": "1111",
+    "ieo": "1027"
+  },
+  "310031290": {
+    "sa2Id": "310031290",
+    "sa2Name": "Karana Downs",
+    "irsd": "1092",
+    "irsad": "1087",
+    "ier": "1107",
+    "ieo": "1088"
+  },
+  "310031291": {
+    "sa2Id": "310031291",
+    "sa2Name": "Leichhardt - One Mile",
+    "irsd": "844",
+    "irsad": "843",
+    "ier": "884",
+    "ieo": "859"
+  },
+  "310031292": {
+    "sa2Id": "310031292",
+    "sa2Name": "North Ipswich - Tivoli",
+    "irsd": "923",
+    "irsad": "905",
+    "ier": "930",
+    "ieo": "915"
+  },
+  "310031293": {
+    "sa2Id": "310031293",
+    "sa2Name": "Raceview",
+    "irsd": "972",
+    "irsad": "948",
+    "ier": "986",
+    "ieo": "922"
+  },
+  "310031294": {
+    "sa2Id": "310031294",
+    "sa2Name": "Ripley",
+    "irsd": "1068",
+    "irsad": "1037",
+    "ier": "1077",
+    "ieo": "981"
+  },
+  "310031295": {
+    "sa2Id": "310031295",
+    "sa2Name": "Riverview",
+    "irsd": "780",
+    "irsad": "798",
+    "ier": "835",
+    "ieo": "817"
+  },
+  "310041296": {
+    "sa2Id": "310041296",
+    "sa2Name": "Bellbird Park - Brookwater",
+    "irsd": "1043",
+    "irsad": "1041",
+    "ier": "1060",
+    "ieo": "1008"
+  },
+  "310041297": {
+    "sa2Id": "310041297",
+    "sa2Name": "Camira - Gailes",
+    "irsd": "976",
+    "irsad": "954",
+    "ier": "998",
+    "ieo": "922"
+  },
+  "310041299": {
+    "sa2Id": "310041299",
+    "sa2Name": "Collingwood Park - Redbank",
+    "irsd": "952",
+    "irsad": "938",
+    "ier": "972",
+    "ieo": "911"
+  },
+  "310041300": {
+    "sa2Id": "310041300",
+    "sa2Name": "Goodna",
+    "irsd": "859",
+    "irsad": "868",
+    "ier": "896",
+    "ieo": "865"
+  },
+  "310041302": {
+    "sa2Id": "310041302",
+    "sa2Name": "Redbank Plains",
+    "irsd": "918",
+    "irsad": "906",
+    "ier": "938",
+    "ieo": "877"
+  },
+  "310041303": {
+    "sa2Id": "310041303",
+    "sa2Name": "Springfield",
+    "irsd": "1027",
+    "irsad": "1005",
+    "ier": "1042",
+    "ieo": "969"
+  },
+  "310041304": {
+    "sa2Id": "310041304",
+    "sa2Name": "Springfield Lakes",
+    "irsd": "1056",
+    "irsad": "1046",
+    "ier": "1038",
+    "ieo": "1029"
+  },
+  "311011305": {
+    "sa2Id": "311011305",
+    "sa2Name": "Beaudesert",
+    "irsd": "924",
+    "irsad": "913",
+    "ier": "971",
+    "ieo": "908"
+  },
+  "311021306": {
+    "sa2Id": "311021306",
+    "sa2Name": "Beenleigh",
+    "irsd": "860",
+    "irsad": "855",
+    "ier": "883",
+    "ieo": "864"
+  },
+  "311021307": {
+    "sa2Id": "311021307",
+    "sa2Name": "Eagleby",
+    "irsd": "858",
+    "irsad": "849",
+    "ier": "888",
+    "ieo": "843"
+  },
+  "311021308": {
+    "sa2Id": "311021308",
+    "sa2Name": "Edens Landing - Holmview",
+    "irsd": "974",
+    "irsad": "955",
+    "ier": "988",
+    "ieo": "935"
+  },
+  "311021309": {
+    "sa2Id": "311021309",
+    "sa2Name": "Mount Warren Park",
+    "irsd": "973",
+    "irsad": "951",
+    "ier": "992",
+    "ieo": "924"
+  },
+  "311021310": {
+    "sa2Id": "311021310",
+    "sa2Name": "Wolffdene - Bahrs Scrub",
+    "irsd": "1045",
+    "irsad": "1022",
+    "ier": "1073",
+    "ieo": "975"
+  },
+  "311031311": {
+    "sa2Id": "311031311",
+    "sa2Name": "Boronia Heights - Park Ridge",
+    "irsd": "945",
+    "irsad": "923",
+    "ier": "974",
+    "ieo": "882"
+  },
+  "311031312": {
+    "sa2Id": "311031312",
+    "sa2Name": "Browns Plains",
+    "irsd": "931",
+    "irsad": "914",
+    "ier": "948",
+    "ieo": "891"
+  },
+  "311031313": {
+    "sa2Id": "311031313",
+    "sa2Name": "Chambers Flat - Logan Reserve",
+    "irsd": "999",
+    "irsad": "981",
+    "ier": "1041",
+    "ieo": "934"
+  },
+  "311031314": {
+    "sa2Id": "311031314",
+    "sa2Name": "Crestmead",
+    "irsd": "897",
+    "irsad": "882",
+    "ier": "948",
+    "ieo": "839"
+  },
+  "311031316": {
+    "sa2Id": "311031316",
+    "sa2Name": "Hillcrest",
+    "irsd": "999",
+    "irsad": "978",
+    "ier": "1022",
+    "ieo": "937"
+  },
+  "311031317": {
+    "sa2Id": "311031317",
+    "sa2Name": "Marsden",
+    "irsd": "879",
+    "irsad": "873",
+    "ier": "925",
+    "ieo": "847"
+  },
+  "311031318": {
+    "sa2Id": "311031318",
+    "sa2Name": "Munruben - Park Ridge South",
+    "irsd": "1038",
+    "irsad": "1013",
+    "ier": "1100",
+    "ieo": "939"
+  },
+  "311031319": {
+    "sa2Id": "311031319",
+    "sa2Name": "Regents Park - Heritage Park",
+    "irsd": "1004",
+    "irsad": "977",
+    "ier": "1037",
+    "ieo": "922"
+  },
+  "311041320": {
+    "sa2Id": "311041320",
+    "sa2Name": "Greenbank",
+    "irsd": "1043",
+    "irsad": "1028",
+    "ier": "1120",
+    "ieo": "953"
+  },
+  "311041321": {
+    "sa2Id": "311041321",
+    "sa2Name": "Jimboomba",
+    "irsd": "1023",
+    "irsad": "997",
+    "ier": "1076",
+    "ieo": "940"
+  },
+  "311041322": {
+    "sa2Id": "311041322",
+    "sa2Name": "Logan Village",
+    "irsd": "1037",
+    "irsad": "1011",
+    "ier": "1094",
+    "ieo": "950"
+  },
+  "311051323": {
+    "sa2Id": "311051323",
+    "sa2Name": "Bethania - Waterford",
+    "irsd": "948",
+    "irsad": "931",
+    "ier": "969",
+    "ieo": "909"
+  },
+  "311051324": {
+    "sa2Id": "311051324",
+    "sa2Name": "Cornubia - Carbrook",
+    "irsd": "1072",
+    "irsad": "1063",
+    "ier": "1109",
+    "ieo": "1022"
+  },
+  "311051325": {
+    "sa2Id": "311051325",
+    "sa2Name": "Loganholme - Tanah Merah",
+    "irsd": "1024",
+    "irsad": "995",
+    "ier": "1038",
+    "ieo": "955"
+  },
+  "311051326": {
+    "sa2Id": "311051326",
+    "sa2Name": "Loganlea",
+    "irsd": "900",
+    "irsad": "898",
+    "ier": "923",
+    "ieo": "889"
+  },
+  "311051327": {
+    "sa2Id": "311051327",
+    "sa2Name": "Shailer Park",
+    "irsd": "1070",
+    "irsad": "1052",
+    "ier": "1083",
+    "ieo": "1012"
+  },
+  "311051328": {
+    "sa2Id": "311051328",
+    "sa2Name": "Waterford West",
+    "irsd": "896",
+    "irsad": "885",
+    "ier": "930",
+    "ieo": "866"
+  },
+  "311061329": {
+    "sa2Id": "311061329",
+    "sa2Name": "Daisy Hill",
+    "irsd": "1045",
+    "irsad": "1040",
+    "ier": "1047",
+    "ieo": "1038"
+  },
+  "311061330": {
+    "sa2Id": "311061330",
+    "sa2Name": "Kingston (Qld.)",
+    "irsd": "810",
+    "irsad": "822",
+    "ier": "864",
+    "ieo": "817"
+  },
+  "311061331": {
+    "sa2Id": "311061331",
+    "sa2Name": "Logan Central",
+    "irsd": "731",
+    "irsad": "773",
+    "ier": "805",
+    "ieo": "779"
+  },
+  "311061332": {
+    "sa2Id": "311061332",
+    "sa2Name": "Rochedale South - Priestdale",
+    "irsd": "1048",
+    "irsad": "1026",
+    "ier": "1034",
+    "ieo": "1011"
+  },
+  "311061333": {
+    "sa2Id": "311061333",
+    "sa2Name": "Slacks Creek",
+    "irsd": "883",
+    "irsad": "882",
+    "ier": "908",
+    "ieo": "884"
+  },
+  "311061334": {
+    "sa2Id": "311061334",
+    "sa2Name": "Springwood",
+    "irsd": "1038",
+    "irsad": "1020",
+    "ier": "1019",
+    "ieo": "1002"
+  },
+  "311061335": {
+    "sa2Id": "311061335",
+    "sa2Name": "Underwood",
+    "irsd": "1035",
+    "irsad": "1036",
+    "ier": "1040",
+    "ieo": "1029"
+  },
+  "311061336": {
+    "sa2Id": "311061336",
+    "sa2Name": "Woodridge",
+    "irsd": "766",
+    "irsad": "796",
+    "ier": "819",
+    "ieo": "805"
+  },
+  "312011337": {
+    "sa2Id": "312011337",
+    "sa2Name": "Bowen",
+    "irsd": "916",
+    "irsad": "902",
+    "ier": "936",
+    "ieo": "875"
+  },
+  "312011338": {
+    "sa2Id": "312011338",
+    "sa2Name": "Broadsound - Nebo",
+    "irsd": "993",
+    "irsad": "962",
+    "ier": "980",
+    "ieo": "904"
+  },
+  "312011339": {
+    "sa2Id": "312011339",
+    "sa2Name": "Clermont",
+    "irsd": "1017",
+    "irsad": "986",
+    "ier": "1018",
+    "ieo": "942"
+  },
+  "312011340": {
+    "sa2Id": "312011340",
+    "sa2Name": "Collinsville",
+    "irsd": "936",
+    "irsad": "913",
+    "ier": "978",
+    "ieo": "870"
+  },
+  "312011341": {
+    "sa2Id": "312011341",
+    "sa2Name": "Moranbah",
+    "irsd": "1041",
+    "irsad": "1011",
+    "ier": "993",
+    "ieo": "949"
+  },
+  "312021342": {
+    "sa2Id": "312021342",
+    "sa2Name": "Andergrove - Beaconsfield",
+    "irsd": "982",
+    "irsad": "955",
+    "ier": "980",
+    "ieo": "917"
+  },
+  "312021343": {
+    "sa2Id": "312021343",
+    "sa2Name": "East Mackay",
+    "irsd": "958",
+    "irsad": "950",
+    "ier": "955",
+    "ieo": "937"
+  },
+  "312021344": {
+    "sa2Id": "312021344",
+    "sa2Name": "Eimeo - Rural View",
+    "irsd": "1024",
+    "irsad": "1010",
+    "ier": "1029",
+    "ieo": "972"
+  },
+  "312021346": {
+    "sa2Id": "312021346",
+    "sa2Name": "Mackay",
+    "irsd": "874",
+    "irsad": "884",
+    "ier": "809",
+    "ieo": "929"
+  },
+  "312021347": {
+    "sa2Id": "312021347",
+    "sa2Name": "Mackay Harbour",
+    "irsd": "1052",
+    "irsad": "1069",
+    "ier": "997",
+    "ieo": "1085"
+  },
+  "312021348": {
+    "sa2Id": "312021348",
+    "sa2Name": "Mount Pleasant - Glenella",
+    "irsd": "1050",
+    "irsad": "1034",
+    "ier": "1068",
+    "ieo": "981"
+  },
+  "312021349": {
+    "sa2Id": "312021349",
+    "sa2Name": "North Mackay",
+    "irsd": "928",
+    "irsad": "911",
+    "ier": "917",
+    "ieo": "899"
+  },
+  "312021350": {
+    "sa2Id": "312021350",
+    "sa2Name": "Ooralea - Bakers Creek",
+    "irsd": "1026",
+    "irsad": "994",
+    "ier": "1038",
+    "ieo": "919"
+  },
+  "312021351": {
+    "sa2Id": "312021351",
+    "sa2Name": "Pioneer Valley",
+    "irsd": "997",
+    "irsad": "971",
+    "ier": "1039",
+    "ieo": "912"
+  },
+  "312021352": {
+    "sa2Id": "312021352",
+    "sa2Name": "Sarina",
+    "irsd": "958",
+    "irsad": "933",
+    "ier": "1001",
+    "ieo": "870"
+  },
+  "312021353": {
+    "sa2Id": "312021353",
+    "sa2Name": "Seaforth - Calen",
+    "irsd": "995",
+    "irsad": "969",
+    "ier": "1033",
+    "ieo": "916"
+  },
+  "312021354": {
+    "sa2Id": "312021354",
+    "sa2Name": "Shoal Point - Bucasia",
+    "irsd": "1003",
+    "irsad": "983",
+    "ier": "1017",
+    "ieo": "946"
+  },
+  "312021355": {
+    "sa2Id": "312021355",
+    "sa2Name": "Slade Point",
+    "irsd": "932",
+    "irsad": "917",
+    "ier": "949",
+    "ieo": "899"
+  },
+  "312021356": {
+    "sa2Id": "312021356",
+    "sa2Name": "South Mackay",
+    "irsd": "925",
+    "irsad": "905",
+    "ier": "918",
+    "ieo": "888"
+  },
+  "312021357": {
+    "sa2Id": "312021357",
+    "sa2Name": "Walkerston - Eton",
+    "irsd": "1026",
+    "irsad": "992",
+    "ier": "1054",
+    "ieo": "918"
+  },
+  "312021358": {
+    "sa2Id": "312021358",
+    "sa2Name": "West Mackay",
+    "irsd": "977",
+    "irsad": "958",
+    "ier": "952",
+    "ieo": "951"
+  },
+  "312031359": {
+    "sa2Id": "312031359",
+    "sa2Name": "Airlie - Whitsundays",
+    "irsd": "1011",
+    "irsad": "989",
+    "ier": "987",
+    "ieo": "975"
+  },
+  "312031361": {
+    "sa2Id": "312031361",
+    "sa2Name": "Proserpine",
+    "irsd": "981",
+    "irsad": "949",
+    "ier": "1001",
+    "ieo": "913"
+  },
+  "313011362": {
+    "sa2Id": "313011362",
+    "sa2Name": "Beachmere - Sandstone Point",
+    "irsd": "956",
+    "irsad": "931",
+    "ier": "995",
+    "ieo": "909"
+  },
+  "313011363": {
+    "sa2Id": "313011363",
+    "sa2Name": "Bribie Island",
+    "irsd": "939",
+    "irsad": "925",
+    "ier": "959",
+    "ieo": "930"
+  },
+  "313021364": {
+    "sa2Id": "313021364",
+    "sa2Name": "Burpengary - East",
+    "irsd": "1057",
+    "irsad": "1034",
+    "ier": "1122",
+    "ieo": "956"
+  },
+  "313021365": {
+    "sa2Id": "313021365",
+    "sa2Name": "Caboolture",
+    "irsd": "893",
+    "irsad": "886",
+    "ier": "929",
+    "ieo": "874"
+  },
+  "313021366": {
+    "sa2Id": "313021366",
+    "sa2Name": "Caboolture - South",
+    "irsd": "889",
+    "irsad": "880",
+    "ier": "930",
+    "ieo": "870"
+  },
+  "313021367": {
+    "sa2Id": "313021367",
+    "sa2Name": "Elimbah",
+    "irsd": "1031",
+    "irsad": "1004",
+    "ier": "1088",
+    "ieo": "939"
+  },
+  "313021368": {
+    "sa2Id": "313021368",
+    "sa2Name": "Morayfield - East",
+    "irsd": "936",
+    "irsad": "914",
+    "ier": "967",
+    "ieo": "884"
+  },
+  "313021369": {
+    "sa2Id": "313021369",
+    "sa2Name": "Wamuran",
+    "irsd": "1042",
+    "irsad": "1015",
+    "ier": "1089",
+    "ieo": "956"
+  },
+  "313031370": {
+    "sa2Id": "313031370",
+    "sa2Name": "Kilcoy",
+    "irsd": "929",
+    "irsad": "917",
+    "ier": "982",
+    "ieo": "900"
+  },
+  "313031371": {
+    "sa2Id": "313031371",
+    "sa2Name": "Woodford - D'Aguilar",
+    "irsd": "984",
+    "irsad": "960",
+    "ier": "1033",
+    "ieo": "927"
+  },
+  "313041372": {
+    "sa2Id": "313041372",
+    "sa2Name": "Burpengary",
+    "irsd": "1000",
+    "irsad": "972",
+    "ier": "1027",
+    "ieo": "932"
+  },
+  "313041373": {
+    "sa2Id": "313041373",
+    "sa2Name": "Deception Bay",
+    "irsd": "901",
+    "irsad": "889",
+    "ier": "942",
+    "ieo": "877"
+  },
+  "313041374": {
+    "sa2Id": "313041374",
+    "sa2Name": "Morayfield",
+    "irsd": "1053",
+    "irsad": "1028",
+    "ier": "1115",
+    "ieo": "957"
+  },
+  "313041375": {
+    "sa2Id": "313041375",
+    "sa2Name": "Narangba",
+    "irsd": "1050",
+    "irsad": "1027",
+    "ier": "1076",
+    "ieo": "985"
+  },
+  "313041376": {
+    "sa2Id": "313041376",
+    "sa2Name": "Upper Caboolture",
+    "irsd": "1049",
+    "irsad": "1026",
+    "ier": "1104",
+    "ieo": "965"
+  },
+  "313051377": {
+    "sa2Id": "313051377",
+    "sa2Name": "Clontarf",
+    "irsd": "966",
+    "irsad": "948",
+    "ier": "962",
+    "ieo": "946"
+  },
+  "313051378": {
+    "sa2Id": "313051378",
+    "sa2Name": "Margate - Woody Point",
+    "irsd": "934",
+    "irsad": "931",
+    "ier": "916",
+    "ieo": "956"
+  },
+  "313051379": {
+    "sa2Id": "313051379",
+    "sa2Name": "Redcliffe",
+    "irsd": "929",
+    "irsad": "921",
+    "ier": "912",
+    "ieo": "941"
+  },
+  "313051380": {
+    "sa2Id": "313051380",
+    "sa2Name": "Rothwell - Kippa-Ring",
+    "irsd": "941",
+    "irsad": "922",
+    "ier": "955",
+    "ieo": "910"
+  },
+  "313051542": {
+    "sa2Id": "313051542",
+    "sa2Name": "Scarborough - Newport - Moreton Island",
+    "irsd": "1020",
+    "irsad": "1016",
+    "ier": "1013",
+    "ieo": "1020"
+  },
+  "314011382": {
+    "sa2Id": "314011382",
+    "sa2Name": "Albany Creek",
+    "irsd": "1086",
+    "irsad": "1075",
+    "ier": "1093",
+    "ieo": "1049"
+  },
+  "314011383": {
+    "sa2Id": "314011383",
+    "sa2Name": "Cashmere",
+    "irsd": "1090",
+    "irsad": "1081",
+    "ier": "1114",
+    "ieo": "1039"
+  },
+  "314011384": {
+    "sa2Id": "314011384",
+    "sa2Name": "Dayboro",
+    "irsd": "1080",
+    "irsad": "1075",
+    "ier": "1119",
+    "ieo": "1050"
+  },
+  "314011385": {
+    "sa2Id": "314011385",
+    "sa2Name": "Eatons Hill",
+    "irsd": "1115",
+    "irsad": "1114",
+    "ier": "1141",
+    "ieo": "1084"
+  },
+  "314011386": {
+    "sa2Id": "314011386",
+    "sa2Name": "The Hills District",
+    "irsd": "1085",
+    "irsad": "1073",
+    "ier": "1076",
+    "ieo": "1064"
+  },
+  "314011387": {
+    "sa2Id": "314011387",
+    "sa2Name": "Samford Valley",
+    "irsd": "1112",
+    "irsad": "1130",
+    "ier": "1156",
+    "ieo": "1112"
+  },
+  "314021388": {
+    "sa2Id": "314021388",
+    "sa2Name": "Dakabin - Kallangur",
+    "irsd": "966",
+    "irsad": "940",
+    "ier": "963",
+    "ieo": "921"
+  },
+  "314021389": {
+    "sa2Id": "314021389",
+    "sa2Name": "Murrumba Downs - Griffin",
+    "irsd": "1040",
+    "irsad": "1023",
+    "ier": "1031",
+    "ieo": "1001"
+  },
+  "314021390": {
+    "sa2Id": "314021390",
+    "sa2Name": "North Lakes - Mango Hill",
+    "irsd": "1051",
+    "irsad": "1041",
+    "ier": "1043",
+    "ieo": "1024"
+  },
+  "314031391": {
+    "sa2Id": "314031391",
+    "sa2Name": "Bray Park",
+    "irsd": "1000",
+    "irsad": "970",
+    "ier": "1004",
+    "ieo": "940"
+  },
+  "314031392": {
+    "sa2Id": "314031392",
+    "sa2Name": "Lawnton",
+    "irsd": "965",
+    "irsad": "944",
+    "ier": "959",
+    "ieo": "931"
+  },
+  "314031393": {
+    "sa2Id": "314031393",
+    "sa2Name": "Petrie",
+    "irsd": "1026",
+    "irsad": "1001",
+    "ier": "1024",
+    "ieo": "978"
+  },
+  "314031394": {
+    "sa2Id": "314031394",
+    "sa2Name": "Strathpine - Brendale",
+    "irsd": "964",
+    "irsad": "938",
+    "ier": "957",
+    "ieo": "922"
+  },
+  "315011395": {
+    "sa2Id": "315011395",
+    "sa2Name": "Aurukun",
+    "irsd": "504",
+    "irsad": "641",
+    "ier": "484",
+    "ieo": "795"
+  },
+  "315011396": {
+    "sa2Id": "315011396",
+    "sa2Name": "Cape York",
+    "irsd": "783",
+    "irsad": "820",
+    "ier": "771",
+    "ieo": "882"
+  },
+  "315011397": {
+    "sa2Id": "315011397",
+    "sa2Name": "Croydon - Etheridge",
+    "irsd": "919",
+    "irsad": "920",
+    "ier": "953",
+    "ieo": "926"
+  },
+  "315011398": {
+    "sa2Id": "315011398",
+    "sa2Name": "Kowanyama - Pormpuraaw",
+    "irsd": "612",
+    "irsad": "700",
+    "ier": "581",
+    "ieo": "792"
+  },
+  "315011399": {
+    "sa2Id": "315011399",
+    "sa2Name": "Northern Peninsula",
+    "irsd": "694",
+    "irsad": "771",
+    "ier": "627",
+    "ieo": "885"
+  },
+  "315011400": {
+    "sa2Id": "315011400",
+    "sa2Name": "Tablelands",
+    "irsd": "941",
+    "irsad": "931",
+    "ier": "972",
+    "ieo": "936"
+  },
+  "315011401": {
+    "sa2Id": "315011401",
+    "sa2Name": "Torres",
+    "irsd": "901",
+    "irsad": "933",
+    "ier": "821",
+    "ieo": "1009"
+  },
+  "315011402": {
+    "sa2Id": "315011402",
+    "sa2Name": "Torres Strait Islands",
+    "irsd": "672",
+    "irsad": "759",
+    "ier": "607",
+    "ieo": "909"
+  },
+  "315011403": {
+    "sa2Id": "315011403",
+    "sa2Name": "Weipa",
+    "irsd": "1064",
+    "irsad": "1047",
+    "ier": "1043",
+    "ieo": "951"
+  },
+  "315021404": {
+    "sa2Id": "315021404",
+    "sa2Name": "Carpentaria",
+    "irsd": "717",
+    "irsad": "777",
+    "ier": "699",
+    "ieo": "881"
+  },
+  "315021405": {
+    "sa2Id": "315021405",
+    "sa2Name": "Mount Isa",
+    "irsd": "991",
+    "irsad": "974",
+    "ier": "969",
+    "ieo": "940"
+  },
+  "315021406": {
+    "sa2Id": "315021406",
+    "sa2Name": "Mount Isa Region",
+    "irsd": "949",
+    "irsad": "939",
+    "ier": "926",
+    "ieo": "924"
+  },
+  "315021407": {
+    "sa2Id": "315021407",
+    "sa2Name": "Northern Highlands",
+    "irsd": "979",
+    "irsad": "962",
+    "ier": "985",
+    "ieo": "948"
+  },
+  "315031408": {
+    "sa2Id": "315031408",
+    "sa2Name": "Barcaldine - Blackall",
+    "irsd": "979",
+    "irsad": "959",
+    "ier": "984",
+    "ieo": "956"
+  },
+  "315031409": {
+    "sa2Id": "315031409",
+    "sa2Name": "Charleville",
+    "irsd": "943",
+    "irsad": "935",
+    "ier": "958",
+    "ieo": "944"
+  },
+  "315031410": {
+    "sa2Id": "315031410",
+    "sa2Name": "Far Central West",
+    "irsd": "946",
+    "irsad": "935",
+    "ier": "939",
+    "ieo": "937"
+  },
+  "315031411": {
+    "sa2Id": "315031411",
+    "sa2Name": "Far South West",
+    "irsd": "925",
+    "irsad": "926",
+    "ier": "937",
+    "ieo": "961"
+  },
+  "315031412": {
+    "sa2Id": "315031412",
+    "sa2Name": "Longreach",
+    "irsd": "999",
+    "irsad": "982",
+    "ier": "976",
+    "ieo": "988"
+  },
+  "316011413": {
+    "sa2Id": "316011413",
+    "sa2Name": "Buderim - North",
+    "irsd": "1042",
+    "irsad": "1035",
+    "ier": "1037",
+    "ieo": "1039"
+  },
+  "316011414": {
+    "sa2Id": "316011414",
+    "sa2Name": "Buderim - South",
+    "irsd": "1059",
+    "irsad": "1054",
+    "ier": "1061",
+    "ieo": "1046"
+  },
+  "316011415": {
+    "sa2Id": "316011415",
+    "sa2Name": "Mountain Creek",
+    "irsd": "1039",
+    "irsad": "1029",
+    "ier": "1029",
+    "ieo": "1009"
+  },
+  "316011416": {
+    "sa2Id": "316011416",
+    "sa2Name": "Sippy Downs",
+    "irsd": "998",
+    "irsad": "985",
+    "ier": "994",
+    "ieo": "976"
+  },
+  "316021417": {
+    "sa2Id": "316021417",
+    "sa2Name": "Aroona - Currimundi",
+    "irsd": "1002",
+    "irsad": "975",
+    "ier": "1015",
+    "ieo": "959"
+  },
+  "316021418": {
+    "sa2Id": "316021418",
+    "sa2Name": "Buddina - Minyama",
+    "irsd": "1024",
+    "irsad": "1016",
+    "ier": "1011",
+    "ieo": "1013"
+  },
+  "316021419": {
+    "sa2Id": "316021419",
+    "sa2Name": "Caloundra - Kings Beach",
+    "irsd": "926",
+    "irsad": "919",
+    "ier": "892",
+    "ieo": "950"
+  },
+  "316021420": {
+    "sa2Id": "316021420",
+    "sa2Name": "Caloundra - West",
+    "irsd": "1014",
+    "irsad": "993",
+    "ier": "1025",
+    "ieo": "970"
+  },
+  "316021421": {
+    "sa2Id": "316021421",
+    "sa2Name": "Golden Beach - Pelican Waters",
+    "irsd": "1022",
+    "irsad": "1004",
+    "ier": "1028",
+    "ieo": "982"
+  },
+  "316021422": {
+    "sa2Id": "316021422",
+    "sa2Name": "Moffat Beach - Battery Hill",
+    "irsd": "1002",
+    "irsad": "993",
+    "ier": "990",
+    "ieo": "1011"
+  },
+  "316021423": {
+    "sa2Id": "316021423",
+    "sa2Name": "Parrearra - Warana",
+    "irsd": "1028",
+    "irsad": "1013",
+    "ier": "1013",
+    "ieo": "1000"
+  },
+  "316021424": {
+    "sa2Id": "316021424",
+    "sa2Name": "Wurtulla - Birtinya",
+    "irsd": "1028",
+    "irsad": "1012",
+    "ier": "1017",
+    "ieo": "993"
+  },
+  "316031425": {
+    "sa2Id": "316031425",
+    "sa2Name": "Coolum Beach",
+    "irsd": "1026",
+    "irsad": "1010",
+    "ier": "1010",
+    "ieo": "1018"
+  },
+  "316031426": {
+    "sa2Id": "316031426",
+    "sa2Name": "Marcoola - Mudjimba",
+    "irsd": "1017",
+    "irsad": "996",
+    "ier": "1000",
+    "ieo": "998"
+  },
+  "316031427": {
+    "sa2Id": "316031427",
+    "sa2Name": "Maroochydore - Kuluin",
+    "irsd": "984",
+    "irsad": "967",
+    "ier": "947",
+    "ieo": "981"
+  },
+  "316031428": {
+    "sa2Id": "316031428",
+    "sa2Name": "Mooloolaba - Alexandra Headland",
+    "irsd": "1018",
+    "irsad": "1008",
+    "ier": "964",
+    "ieo": "1026"
+  },
+  "316051434": {
+    "sa2Id": "316051434",
+    "sa2Name": "Noosa Heads",
+    "irsd": "1057",
+    "irsad": "1055",
+    "ier": "1028",
+    "ieo": "1085"
+  },
+  "316051435": {
+    "sa2Id": "316051435",
+    "sa2Name": "Noosaville",
+    "irsd": "1025",
+    "irsad": "1014",
+    "ier": "1006",
+    "ieo": "1031"
+  },
+  "316051437": {
+    "sa2Id": "316051437",
+    "sa2Name": "Sunshine Beach",
+    "irsd": "1044",
+    "irsad": "1036",
+    "ier": "1026",
+    "ieo": "1059"
+  },
+  "316051438": {
+    "sa2Id": "316051438",
+    "sa2Name": "Tewantin",
+    "irsd": "980",
+    "irsad": "957",
+    "ier": "986",
+    "ieo": "961"
+  },
+  "316051543": {
+    "sa2Id": "316051543",
+    "sa2Name": "Peregian Beach - Marcus Beach",
+    "irsd": "1047",
+    "irsad": "1041",
+    "ier": "1026",
+    "ieo": "1062"
+  },
+  "316051544": {
+    "sa2Id": "316051544",
+    "sa2Name": "Peregian Springs",
+    "irsd": "1057",
+    "irsad": "1056",
+    "ier": "1054",
+    "ieo": "1054"
+  },
+  "316061439": {
+    "sa2Id": "316061439",
+    "sa2Name": "Beerwah",
+    "irsd": "980",
+    "irsad": "957",
+    "ier": "1011",
+    "ieo": "940"
+  },
+  "316061440": {
+    "sa2Id": "316061440",
+    "sa2Name": "Caloundra Hinterland",
+    "irsd": "1004",
+    "irsad": "997",
+    "ier": "1007",
+    "ieo": "1041"
+  },
+  "316061441": {
+    "sa2Id": "316061441",
+    "sa2Name": "Glass House Mountains",
+    "irsd": "1014",
+    "irsad": "989",
+    "ier": "1047",
+    "ieo": "959"
+  },
+  "316061442": {
+    "sa2Id": "316061442",
+    "sa2Name": "Landsborough",
+    "irsd": "1014",
+    "irsad": "991",
+    "ier": "1044",
+    "ieo": "971"
+  },
+  "316061443": {
+    "sa2Id": "316061443",
+    "sa2Name": "Maroochy Hinterland",
+    "irsd": "1014",
+    "irsad": "1000",
+    "ier": "1025",
+    "ieo": "1013"
+  },
+  "316061444": {
+    "sa2Id": "316061444",
+    "sa2Name": "Palmwoods",
+    "irsd": "1038",
+    "irsad": "1022",
+    "ier": "1057",
+    "ieo": "1017"
+  },
+  "316071545": {
+    "sa2Id": "316071545",
+    "sa2Name": "Bli Bli",
+    "irsd": "1027",
+    "irsad": "998",
+    "ier": "1042",
+    "ieo": "968"
+  },
+  "316071546": {
+    "sa2Id": "316071546",
+    "sa2Name": "Diddillibah - Rosemount",
+    "irsd": "1039",
+    "irsad": "1020",
+    "ier": "1064",
+    "ieo": "1003"
+  },
+  "316071547": {
+    "sa2Id": "316071547",
+    "sa2Name": "Eumundi - Yandina",
+    "irsd": "1020",
+    "irsad": "1003",
+    "ier": "1047",
+    "ieo": "996"
+  },
+  "316071548": {
+    "sa2Id": "316071548",
+    "sa2Name": "Nambour",
+    "irsd": "952",
+    "irsad": "936",
+    "ier": "965",
+    "ieo": "946"
+  },
+  "316081549": {
+    "sa2Id": "316081549",
+    "sa2Name": "Noosa Hinterland",
+    "irsd": "1012",
+    "irsad": "994",
+    "ier": "1039",
+    "ieo": "990"
+  },
+  "317011445": {
+    "sa2Id": "317011445",
+    "sa2Name": "Cambooya - Wyreema",
+    "irsd": "1059",
+    "irsad": "1033",
+    "ier": "1080",
+    "ieo": "1003"
+  },
+  "317011446": {
+    "sa2Id": "317011446",
+    "sa2Name": "Darling Heights",
+    "irsd": "956",
+    "irsad": "952",
+    "ier": "933",
+    "ieo": "972"
+  },
+  "317011447": {
+    "sa2Id": "317011447",
+    "sa2Name": "Drayton - Harristown",
+    "irsd": "924",
+    "irsad": "908",
+    "ier": "919",
+    "ieo": "911"
+  },
+  "317011448": {
+    "sa2Id": "317011448",
+    "sa2Name": "Gatton",
+    "irsd": "897",
+    "irsad": "899",
+    "ier": "922",
+    "ieo": "887"
+  },
+  "317011449": {
+    "sa2Id": "317011449",
+    "sa2Name": "Gowrie (Qld)",
+    "irsd": "1040",
+    "irsad": "1002",
+    "ier": "1073",
+    "ieo": "945"
+  },
+  "317011450": {
+    "sa2Id": "317011450",
+    "sa2Name": "Highfields",
+    "irsd": "1083",
+    "irsad": "1067",
+    "ier": "1100",
+    "ieo": "1044"
+  },
+  "317011451": {
+    "sa2Id": "317011451",
+    "sa2Name": "Lockyer Valley - West",
+    "irsd": "1001",
+    "irsad": "979",
+    "ier": "1041",
+    "ieo": "956"
+  },
+  "317011452": {
+    "sa2Id": "317011452",
+    "sa2Name": "Middle Ridge",
+    "irsd": "1084",
+    "irsad": "1082",
+    "ier": "1089",
+    "ieo": "1067"
+  },
+  "317011453": {
+    "sa2Id": "317011453",
+    "sa2Name": "Newtown (Qld)",
+    "irsd": "917",
+    "irsad": "901",
+    "ier": "895",
+    "ieo": "920"
+  },
+  "317011454": {
+    "sa2Id": "317011454",
+    "sa2Name": "North Toowoomba - Harlaxton",
+    "irsd": "934",
+    "irsad": "919",
+    "ier": "910",
+    "ieo": "942"
+  },
+  "317011455": {
+    "sa2Id": "317011455",
+    "sa2Name": "Rangeville",
+    "irsd": "1046",
+    "irsad": "1035",
+    "ier": "1016",
+    "ieo": "1043"
+  },
+  "317011456": {
+    "sa2Id": "317011456",
+    "sa2Name": "Toowoomba - Central",
+    "irsd": "959",
+    "irsad": "947",
+    "ier": "919",
+    "ieo": "976"
+  },
+  "317011457": {
+    "sa2Id": "317011457",
+    "sa2Name": "Toowoomba - East",
+    "irsd": "1045",
+    "irsad": "1050",
+    "ier": "1012",
+    "ieo": "1086"
+  },
+  "317011458": {
+    "sa2Id": "317011458",
+    "sa2Name": "Toowoomba - West",
+    "irsd": "1039",
+    "irsad": "1010",
+    "ier": "1054",
+    "ieo": "963"
+  },
+  "317011459": {
+    "sa2Id": "317011459",
+    "sa2Name": "Wilsonton",
+    "irsd": "913",
+    "irsad": "891",
+    "ier": "924",
+    "ieo": "882"
+  },
+  "318011460": {
+    "sa2Id": "318011460",
+    "sa2Name": "Ayr",
+    "irsd": "946",
+    "irsad": "920",
+    "ier": "957",
+    "ieo": "896"
+  },
+  "318011461": {
+    "sa2Id": "318011461",
+    "sa2Name": "Burdekin",
+    "irsd": "980",
+    "irsad": "950",
+    "ier": "1001",
+    "ieo": "915"
+  },
+  "318011462": {
+    "sa2Id": "318011462",
+    "sa2Name": "Charters Towers",
+    "irsd": "909",
+    "irsad": "899",
+    "ier": "917",
+    "ieo": "912"
+  },
+  "318011463": {
+    "sa2Id": "318011463",
+    "sa2Name": "Dalrymple",
+    "irsd": "968",
+    "irsad": "947",
+    "ier": "1011",
+    "ieo": "924"
+  },
+  "318011464": {
+    "sa2Id": "318011464",
+    "sa2Name": "Ingham",
+    "irsd": "924",
+    "irsad": "901",
+    "ier": "930",
+    "ieo": "888"
+  },
+  "318011465": {
+    "sa2Id": "318011465",
+    "sa2Name": "Ingham Region",
+    "irsd": "985",
+    "irsad": "949",
+    "ier": "1003",
+    "ieo": "918"
+  },
+  "318011466": {
+    "sa2Id": "318011466",
+    "sa2Name": "Palm Island",
+    "irsd": "562",
+    "irsad": "673",
+    "ier": "545",
+    "ieo": "832"
+  },
+  "318021467": {
+    "sa2Id": "318021467",
+    "sa2Name": "Aitkenvale",
+    "irsd": "940",
+    "irsad": "937",
+    "ier": "915",
+    "ieo": "964"
+  },
+  "318021468": {
+    "sa2Id": "318021468",
+    "sa2Name": "Annandale",
+    "irsd": "1077",
+    "irsad": "1068",
+    "ier": "1069",
+    "ieo": "1051"
+  },
+  "318021469": {
+    "sa2Id": "318021469",
+    "sa2Name": "Belgian Gardens - Pallarenda",
+    "irsd": "1016",
+    "irsad": "1022",
+    "ier": "975",
+    "ieo": "1062"
+  },
+  "318021470": {
+    "sa2Id": "318021470",
+    "sa2Name": "Bohle Plains",
+    "irsd": "1071",
+    "irsad": "1045",
+    "ier": "1077",
+    "ieo": "998"
+  },
+  "318021471": {
+    "sa2Id": "318021471",
+    "sa2Name": "Condon - Rasmussen",
+    "irsd": "930",
+    "irsad": "912",
+    "ier": "941",
+    "ieo": "907"
+  },
+  "318021472": {
+    "sa2Id": "318021472",
+    "sa2Name": "Cranbrook",
+    "irsd": "959",
+    "irsad": "948",
+    "ier": "950",
+    "ieo": "955"
+  },
+  "318021473": {
+    "sa2Id": "318021473",
+    "sa2Name": "Deeragun",
+    "irsd": "1020",
+    "irsad": "996",
+    "ier": "1029",
+    "ieo": "955"
+  },
+  "318021474": {
+    "sa2Id": "318021474",
+    "sa2Name": "Douglas",
+    "irsd": "1071",
+    "irsad": "1074",
+    "ier": "991",
+    "ieo": "1097"
+  },
+  "318021475": {
+    "sa2Id": "318021475",
+    "sa2Name": "Garbutt - West End",
+    "irsd": "902",
+    "irsad": "907",
+    "ier": "864",
+    "ieo": "955"
+  },
+  "318021476": {
+    "sa2Id": "318021476",
+    "sa2Name": "Gulliver - Currajong - Vincent",
+    "irsd": "919",
+    "irsad": "905",
+    "ier": "912",
+    "ieo": "915"
+  },
+  "318021477": {
+    "sa2Id": "318021477",
+    "sa2Name": "Heatley",
+    "irsd": "895",
+    "irsad": "883",
+    "ier": "904",
+    "ieo": "888"
+  },
+  "318021478": {
+    "sa2Id": "318021478",
+    "sa2Name": "Hermit Park - Rosslea",
+    "irsd": "955",
+    "irsad": "953",
+    "ier": "898",
+    "ieo": "998"
+  },
+  "318021479": {
+    "sa2Id": "318021479",
+    "sa2Name": "Hyde Park - Pimlico",
+    "irsd": "932",
+    "irsad": "936",
+    "ier": "887",
+    "ieo": "989"
+  },
+  "318021480": {
+    "sa2Id": "318021480",
+    "sa2Name": "Kelso",
+    "irsd": "937",
+    "irsad": "921",
+    "ier": "976",
+    "ieo": "899"
+  },
+  "318021481": {
+    "sa2Id": "318021481",
+    "sa2Name": "Kirwan - East",
+    "irsd": "916",
+    "irsad": "901",
+    "ier": "931",
+    "ieo": "895"
+  },
+  "318021482": {
+    "sa2Id": "318021482",
+    "sa2Name": "Kirwan - West",
+    "irsd": "1024",
+    "irsad": "1000",
+    "ier": "1019",
+    "ieo": "973"
+  },
+  "318021483": {
+    "sa2Id": "318021483",
+    "sa2Name": "Magnetic Island",
+    "irsd": "951",
+    "irsad": "941",
+    "ier": "924",
+    "ieo": "1001"
+  },
+  "318021484": {
+    "sa2Id": "318021484",
+    "sa2Name": "Mount Louisa",
+    "irsd": "1036",
+    "irsad": "1013",
+    "ier": "1032",
+    "ieo": "985"
+  },
+  "318021485": {
+    "sa2Id": "318021485",
+    "sa2Name": "Mundingburra",
+    "irsd": "990",
+    "irsad": "981",
+    "ier": "961",
+    "ieo": "1010"
+  },
+  "318021486": {
+    "sa2Id": "318021486",
+    "sa2Name": "Northern Beaches",
+    "irsd": "974",
+    "irsad": "948",
+    "ier": "1014",
+    "ieo": "909"
+  },
+  "318021487": {
+    "sa2Id": "318021487",
+    "sa2Name": "Oonoonba",
+    "irsd": "1057",
+    "irsad": "1048",
+    "ier": "1030",
+    "ieo": "1031"
+  },
+  "318021488": {
+    "sa2Id": "318021488",
+    "sa2Name": "South Townsville - Railway Estate",
+    "irsd": "970",
+    "irsad": "967",
+    "ier": "912",
+    "ieo": "998"
+  },
+  "318021489": {
+    "sa2Id": "318021489",
+    "sa2Name": "Townsville - South",
+    "irsd": "1011",
+    "irsad": "989",
+    "ier": "1042",
+    "ieo": "952"
+  },
+  "318021490": {
+    "sa2Id": "318021490",
+    "sa2Name": "Townsville City - North Ward",
+    "irsd": "1039",
+    "irsad": "1049",
+    "ier": "952",
+    "ieo": "1093"
+  },
+  "318021491": {
+    "sa2Id": "318021491",
+    "sa2Name": "Wulguru - Roseneath",
+    "irsd": "942",
+    "irsad": "923",
+    "ier": "957",
+    "ieo": "905"
+  },
+  "319011492": {
+    "sa2Id": "319011492",
+    "sa2Name": "Ashfield - Kepnock",
+    "irsd": "938",
+    "irsad": "914",
+    "ier": "953",
+    "ieo": "904"
+  },
+  "319011493": {
+    "sa2Id": "319011493",
+    "sa2Name": "Bargara - Burnett Heads",
+    "irsd": "983",
+    "irsad": "966",
+    "ier": "993",
+    "ieo": "972"
+  },
+  "319011494": {
+    "sa2Id": "319011494",
+    "sa2Name": "Branyan - Kensington",
+    "irsd": "984",
+    "irsad": "956",
+    "ier": "1028",
+    "ieo": "919"
+  },
+  "319011495": {
+    "sa2Id": "319011495",
+    "sa2Name": "Bundaberg",
+    "irsd": "816",
+    "irsad": "832",
+    "ier": "811",
+    "ieo": "884"
+  },
+  "319011496": {
+    "sa2Id": "319011496",
+    "sa2Name": "Bundaberg East - Kalkie",
+    "irsd": "948",
+    "irsad": "926",
+    "ier": "963",
+    "ieo": "907"
+  },
+  "319011497": {
+    "sa2Id": "319011497",
+    "sa2Name": "Bundaberg North - Gooburrum",
+    "irsd": "916",
+    "irsad": "901",
+    "ier": "943",
+    "ieo": "885"
+  },
+  "319011498": {
+    "sa2Id": "319011498",
+    "sa2Name": "Bundaberg Region - North",
+    "irsd": "940",
+    "irsad": "923",
+    "ier": "990",
+    "ieo": "904"
+  },
+  "319011499": {
+    "sa2Id": "319011499",
+    "sa2Name": "Bundaberg Region - South",
+    "irsd": "929",
+    "irsad": "910",
+    "ier": "979",
+    "ieo": "903"
+  },
+  "319011500": {
+    "sa2Id": "319011500",
+    "sa2Name": "Millbank - Avoca",
+    "irsd": "934",
+    "irsad": "911",
+    "ier": "947",
+    "ieo": "905"
+  },
+  "319011501": {
+    "sa2Id": "319011501",
+    "sa2Name": "Svensson Heights - Norville",
+    "irsd": "885",
+    "irsad": "869",
+    "ier": "905",
+    "ieo": "873"
+  },
+  "319011502": {
+    "sa2Id": "319011502",
+    "sa2Name": "Walkervale - Avenell Heights",
+    "irsd": "887",
+    "irsad": "871",
+    "ier": "918",
+    "ieo": "870"
+  },
+  "319021503": {
+    "sa2Id": "319021503",
+    "sa2Name": "Gayndah - Mundubbera",
+    "irsd": "915",
+    "irsad": "905",
+    "ier": "952",
+    "ieo": "904"
+  },
+  "319021504": {
+    "sa2Id": "319021504",
+    "sa2Name": "Gin Gin",
+    "irsd": "862",
+    "irsad": "854",
+    "ier": "938",
+    "ieo": "859"
+  },
+  "319021505": {
+    "sa2Id": "319021505",
+    "sa2Name": "Kingaroy",
+    "irsd": "929",
+    "irsad": "917",
+    "ier": "941",
+    "ieo": "929"
+  },
+  "319021506": {
+    "sa2Id": "319021506",
+    "sa2Name": "Kingaroy Region - North",
+    "irsd": "835",
+    "irsad": "851",
+    "ier": "886",
+    "ieo": "897"
+  },
+  "319021507": {
+    "sa2Id": "319021507",
+    "sa2Name": "Kingaroy Region - South",
+    "irsd": "984",
+    "irsad": "962",
+    "ier": "1036",
+    "ieo": "951"
+  },
+  "319021508": {
+    "sa2Id": "319021508",
+    "sa2Name": "Monto - Eidsvold",
+    "irsd": "916",
+    "irsad": "913",
+    "ier": "962",
+    "ieo": "933"
+  },
+  "319021509": {
+    "sa2Id": "319021509",
+    "sa2Name": "Nanango",
+    "irsd": "861",
+    "irsad": "852",
+    "ier": "935",
+    "ieo": "868"
+  },
+  "319031511": {
+    "sa2Id": "319031511",
+    "sa2Name": "Cooloola",
+    "irsd": "880",
+    "irsad": "865",
+    "ier": "927",
+    "ieo": "879"
+  },
+  "319031512": {
+    "sa2Id": "319031512",
+    "sa2Name": "Gympie - North",
+    "irsd": "881",
+    "irsad": "870",
+    "ier": "907",
+    "ieo": "884"
+  },
+  "319031513": {
+    "sa2Id": "319031513",
+    "sa2Name": "Gympie - South",
+    "irsd": "935",
+    "irsad": "917",
+    "ier": "971",
+    "ieo": "910"
+  },
+  "319031514": {
+    "sa2Id": "319031514",
+    "sa2Name": "Gympie Region",
+    "irsd": "954",
+    "irsad": "935",
+    "ier": "1001",
+    "ieo": "929"
+  },
+  "319031515": {
+    "sa2Id": "319031515",
+    "sa2Name": "Kilkivan",
+    "irsd": "919",
+    "irsad": "910",
+    "ier": "976",
+    "ieo": "928"
+  },
+  "319041516": {
+    "sa2Id": "319041516",
+    "sa2Name": "Booral - River Heads",
+    "irsd": "957",
+    "irsad": "930",
+    "ier": "1008",
+    "ieo": "904"
+  },
+  "319041517": {
+    "sa2Id": "319041517",
+    "sa2Name": "Craignish - Dundowran Beach",
+    "irsd": "1015",
+    "irsad": "991",
+    "ier": "1056",
+    "ieo": "967"
+  },
+  "319041518": {
+    "sa2Id": "319041518",
+    "sa2Name": "Pialba - Eli Waters",
+    "irsd": "923",
+    "irsad": "911",
+    "ier": "950",
+    "ieo": "920"
+  },
+  "319041519": {
+    "sa2Id": "319041519",
+    "sa2Name": "Point Vernon",
+    "irsd": "915",
+    "irsad": "905",
+    "ier": "951",
+    "ieo": "928"
+  },
+  "319041520": {
+    "sa2Id": "319041520",
+    "sa2Name": "Torquay - Scarness - Kawungan",
+    "irsd": "894",
+    "irsad": "886",
+    "ier": "914",
+    "ieo": "913"
+  },
+  "319041521": {
+    "sa2Id": "319041521",
+    "sa2Name": "Urangan - Wondunna",
+    "irsd": "937",
+    "irsad": "923",
+    "ier": "962",
+    "ieo": "931"
+  },
+  "319051522": {
+    "sa2Id": "319051522",
+    "sa2Name": "Burrum - Fraser",
+    "irsd": "893",
+    "irsad": "877",
+    "ier": "951",
+    "ieo": "872"
+  },
+  "319051523": {
+    "sa2Id": "319051523",
+    "sa2Name": "Granville",
+    "irsd": "870",
+    "irsad": "854",
+    "ier": "917",
+    "ieo": "854"
+  },
+  "319051524": {
+    "sa2Id": "319051524",
+    "sa2Name": "Maryborough (Qld)",
+    "irsd": "866",
+    "irsad": "859",
+    "ier": "898",
+    "ieo": "873"
+  },
+  "319051525": {
+    "sa2Id": "319051525",
+    "sa2Name": "Maryborough Region - South",
+    "irsd": "899",
+    "irsad": "883",
+    "ier": "965",
+    "ieo": "875"
+  },
+  "319051526": {
+    "sa2Id": "319051526",
+    "sa2Name": "Tinana",
+    "irsd": "977",
+    "irsad": "950",
+    "ier": "1001",
+    "ieo": "923"
+  }
+}

@@ -38,7 +38,7 @@ Any changes out side of "protected regions" will be lost next time the bot makes
 	</ServerSettings>
 	<ConnectionStrings>
 		<!-- % protected region % [Configure ConnectionStrings] off begin -->
-		<DbConnectionString>Server=localhost;Database=Cis;Username=postgres;Password=pass;</DbConnectionString>
+		<DbConnectionString>Server=localhost;Database=Cis;Username=postgres;Password=Dr4gonballz;</DbConnectionString>
 		<!-- % protected region % [Configure ConnectionStrings] end -->
 	</ConnectionStrings>
 	<Redis>

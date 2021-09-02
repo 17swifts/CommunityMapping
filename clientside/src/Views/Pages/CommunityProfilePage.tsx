@@ -22,6 +22,8 @@ import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
 
 // % protected region % [Add any extra imports here] off begin
+import 'mapbox-gl/dist/mapbox-gl.css'; // Mapbox-Gl API import
+import Map from '../Components/Map/Map';
 // % protected region % [Add any extra imports here] end
 
 export interface CommunityProfilePageProps extends RouteComponentProps {
@@ -62,6 +64,9 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 						<h2>
 							Community Profile
 						</h2>
+					</div>
+					<div>
+						<Map></Map>
 					</div>
 					{
 					// % protected region % [Add code for 2586c999-ab9b-4685-879f-330ba2c7fab5 here] off begin

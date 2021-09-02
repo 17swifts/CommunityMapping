@@ -1,0 +1,5279 @@
+{
+  "301011001": {
+    "sa2Id": "301011001",
+    "sa3Id": "30101",
+    "sa3Name": "Capalaba",
+    "numOfPph": "1,019",
+    "percentPphPerDay": "40.1",
+    "sa2Name": "Alexandra Hills",
+    "indigenous": "564",
+    "nonIndigenous": "16342"
+  },
+  "301011002": {
+    "sa2Id": "301011002",
+    "sa3Id": "30101",
+    "sa3Name": "Capalaba",
+    "numOfPph": "1,019",
+    "percentPphPerDay": "40.1",
+    "sa2Name": "Belmont - Gumdale",
+    "indigenous": "97",
+    "nonIndigenous": "7651"
+  },
+  "301011003": {
+    "sa2Id": "301011003",
+    "sa3Id": "30101",
+    "sa3Name": "Capalaba",
+    "numOfPph": "1,019",
+    "percentPphPerDay": "40.1",
+    "sa2Name": "Birkdale",
+    "indigenous": "304",
+    "nonIndigenous": "15090"
+  },
+  "301011004": {
+    "sa2Id": "301011004",
+    "sa3Id": "30101",
+    "sa3Name": "Capalaba",
+    "numOfPph": "1,019",
+    "percentPphPerDay": "40.1",
+    "sa2Name": "Capalaba",
+    "indigenous": "539",
+    "nonIndigenous": "17732"
+  },
+  "301011005": {
+    "sa2Id": "301011005",
+    "sa3Id": "30101",
+    "sa3Name": "Capalaba",
+    "numOfPph": "1,019",
+    "percentPphPerDay": "40.1",
+    "sa2Name": "Thorneside",
+    "indigenous": "104",
+    "nonIndigenous": "3780"
+  },
+  "301011006": {
+    "sa2Id": "301011006",
+    "sa3Id": "30101",
+    "sa3Name": "Capalaba",
+    "numOfPph": "1,019",
+    "percentPphPerDay": "40.1",
+    "sa2Name": "Wellington Point",
+    "indigenous": "200",
+    "nonIndigenous": "11897"
+  },
+  "301021007": {
+    "sa2Id": "301021007",
+    "sa3Id": "30102",
+    "sa3Name": "Cleveland - Stradbroke",
+    "numOfPph": "1,183",
+    "percentPphPerDay": "39.1",
+    "sa2Name": "Cleveland",
+    "indigenous": "290",
+    "nonIndigenous": "15054"
+  },
+  "301021008": {
+    "sa2Id": "301021008",
+    "sa3Id": "30102",
+    "sa3Name": "Cleveland - Stradbroke",
+    "numOfPph": "1,183",
+    "percentPphPerDay": "39.1",
+    "sa2Name": "Ormiston",
+    "indigenous": "101",
+    "nonIndigenous": "5906"
+  },
+  "301021009": {
+    "sa2Id": "301021009",
+    "sa3Id": "30102",
+    "sa3Name": "Cleveland - Stradbroke",
+    "numOfPph": "1,183",
+    "percentPphPerDay": "39.1",
+    "sa2Name": "Redland Bay",
+    "indigenous": "399",
+    "nonIndigenous": "15698"
+  },
+  "301021011": {
+    "sa2Id": "301021011",
+    "sa3Id": "30102",
+    "sa3Name": "Cleveland - Stradbroke",
+    "numOfPph": "1,183",
+    "percentPphPerDay": "39.1",
+    "sa2Name": "Sheldon - Mount Cotton",
+    "indigenous": "163",
+    "nonIndigenous": "8041"
+  },
+  "301021012": {
+    "sa2Id": "301021012",
+    "sa3Id": "30102",
+    "sa3Name": "Cleveland - Stradbroke",
+    "numOfPph": "1,183",
+    "percentPphPerDay": "39.1",
+    "sa2Name": "Thornlands",
+    "indigenous": "277",
+    "nonIndigenous": "14926"
+  },
+  "301021013": {
+    "sa2Id": "301021013",
+    "sa3Id": "30102",
+    "sa3Name": "Cleveland - Stradbroke",
+    "numOfPph": "1,183",
+    "percentPphPerDay": "39.1",
+    "sa2Name": "Victoria Point",
+    "indigenous": "290",
+    "nonIndigenous": "15243"
+  },
+  "301021527": {
+    "sa2Id": "301021527",
+    "sa3Id": "30102",
+    "sa3Name": "Cleveland - Stradbroke",
+    "numOfPph": "1,183",
+    "percentPphPerDay": "39.1",
+    "sa2Name": "Redland Islands",
+    "indigenous": "833",
+    "nonIndigenous": "8443"
+  },
+  "301031014": {
+    "sa2Id": "301031014",
+    "sa3Id": "30103",
+    "sa3Name": "Wynnum - Manly",
+    "numOfPph": "941",
+    "percentPphPerDay": "36.1",
+    "sa2Name": "Brisbane Port - Lytton",
+    "indigenous": "3",
+    "nonIndigenous": "6"
+  },
+  "301031015": {
+    "sa2Id": "301031015",
+    "sa3Id": "30103",
+    "sa3Name": "Wynnum - Manly",
+    "numOfPph": "941",
+    "percentPphPerDay": "36.1",
+    "sa2Name": "Manly - Lota",
+    "indigenous": "142",
+    "nonIndigenous": "7518"
+  },
+  "301031016": {
+    "sa2Id": "301031016",
+    "sa3Id": "30103",
+    "sa3Name": "Wynnum - Manly",
+    "numOfPph": "941",
+    "percentPphPerDay": "36.1",
+    "sa2Name": "Manly West",
+    "indigenous": "334",
+    "nonIndigenous": "11496"
+  },
+  "301031017": {
+    "sa2Id": "301031017",
+    "sa3Id": "30103",
+    "sa3Name": "Wynnum - Manly",
+    "numOfPph": "941",
+    "percentPphPerDay": "36.1",
+    "sa2Name": "Murarrie",
+    "indigenous": "115",
+    "nonIndigenous": "4191"
+  },
+  "301031018": {
+    "sa2Id": "301031018",
+    "sa3Id": "30103",
+    "sa3Name": "Wynnum - Manly",
+    "numOfPph": "941",
+    "percentPphPerDay": "36.1",
+    "sa2Name": "Tingalpa",
+    "indigenous": "211",
+    "nonIndigenous": "8904"
+  },
+  "301031019": {
+    "sa2Id": "301031019",
+    "sa3Id": "30103",
+    "sa3Name": "Wynnum - Manly",
+    "numOfPph": "941",
+    "percentPphPerDay": "36.1",
+    "sa2Name": "Wakerley",
+    "indigenous": "147",
+    "nonIndigenous": "9282"
+  },
+  "301031020": {
+    "sa2Id": "301031020",
+    "sa3Id": "30103",
+    "sa3Name": "Wynnum - Manly",
+    "numOfPph": "941",
+    "percentPphPerDay": "36.1",
+    "sa2Name": "Wynnum",
+    "indigenous": "444",
+    "nonIndigenous": "13313"
+  },
+  "301031021": {
+    "sa2Id": "301031021",
+    "sa3Id": "30103",
+    "sa3Name": "Wynnum - Manly",
+    "numOfPph": "941",
+    "percentPphPerDay": "36.1",
+    "sa2Name": "Wynnum West - Hemmant",
+    "indigenous": "490",
+    "nonIndigenous": "14843"
+  },
+  "302011022": {
+    "sa2Id": "302011022",
+    "sa3Id": "30201",
+    "sa3Name": "Bald Hills - Everton Park",
+    "numOfPph": "554",
+    "percentPphPerDay": "41.5",
+    "sa2Name": "Bald Hills",
+    "indigenous": "241",
+    "nonIndigenous": "7290"
+  },
+  "302011023": {
+    "sa2Id": "302011023",
+    "sa3Id": "30201",
+    "sa3Name": "Bald Hills - Everton Park",
+    "numOfPph": "554",
+    "percentPphPerDay": "41.5",
+    "sa2Name": "Bridgeman Downs",
+    "indigenous": "52",
+    "nonIndigenous": "8443"
+  },
+  "302011024": {
+    "sa2Id": "302011024",
+    "sa3Id": "30201",
+    "sa3Name": "Bald Hills - Everton Park",
+    "numOfPph": "554",
+    "percentPphPerDay": "41.5",
+    "sa2Name": "Carseldine",
+    "indigenous": "122",
+    "nonIndigenous": "9293"
+  },
+  "302011025": {
+    "sa2Id": "302011025",
+    "sa3Id": "30201",
+    "sa3Name": "Bald Hills - Everton Park",
+    "numOfPph": "554",
+    "percentPphPerDay": "41.5",
+    "sa2Name": "Everton Park",
+    "indigenous": "206",
+    "nonIndigenous": "8993"
+  },
+  "302011026": {
+    "sa2Id": "302011026",
+    "sa3Id": "30201",
+    "sa3Name": "Bald Hills - Everton Park",
+    "numOfPph": "554",
+    "percentPphPerDay": "41.5",
+    "sa2Name": "McDowall",
+    "indigenous": "93",
+    "nonIndigenous": "7797"
+  },
+  "302021027": {
+    "sa2Id": "302021027",
+    "sa3Id": "30202",
+    "sa3Name": "Chermside",
+    "numOfPph": "1,191",
+    "percentPphPerDay": "43.3",
+    "sa2Name": "Aspley",
+    "indigenous": "246",
+    "nonIndigenous": "12514"
+  },
+  "302021028": {
+    "sa2Id": "302021028",
+    "sa3Id": "30202",
+    "sa3Name": "Chermside",
+    "numOfPph": "1,191",
+    "percentPphPerDay": "43.3",
+    "sa2Name": "Chermside",
+    "indigenous": "333",
+    "nonIndigenous": "9336"
+  },
+  "302021029": {
+    "sa2Id": "302021029",
+    "sa3Id": "30202",
+    "sa3Name": "Chermside",
+    "numOfPph": "1,191",
+    "percentPphPerDay": "43.3",
+    "sa2Name": "Chermside West",
+    "indigenous": "110",
+    "nonIndigenous": "6379"
+  },
+  "302021030": {
+    "sa2Id": "302021030",
+    "sa3Id": "30202",
+    "sa3Name": "Chermside",
+    "numOfPph": "1,191",
+    "percentPphPerDay": "43.3",
+    "sa2Name": "Geebung",
+    "indigenous": "98",
+    "nonIndigenous": "4376"
+  },
+  "302021031": {
+    "sa2Id": "302021031",
+    "sa3Id": "30202",
+    "sa3Name": "Chermside",
+    "numOfPph": "1,191",
+    "percentPphPerDay": "43.3",
+    "sa2Name": "Kedron - Gordon Park",
+    "indigenous": "273",
+    "nonIndigenous": "14039"
+  },
+  "302021032": {
+    "sa2Id": "302021032",
+    "sa3Id": "30202",
+    "sa3Name": "Chermside",
+    "numOfPph": "1,191",
+    "percentPphPerDay": "43.3",
+    "sa2Name": "Stafford",
+    "indigenous": "211",
+    "nonIndigenous": "6600"
+  },
+  "302021033": {
+    "sa2Id": "302021033",
+    "sa3Id": "30202",
+    "sa3Name": "Chermside",
+    "numOfPph": "1,191",
+    "percentPphPerDay": "43.3",
+    "sa2Name": "Stafford Heights",
+    "indigenous": "203",
+    "nonIndigenous": "6872"
+  },
+  "302021034": {
+    "sa2Id": "302021034",
+    "sa3Id": "30202",
+    "sa3Name": "Chermside",
+    "numOfPph": "1,191",
+    "percentPphPerDay": "43.3",
+    "sa2Name": "Wavell Heights",
+    "indigenous": "154",
+    "nonIndigenous": "10013"
+  },
+  "302031035": {
+    "sa2Id": "302031035",
+    "sa3Id": "30203",
+    "sa3Name": "Nundah",
+    "numOfPph": "586",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Boondall",
+    "indigenous": "273",
+    "nonIndigenous": "9349"
+  },
+  "302031036": {
+    "sa2Id": "302031036",
+    "sa3Id": "30203",
+    "sa3Name": "Nundah",
+    "numOfPph": "586",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Brisbane Airport",
+    "indigenous": "0",
+    "nonIndigenous": "200"
+  },
+  "302031037": {
+    "sa2Id": "302031037",
+    "sa3Id": "30203",
+    "sa3Name": "Nundah",
+    "numOfPph": "586",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Eagle Farm - Pinkenba",
+    "indigenous": "22",
+    "nonIndigenous": "830"
+  },
+  "302031038": {
+    "sa2Id": "302031038",
+    "sa3Id": "30203",
+    "sa3Name": "Nundah",
+    "numOfPph": "586",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Northgate - Virginia",
+    "indigenous": "199",
+    "nonIndigenous": "6670"
+  },
+  "302031039": {
+    "sa2Id": "302031039",
+    "sa3Id": "30203",
+    "sa3Name": "Nundah",
+    "numOfPph": "586",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Nudgee - Banyo",
+    "indigenous": "244",
+    "nonIndigenous": "9706"
+  },
+  "302031040": {
+    "sa2Id": "302031040",
+    "sa3Id": "30203",
+    "sa3Name": "Nundah",
+    "numOfPph": "586",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Nundah",
+    "indigenous": "236",
+    "nonIndigenous": "12704"
+  },
+  "302041041": {
+    "sa2Id": "302041041",
+    "sa3Id": "30204",
+    "sa3Name": "Sandgate",
+    "numOfPph": "1,033",
+    "percentPphPerDay": "40.4",
+    "sa2Name": "Bracken Ridge",
+    "indigenous": "506",
+    "nonIndigenous": "17073"
+  },
+  "302041042": {
+    "sa2Id": "302041042",
+    "sa3Id": "30204",
+    "sa3Name": "Sandgate",
+    "numOfPph": "1,033",
+    "percentPphPerDay": "40.4",
+    "sa2Name": "Brighton (Qld)",
+    "indigenous": "269",
+    "nonIndigenous": "9508"
+  },
+  "302041043": {
+    "sa2Id": "302041043",
+    "sa3Id": "30204",
+    "sa3Name": "Sandgate",
+    "numOfPph": "1,033",
+    "percentPphPerDay": "40.4",
+    "sa2Name": "Deagon",
+    "indigenous": "111",
+    "nonIndigenous": "3659"
+  },
+  "302041044": {
+    "sa2Id": "302041044",
+    "sa3Id": "30204",
+    "sa3Name": "Sandgate",
+    "numOfPph": "1,033",
+    "percentPphPerDay": "40.4",
+    "sa2Name": "Sandgate - Shorncliffe",
+    "indigenous": "152",
+    "nonIndigenous": "6874"
+  },
+  "302041045": {
+    "sa2Id": "302041045",
+    "sa3Id": "30204",
+    "sa3Name": "Sandgate",
+    "numOfPph": "1,033",
+    "percentPphPerDay": "40.4",
+    "sa2Name": "Taigum - Fitzgibbon",
+    "indigenous": "279",
+    "nonIndigenous": "12340"
+  },
+  "302041046": {
+    "sa2Id": "302041046",
+    "sa3Id": "30204",
+    "sa3Name": "Sandgate",
+    "numOfPph": "1,033",
+    "percentPphPerDay": "40.4",
+    "sa2Name": "Zillmere",
+    "indigenous": "447",
+    "nonIndigenous": "8827"
+  },
+  "303011047": {
+    "sa2Id": "303011047",
+    "sa3Id": "30301",
+    "sa3Name": "Carindale",
+    "numOfPph": "584",
+    "percentPphPerDay": "36.8",
+    "sa2Name": "Camp Hill",
+    "indigenous": "120",
+    "nonIndigenous": "11550"
+  },
+  "303011048": {
+    "sa2Id": "303011048",
+    "sa3Id": "30301",
+    "sa3Name": "Carindale",
+    "numOfPph": "584",
+    "percentPphPerDay": "36.8",
+    "sa2Name": "Cannon Hill",
+    "indigenous": "101",
+    "nonIndigenous": "5912"
+  },
+  "303011049": {
+    "sa2Id": "303011049",
+    "sa3Id": "30301",
+    "sa3Name": "Carindale",
+    "numOfPph": "584",
+    "percentPphPerDay": "36.8",
+    "sa2Name": "Carina",
+    "indigenous": "177",
+    "nonIndigenous": "11385"
+  },
+  "303011050": {
+    "sa2Id": "303011050",
+    "sa3Id": "30301",
+    "sa3Name": "Carindale",
+    "numOfPph": "584",
+    "percentPphPerDay": "36.8",
+    "sa2Name": "Carina Heights",
+    "indigenous": "187",
+    "nonIndigenous": "6621"
+  },
+  "303011051": {
+    "sa2Id": "303011051",
+    "sa3Id": "30301",
+    "sa3Name": "Carindale",
+    "numOfPph": "584",
+    "percentPphPerDay": "36.8",
+    "sa2Name": "Carindale",
+    "indigenous": "125",
+    "nonIndigenous": "16248"
+  },
+  "303021052": {
+    "sa2Id": "303021052",
+    "sa3Id": "30302",
+    "sa3Name": "Holland Park - Yeronga",
+    "numOfPph": "882",
+    "percentPphPerDay": "35.4",
+    "sa2Name": "Annerley",
+    "indigenous": "182",
+    "nonIndigenous": "11883"
+  },
+  "303021053": {
+    "sa2Id": "303021053",
+    "sa3Id": "30302",
+    "sa3Name": "Holland Park - Yeronga",
+    "numOfPph": "882",
+    "percentPphPerDay": "35.4",
+    "sa2Name": "Coorparoo",
+    "indigenous": "186",
+    "nonIndigenous": "16609"
+  },
+  "303021054": {
+    "sa2Id": "303021054",
+    "sa3Id": "30302",
+    "sa3Name": "Holland Park - Yeronga",
+    "numOfPph": "882",
+    "percentPphPerDay": "35.4",
+    "sa2Name": "Fairfield - Dutton Park",
+    "indigenous": "76",
+    "nonIndigenous": "5006"
+  },
+  "303021055": {
+    "sa2Id": "303021055",
+    "sa3Id": "30302",
+    "sa3Name": "Holland Park - Yeronga",
+    "numOfPph": "882",
+    "percentPphPerDay": "35.4",
+    "sa2Name": "Greenslopes",
+    "indigenous": "126",
+    "nonIndigenous": "9480"
+  },
+  "303021056": {
+    "sa2Id": "303021056",
+    "sa3Id": "30302",
+    "sa3Name": "Holland Park - Yeronga",
+    "numOfPph": "882",
+    "percentPphPerDay": "35.4",
+    "sa2Name": "Holland Park",
+    "indigenous": "182",
+    "nonIndigenous": "8496"
+  },
+  "303021057": {
+    "sa2Id": "303021057",
+    "sa3Id": "30302",
+    "sa3Name": "Holland Park - Yeronga",
+    "numOfPph": "882",
+    "percentPphPerDay": "35.4",
+    "sa2Name": "Holland Park West",
+    "indigenous": "88",
+    "nonIndigenous": "6511"
+  },
+  "303021058": {
+    "sa2Id": "303021058",
+    "sa3Id": "30302",
+    "sa3Name": "Holland Park - Yeronga",
+    "numOfPph": "882",
+    "percentPphPerDay": "35.4",
+    "sa2Name": "Woolloongabba",
+    "indigenous": "86",
+    "nonIndigenous": "5757"
+  },
+  "303021059": {
+    "sa2Id": "303021059",
+    "sa3Id": "30302",
+    "sa3Name": "Holland Park - Yeronga",
+    "numOfPph": "882",
+    "percentPphPerDay": "35.4",
+    "sa2Name": "Yeronga",
+    "indigenous": "118",
+    "nonIndigenous": "9870"
+  },
+  "303031060": {
+    "sa2Id": "303031060",
+    "sa3Id": "30303",
+    "sa3Name": "Mt Gravatt",
+    "numOfPph": "938",
+    "percentPphPerDay": "36.9",
+    "sa2Name": "Eight Mile Plains",
+    "indigenous": "155",
+    "nonIndigenous": "15748"
+  },
+  "303031061": {
+    "sa2Id": "303031061",
+    "sa3Id": "30303",
+    "sa3Name": "Mt Gravatt",
+    "numOfPph": "938",
+    "percentPphPerDay": "36.9",
+    "sa2Name": "Macgregor (Qld)",
+    "indigenous": "38",
+    "nonIndigenous": "6160"
+  },
+  "303031062": {
+    "sa2Id": "303031062",
+    "sa3Id": "30303",
+    "sa3Name": "Mt Gravatt",
+    "numOfPph": "938",
+    "percentPphPerDay": "36.9",
+    "sa2Name": "Mansfield (Qld)",
+    "indigenous": "156",
+    "nonIndigenous": "8877"
+  },
+  "303031063": {
+    "sa2Id": "303031063",
+    "sa3Id": "30303",
+    "sa3Name": "Mt Gravatt",
+    "numOfPph": "938",
+    "percentPphPerDay": "36.9",
+    "sa2Name": "Mount Gravatt",
+    "indigenous": "270",
+    "nonIndigenous": "15308"
+  },
+  "303031064": {
+    "sa2Id": "303031064",
+    "sa3Id": "30303",
+    "sa3Name": "Mt Gravatt",
+    "numOfPph": "938",
+    "percentPphPerDay": "36.9",
+    "sa2Name": "Rochedale - Burbank",
+    "indigenous": "49",
+    "nonIndigenous": "6616"
+  },
+  "303031065": {
+    "sa2Id": "303031065",
+    "sa3Id": "30303",
+    "sa3Name": "Mt Gravatt",
+    "numOfPph": "938",
+    "percentPphPerDay": "36.9",
+    "sa2Name": "Upper Mount Gravatt",
+    "indigenous": "223",
+    "nonIndigenous": "9618"
+  },
+  "303031066": {
+    "sa2Id": "303031066",
+    "sa3Id": "30303",
+    "sa3Name": "Mt Gravatt",
+    "numOfPph": "938",
+    "percentPphPerDay": "36.9",
+    "sa2Name": "Wishart",
+    "indigenous": "133",
+    "nonIndigenous": "11104"
+  },
+  "303041067": {
+    "sa2Id": "303041067",
+    "sa3Id": "30304",
+    "sa3Name": "Nathan",
+    "numOfPph": "612",
+    "percentPphPerDay": "49.8",
+    "sa2Name": "Coopers Plains",
+    "indigenous": "146",
+    "nonIndigenous": "5575"
+  },
+  "303041068": {
+    "sa2Id": "303041068",
+    "sa3Id": "30304",
+    "sa3Name": "Nathan",
+    "numOfPph": "612",
+    "percentPphPerDay": "49.8",
+    "sa2Name": "Moorooka",
+    "indigenous": "146",
+    "nonIndigenous": "10691"
+  },
+  "303041069": {
+    "sa2Id": "303041069",
+    "sa3Id": "30304",
+    "sa3Name": "Nathan",
+    "numOfPph": "612",
+    "percentPphPerDay": "49.8",
+    "sa2Name": "Robertson",
+    "indigenous": "23",
+    "nonIndigenous": "5407"
+  },
+  "303041070": {
+    "sa2Id": "303041070",
+    "sa3Id": "30304",
+    "sa3Name": "Nathan",
+    "numOfPph": "612",
+    "percentPphPerDay": "49.8",
+    "sa2Name": "Salisbury - Nathan",
+    "indigenous": "190",
+    "nonIndigenous": "7308"
+  },
+  "303041071": {
+    "sa2Id": "303041071",
+    "sa3Id": "30304",
+    "sa3Name": "Nathan",
+    "numOfPph": "612",
+    "percentPphPerDay": "49.8",
+    "sa2Name": "Tarragindi",
+    "indigenous": "113",
+    "nonIndigenous": "10982"
+  },
+  "303051072": {
+    "sa2Id": "303051072",
+    "sa3Id": "30305",
+    "sa3Name": "Rocklea - Acacia Ridge",
+    "numOfPph": "785",
+    "percentPphPerDay": "38.2",
+    "sa2Name": "Algester",
+    "indigenous": "182",
+    "nonIndigenous": "8628"
+  },
+  "303051073": {
+    "sa2Id": "303051073",
+    "sa3Id": "30305",
+    "sa3Name": "Rocklea - Acacia Ridge",
+    "numOfPph": "785",
+    "percentPphPerDay": "38.2",
+    "sa2Name": "Calamvale - Stretton",
+    "indigenous": "131",
+    "nonIndigenous": "22288"
+  },
+  "303051074": {
+    "sa2Id": "303051074",
+    "sa3Id": "30305",
+    "sa3Name": "Rocklea - Acacia Ridge",
+    "numOfPph": "785",
+    "percentPphPerDay": "38.2",
+    "sa2Name": "Pallara - Willawong",
+    "indigenous": "94",
+    "nonIndigenous": "4798"
+  },
+  "303051075": {
+    "sa2Id": "303051075",
+    "sa3Id": "30305",
+    "sa3Name": "Rocklea - Acacia Ridge",
+    "numOfPph": "785",
+    "percentPphPerDay": "38.2",
+    "sa2Name": "Parkinson - Drewvale",
+    "indigenous": "164",
+    "nonIndigenous": "16086"
+  },
+  "303051076": {
+    "sa2Id": "303051076",
+    "sa3Id": "30305",
+    "sa3Name": "Rocklea - Acacia Ridge",
+    "numOfPph": "785",
+    "percentPphPerDay": "38.2",
+    "sa2Name": "Rocklea - Acacia Ridge",
+    "indigenous": "458",
+    "nonIndigenous": "9487"
+  },
+  "303061077": {
+    "sa2Id": "303061077",
+    "sa3Id": "30306",
+    "sa3Name": "Sunnybank",
+    "numOfPph": "644",
+    "percentPphPerDay": "38.7",
+    "sa2Name": "Kuraby",
+    "indigenous": "67",
+    "nonIndigenous": "8690"
+  },
+  "303061078": {
+    "sa2Id": "303061078",
+    "sa3Id": "30306",
+    "sa3Name": "Sunnybank",
+    "numOfPph": "644",
+    "percentPphPerDay": "38.7",
+    "sa2Name": "Runcorn",
+    "indigenous": "149",
+    "nonIndigenous": "14990"
+  },
+  "303061079": {
+    "sa2Id": "303061079",
+    "sa3Id": "30306",
+    "sa3Name": "Sunnybank",
+    "numOfPph": "644",
+    "percentPphPerDay": "38.7",
+    "sa2Name": "Sunnybank",
+    "indigenous": "96",
+    "nonIndigenous": "9227"
+  },
+  "303061080": {
+    "sa2Id": "303061080",
+    "sa3Id": "30306",
+    "sa3Name": "Sunnybank",
+    "numOfPph": "644",
+    "percentPphPerDay": "38.7",
+    "sa2Name": "Sunnybank Hills",
+    "indigenous": "197",
+    "nonIndigenous": "18929"
+  },
+  "304011081": {
+    "sa2Id": "304011081",
+    "sa3Id": "30401",
+    "sa3Name": "Centenary",
+    "numOfPph": "350",
+    "percentPphPerDay": "37.1",
+    "sa2Name": "Jindalee - Mount Ommaney",
+    "indigenous": "73",
+    "nonIndigenous": "7763"
+  },
+  "304011082": {
+    "sa2Id": "304011082",
+    "sa3Id": "30401",
+    "sa3Name": "Centenary",
+    "numOfPph": "350",
+    "percentPphPerDay": "37.1",
+    "sa2Name": "Middle Park - Jamboree Heights",
+    "indigenous": "87",
+    "nonIndigenous": "7275"
+  },
+  "304011083": {
+    "sa2Id": "304011083",
+    "sa3Id": "30401",
+    "sa3Name": "Centenary",
+    "numOfPph": "350",
+    "percentPphPerDay": "37.1",
+    "sa2Name": "Riverhills",
+    "indigenous": "60",
+    "nonIndigenous": "4210"
+  },
+  "304011084": {
+    "sa2Id": "304011084",
+    "sa3Id": "30401",
+    "sa3Name": "Centenary",
+    "numOfPph": "350",
+    "percentPphPerDay": "37.1",
+    "sa2Name": "Seventeen Mile Rocks - Sinnamon Park",
+    "indigenous": "94",
+    "nonIndigenous": "9928"
+  },
+  "304011085": {
+    "sa2Id": "304011085",
+    "sa3Id": "30401",
+    "sa3Name": "Centenary",
+    "numOfPph": "350",
+    "percentPphPerDay": "37.1",
+    "sa2Name": "Westlake",
+    "indigenous": "26",
+    "nonIndigenous": "4557"
+  },
+  "304021086": {
+    "sa2Id": "304021086",
+    "sa3Id": "30402",
+    "sa3Name": "Kenmore - Brookfield - Moggill",
+    "numOfPph": "479",
+    "percentPphPerDay": "38.4",
+    "sa2Name": "Bellbowrie - Moggill",
+    "indigenous": "123",
+    "nonIndigenous": "10367"
+  },
+  "304021087": {
+    "sa2Id": "304021087",
+    "sa3Id": "30402",
+    "sa3Name": "Kenmore - Brookfield - Moggill",
+    "numOfPph": "479",
+    "percentPphPerDay": "38.4",
+    "sa2Name": "Brookfield - Kenmore Hills",
+    "indigenous": "32",
+    "nonIndigenous": "7001"
+  },
+  "304021088": {
+    "sa2Id": "304021088",
+    "sa3Id": "30402",
+    "sa3Name": "Kenmore - Brookfield - Moggill",
+    "numOfPph": "479",
+    "percentPphPerDay": "38.4",
+    "sa2Name": "Chapel Hill",
+    "indigenous": "39",
+    "nonIndigenous": "10693"
+  },
+  "304021089": {
+    "sa2Id": "304021089",
+    "sa3Id": "30402",
+    "sa3Name": "Kenmore - Brookfield - Moggill",
+    "numOfPph": "479",
+    "percentPphPerDay": "38.4",
+    "sa2Name": "Fig Tree Pocket",
+    "indigenous": "3",
+    "nonIndigenous": "4242"
+  },
+  "304021090": {
+    "sa2Id": "304021090",
+    "sa3Id": "30402",
+    "sa3Name": "Kenmore - Brookfield - Moggill",
+    "numOfPph": "479",
+    "percentPphPerDay": "38.4",
+    "sa2Name": "Kenmore",
+    "indigenous": "39",
+    "nonIndigenous": "9133"
+  },
+  "304021091": {
+    "sa2Id": "304021091",
+    "sa3Id": "30402",
+    "sa3Name": "Kenmore - Brookfield - Moggill",
+    "numOfPph": "479",
+    "percentPphPerDay": "38.4",
+    "sa2Name": "Pinjarra Hills - Pullenvale",
+    "indigenous": "13",
+    "nonIndigenous": "5624"
+  },
+  "304031092": {
+    "sa2Id": "304031092",
+    "sa3Id": "30403",
+    "sa3Name": "Sherwood - Indooroopilly",
+    "numOfPph": "437",
+    "percentPphPerDay": "36.8",
+    "sa2Name": "Chelmer - Graceville",
+    "indigenous": "30",
+    "nonIndigenous": "7772"
+  },
+  "304031093": {
+    "sa2Id": "304031093",
+    "sa3Id": "30403",
+    "sa3Name": "Sherwood - Indooroopilly",
+    "numOfPph": "437",
+    "percentPphPerDay": "36.8",
+    "sa2Name": "Corinda",
+    "indigenous": "60",
+    "nonIndigenous": "4987"
+  },
+  "304031094": {
+    "sa2Id": "304031094",
+    "sa3Id": "30403",
+    "sa3Name": "Sherwood - Indooroopilly",
+    "numOfPph": "437",
+    "percentPphPerDay": "36.8",
+    "sa2Name": "Indooroopilly",
+    "indigenous": "87",
+    "nonIndigenous": "12703"
+  },
+  "304031095": {
+    "sa2Id": "304031095",
+    "sa3Id": "30403",
+    "sa3Name": "Sherwood - Indooroopilly",
+    "numOfPph": "437",
+    "percentPphPerDay": "36.8",
+    "sa2Name": "Sherwood",
+    "indigenous": "50",
+    "nonIndigenous": "5808"
+  },
+  "304031096": {
+    "sa2Id": "304031096",
+    "sa3Id": "30403",
+    "sa3Name": "Sherwood - Indooroopilly",
+    "numOfPph": "437",
+    "percentPphPerDay": "36.8",
+    "sa2Name": "St Lucia",
+    "indigenous": "68",
+    "nonIndigenous": "13217"
+  },
+  "304031097": {
+    "sa2Id": "304031097",
+    "sa3Id": "30403",
+    "sa3Name": "Sherwood - Indooroopilly",
+    "numOfPph": "437",
+    "percentPphPerDay": "36.8",
+    "sa2Name": "Taringa",
+    "indigenous": "70",
+    "nonIndigenous": "8848"
+  },
+  "304041098": {
+    "sa2Id": "304041098",
+    "sa3Id": "30404",
+    "sa3Name": "The Gap - Enoggera",
+    "numOfPph": "668",
+    "percentPphPerDay": "38.0",
+    "sa2Name": "Enoggera",
+    "indigenous": "193",
+    "nonIndigenous": "8362"
+  },
+  "304041099": {
+    "sa2Id": "304041099",
+    "sa3Id": "30404",
+    "sa3Name": "The Gap - Enoggera",
+    "numOfPph": "668",
+    "percentPphPerDay": "38.0",
+    "sa2Name": "Enoggera Reservoir",
+    "indigenous": "9",
+    "nonIndigenous": "17"
+  },
+  "304041100": {
+    "sa2Id": "304041100",
+    "sa3Id": "30404",
+    "sa3Name": "The Gap - Enoggera",
+    "numOfPph": "668",
+    "percentPphPerDay": "38.0",
+    "sa2Name": "Keperra",
+    "indigenous": "269",
+    "nonIndigenous": "7073"
+  },
+  "304041101": {
+    "sa2Id": "304041101",
+    "sa3Id": "30404",
+    "sa3Name": "The Gap - Enoggera",
+    "numOfPph": "668",
+    "percentPphPerDay": "38.0",
+    "sa2Name": "Mitchelton",
+    "indigenous": "207",
+    "nonIndigenous": "8477"
+  },
+  "304041102": {
+    "sa2Id": "304041102",
+    "sa3Id": "30404",
+    "sa3Name": "The Gap - Enoggera",
+    "numOfPph": "668",
+    "percentPphPerDay": "38.0",
+    "sa2Name": "Mount Coot-tha",
+    "indigenous": "0",
+    "nonIndigenous": "0"
+  },
+  "304041103": {
+    "sa2Id": "304041103",
+    "sa3Id": "30404",
+    "sa3Name": "The Gap - Enoggera",
+    "numOfPph": "668",
+    "percentPphPerDay": "38.0",
+    "sa2Name": "The Gap",
+    "indigenous": "154",
+    "nonIndigenous": "16979"
+  },
+  "304041104": {
+    "sa2Id": "304041104",
+    "sa3Id": "30404",
+    "sa3Name": "The Gap - Enoggera",
+    "numOfPph": "668",
+    "percentPphPerDay": "38.0",
+    "sa2Name": "Upper Kedron - Ferny Grove",
+    "indigenous": "207",
+    "nonIndigenous": "10124"
+  },
+  "305011105": {
+    "sa2Id": "305011105",
+    "sa3Id": "30501",
+    "sa3Name": "Brisbane Inner",
+    "numOfPph": "710",
+    "percentPphPerDay": "36.3",
+    "sa2Name": "Brisbane City",
+    "indigenous": "72",
+    "nonIndigenous": "10867"
+  },
+  "305011106": {
+    "sa2Id": "305011106",
+    "sa3Id": "30501",
+    "sa3Name": "Brisbane Inner",
+    "numOfPph": "710",
+    "percentPphPerDay": "36.3",
+    "sa2Name": "Fortitude Valley",
+    "indigenous": "133",
+    "nonIndigenous": "7460"
+  },
+  "305011107": {
+    "sa2Id": "305011107",
+    "sa3Id": "30501",
+    "sa3Name": "Brisbane Inner",
+    "numOfPph": "710",
+    "percentPphPerDay": "36.3",
+    "sa2Name": "Highgate Hill",
+    "indigenous": "96",
+    "nonIndigenous": "6659"
+  },
+  "305011108": {
+    "sa2Id": "305011108",
+    "sa3Id": "30501",
+    "sa3Name": "Brisbane Inner",
+    "numOfPph": "710",
+    "percentPphPerDay": "36.3",
+    "sa2Name": "Kangaroo Point",
+    "indigenous": "104",
+    "nonIndigenous": "8739"
+  },
+  "305011109": {
+    "sa2Id": "305011109",
+    "sa3Id": "30501",
+    "sa3Name": "Brisbane Inner",
+    "numOfPph": "710",
+    "percentPphPerDay": "36.3",
+    "sa2Name": "New Farm",
+    "indigenous": "197",
+    "nonIndigenous": "13467"
+  },
+  "305011110": {
+    "sa2Id": "305011110",
+    "sa3Id": "30501",
+    "sa3Name": "Brisbane Inner",
+    "numOfPph": "710",
+    "percentPphPerDay": "36.3",
+    "sa2Name": "South Brisbane",
+    "indigenous": "75",
+    "nonIndigenous": "7704"
+  },
+  "305011111": {
+    "sa2Id": "305011111",
+    "sa3Id": "30501",
+    "sa3Name": "Brisbane Inner",
+    "numOfPph": "710",
+    "percentPphPerDay": "36.3",
+    "sa2Name": "Spring Hill",
+    "indigenous": "91",
+    "nonIndigenous": "6328"
+  },
+  "305011112": {
+    "sa2Id": "305011112",
+    "sa3Id": "30501",
+    "sa3Name": "Brisbane Inner",
+    "numOfPph": "710",
+    "percentPphPerDay": "36.3",
+    "sa2Name": "West End",
+    "indigenous": "145",
+    "nonIndigenous": "10192"
+  },
+  "305021113": {
+    "sa2Id": "305021113",
+    "sa3Id": "30502",
+    "sa3Name": "Brisbane Inner - East",
+    "numOfPph": "431",
+    "percentPphPerDay": "40.4",
+    "sa2Name": "Balmoral",
+    "indigenous": "56",
+    "nonIndigenous": "4408"
+  },
+  "305021114": {
+    "sa2Id": "305021114",
+    "sa3Id": "30502",
+    "sa3Name": "Brisbane Inner - East",
+    "numOfPph": "431",
+    "percentPphPerDay": "40.4",
+    "sa2Name": "Bulimba",
+    "indigenous": "51",
+    "nonIndigenous": "7020"
+  },
+  "305021115": {
+    "sa2Id": "305021115",
+    "sa3Id": "30502",
+    "sa3Name": "Brisbane Inner - East",
+    "numOfPph": "431",
+    "percentPphPerDay": "40.4",
+    "sa2Name": "East Brisbane",
+    "indigenous": "90",
+    "nonIndigenous": "6043"
+  },
+  "305021116": {
+    "sa2Id": "305021116",
+    "sa3Id": "30502",
+    "sa3Name": "Brisbane Inner - East",
+    "numOfPph": "431",
+    "percentPphPerDay": "40.4",
+    "sa2Name": "Hawthorne",
+    "indigenous": "64",
+    "nonIndigenous": "5182"
+  },
+  "305021117": {
+    "sa2Id": "305021117",
+    "sa3Id": "30502",
+    "sa3Name": "Brisbane Inner - East",
+    "numOfPph": "431",
+    "percentPphPerDay": "40.4",
+    "sa2Name": "Morningside - Seven Hills",
+    "indigenous": "289",
+    "nonIndigenous": "12960"
+  },
+  "305021118": {
+    "sa2Id": "305021118",
+    "sa3Id": "30502",
+    "sa3Name": "Brisbane Inner - East",
+    "numOfPph": "431",
+    "percentPphPerDay": "40.4",
+    "sa2Name": "Norman Park",
+    "indigenous": "69",
+    "nonIndigenous": "6590"
+  },
+  "305031119": {
+    "sa2Id": "305031119",
+    "sa3Id": "30503",
+    "sa3Name": "Brisbane Inner - North",
+    "numOfPph": "952",
+    "percentPphPerDay": "41.7",
+    "sa2Name": "Albion",
+    "indigenous": "54",
+    "nonIndigenous": "2920"
+  },
+  "305031120": {
+    "sa2Id": "305031120",
+    "sa3Id": "30503",
+    "sa3Name": "Brisbane Inner - North",
+    "numOfPph": "952",
+    "percentPphPerDay": "41.7",
+    "sa2Name": "Alderley",
+    "indigenous": "72",
+    "nonIndigenous": "6230"
+  },
+  "305031121": {
+    "sa2Id": "305031121",
+    "sa3Id": "30503",
+    "sa3Name": "Brisbane Inner - North",
+    "numOfPph": "952",
+    "percentPphPerDay": "41.7",
+    "sa2Name": "Ascot",
+    "indigenous": "40",
+    "nonIndigenous": "5363"
+  },
+  "305031122": {
+    "sa2Id": "305031122",
+    "sa3Id": "30503",
+    "sa3Name": "Brisbane Inner - North",
+    "numOfPph": "952",
+    "percentPphPerDay": "41.7",
+    "sa2Name": "Clayfield",
+    "indigenous": "140",
+    "nonIndigenous": "10820"
+  },
+  "305031123": {
+    "sa2Id": "305031123",
+    "sa3Id": "30503",
+    "sa3Name": "Brisbane Inner - North",
+    "numOfPph": "952",
+    "percentPphPerDay": "41.7",
+    "sa2Name": "Grange",
+    "indigenous": "52",
+    "nonIndigenous": "4377"
+  },
+  "305031124": {
+    "sa2Id": "305031124",
+    "sa3Id": "30503",
+    "sa3Name": "Brisbane Inner - North",
+    "numOfPph": "952",
+    "percentPphPerDay": "41.7",
+    "sa2Name": "Hamilton (Qld)",
+    "indigenous": "80",
+    "nonIndigenous": "6618"
+  },
+  "305031125": {
+    "sa2Id": "305031125",
+    "sa3Id": "30503",
+    "sa3Name": "Brisbane Inner - North",
+    "numOfPph": "952",
+    "percentPphPerDay": "41.7",
+    "sa2Name": "Hendra",
+    "indigenous": "58",
+    "nonIndigenous": "4811"
+  },
+  "305031126": {
+    "sa2Id": "305031126",
+    "sa3Id": "30503",
+    "sa3Name": "Brisbane Inner - North",
+    "numOfPph": "952",
+    "percentPphPerDay": "41.7",
+    "sa2Name": "Kelvin Grove - Herston",
+    "indigenous": "153",
+    "nonIndigenous": "10565"
+  },
+  "305031127": {
+    "sa2Id": "305031127",
+    "sa3Id": "30503",
+    "sa3Name": "Brisbane Inner - North",
+    "numOfPph": "952",
+    "percentPphPerDay": "41.7",
+    "sa2Name": "Newmarket",
+    "indigenous": "72",
+    "nonIndigenous": "5144"
+  },
+  "305031128": {
+    "sa2Id": "305031128",
+    "sa3Id": "30503",
+    "sa3Name": "Brisbane Inner - North",
+    "numOfPph": "952",
+    "percentPphPerDay": "41.7",
+    "sa2Name": "Newstead - Bowen Hills",
+    "indigenous": "96",
+    "nonIndigenous": "11259"
+  },
+  "305031129": {
+    "sa2Id": "305031129",
+    "sa3Id": "30503",
+    "sa3Name": "Brisbane Inner - North",
+    "numOfPph": "952",
+    "percentPphPerDay": "41.7",
+    "sa2Name": "Wilston",
+    "indigenous": "45",
+    "nonIndigenous": "4113"
+  },
+  "305031130": {
+    "sa2Id": "305031130",
+    "sa3Id": "30503",
+    "sa3Name": "Brisbane Inner - North",
+    "numOfPph": "952",
+    "percentPphPerDay": "41.7",
+    "sa2Name": "Windsor",
+    "indigenous": "122",
+    "nonIndigenous": "7460"
+  },
+  "305031131": {
+    "sa2Id": "305031131",
+    "sa3Id": "30503",
+    "sa3Name": "Brisbane Inner - North",
+    "numOfPph": "952",
+    "percentPphPerDay": "41.7",
+    "sa2Name": "Wooloowin - Lutwyche",
+    "indigenous": "150",
+    "nonIndigenous": "10091"
+  },
+  "305041132": {
+    "sa2Id": "305041132",
+    "sa3Id": "30504",
+    "sa3Name": "Brisbane Inner - West",
+    "numOfPph": "557",
+    "percentPphPerDay": "40.0",
+    "sa2Name": "Ashgrove",
+    "indigenous": "139",
+    "nonIndigenous": "13783"
+  },
+  "305041133": {
+    "sa2Id": "305041133",
+    "sa3Id": "30504",
+    "sa3Name": "Brisbane Inner - West",
+    "numOfPph": "557",
+    "percentPphPerDay": "40.0",
+    "sa2Name": "Auchenflower",
+    "indigenous": "39",
+    "nonIndigenous": "5763"
+  },
+  "305041134": {
+    "sa2Id": "305041134",
+    "sa3Id": "30504",
+    "sa3Name": "Brisbane Inner - West",
+    "numOfPph": "557",
+    "percentPphPerDay": "40.0",
+    "sa2Name": "Bardon",
+    "indigenous": "72",
+    "nonIndigenous": "10096"
+  },
+  "305041135": {
+    "sa2Id": "305041135",
+    "sa3Id": "30504",
+    "sa3Name": "Brisbane Inner - West",
+    "numOfPph": "557",
+    "percentPphPerDay": "40.0",
+    "sa2Name": "Paddington - Milton",
+    "indigenous": "124",
+    "nonIndigenous": "11358"
+  },
+  "305041136": {
+    "sa2Id": "305041136",
+    "sa3Id": "30504",
+    "sa3Name": "Brisbane Inner - West",
+    "numOfPph": "557",
+    "percentPphPerDay": "40.0",
+    "sa2Name": "Red Hill (Qld)",
+    "indigenous": "67",
+    "nonIndigenous": "5976"
+  },
+  "305041137": {
+    "sa2Id": "305041137",
+    "sa3Id": "30504",
+    "sa3Name": "Brisbane Inner - West",
+    "numOfPph": "557",
+    "percentPphPerDay": "40.0",
+    "sa2Name": "Toowong",
+    "indigenous": "110",
+    "nonIndigenous": "11369"
+  },
+  "306011138": {
+    "sa2Id": "306011138",
+    "sa3Id": "30601",
+    "sa3Name": "Cairns - North",
+    "numOfPph": "622",
+    "percentPphPerDay": "39.9",
+    "sa2Name": "Brinsmead",
+    "indigenous": "310",
+    "nonIndigenous": "5237"
+  },
+  "306011139": {
+    "sa2Id": "306011139",
+    "sa3Id": "30601",
+    "sa3Name": "Cairns - North",
+    "numOfPph": "622",
+    "percentPphPerDay": "39.9",
+    "sa2Name": "Clifton Beach - Kewarra Beach",
+    "indigenous": "333",
+    "nonIndigenous": "10876"
+  },
+  "306011140": {
+    "sa2Id": "306011140",
+    "sa3Id": "30601",
+    "sa3Name": "Cairns - North",
+    "numOfPph": "622",
+    "percentPphPerDay": "39.9",
+    "sa2Name": "Freshwater - Stratford",
+    "indigenous": "167",
+    "nonIndigenous": "3548"
+  },
+  "306011141": {
+    "sa2Id": "306011141",
+    "sa3Id": "30601",
+    "sa3Name": "Cairns - North",
+    "numOfPph": "622",
+    "percentPphPerDay": "39.9",
+    "sa2Name": "Redlynch",
+    "indigenous": "654",
+    "nonIndigenous": "12517"
+  },
+  "306011142": {
+    "sa2Id": "306011142",
+    "sa3Id": "30601",
+    "sa3Name": "Cairns - North",
+    "numOfPph": "622",
+    "percentPphPerDay": "39.9",
+    "sa2Name": "Trinity Beach - Smithfield",
+    "indigenous": "614",
+    "nonIndigenous": "13728"
+  },
+  "306011143": {
+    "sa2Id": "306011143",
+    "sa3Id": "30601",
+    "sa3Name": "Cairns - North",
+    "numOfPph": "622",
+    "percentPphPerDay": "39.9",
+    "sa2Name": "Yorkeys Knob - Machans Beach",
+    "indigenous": "478",
+    "nonIndigenous": "5835"
+  },
+  "306021144": {
+    "sa2Id": "306021144",
+    "sa3Id": "30602",
+    "sa3Name": "Cairns - South",
+    "numOfPph": "1,927",
+    "percentPphPerDay": "35.0",
+    "sa2Name": "Bentley Park",
+    "indigenous": "1256",
+    "nonIndigenous": "7014"
+  },
+  "306021145": {
+    "sa2Id": "306021145",
+    "sa3Id": "30602",
+    "sa3Name": "Cairns - South",
+    "numOfPph": "1,927",
+    "percentPphPerDay": "35.0",
+    "sa2Name": "Cairns City",
+    "indigenous": "1135",
+    "nonIndigenous": "10771"
+  },
+  "306021146": {
+    "sa2Id": "306021146",
+    "sa3Id": "30602",
+    "sa3Name": "Cairns - South",
+    "numOfPph": "1,927",
+    "percentPphPerDay": "35.0",
+    "sa2Name": "Earlville - Bayview Heights",
+    "indigenous": "773",
+    "nonIndigenous": "7698"
+  },
+  "306021147": {
+    "sa2Id": "306021147",
+    "sa3Id": "30602",
+    "sa3Name": "Cairns - South",
+    "numOfPph": "1,927",
+    "percentPphPerDay": "35.0",
+    "sa2Name": "Edmonton",
+    "indigenous": "1829",
+    "nonIndigenous": "9191"
+  },
+  "306021148": {
+    "sa2Id": "306021148",
+    "sa3Id": "30602",
+    "sa3Name": "Cairns - South",
+    "numOfPph": "1,927",
+    "percentPphPerDay": "35.0",
+    "sa2Name": "Gordonvale - Trinity",
+    "indigenous": "1119",
+    "nonIndigenous": "7780"
+  },
+  "306021149": {
+    "sa2Id": "306021149",
+    "sa3Id": "30602",
+    "sa3Name": "Cairns - South",
+    "numOfPph": "1,927",
+    "percentPphPerDay": "35.0",
+    "sa2Name": "Kanimbla - Mooroobool",
+    "indigenous": "1241",
+    "nonIndigenous": "8906"
+  },
+  "306021150": {
+    "sa2Id": "306021150",
+    "sa3Id": "30602",
+    "sa3Name": "Cairns - South",
+    "numOfPph": "1,927",
+    "percentPphPerDay": "35.0",
+    "sa2Name": "Lamb Range",
+    "indigenous": "0",
+    "nonIndigenous": "0"
+  },
+  "306021151": {
+    "sa2Id": "306021151",
+    "sa3Id": "30602",
+    "sa3Name": "Cairns - South",
+    "numOfPph": "1,927",
+    "percentPphPerDay": "35.0",
+    "sa2Name": "Manoora",
+    "indigenous": "1816",
+    "nonIndigenous": "4404"
+  },
+  "306021152": {
+    "sa2Id": "306021152",
+    "sa3Id": "30602",
+    "sa3Name": "Cairns - South",
+    "numOfPph": "1,927",
+    "percentPphPerDay": "35.0",
+    "sa2Name": "Manunda",
+    "indigenous": "1235",
+    "nonIndigenous": "4314"
+  },
+  "306021153": {
+    "sa2Id": "306021153",
+    "sa3Id": "30602",
+    "sa3Name": "Cairns - South",
+    "numOfPph": "1,927",
+    "percentPphPerDay": "35.0",
+    "sa2Name": "Mount Sheridan",
+    "indigenous": "757",
+    "nonIndigenous": "7718"
+  },
+  "306021154": {
+    "sa2Id": "306021154",
+    "sa3Id": "30602",
+    "sa3Name": "Cairns - South",
+    "numOfPph": "1,927",
+    "percentPphPerDay": "35.0",
+    "sa2Name": "Westcourt - Bungalow",
+    "indigenous": "1143",
+    "nonIndigenous": "5404"
+  },
+  "306021155": {
+    "sa2Id": "306021155",
+    "sa3Id": "30602",
+    "sa3Name": "Cairns - South",
+    "numOfPph": "1,927",
+    "percentPphPerDay": "35.0",
+    "sa2Name": "White Rock",
+    "indigenous": "1008",
+    "nonIndigenous": "3872"
+  },
+  "306021156": {
+    "sa2Id": "306021156",
+    "sa3Id": "30602",
+    "sa3Name": "Cairns - South",
+    "numOfPph": "1,927",
+    "percentPphPerDay": "35.0",
+    "sa2Name": "Whitfield - Edge Hill",
+    "indigenous": "533",
+    "nonIndigenous": "7929"
+  },
+  "306021157": {
+    "sa2Id": "306021157",
+    "sa3Id": "30602",
+    "sa3Name": "Cairns - South",
+    "numOfPph": "1,927",
+    "percentPphPerDay": "35.0",
+    "sa2Name": "Woree",
+    "indigenous": "1000",
+    "nonIndigenous": "3938"
+  },
+  "306031158": {
+    "sa2Id": "306031158",
+    "sa3Id": "30603",
+    "sa3Name": "Innisfail - Cassowary Coast",
+    "numOfPph": "863",
+    "percentPphPerDay": "45.4",
+    "sa2Name": "Babinda",
+    "indigenous": "374",
+    "nonIndigenous": "3926"
+  },
+  "306031159": {
+    "sa2Id": "306031159",
+    "sa3Id": "30603",
+    "sa3Name": "Innisfail - Cassowary Coast",
+    "numOfPph": "863",
+    "percentPphPerDay": "45.4",
+    "sa2Name": "Innisfail",
+    "indigenous": "1914",
+    "nonIndigenous": "7661"
+  },
+  "306031160": {
+    "sa2Id": "306031160",
+    "sa3Id": "30603",
+    "sa3Name": "Innisfail - Cassowary Coast",
+    "numOfPph": "863",
+    "percentPphPerDay": "45.4",
+    "sa2Name": "Johnstone",
+    "indigenous": "567",
+    "nonIndigenous": "7462"
+  },
+  "306031161": {
+    "sa2Id": "306031161",
+    "sa3Id": "30603",
+    "sa3Name": "Innisfail - Cassowary Coast",
+    "numOfPph": "863",
+    "percentPphPerDay": "45.4",
+    "sa2Name": "Tully",
+    "indigenous": "959",
+    "nonIndigenous": "9913"
+  },
+  "306031162": {
+    "sa2Id": "306031162",
+    "sa3Id": "30603",
+    "sa3Name": "Innisfail - Cassowary Coast",
+    "numOfPph": "863",
+    "percentPphPerDay": "45.4",
+    "sa2Name": "Wooroonooran",
+    "indigenous": "3",
+    "nonIndigenous": "0"
+  },
+  "306031163": {
+    "sa2Id": "306031163",
+    "sa3Id": "30603",
+    "sa3Name": "Innisfail - Cassowary Coast",
+    "numOfPph": "863",
+    "percentPphPerDay": "45.4",
+    "sa2Name": "Yarrabah",
+    "indigenous": "2655",
+    "nonIndigenous": "47"
+  },
+  "306041164": {
+    "sa2Id": "306041164",
+    "sa3Id": "30604",
+    "sa3Name": "Port Douglas - Daintree",
+    "numOfPph": "232",
+    "percentPphPerDay": "44.0",
+    "sa2Name": "Daintree",
+    "indigenous": "954",
+    "nonIndigenous": "5528"
+  },
+  "306041165": {
+    "sa2Id": "306041165",
+    "sa3Id": "30604",
+    "sa3Name": "Port Douglas - Daintree",
+    "numOfPph": "232",
+    "percentPphPerDay": "44.0",
+    "sa2Name": "Port Douglas",
+    "indigenous": "150",
+    "nonIndigenous": "5325"
+  },
+  "306051166": {
+    "sa2Id": "306051166",
+    "sa3Id": "30605",
+    "sa3Name": "Tablelands (East) - Kuranda",
+    "numOfPph": "980",
+    "percentPphPerDay": "31.4",
+    "sa2Name": "Atherton",
+    "indigenous": "1013",
+    "nonIndigenous": "9930"
+  },
+  "306051167": {
+    "sa2Id": "306051167",
+    "sa3Id": "30605",
+    "sa3Name": "Tablelands (East) - Kuranda",
+    "numOfPph": "980",
+    "percentPphPerDay": "31.4",
+    "sa2Name": "Herberton",
+    "indigenous": "827",
+    "nonIndigenous": "4882"
+  },
+  "306051168": {
+    "sa2Id": "306051168",
+    "sa3Id": "30605",
+    "sa3Name": "Tablelands (East) - Kuranda",
+    "numOfPph": "980",
+    "percentPphPerDay": "31.4",
+    "sa2Name": "Kuranda",
+    "indigenous": "617",
+    "nonIndigenous": "3983"
+  },
+  "306051169": {
+    "sa2Id": "306051169",
+    "sa3Id": "30605",
+    "sa3Name": "Tablelands (East) - Kuranda",
+    "numOfPph": "980",
+    "percentPphPerDay": "31.4",
+    "sa2Name": "Malanda - Yungaburra",
+    "indigenous": "379",
+    "nonIndigenous": "8186"
+  },
+  "306051170": {
+    "sa2Id": "306051170",
+    "sa3Id": "30605",
+    "sa3Name": "Tablelands (East) - Kuranda",
+    "numOfPph": "980",
+    "percentPphPerDay": "31.4",
+    "sa2Name": "Mareeba",
+    "indigenous": "1689",
+    "nonIndigenous": "9659"
+  },
+  "307011171": {
+    "sa2Id": "307011171",
+    "sa3Id": "30701",
+    "sa3Name": "Darling Downs (West) - Maranoa",
+    "numOfPph": "899",
+    "percentPphPerDay": "27.4",
+    "sa2Name": "Balonne",
+    "indigenous": "838",
+    "nonIndigenous": "3623"
+  },
+  "307011172": {
+    "sa2Id": "307011172",
+    "sa3Id": "30701",
+    "sa3Name": "Darling Downs (West) - Maranoa",
+    "numOfPph": "899",
+    "percentPphPerDay": "27.4",
+    "sa2Name": "Chinchilla",
+    "indigenous": "513",
+    "nonIndigenous": "7775"
+  },
+  "307011173": {
+    "sa2Id": "307011173",
+    "sa3Id": "30701",
+    "sa3Name": "Darling Downs (West) - Maranoa",
+    "numOfPph": "899",
+    "percentPphPerDay": "27.4",
+    "sa2Name": "Goondiwindi",
+    "indigenous": "457",
+    "nonIndigenous": "6039"
+  },
+  "307011174": {
+    "sa2Id": "307011174",
+    "sa3Id": "30701",
+    "sa3Name": "Darling Downs (West) - Maranoa",
+    "numOfPph": "899",
+    "percentPphPerDay": "27.4",
+    "sa2Name": "Inglewood - Waggamba",
+    "indigenous": "235",
+    "nonIndigenous": "4052"
+  },
+  "307011175": {
+    "sa2Id": "307011175",
+    "sa3Id": "30701",
+    "sa3Name": "Darling Downs (West) - Maranoa",
+    "numOfPph": "899",
+    "percentPphPerDay": "27.4",
+    "sa2Name": "Miles - Wandoan",
+    "indigenous": "212",
+    "nonIndigenous": "3924"
+  },
+  "307011176": {
+    "sa2Id": "307011176",
+    "sa3Id": "30701",
+    "sa3Name": "Darling Downs (West) - Maranoa",
+    "numOfPph": "899",
+    "percentPphPerDay": "27.4",
+    "sa2Name": "Roma",
+    "indigenous": "709",
+    "nonIndigenous": "6316"
+  },
+  "307011177": {
+    "sa2Id": "307011177",
+    "sa3Id": "30701",
+    "sa3Name": "Darling Downs (West) - Maranoa",
+    "numOfPph": "899",
+    "percentPphPerDay": "27.4",
+    "sa2Name": "Roma Region",
+    "indigenous": "389",
+    "nonIndigenous": "5512"
+  },
+  "307011178": {
+    "sa2Id": "307011178",
+    "sa3Id": "30701",
+    "sa3Name": "Darling Downs (West) - Maranoa",
+    "numOfPph": "899",
+    "percentPphPerDay": "27.4",
+    "sa2Name": "Tara",
+    "indigenous": "358",
+    "nonIndigenous": "3914"
+  },
+  "307021179": {
+    "sa2Id": "307021179",
+    "sa3Id": "30702",
+    "sa3Name": "Darling Downs - East",
+    "numOfPph": "755",
+    "percentPphPerDay": "39.9",
+    "sa2Name": "Crows Nest - Rosalie",
+    "indigenous": "313",
+    "nonIndigenous": "8348"
+  },
+  "307021180": {
+    "sa2Id": "307021180",
+    "sa3Id": "30702",
+    "sa3Name": "Darling Downs - East",
+    "numOfPph": "755",
+    "percentPphPerDay": "39.9",
+    "sa2Name": "Jondaryan",
+    "indigenous": "586",
+    "nonIndigenous": "7034"
+  },
+  "307021181": {
+    "sa2Id": "307021181",
+    "sa3Id": "30702",
+    "sa3Name": "Darling Downs - East",
+    "numOfPph": "755",
+    "percentPphPerDay": "39.9",
+    "sa2Name": "Millmerran",
+    "indigenous": "202",
+    "nonIndigenous": "3143"
+  },
+  "307021182": {
+    "sa2Id": "307021182",
+    "sa3Id": "30702",
+    "sa3Name": "Darling Downs - East",
+    "numOfPph": "755",
+    "percentPphPerDay": "39.9",
+    "sa2Name": "Pittsworth",
+    "indigenous": "182",
+    "nonIndigenous": "5674"
+  },
+  "307021183": {
+    "sa2Id": "307021183",
+    "sa3Id": "30702",
+    "sa3Name": "Darling Downs - East",
+    "numOfPph": "755",
+    "percentPphPerDay": "39.9",
+    "sa2Name": "Wambo",
+    "indigenous": "1222",
+    "nonIndigenous": "16132"
+  },
+  "307031184": {
+    "sa2Id": "307031184",
+    "sa3Id": "30703",
+    "sa3Name": "Granite Belt",
+    "numOfPph": "571",
+    "percentPphPerDay": "28.7",
+    "sa2Name": "Clifton - Greenmount",
+    "indigenous": "162",
+    "nonIndigenous": "4810"
+  },
+  "307031185": {
+    "sa2Id": "307031185",
+    "sa3Id": "30703",
+    "sa3Name": "Granite Belt",
+    "numOfPph": "571",
+    "percentPphPerDay": "28.7",
+    "sa2Name": "Southern Downs - East",
+    "indigenous": "157",
+    "nonIndigenous": "4123"
+  },
+  "307031186": {
+    "sa2Id": "307031186",
+    "sa3Id": "30703",
+    "sa3Name": "Granite Belt",
+    "numOfPph": "571",
+    "percentPphPerDay": "28.7",
+    "sa2Name": "Southern Downs - West",
+    "indigenous": "230",
+    "nonIndigenous": "4453"
+  },
+  "307031187": {
+    "sa2Id": "307031187",
+    "sa3Id": "30703",
+    "sa3Name": "Granite Belt",
+    "numOfPph": "571",
+    "percentPphPerDay": "28.7",
+    "sa2Name": "Stanthorpe",
+    "indigenous": "202",
+    "nonIndigenous": "5310"
+  },
+  "307031188": {
+    "sa2Id": "307031188",
+    "sa3Id": "30703",
+    "sa3Name": "Granite Belt",
+    "numOfPph": "571",
+    "percentPphPerDay": "28.7",
+    "sa2Name": "Stanthorpe Region",
+    "indigenous": "207",
+    "nonIndigenous": "5650"
+  },
+  "307031189": {
+    "sa2Id": "307031189",
+    "sa3Id": "30703",
+    "sa3Name": "Granite Belt",
+    "numOfPph": "571",
+    "percentPphPerDay": "28.7",
+    "sa2Name": "Warwick",
+    "indigenous": "1049",
+    "nonIndigenous": "14346"
+  },
+  "308011190": {
+    "sa2Id": "308011190",
+    "sa3Id": "30801",
+    "sa3Name": "Central Highlands (Qld)",
+    "numOfPph": "653",
+    "percentPphPerDay": "47.0",
+    "sa2Name": "Central Highlands - East",
+    "indigenous": "1620",
+    "nonIndigenous": "5949"
+  },
+  "308011191": {
+    "sa2Id": "308011191",
+    "sa3Id": "30801",
+    "sa3Name": "Central Highlands (Qld)",
+    "numOfPph": "653",
+    "percentPphPerDay": "47.0",
+    "sa2Name": "Central Highlands - West",
+    "indigenous": "343",
+    "nonIndigenous": "7910"
+  },
+  "308011192": {
+    "sa2Id": "308011192",
+    "sa3Id": "30801",
+    "sa3Name": "Central Highlands (Qld)",
+    "numOfPph": "653",
+    "percentPphPerDay": "47.0",
+    "sa2Name": "Emerald",
+    "indigenous": "601",
+    "nonIndigenous": "13266"
+  },
+  "308031205": {
+    "sa2Id": "308031205",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Berserker",
+    "indigenous": "744",
+    "nonIndigenous": "6274"
+  },
+  "308031206": {
+    "sa2Id": "308031206",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Bouldercombe",
+    "indigenous": "152",
+    "nonIndigenous": "1731"
+  },
+  "308031207": {
+    "sa2Id": "308031207",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Emu Park",
+    "indigenous": "351",
+    "nonIndigenous": "5194"
+  },
+  "308031208": {
+    "sa2Id": "308031208",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Frenchville - Mount Archer",
+    "indigenous": "582",
+    "nonIndigenous": "8671"
+  },
+  "308031209": {
+    "sa2Id": "308031209",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Glenlee - Rockyview",
+    "indigenous": "367",
+    "nonIndigenous": "4700"
+  },
+  "308031210": {
+    "sa2Id": "308031210",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Gracemere",
+    "indigenous": "1166",
+    "nonIndigenous": "10791"
+  },
+  "308031211": {
+    "sa2Id": "308031211",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Lakes Creek",
+    "indigenous": "588",
+    "nonIndigenous": "4380"
+  },
+  "308031212": {
+    "sa2Id": "308031212",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Mount Morgan",
+    "indigenous": "472",
+    "nonIndigenous": "2489"
+  },
+  "308031213": {
+    "sa2Id": "308031213",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Norman Gardens",
+    "indigenous": "685",
+    "nonIndigenous": "9654"
+  },
+  "308031214": {
+    "sa2Id": "308031214",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Park Avenue",
+    "indigenous": "462",
+    "nonIndigenous": "4711"
+  },
+  "308031215": {
+    "sa2Id": "308031215",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Parkhurst - Kawana",
+    "indigenous": "581",
+    "nonIndigenous": "6459"
+  },
+  "308031216": {
+    "sa2Id": "308031216",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Rockhampton - West",
+    "indigenous": "550",
+    "nonIndigenous": "5529"
+  },
+  "308031217": {
+    "sa2Id": "308031217",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Rockhampton City",
+    "indigenous": "370",
+    "nonIndigenous": "2976"
+  },
+  "308031218": {
+    "sa2Id": "308031218",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Rockhampton Region - East",
+    "indigenous": "156",
+    "nonIndigenous": "3320"
+  },
+  "308031219": {
+    "sa2Id": "308031219",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Rockhampton Region - North",
+    "indigenous": "115",
+    "nonIndigenous": "4192"
+  },
+  "308031220": {
+    "sa2Id": "308031220",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Rockhampton Region - West",
+    "indigenous": "117",
+    "nonIndigenous": "2830"
+  },
+  "308031221": {
+    "sa2Id": "308031221",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Shoalwater Bay",
+    "indigenous": "8",
+    "nonIndigenous": "8"
+  },
+  "308031222": {
+    "sa2Id": "308031222",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "The Range - Allenstown",
+    "indigenous": "509",
+    "nonIndigenous": "7849"
+  },
+  "308031223": {
+    "sa2Id": "308031223",
+    "sa3Id": "30803",
+    "sa3Name": "Rockhampton",
+    "numOfPph": "2,251",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Yeppoon",
+    "indigenous": "969",
+    "nonIndigenous": "17570"
+  },
+  "308041528": {
+    "sa2Id": "308041528",
+    "sa3Id": "30804",
+    "sa3Name": "Biloela",
+    "numOfPph": "353",
+    "percentPphPerDay": "29.5",
+    "sa2Name": "Banana",
+    "indigenous": "397",
+    "nonIndigenous": "8290"
+  },
+  "308041529": {
+    "sa2Id": "308041529",
+    "sa3Id": "30804",
+    "sa3Name": "Biloela",
+    "numOfPph": "353",
+    "percentPphPerDay": "29.5",
+    "sa2Name": "Biloela",
+    "indigenous": "292",
+    "nonIndigenous": "5591"
+  },
+  "308051530": {
+    "sa2Id": "308051530",
+    "sa3Id": "30805",
+    "sa3Name": "Gladstone",
+    "numOfPph": "976",
+    "percentPphPerDay": "32.3",
+    "sa2Name": "Agnes Water - Miriam Vale",
+    "indigenous": "238",
+    "nonIndigenous": "5874"
+  },
+  "308051531": {
+    "sa2Id": "308051531",
+    "sa3Id": "30805",
+    "sa3Name": "Gladstone",
+    "numOfPph": "976",
+    "percentPphPerDay": "32.3",
+    "sa2Name": "Boyne Island - Tannum Sands",
+    "indigenous": "399",
+    "nonIndigenous": "9674"
+  },
+  "308051532": {
+    "sa2Id": "308051532",
+    "sa3Id": "30805",
+    "sa3Name": "Gladstone",
+    "numOfPph": "976",
+    "percentPphPerDay": "32.3",
+    "sa2Name": "Callemondah",
+    "indigenous": "10",
+    "nonIndigenous": "10"
+  },
+  "308051533": {
+    "sa2Id": "308051533",
+    "sa3Id": "30805",
+    "sa3Name": "Gladstone",
+    "numOfPph": "976",
+    "percentPphPerDay": "32.3",
+    "sa2Name": "Clinton - New Auckland",
+    "indigenous": "696",
+    "nonIndigenous": "13184"
+  },
+  "308051534": {
+    "sa2Id": "308051534",
+    "sa3Id": "30805",
+    "sa3Name": "Gladstone",
+    "numOfPph": "976",
+    "percentPphPerDay": "32.3",
+    "sa2Name": "Gladstone",
+    "indigenous": "374",
+    "nonIndigenous": "5790"
+  },
+  "308051535": {
+    "sa2Id": "308051535",
+    "sa3Id": "30805",
+    "sa3Name": "Gladstone",
+    "numOfPph": "976",
+    "percentPphPerDay": "32.3",
+    "sa2Name": "Gladstone Hinterland",
+    "indigenous": "475",
+    "nonIndigenous": "11476"
+  },
+  "308051536": {
+    "sa2Id": "308051536",
+    "sa3Id": "30805",
+    "sa3Name": "Gladstone",
+    "numOfPph": "976",
+    "percentPphPerDay": "32.3",
+    "sa2Name": "Kin Kora - Sun Valley",
+    "indigenous": "161",
+    "nonIndigenous": "3526"
+  },
+  "308051537": {
+    "sa2Id": "308051537",
+    "sa3Id": "30805",
+    "sa3Name": "Gladstone",
+    "numOfPph": "976",
+    "percentPphPerDay": "32.3"
+  },
+  "308051538": {
+    "sa2Id": "308051538",
+    "sa3Id": "30805",
+    "sa3Name": "Gladstone",
+    "numOfPph": "976",
+    "percentPphPerDay": "32.3",
+    "sa2Name": "Telina - Toolooa",
+    "indigenous": "342",
+    "nonIndigenous": "5988"
+  },
+  "308051539": {
+    "sa2Id": "308051539",
+    "sa3Id": "30805",
+    "sa3Name": "Gladstone",
+    "numOfPph": "976",
+    "percentPphPerDay": "32.3",
+    "sa2Name": "West Gladstone",
+    "indigenous": "272",
+    "nonIndigenous": "4528"
+  },
+  "309011224": {
+    "sa2Id": "309011224",
+    "sa3Id": "30901",
+    "sa3Name": "Broadbeach - Burleigh",
+    "numOfPph": "936",
+    "percentPphPerDay": "34.6",
+    "sa2Name": "Broadbeach Waters",
+    "indigenous": "92",
+    "nonIndigenous": "8054"
+  },
+  "309011225": {
+    "sa2Id": "309011225",
+    "sa3Id": "30901",
+    "sa3Name": "Broadbeach - Burleigh",
+    "numOfPph": "936",
+    "percentPphPerDay": "34.6",
+    "sa2Name": "Burleigh Heads",
+    "indigenous": "129",
+    "nonIndigenous": "9000"
+  },
+  "309011226": {
+    "sa2Id": "309011226",
+    "sa3Id": "30901",
+    "sa3Name": "Broadbeach - Burleigh",
+    "numOfPph": "936",
+    "percentPphPerDay": "34.6",
+    "sa2Name": "Burleigh Waters",
+    "indigenous": "195",
+    "nonIndigenous": "14437"
+  },
+  "309011227": {
+    "sa2Id": "309011227",
+    "sa3Id": "30901",
+    "sa3Name": "Broadbeach - Burleigh",
+    "numOfPph": "936",
+    "percentPphPerDay": "34.6",
+    "sa2Name": "Mermaid Beach - Broadbeach",
+    "indigenous": "147",
+    "nonIndigenous": "12489"
+  },
+  "309011228": {
+    "sa2Id": "309011228",
+    "sa3Id": "30901",
+    "sa3Name": "Broadbeach - Burleigh",
+    "numOfPph": "936",
+    "percentPphPerDay": "34.6",
+    "sa2Name": "Mermaid Waters",
+    "indigenous": "163",
+    "nonIndigenous": "12445"
+  },
+  "309011229": {
+    "sa2Id": "309011229",
+    "sa3Id": "30901",
+    "sa3Name": "Broadbeach - Burleigh",
+    "numOfPph": "936",
+    "percentPphPerDay": "34.6",
+    "sa2Name": "Miami",
+    "indigenous": "133",
+    "nonIndigenous": "7017"
+  },
+  "309021230": {
+    "sa2Id": "309021230",
+    "sa3Id": "30902",
+    "sa3Name": "Coolangatta",
+    "numOfPph": "883",
+    "percentPphPerDay": "31.7",
+    "sa2Name": "Coolangatta",
+    "indigenous": "170",
+    "nonIndigenous": "6053"
+  },
+  "309021231": {
+    "sa2Id": "309021231",
+    "sa3Id": "30902",
+    "sa3Name": "Coolangatta",
+    "numOfPph": "883",
+    "percentPphPerDay": "31.7",
+    "sa2Name": "Currumbin - Tugun",
+    "indigenous": "323",
+    "nonIndigenous": "11435"
+  },
+  "309021232": {
+    "sa2Id": "309021232",
+    "sa3Id": "30902",
+    "sa3Name": "Coolangatta",
+    "numOfPph": "883",
+    "percentPphPerDay": "31.7",
+    "sa2Name": "Currumbin Waters",
+    "indigenous": "270",
+    "nonIndigenous": "9166"
+  },
+  "309021233": {
+    "sa2Id": "309021233",
+    "sa3Id": "30902",
+    "sa3Name": "Coolangatta",
+    "numOfPph": "883",
+    "percentPphPerDay": "31.7",
+    "sa2Name": "Elanora",
+    "indigenous": "305",
+    "nonIndigenous": "12202"
+  },
+  "309021234": {
+    "sa2Id": "309021234",
+    "sa3Id": "30902",
+    "sa3Name": "Coolangatta",
+    "numOfPph": "883",
+    "percentPphPerDay": "31.7",
+    "sa2Name": "Palm Beach",
+    "indigenous": "364",
+    "nonIndigenous": "14823"
+  },
+  "309031235": {
+    "sa2Id": "309031235",
+    "sa3Id": "30903",
+    "sa3Name": "Gold Coast - North",
+    "numOfPph": "1,201",
+    "percentPphPerDay": "32.1",
+    "sa2Name": "Arundel",
+    "indigenous": "190",
+    "nonIndigenous": "10446"
+  },
+  "309031236": {
+    "sa2Id": "309031236",
+    "sa3Id": "30903",
+    "sa3Name": "Gold Coast - North",
+    "numOfPph": "1,201",
+    "percentPphPerDay": "32.1",
+    "sa2Name": "Biggera Waters",
+    "indigenous": "134",
+    "nonIndigenous": "8757"
+  },
+  "309031237": {
+    "sa2Id": "309031237",
+    "sa3Id": "30903",
+    "sa3Name": "Gold Coast - North",
+    "numOfPph": "1,201",
+    "percentPphPerDay": "32.1",
+    "sa2Name": "Coombabah",
+    "indigenous": "265",
+    "nonIndigenous": "10329"
+  },
+  "309031238": {
+    "sa2Id": "309031238",
+    "sa3Id": "30903",
+    "sa3Name": "Gold Coast - North",
+    "numOfPph": "1,201",
+    "percentPphPerDay": "32.1",
+    "sa2Name": "Labrador",
+    "indigenous": "489",
+    "nonIndigenous": "18513"
+  },
+  "309031239": {
+    "sa2Id": "309031239",
+    "sa3Id": "30903",
+    "sa3Name": "Gold Coast - North",
+    "numOfPph": "1,201",
+    "percentPphPerDay": "32.1",
+    "sa2Name": "Paradise Point - Hollywell",
+    "indigenous": "82",
+    "nonIndigenous": "9664"
+  },
+  "309031240": {
+    "sa2Id": "309031240",
+    "sa3Id": "30903",
+    "sa3Name": "Gold Coast - North",
+    "numOfPph": "1,201",
+    "percentPphPerDay": "32.1",
+    "sa2Name": "Runaway Bay",
+    "indigenous": "124",
+    "nonIndigenous": "9265"
+  },
+  "309041241": {
+    "sa2Id": "309041241",
+    "sa3Id": "30904",
+    "sa3Name": "Gold Coast Hinterland",
+    "numOfPph": "226",
+    "percentPphPerDay": "34.1",
+    "sa2Name": "Guanaba - Springbrook",
+    "indigenous": "110",
+    "nonIndigenous": "4230"
+  },
+  "309041242": {
+    "sa2Id": "309041242",
+    "sa3Id": "30904",
+    "sa3Name": "Gold Coast Hinterland",
+    "numOfPph": "226",
+    "percentPphPerDay": "34.1",
+    "sa2Name": "Tamborine - Canungra",
+    "indigenous": "265",
+    "nonIndigenous": "14365"
+  },
+  "309051243": {
+    "sa2Id": "309051243",
+    "sa3Id": "30905",
+    "sa3Name": "Mudgeeraba - Tallebudgera",
+    "numOfPph": "508",
+    "percentPphPerDay": "40.9",
+    "sa2Name": "Currumbin Valley - Tallebudgera",
+    "indigenous": "127",
+    "nonIndigenous": "7302"
+  },
+  "309051244": {
+    "sa2Id": "309051244",
+    "sa3Id": "30905",
+    "sa3Name": "Mudgeeraba - Tallebudgera",
+    "numOfPph": "508",
+    "percentPphPerDay": "40.9",
+    "sa2Name": "Mudgeeraba - Bonogin",
+    "indigenous": "347",
+    "nonIndigenous": "18485"
+  },
+  "309051245": {
+    "sa2Id": "309051245",
+    "sa3Id": "30905",
+    "sa3Name": "Mudgeeraba - Tallebudgera",
+    "numOfPph": "508",
+    "percentPphPerDay": "40.9",
+    "sa2Name": "Reedy Creek - Andrews",
+    "indigenous": "136",
+    "nonIndigenous": "8034"
+  },
+  "309061246": {
+    "sa2Id": "309061246",
+    "sa3Id": "30906",
+    "sa3Name": "Nerang",
+    "numOfPph": "1,014",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Carrara",
+    "indigenous": "235",
+    "nonIndigenous": "12360"
+  },
+  "309061247": {
+    "sa2Id": "309061247",
+    "sa3Id": "30906",
+    "sa3Name": "Nerang",
+    "numOfPph": "1,014",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Highland Park",
+    "indigenous": "208",
+    "nonIndigenous": "8376"
+  },
+  "309061248": {
+    "sa2Id": "309061248",
+    "sa3Id": "30906",
+    "sa3Name": "Nerang",
+    "numOfPph": "1,014",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Nerang - Mount Nathan",
+    "indigenous": "557",
+    "nonIndigenous": "20578"
+  },
+  "309061249": {
+    "sa2Id": "309061249",
+    "sa3Id": "30906",
+    "sa3Name": "Nerang",
+    "numOfPph": "1,014",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Pacific Pines - Gaven",
+    "indigenous": "368",
+    "nonIndigenous": "18519"
+  },
+  "309061250": {
+    "sa2Id": "309061250",
+    "sa3Id": "30906",
+    "sa3Name": "Nerang",
+    "numOfPph": "1,014",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Worongary - Tallai",
+    "indigenous": "126",
+    "nonIndigenous": "7955"
+  },
+  "309071251": {
+    "sa2Id": "309071251",
+    "sa3Id": "30907",
+    "sa3Name": "Ormeau - Oxenford",
+    "numOfPph": "1,598",
+    "percentPphPerDay": "40.6",
+    "sa2Name": "Coomera",
+    "indigenous": "397",
+    "nonIndigenous": "13288"
+  },
+  "309071252": {
+    "sa2Id": "309071252",
+    "sa3Id": "30907",
+    "sa3Name": "Ormeau - Oxenford",
+    "numOfPph": "1,598",
+    "percentPphPerDay": "40.6",
+    "sa2Name": "Helensvale",
+    "indigenous": "235",
+    "nonIndigenous": "17145"
+  },
+  "309071253": {
+    "sa2Id": "309071253",
+    "sa3Id": "30907",
+    "sa3Name": "Ormeau - Oxenford",
+    "numOfPph": "1,598",
+    "percentPphPerDay": "40.6",
+    "sa2Name": "Hope Island",
+    "indigenous": "96",
+    "nonIndigenous": "11619"
+  },
+  "309071254": {
+    "sa2Id": "309071254",
+    "sa3Id": "30907",
+    "sa3Name": "Ormeau - Oxenford",
+    "numOfPph": "1,598",
+    "percentPphPerDay": "40.6",
+    "sa2Name": "Jacobs Well - Alberton",
+    "indigenous": "108",
+    "nonIndigenous": "3601"
+  },
+  "309071255": {
+    "sa2Id": "309071255",
+    "sa3Id": "30907",
+    "sa3Name": "Ormeau - Oxenford",
+    "numOfPph": "1,598",
+    "percentPphPerDay": "40.6",
+    "sa2Name": "Ormeau - Yatala",
+    "indigenous": "400",
+    "nonIndigenous": "19800"
+  },
+  "309071256": {
+    "sa2Id": "309071256",
+    "sa3Id": "30907",
+    "sa3Name": "Ormeau - Oxenford",
+    "numOfPph": "1,598",
+    "percentPphPerDay": "40.6",
+    "sa2Name": "Oxenford - Maudsland",
+    "indigenous": "302",
+    "nonIndigenous": "15871"
+  },
+  "309071257": {
+    "sa2Id": "309071257",
+    "sa3Id": "30907",
+    "sa3Name": "Ormeau - Oxenford",
+    "numOfPph": "1,598",
+    "percentPphPerDay": "40.6",
+    "sa2Name": "Pimpama",
+    "indigenous": "376",
+    "nonIndigenous": "9108"
+  },
+  "309071258": {
+    "sa2Id": "309071258",
+    "sa3Id": "30907",
+    "sa3Name": "Ormeau - Oxenford",
+    "numOfPph": "1,598",
+    "percentPphPerDay": "40.6",
+    "sa2Name": "Upper Coomera - Willow Vale",
+    "indigenous": "890",
+    "nonIndigenous": "31314"
+  },
+  "309081259": {
+    "sa2Id": "309081259",
+    "sa3Id": "30908",
+    "sa3Name": "Robina",
+    "numOfPph": "805",
+    "percentPphPerDay": "39.0",
+    "sa2Name": "Clear Island Waters",
+    "indigenous": "28",
+    "nonIndigenous": "4202"
+  },
+  "309081260": {
+    "sa2Id": "309081260",
+    "sa3Id": "30908",
+    "sa3Name": "Robina",
+    "numOfPph": "805",
+    "percentPphPerDay": "39.0",
+    "sa2Name": "Merrimac",
+    "indigenous": "115",
+    "nonIndigenous": "7224"
+  },
+  "309081261": {
+    "sa2Id": "309081261",
+    "sa3Id": "30908",
+    "sa3Name": "Robina",
+    "numOfPph": "805",
+    "percentPphPerDay": "39.0",
+    "sa2Name": "Robina",
+    "indigenous": "293",
+    "nonIndigenous": "23792"
+  },
+  "309081262": {
+    "sa2Id": "309081262",
+    "sa3Id": "30908",
+    "sa3Name": "Robina",
+    "numOfPph": "805",
+    "percentPphPerDay": "39.0",
+    "sa2Name": "Varsity Lakes",
+    "indigenous": "314",
+    "nonIndigenous": "15413"
+  },
+  "309091263": {
+    "sa2Id": "309091263",
+    "sa3Id": "30909",
+    "sa3Name": "Southport",
+    "numOfPph": "1,058",
+    "percentPphPerDay": "28.6",
+    "sa2Name": "Ashmore",
+    "indigenous": "181",
+    "nonIndigenous": "12069"
+  },
+  "309091264": {
+    "sa2Id": "309091264",
+    "sa3Id": "30909",
+    "sa3Name": "Southport",
+    "numOfPph": "1,058",
+    "percentPphPerDay": "28.6",
+    "sa2Name": "Molendinar",
+    "indigenous": "181",
+    "nonIndigenous": "6435"
+  },
+  "309091265": {
+    "sa2Id": "309091265",
+    "sa3Id": "30909",
+    "sa3Name": "Southport",
+    "numOfPph": "1,058",
+    "percentPphPerDay": "28.6",
+    "sa2Name": "Parkwood",
+    "indigenous": "212",
+    "nonIndigenous": "8734"
+  },
+  "309091540": {
+    "sa2Id": "309091540",
+    "sa3Id": "30909",
+    "sa3Name": "Southport",
+    "numOfPph": "1,058",
+    "percentPphPerDay": "28.6",
+    "sa2Name": "Southport - North",
+    "indigenous": "324",
+    "nonIndigenous": "14924"
+  },
+  "309091541": {
+    "sa2Id": "309091541",
+    "sa3Id": "30909",
+    "sa3Name": "Southport",
+    "numOfPph": "1,058",
+    "percentPphPerDay": "28.6",
+    "sa2Name": "Southport - South",
+    "indigenous": "401",
+    "nonIndigenous": "17476"
+  },
+  "309101267": {
+    "sa2Id": "309101267",
+    "sa3Id": "30910",
+    "sa3Name": "Surfers Paradise",
+    "numOfPph": "555",
+    "percentPphPerDay": "36.0",
+    "sa2Name": "Benowa",
+    "indigenous": "89",
+    "nonIndigenous": "8926"
+  },
+  "309101268": {
+    "sa2Id": "309101268",
+    "sa3Id": "30910",
+    "sa3Name": "Surfers Paradise",
+    "numOfPph": "555",
+    "percentPphPerDay": "36.0",
+    "sa2Name": "Bundall",
+    "indigenous": "57",
+    "nonIndigenous": "4647"
+  },
+  "309101269": {
+    "sa2Id": "309101269",
+    "sa3Id": "30910",
+    "sa3Name": "Surfers Paradise",
+    "numOfPph": "555",
+    "percentPphPerDay": "36.0",
+    "sa2Name": "Main Beach",
+    "indigenous": "39",
+    "nonIndigenous": "4036"
+  },
+  "309101270": {
+    "sa2Id": "309101270",
+    "sa3Id": "30910",
+    "sa3Name": "Surfers Paradise",
+    "numOfPph": "555",
+    "percentPphPerDay": "36.0",
+    "sa2Name": "Surfers Paradise",
+    "indigenous": "264",
+    "nonIndigenous": "24654"
+  },
+  "310011271": {
+    "sa2Id": "310011271",
+    "sa3Id": "31001",
+    "sa3Name": "Forest Lake - Oxley",
+    "numOfPph": "1,308",
+    "percentPphPerDay": "46.2",
+    "sa2Name": "Darra - Sumner",
+    "indigenous": "88",
+    "nonIndigenous": "5076"
+  },
+  "310011272": {
+    "sa2Id": "310011272",
+    "sa3Id": "31001",
+    "sa3Name": "Forest Lake - Oxley",
+    "numOfPph": "1,308",
+    "percentPphPerDay": "46.2",
+    "sa2Name": "Durack",
+    "indigenous": "272",
+    "nonIndigenous": "8023"
+  },
+  "310011273": {
+    "sa2Id": "310011273",
+    "sa3Id": "31001",
+    "sa3Name": "Forest Lake - Oxley",
+    "numOfPph": "1,308",
+    "percentPphPerDay": "46.2",
+    "sa2Name": "Forest Lake - Doolandella",
+    "indigenous": "556",
+    "nonIndigenous": "28202"
+  },
+  "310011274": {
+    "sa2Id": "310011274",
+    "sa3Id": "31001",
+    "sa3Name": "Forest Lake - Oxley",
+    "numOfPph": "1,308",
+    "percentPphPerDay": "46.2",
+    "sa2Name": "Inala - Richlands",
+    "indigenous": "1097",
+    "nonIndigenous": "17600"
+  },
+  "310011275": {
+    "sa2Id": "310011275",
+    "sa3Id": "31001",
+    "sa3Name": "Forest Lake - Oxley",
+    "numOfPph": "1,308",
+    "percentPphPerDay": "46.2",
+    "sa2Name": "Oxley (Qld)",
+    "indigenous": "144",
+    "nonIndigenous": "8009"
+  },
+  "310011276": {
+    "sa2Id": "310011276",
+    "sa3Id": "31001",
+    "sa3Name": "Forest Lake - Oxley",
+    "numOfPph": "1,308",
+    "percentPphPerDay": "46.2",
+    "sa2Name": "Wacol",
+    "indigenous": "906",
+    "nonIndigenous": "5149"
+  },
+  "310021277": {
+    "sa2Id": "310021277",
+    "sa3Id": "31002",
+    "sa3Name": "Ipswich Hinterland",
+    "numOfPph": "939",
+    "percentPphPerDay": "36.0",
+    "sa2Name": "Boonah",
+    "indigenous": "331",
+    "nonIndigenous": "11827"
+  },
+  "310021278": {
+    "sa2Id": "310021278",
+    "sa3Id": "31002",
+    "sa3Name": "Ipswich Hinterland",
+    "numOfPph": "939",
+    "percentPphPerDay": "36.0",
+    "sa2Name": "Esk",
+    "indigenous": "179",
+    "nonIndigenous": "5067"
+  },
+  "310021279": {
+    "sa2Id": "310021279",
+    "sa3Id": "31002",
+    "sa3Name": "Ipswich Hinterland",
+    "numOfPph": "939",
+    "percentPphPerDay": "36.0",
+    "sa2Name": "Lake Manchester - England Creek",
+    "indigenous": "3",
+    "nonIndigenous": "0"
+  },
+  "310021280": {
+    "sa2Id": "310021280",
+    "sa3Id": "31002",
+    "sa3Name": "Ipswich Hinterland",
+    "numOfPph": "939",
+    "percentPphPerDay": "36.0",
+    "sa2Name": "Lockyer Valley - East",
+    "indigenous": "1133",
+    "nonIndigenous": "19162"
+  },
+  "310021281": {
+    "sa2Id": "310021281",
+    "sa3Id": "31002",
+    "sa3Name": "Ipswich Hinterland",
+    "numOfPph": "939",
+    "percentPphPerDay": "36.0",
+    "sa2Name": "Lowood",
+    "indigenous": "699",
+    "nonIndigenous": "13669"
+  },
+  "310021282": {
+    "sa2Id": "310021282",
+    "sa3Id": "31002",
+    "sa3Name": "Ipswich Hinterland",
+    "numOfPph": "939",
+    "percentPphPerDay": "36.0",
+    "sa2Name": "Rosewood",
+    "indigenous": "570",
+    "nonIndigenous": "11511"
+  },
+  "310031283": {
+    "sa2Id": "310031283",
+    "sa3Id": "31003",
+    "sa3Name": "Ipswich Inner",
+    "numOfPph": "1,762",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Brassall",
+    "indigenous": "707",
+    "nonIndigenous": "10515"
+  },
+  "310031284": {
+    "sa2Id": "310031284",
+    "sa3Id": "31003",
+    "sa3Name": "Ipswich Inner",
+    "numOfPph": "1,762",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Bundamba",
+    "indigenous": "541",
+    "nonIndigenous": "8646"
+  },
+  "310031285": {
+    "sa2Id": "310031285",
+    "sa3Id": "31003",
+    "sa3Name": "Ipswich Inner",
+    "numOfPph": "1,762",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Churchill - Yamanto",
+    "indigenous": "354",
+    "nonIndigenous": "6620"
+  },
+  "310031286": {
+    "sa2Id": "310031286",
+    "sa3Id": "31003",
+    "sa3Name": "Ipswich Inner",
+    "numOfPph": "1,762",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Ipswich - Central",
+    "indigenous": "462",
+    "nonIndigenous": "6320"
+  },
+  "310031287": {
+    "sa2Id": "310031287",
+    "sa3Id": "31003",
+    "sa3Name": "Ipswich Inner",
+    "numOfPph": "1,762",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Ipswich - East",
+    "indigenous": "1141",
+    "nonIndigenous": "17380"
+  },
+  "310031288": {
+    "sa2Id": "310031288",
+    "sa3Id": "31003",
+    "sa3Name": "Ipswich Inner",
+    "numOfPph": "1,762",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Ipswich - North",
+    "indigenous": "106",
+    "nonIndigenous": "4677"
+  },
+  "310031289": {
+    "sa2Id": "310031289",
+    "sa3Id": "31003",
+    "sa3Name": "Ipswich Inner",
+    "numOfPph": "1,762",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Karalee - Barellan Point",
+    "indigenous": "139",
+    "nonIndigenous": "5550"
+  },
+  "310031290": {
+    "sa2Id": "310031290",
+    "sa3Id": "31003",
+    "sa3Name": "Ipswich Inner",
+    "numOfPph": "1,762",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Karana Downs",
+    "indigenous": "103",
+    "nonIndigenous": "6204"
+  },
+  "310031291": {
+    "sa2Id": "310031291",
+    "sa3Id": "31003",
+    "sa3Name": "Ipswich Inner",
+    "numOfPph": "1,762",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Leichhardt - One Mile",
+    "indigenous": "843",
+    "nonIndigenous": "7036"
+  },
+  "310031292": {
+    "sa2Id": "310031292",
+    "sa3Id": "31003",
+    "sa3Name": "Ipswich Inner",
+    "numOfPph": "1,762",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "North Ipswich - Tivoli",
+    "indigenous": "389",
+    "nonIndigenous": "6184"
+  },
+  "310031293": {
+    "sa2Id": "310031293",
+    "sa3Id": "31003",
+    "sa3Name": "Ipswich Inner",
+    "numOfPph": "1,762",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Raceview",
+    "indigenous": "781",
+    "nonIndigenous": "14800"
+  },
+  "310031294": {
+    "sa2Id": "310031294",
+    "sa3Id": "31003",
+    "sa3Name": "Ipswich Inner",
+    "numOfPph": "1,762",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Ripley",
+    "indigenous": "151",
+    "nonIndigenous": "4604"
+  },
+  "310031295": {
+    "sa2Id": "310031295",
+    "sa3Id": "31003",
+    "sa3Name": "Ipswich Inner",
+    "numOfPph": "1,762",
+    "percentPphPerDay": "41.0",
+    "sa2Name": "Riverview",
+    "indigenous": "351",
+    "nonIndigenous": "2813"
+  },
+  "310041296": {
+    "sa2Id": "310041296",
+    "sa3Id": "31004",
+    "sa3Name": "Springfield - Redbank",
+    "numOfPph": "1,070",
+    "percentPphPerDay": "37.1",
+    "sa2Name": "Bellbird Park - Brookwater",
+    "indigenous": "437",
+    "nonIndigenous": "13843"
+  },
+  "310041297": {
+    "sa2Id": "310041297",
+    "sa3Id": "31004",
+    "sa3Name": "Springfield - Redbank",
+    "numOfPph": "1,070",
+    "percentPphPerDay": "37.1",
+    "sa2Name": "Camira - Gailes",
+    "indigenous": "430",
+    "nonIndigenous": "9081"
+  },
+  "310041298": {
+    "sa2Id": "310041298",
+    "sa3Id": "31004",
+    "sa3Name": "Springfield - Redbank",
+    "numOfPph": "1,070",
+    "percentPphPerDay": "37.1",
+    "sa2Name": "Carole Park",
+    "indigenous": "4",
+    "nonIndigenous": "0"
+  },
+  "310041299": {
+    "sa2Id": "310041299",
+    "sa3Id": "31004",
+    "sa3Name": "Springfield - Redbank",
+    "numOfPph": "1,070",
+    "percentPphPerDay": "37.1",
+    "sa2Name": "Collingwood Park - Redbank",
+    "indigenous": "371",
+    "nonIndigenous": "8412"
+  },
+  "310041300": {
+    "sa2Id": "310041300",
+    "sa3Id": "31004",
+    "sa3Name": "Springfield - Redbank",
+    "numOfPph": "1,070",
+    "percentPphPerDay": "37.1",
+    "sa2Name": "Goodna",
+    "indigenous": "753",
+    "nonIndigenous": "10518"
+  },
+  "310041301": {
+    "sa2Id": "310041301",
+    "sa3Id": "31004",
+    "sa3Name": "Springfield - Redbank",
+    "numOfPph": "1,070",
+    "percentPphPerDay": "37.1",
+    "sa2Name": "New Chum",
+    "indigenous": "0",
+    "nonIndigenous": "0"
+  },
+  "310041302": {
+    "sa2Id": "310041302",
+    "sa3Id": "31004",
+    "sa3Name": "Springfield - Redbank",
+    "numOfPph": "1,070",
+    "percentPphPerDay": "37.1",
+    "sa2Name": "Redbank Plains",
+    "indigenous": "970",
+    "nonIndigenous": "19102"
+  },
+  "310041303": {
+    "sa2Id": "310041303",
+    "sa3Id": "31004",
+    "sa3Name": "Springfield - Redbank",
+    "numOfPph": "1,070",
+    "percentPphPerDay": "37.1",
+    "sa2Name": "Springfield",
+    "indigenous": "243",
+    "nonIndigenous": "6811"
+  },
+  "310041304": {
+    "sa2Id": "310041304",
+    "sa3Id": "31004",
+    "sa3Name": "Springfield - Redbank",
+    "numOfPph": "1,070",
+    "percentPphPerDay": "37.1",
+    "sa2Name": "Springfield Lakes",
+    "indigenous": "376",
+    "nonIndigenous": "15661"
+  },
+  "311011305": {
+    "sa2Id": "311011305",
+    "sa3Id": "31101",
+    "sa3Name": "Beaudesert",
+    "numOfPph": "244",
+    "percentPphPerDay": "38.9",
+    "sa2Name": "Beaudesert",
+    "indigenous": "865",
+    "nonIndigenous": "13331"
+  },
+  "311021306": {
+    "sa2Id": "311021306",
+    "sa3Id": "31102",
+    "sa3Name": "Beenleigh",
+    "numOfPph": "663",
+    "percentPphPerDay": "38.9",
+    "sa2Name": "Beenleigh",
+    "indigenous": "528",
+    "nonIndigenous": "7984"
+  },
+  "311021307": {
+    "sa2Id": "311021307",
+    "sa3Id": "31102",
+    "sa3Name": "Beenleigh",
+    "numOfPph": "663",
+    "percentPphPerDay": "38.9",
+    "sa2Name": "Eagleby",
+    "indigenous": "733",
+    "nonIndigenous": "13135"
+  },
+  "311021308": {
+    "sa2Id": "311021308",
+    "sa3Id": "31102",
+    "sa3Name": "Beenleigh",
+    "numOfPph": "663",
+    "percentPphPerDay": "38.9",
+    "sa2Name": "Edens Landing - Holmview",
+    "indigenous": "258",
+    "nonIndigenous": "7467"
+  },
+  "311021309": {
+    "sa2Id": "311021309",
+    "sa3Id": "31102",
+    "sa3Name": "Beenleigh",
+    "numOfPph": "663",
+    "percentPphPerDay": "38.9",
+    "sa2Name": "Mount Warren Park",
+    "indigenous": "159",
+    "nonIndigenous": "5801"
+  },
+  "311021310": {
+    "sa2Id": "311021310",
+    "sa3Id": "31102",
+    "sa3Name": "Beenleigh",
+    "numOfPph": "663",
+    "percentPphPerDay": "38.9",
+    "sa2Name": "Wolffdene - Bahrs Scrub",
+    "indigenous": "149",
+    "nonIndigenous": "6178"
+  },
+  "311031311": {
+    "sa2Id": "311031311",
+    "sa3Id": "31103",
+    "sa3Name": "Browns Plains",
+    "numOfPph": "1,231",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Boronia Heights - Park Ridge",
+    "indigenous": "463",
+    "nonIndigenous": "12220"
+  },
+  "311031312": {
+    "sa2Id": "311031312",
+    "sa3Id": "31103",
+    "sa3Name": "Browns Plains",
+    "numOfPph": "1,231",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Browns Plains",
+    "indigenous": "307",
+    "nonIndigenous": "7393"
+  },
+  "311031313": {
+    "sa2Id": "311031313",
+    "sa3Id": "31103",
+    "sa3Name": "Browns Plains",
+    "numOfPph": "1,231",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Chambers Flat - Logan Reserve",
+    "indigenous": "136",
+    "nonIndigenous": "5109"
+  },
+  "311031314": {
+    "sa2Id": "311031314",
+    "sa3Id": "31103",
+    "sa3Name": "Browns Plains",
+    "numOfPph": "1,231",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Crestmead",
+    "indigenous": "629",
+    "nonIndigenous": "11754"
+  },
+  "311031315": {
+    "sa2Id": "311031315",
+    "sa3Id": "31103",
+    "sa3Name": "Browns Plains",
+    "numOfPph": "1,231",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Greenbank Military Camp",
+    "indigenous": "0",
+    "nonIndigenous": "0"
+  },
+  "311031316": {
+    "sa2Id": "311031316",
+    "sa3Id": "31103",
+    "sa3Name": "Browns Plains",
+    "numOfPph": "1,231",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Hillcrest",
+    "indigenous": "274",
+    "nonIndigenous": "8183"
+  },
+  "311031317": {
+    "sa2Id": "311031317",
+    "sa3Id": "31103",
+    "sa3Name": "Browns Plains",
+    "numOfPph": "1,231",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Marsden",
+    "indigenous": "673",
+    "nonIndigenous": "14295"
+  },
+  "311031318": {
+    "sa2Id": "311031318",
+    "sa3Id": "31103",
+    "sa3Name": "Browns Plains",
+    "numOfPph": "1,231",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Munruben - Park Ridge South",
+    "indigenous": "124",
+    "nonIndigenous": "4655"
+  },
+  "311031319": {
+    "sa2Id": "311031319",
+    "sa3Id": "31103",
+    "sa3Name": "Browns Plains",
+    "numOfPph": "1,231",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Regents Park - Heritage Park",
+    "indigenous": "459",
+    "nonIndigenous": "16080"
+  },
+  "311041320": {
+    "sa2Id": "311041320",
+    "sa3Id": "31104",
+    "sa3Name": "Jimboomba",
+    "numOfPph": "475",
+    "percentPphPerDay": "40.2",
+    "sa2Name": "Greenbank",
+    "indigenous": "430",
+    "nonIndigenous": "12859"
+  },
+  "311041321": {
+    "sa2Id": "311041321",
+    "sa3Id": "31104",
+    "sa3Name": "Jimboomba",
+    "numOfPph": "475",
+    "percentPphPerDay": "40.2",
+    "sa2Name": "Jimboomba",
+    "indigenous": "1021",
+    "nonIndigenous": "25539"
+  },
+  "311041322": {
+    "sa2Id": "311041322",
+    "sa3Id": "31104",
+    "sa3Name": "Jimboomba",
+    "numOfPph": "475",
+    "percentPphPerDay": "40.2",
+    "sa2Name": "Logan Village",
+    "indigenous": "202",
+    "nonIndigenous": "7023"
+  },
+  "311051323": {
+    "sa2Id": "311051323",
+    "sa3Id": "31105",
+    "sa3Name": "Loganlea - Carbrook",
+    "numOfPph": "891",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Bethania - Waterford",
+    "indigenous": "409",
+    "nonIndigenous": "10816"
+  },
+  "311051324": {
+    "sa2Id": "311051324",
+    "sa3Id": "31105",
+    "sa3Name": "Loganlea - Carbrook",
+    "numOfPph": "891",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Cornubia - Carbrook",
+    "indigenous": "183",
+    "nonIndigenous": "8632"
+  },
+  "311051325": {
+    "sa2Id": "311051325",
+    "sa3Id": "31105",
+    "sa3Name": "Loganlea - Carbrook",
+    "numOfPph": "891",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Loganholme - Tanah Merah",
+    "indigenous": "285",
+    "nonIndigenous": "11258"
+  },
+  "311051326": {
+    "sa2Id": "311051326",
+    "sa3Id": "31105",
+    "sa3Name": "Loganlea - Carbrook",
+    "numOfPph": "891",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Loganlea",
+    "indigenous": "576",
+    "nonIndigenous": "10299"
+  },
+  "311051327": {
+    "sa2Id": "311051327",
+    "sa3Id": "31105",
+    "sa3Name": "Loganlea - Carbrook",
+    "numOfPph": "891",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Shailer Park",
+    "indigenous": "192",
+    "nonIndigenous": "11892"
+  },
+  "311051328": {
+    "sa2Id": "311051328",
+    "sa3Id": "31105",
+    "sa3Name": "Loganlea - Carbrook",
+    "numOfPph": "891",
+    "percentPphPerDay": "39.6",
+    "sa2Name": "Waterford West",
+    "indigenous": "338",
+    "nonIndigenous": "7185"
+  },
+  "311061329": {
+    "sa2Id": "311061329",
+    "sa3Id": "31106",
+    "sa3Name": "Springwood - Kingston",
+    "numOfPph": "1,312",
+    "percentPphPerDay": "37.4",
+    "sa2Name": "Daisy Hill",
+    "indigenous": "148",
+    "nonIndigenous": "6784"
+  },
+  "311061330": {
+    "sa2Id": "311061330",
+    "sa3Id": "31106",
+    "sa3Name": "Springwood - Kingston",
+    "numOfPph": "1,312",
+    "percentPphPerDay": "37.4",
+    "sa2Name": "Kingston (Qld.)",
+    "indigenous": "776",
+    "nonIndigenous": "9954"
+  },
+  "311061331": {
+    "sa2Id": "311061331",
+    "sa3Id": "31106",
+    "sa3Name": "Springwood - Kingston",
+    "numOfPph": "1,312",
+    "percentPphPerDay": "37.4",
+    "sa2Name": "Logan Central",
+    "indigenous": "386",
+    "nonIndigenous": "6054"
+  },
+  "311061332": {
+    "sa2Id": "311061332",
+    "sa3Id": "31106",
+    "sa3Name": "Springwood - Kingston",
+    "numOfPph": "1,312",
+    "percentPphPerDay": "37.4",
+    "sa2Name": "Rochedale South - Priestdale",
+    "indigenous": "293",
+    "nonIndigenous": "15712"
+  },
+  "311061333": {
+    "sa2Id": "311061333",
+    "sa3Id": "31106",
+    "sa3Name": "Springwood - Kingston",
+    "numOfPph": "1,312",
+    "percentPphPerDay": "37.4",
+    "sa2Name": "Slacks Creek",
+    "indigenous": "624",
+    "nonIndigenous": "10213"
+  },
+  "311061334": {
+    "sa2Id": "311061334",
+    "sa3Id": "31106",
+    "sa3Name": "Springwood - Kingston",
+    "numOfPph": "1,312",
+    "percentPphPerDay": "37.4",
+    "sa2Name": "Springwood",
+    "indigenous": "182",
+    "nonIndigenous": "9419"
+  },
+  "311061335": {
+    "sa2Id": "311061335",
+    "sa3Id": "31106",
+    "sa3Name": "Springwood - Kingston",
+    "numOfPph": "1,312",
+    "percentPphPerDay": "37.4",
+    "sa2Name": "Underwood",
+    "indigenous": "101",
+    "nonIndigenous": "6569"
+  },
+  "311061336": {
+    "sa2Id": "311061336",
+    "sa3Id": "31106",
+    "sa3Name": "Springwood - Kingston",
+    "numOfPph": "1,312",
+    "percentPphPerDay": "37.4",
+    "sa2Name": "Woodridge",
+    "indigenous": "756",
+    "nonIndigenous": "12255"
+  },
+  "312011337": {
+    "sa2Id": "312011337",
+    "sa3Id": "31201",
+    "sa3Name": "Bowen Basin - North",
+    "numOfPph": "512",
+    "percentPphPerDay": "33.6",
+    "sa2Name": "Bowen",
+    "indigenous": "1052",
+    "nonIndigenous": "8199"
+  },
+  "312011338": {
+    "sa2Id": "312011338",
+    "sa3Id": "31201",
+    "sa3Name": "Bowen Basin - North",
+    "numOfPph": "512",
+    "percentPphPerDay": "33.6",
+    "sa2Name": "Broadsound - Nebo",
+    "indigenous": "431",
+    "nonIndigenous": "8314"
+  },
+  "312011339": {
+    "sa2Id": "312011339",
+    "sa3Id": "31201",
+    "sa3Name": "Bowen Basin - North",
+    "numOfPph": "512",
+    "percentPphPerDay": "33.6",
+    "sa2Name": "Clermont",
+    "indigenous": "116",
+    "nonIndigenous": "3637"
+  },
+  "312011340": {
+    "sa2Id": "312011340",
+    "sa3Id": "31201",
+    "sa3Name": "Bowen Basin - North",
+    "numOfPph": "512",
+    "percentPphPerDay": "33.6",
+    "sa2Name": "Collinsville",
+    "indigenous": "257",
+    "nonIndigenous": "3239"
+  },
+  "312011341": {
+    "sa2Id": "312011341",
+    "sa3Id": "31201",
+    "sa3Name": "Bowen Basin - North",
+    "numOfPph": "512",
+    "percentPphPerDay": "33.6",
+    "sa2Name": "Moranbah",
+    "indigenous": "426",
+    "nonIndigenous": "8619"
+  },
+  "312021342": {
+    "sa2Id": "312021342",
+    "sa3Id": "31202",
+    "sa3Name": "Mackay",
+    "numOfPph": "1,543",
+    "percentPphPerDay": "34.2",
+    "sa2Name": "Andergrove - Beaconsfield",
+    "indigenous": "1363",
+    "nonIndigenous": "13866"
+  },
+  "312021343": {
+    "sa2Id": "312021343",
+    "sa3Id": "31202",
+    "sa3Name": "Mackay",
+    "numOfPph": "1,543",
+    "percentPphPerDay": "34.2",
+    "sa2Name": "East Mackay",
+    "indigenous": "135",
+    "nonIndigenous": "3494"
+  },
+  "312021344": {
+    "sa2Id": "312021344",
+    "sa3Id": "31202",
+    "sa3Name": "Mackay",
+    "numOfPph": "1,543",
+    "percentPphPerDay": "34.2",
+    "sa2Name": "Eimeo - Rural View",
+    "indigenous": "768",
+    "nonIndigenous": "11851"
+  },
+  "312021345": {
+    "sa2Id": "312021345",
+    "sa3Id": "31202",
+    "sa3Name": "Mackay",
+    "numOfPph": "1,543",
+    "percentPphPerDay": "34.2",
+    "sa2Name": "Eungella Hinterland",
+    "indigenous": "9",
+    "nonIndigenous": "7"
+  },
+  "312021346": {
+    "sa2Id": "312021346",
+    "sa3Id": "31202",
+    "sa3Name": "Mackay",
+    "numOfPph": "1,543",
+    "percentPphPerDay": "34.2",
+    "sa2Name": "Mackay",
+    "indigenous": "269",
+    "nonIndigenous": "3524"
+  },
+  "312021347": {
+    "sa2Id": "312021347",
+    "sa3Id": "31202",
+    "sa3Name": "Mackay",
+    "numOfPph": "1,543",
+    "percentPphPerDay": "34.2",
+    "sa2Name": "Mackay Harbour",
+    "indigenous": "11",
+    "nonIndigenous": "526"
+  },
+  "312021348": {
+    "sa2Id": "312021348",
+    "sa3Id": "31202",
+    "sa3Name": "Mackay",
+    "numOfPph": "1,543",
+    "percentPphPerDay": "34.2",
+    "sa2Name": "Mount Pleasant - Glenella",
+    "indigenous": "389",
+    "nonIndigenous": "10552"
+  },
+  "312021349": {
+    "sa2Id": "312021349",
+    "sa3Id": "31202",
+    "sa3Name": "Mackay",
+    "numOfPph": "1,543",
+    "percentPphPerDay": "34.2",
+    "sa2Name": "North Mackay",
+    "indigenous": "445",
+    "nonIndigenous": "5680"
+  },
+  "312021350": {
+    "sa2Id": "312021350",
+    "sa3Id": "31202",
+    "sa3Name": "Mackay",
+    "numOfPph": "1,543",
+    "percentPphPerDay": "34.2",
+    "sa2Name": "Ooralea - Bakers Creek",
+    "indigenous": "192",
+    "nonIndigenous": "4982"
+  },
+  "312021351": {
+    "sa2Id": "312021351",
+    "sa3Id": "31202",
+    "sa3Name": "Mackay",
+    "numOfPph": "1,543",
+    "percentPphPerDay": "34.2",
+    "sa2Name": "Pioneer Valley",
+    "indigenous": "364",
+    "nonIndigenous": "7961"
+  },
+  "312021352": {
+    "sa2Id": "312021352",
+    "sa3Id": "31202",
+    "sa3Name": "Mackay",
+    "numOfPph": "1,543",
+    "percentPphPerDay": "34.2",
+    "sa2Name": "Sarina",
+    "indigenous": "865",
+    "nonIndigenous": "10901"
+  },
+  "312021353": {
+    "sa2Id": "312021353",
+    "sa3Id": "31202",
+    "sa3Name": "Mackay",
+    "numOfPph": "1,543",
+    "percentPphPerDay": "34.2",
+    "sa2Name": "Seaforth - Calen",
+    "indigenous": "315",
+    "nonIndigenous": "7922"
+  },
+  "312021354": {
+    "sa2Id": "312021354",
+    "sa3Id": "31202",
+    "sa3Name": "Mackay",
+    "numOfPph": "1,543",
+    "percentPphPerDay": "34.2",
+    "sa2Name": "Shoal Point - Bucasia",
+    "indigenous": "449",
+    "nonIndigenous": "5428"
+  },
+  "312021355": {
+    "sa2Id": "312021355",
+    "sa3Id": "31202",
+    "sa3Name": "Mackay",
+    "numOfPph": "1,543",
+    "percentPphPerDay": "34.2",
+    "sa2Name": "Slade Point",
+    "indigenous": "472",
+    "nonIndigenous": "2920"
+  },
+  "312021356": {
+    "sa2Id": "312021356",
+    "sa3Id": "31202",
+    "sa3Name": "Mackay",
+    "numOfPph": "1,543",
+    "percentPphPerDay": "34.2",
+    "sa2Name": "South Mackay",
+    "indigenous": "470",
+    "nonIndigenous": "6373"
+  },
+  "312021357": {
+    "sa2Id": "312021357",
+    "sa3Id": "31202",
+    "sa3Name": "Mackay",
+    "numOfPph": "1,543",
+    "percentPphPerDay": "34.2",
+    "sa2Name": "Walkerston - Eton",
+    "indigenous": "317",
+    "nonIndigenous": "8146"
+  },
+  "312021358": {
+    "sa2Id": "312021358",
+    "sa3Id": "31202",
+    "sa3Name": "Mackay",
+    "numOfPph": "1,543",
+    "percentPphPerDay": "34.2",
+    "sa2Name": "West Mackay",
+    "indigenous": "225",
+    "nonIndigenous": "6027"
+  },
+  "312031359": {
+    "sa2Id": "312031359",
+    "sa3Id": "31203",
+    "sa3Name": "Whitsunday",
+    "numOfPph": "255",
+    "percentPphPerDay": "25.5",
+    "sa2Name": "Airlie - Whitsundays",
+    "indigenous": "315",
+    "nonIndigenous": "13060"
+  },
+  "312031360": {
+    "sa2Id": "312031360",
+    "sa3Id": "31203",
+    "sa3Name": "Whitsunday",
+    "numOfPph": "255",
+    "percentPphPerDay": "25.5",
+    "sa2Name": "Cape Conway",
+    "indigenous": "0",
+    "nonIndigenous": "0"
+  },
+  "312031361": {
+    "sa2Id": "312031361",
+    "sa3Id": "31203",
+    "sa3Name": "Whitsunday",
+    "numOfPph": "255",
+    "percentPphPerDay": "25.5",
+    "sa2Name": "Proserpine",
+    "indigenous": "402",
+    "nonIndigenous": "8014"
+  },
+  "313011362": {
+    "sa2Id": "313011362",
+    "sa3Id": "31301",
+    "sa3Name": "Bribie - Beachmere",
+    "numOfPph": "630",
+    "percentPphPerDay": "34.8",
+    "sa2Name": "Beachmere - Sandstone Point",
+    "indigenous": "625",
+    "nonIndigenous": "14688"
+  },
+  "313011363": {
+    "sa2Id": "313011363",
+    "sa3Id": "31301",
+    "sa3Name": "Bribie - Beachmere",
+    "numOfPph": "630",
+    "percentPphPerDay": "34.8",
+    "sa2Name": "Bribie Island",
+    "indigenous": "491",
+    "nonIndigenous": "18078"
+  },
+  "313021364": {
+    "sa2Id": "313021364",
+    "sa3Id": "31302",
+    "sa3Name": "Caboolture",
+    "numOfPph": "1,155",
+    "percentPphPerDay": "38.2",
+    "sa2Name": "Burpengary - East",
+    "indigenous": "115",
+    "nonIndigenous": "3978"
+  },
+  "313021365": {
+    "sa2Id": "313021365",
+    "sa3Id": "31302",
+    "sa3Name": "Caboolture",
+    "numOfPph": "1,155",
+    "percentPphPerDay": "38.2",
+    "sa2Name": "Caboolture",
+    "indigenous": "1686",
+    "nonIndigenous": "25992"
+  },
+  "313021366": {
+    "sa2Id": "313021366",
+    "sa3Id": "31302",
+    "sa3Name": "Caboolture",
+    "numOfPph": "1,155",
+    "percentPphPerDay": "38.2",
+    "sa2Name": "Caboolture - South",
+    "indigenous": "1387",
+    "nonIndigenous": "19611"
+  },
+  "313021367": {
+    "sa2Id": "313021367",
+    "sa3Id": "31302",
+    "sa3Name": "Caboolture",
+    "numOfPph": "1,155",
+    "percentPphPerDay": "38.2",
+    "sa2Name": "Elimbah",
+    "indigenous": "149",
+    "nonIndigenous": "3905"
+  },
+  "313021368": {
+    "sa2Id": "313021368",
+    "sa3Id": "31302",
+    "sa3Name": "Caboolture",
+    "numOfPph": "1,155",
+    "percentPphPerDay": "38.2",
+    "sa2Name": "Morayfield - East",
+    "indigenous": "485",
+    "nonIndigenous": "8229"
+  },
+  "313021369": {
+    "sa2Id": "313021369",
+    "sa3Id": "31302",
+    "sa3Name": "Caboolture",
+    "numOfPph": "1,155",
+    "percentPphPerDay": "38.2",
+    "sa2Name": "Wamuran",
+    "indigenous": "107",
+    "nonIndigenous": "3942"
+  },
+  "313031370": {
+    "sa2Id": "313031370",
+    "sa3Id": "31303",
+    "sa3Name": "Caboolture Hinterland",
+    "numOfPph": "185",
+    "percentPphPerDay": "32.4",
+    "sa2Name": "Kilcoy",
+    "indigenous": "213",
+    "nonIndigenous": "5322"
+  },
+  "313031371": {
+    "sa2Id": "313031371",
+    "sa3Id": "31303",
+    "sa3Name": "Caboolture Hinterland",
+    "numOfPph": "185",
+    "percentPphPerDay": "32.4",
+    "sa2Name": "Woodford - D'Aguilar",
+    "indigenous": "516",
+    "nonIndigenous": "7570"
+  },
+  "313041372": {
+    "sa2Id": "313041372",
+    "sa3Id": "31304",
+    "sa3Name": "Narangba - Burpengary",
+    "numOfPph": "957",
+    "percentPphPerDay": "46.5",
+    "sa2Name": "Burpengary",
+    "indigenous": "488",
+    "nonIndigenous": "13938"
+  },
+  "313041373": {
+    "sa2Id": "313041373",
+    "sa3Id": "31304",
+    "sa3Name": "Narangba - Burpengary",
+    "numOfPph": "957",
+    "percentPphPerDay": "46.5",
+    "sa2Name": "Deception Bay",
+    "indigenous": "1322",
+    "nonIndigenous": "21765"
+  },
+  "313041374": {
+    "sa2Id": "313041374",
+    "sa3Id": "31304",
+    "sa3Name": "Narangba - Burpengary",
+    "numOfPph": "957",
+    "percentPphPerDay": "46.5",
+    "sa2Name": "Morayfield",
+    "indigenous": "137",
+    "nonIndigenous": "4825"
+  },
+  "313041375": {
+    "sa2Id": "313041375",
+    "sa3Id": "31304",
+    "sa3Name": "Narangba - Burpengary",
+    "numOfPph": "957",
+    "percentPphPerDay": "46.5",
+    "sa2Name": "Narangba",
+    "indigenous": "471",
+    "nonIndigenous": "18678"
+  },
+  "313041376": {
+    "sa2Id": "313041376",
+    "sa3Id": "31304",
+    "sa3Name": "Narangba - Burpengary",
+    "numOfPph": "957",
+    "percentPphPerDay": "46.5",
+    "sa2Name": "Upper Caboolture",
+    "indigenous": "74",
+    "nonIndigenous": "3024"
+  },
+  "313051377": {
+    "sa2Id": "313051377",
+    "sa3Id": "31305",
+    "sa3Name": "Redcliffe",
+    "numOfPph": "1,081",
+    "percentPphPerDay": "34.0",
+    "sa2Name": "Clontarf",
+    "indigenous": "283",
+    "nonIndigenous": "8173"
+  },
+  "313051378": {
+    "sa2Id": "313051378",
+    "sa3Id": "31305",
+    "sa3Name": "Redcliffe",
+    "numOfPph": "1,081",
+    "percentPphPerDay": "34.0",
+    "sa2Name": "Margate - Woody Point",
+    "indigenous": "491",
+    "nonIndigenous": "11544"
+  },
+  "313051379": {
+    "sa2Id": "313051379",
+    "sa3Id": "31305",
+    "sa3Name": "Redcliffe",
+    "numOfPph": "1,081",
+    "percentPphPerDay": "34.0",
+    "sa2Name": "Redcliffe",
+    "indigenous": "319",
+    "nonIndigenous": "10188"
+  },
+  "313051380": {
+    "sa2Id": "313051380",
+    "sa3Id": "31305",
+    "sa3Name": "Redcliffe",
+    "numOfPph": "1,081",
+    "percentPphPerDay": "34.0",
+    "sa2Name": "Rothwell - Kippa-Ring",
+    "indigenous": "782",
+    "nonIndigenous": "16935"
+  },
+  "313051542": {
+    "sa2Id": "313051542",
+    "sa3Id": "31305",
+    "sa3Name": "Redcliffe",
+    "numOfPph": "1,081",
+    "percentPphPerDay": "34.0"
+  },
+  "314011382": {
+    "sa2Id": "314011382",
+    "sa3Id": "31401",
+    "sa3Name": "Hills District",
+    "numOfPph": "992",
+    "percentPphPerDay": "45.5",
+    "sa2Name": "Albany Creek",
+    "indigenous": "257",
+    "nonIndigenous": "16100"
+  },
+  "314011383": {
+    "sa2Id": "314011383",
+    "sa3Id": "31401",
+    "sa3Name": "Hills District",
+    "numOfPph": "992",
+    "percentPphPerDay": "45.5",
+    "sa2Name": "Cashmere",
+    "indigenous": "318",
+    "nonIndigenous": "19156"
+  },
+  "314011384": {
+    "sa2Id": "314011384",
+    "sa3Id": "31401",
+    "sa3Name": "Hills District",
+    "numOfPph": "992",
+    "percentPphPerDay": "45.5",
+    "sa2Name": "Dayboro",
+    "indigenous": "131",
+    "nonIndigenous": "8625"
+  },
+  "314011385": {
+    "sa2Id": "314011385",
+    "sa3Id": "31401",
+    "sa3Name": "Hills District",
+    "numOfPph": "992",
+    "percentPphPerDay": "45.5",
+    "sa2Name": "Eatons Hill",
+    "indigenous": "93",
+    "nonIndigenous": "8152"
+  },
+  "314011386": {
+    "sa2Id": "314011386",
+    "sa3Id": "31401",
+    "sa3Name": "Hills District",
+    "numOfPph": "992",
+    "percentPphPerDay": "45.5"
+  },
+  "314011387": {
+    "sa2Id": "314011387",
+    "sa3Id": "31401",
+    "sa3Name": "Hills District",
+    "numOfPph": "992",
+    "percentPphPerDay": "45.5",
+    "sa2Name": "Samford Valley",
+    "indigenous": "117",
+    "nonIndigenous": "11989"
+  },
+  "314021388": {
+    "sa2Id": "314021388",
+    "sa3Id": "31402",
+    "sa3Name": "North Lakes",
+    "numOfPph": "866",
+    "percentPphPerDay": "44.1",
+    "sa2Name": "Dakabin - Kallangur",
+    "indigenous": "923",
+    "nonIndigenous": "23833"
+  },
+  "314021389": {
+    "sa2Id": "314021389",
+    "sa3Id": "31402",
+    "sa3Name": "North Lakes",
+    "numOfPph": "866",
+    "percentPphPerDay": "44.1",
+    "sa2Name": "Murrumba Downs - Griffin",
+    "indigenous": "455",
+    "nonIndigenous": "17726"
+  },
+  "314021390": {
+    "sa2Id": "314021390",
+    "sa3Id": "31402",
+    "sa3Name": "North Lakes",
+    "numOfPph": "866",
+    "percentPphPerDay": "44.1",
+    "sa2Name": "North Lakes - Mango Hill",
+    "indigenous": "723",
+    "nonIndigenous": "30616"
+  },
+  "314031391": {
+    "sa2Id": "314031391",
+    "sa3Id": "31403",
+    "sa3Name": "Strathpine",
+    "numOfPph": "644",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Bray Park",
+    "indigenous": "442",
+    "nonIndigenous": "10199"
+  },
+  "314031392": {
+    "sa2Id": "314031392",
+    "sa3Id": "31403",
+    "sa3Name": "Strathpine",
+    "numOfPph": "644",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Lawnton",
+    "indigenous": "269",
+    "nonIndigenous": "5959"
+  },
+  "314031393": {
+    "sa2Id": "314031393",
+    "sa3Id": "31403",
+    "sa3Name": "Strathpine",
+    "numOfPph": "644",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Petrie",
+    "indigenous": "270",
+    "nonIndigenous": "8735"
+  },
+  "314031394": {
+    "sa2Id": "314031394",
+    "sa3Id": "31403",
+    "sa3Name": "Strathpine",
+    "numOfPph": "644",
+    "percentPphPerDay": "40.8",
+    "sa2Name": "Strathpine - Brendale",
+    "indigenous": "442",
+    "nonIndigenous": "12194"
+  },
+  "315011395": {
+    "sa2Id": "315011395",
+    "sa3Id": "31501",
+    "sa3Name": "Far North",
+    "numOfPph": "1,097",
+    "percentPphPerDay": "37.3",
+    "sa2Name": "Aurukun",
+    "indigenous": "1221",
+    "nonIndigenous": "102"
+  },
+  "315011396": {
+    "sa2Id": "315011396",
+    "sa3Id": "31501",
+    "sa3Name": "Far North",
+    "numOfPph": "1,097",
+    "percentPphPerDay": "37.3",
+    "sa2Name": "Cape York",
+    "indigenous": "4431",
+    "nonIndigenous": "3344"
+  },
+  "315011397": {
+    "sa2Id": "315011397",
+    "sa3Id": "31501",
+    "sa3Name": "Far North",
+    "numOfPph": "1,097",
+    "percentPphPerDay": "37.3",
+    "sa2Name": "Croydon - Etheridge",
+    "indigenous": "123",
+    "nonIndigenous": "980"
+  },
+  "315011398": {
+    "sa2Id": "315011398",
+    "sa3Id": "31501",
+    "sa3Name": "Far North",
+    "numOfPph": "1,097",
+    "percentPphPerDay": "37.3",
+    "sa2Name": "Kowanyama - Pormpuraaw",
+    "indigenous": "1597",
+    "nonIndigenous": "171"
+  },
+  "315011399": {
+    "sa2Id": "315011399",
+    "sa3Id": "31501",
+    "sa3Name": "Far North",
+    "numOfPph": "1,097",
+    "percentPphPerDay": "37.3",
+    "sa2Name": "Northern Peninsula",
+    "indigenous": "2654",
+    "nonIndigenous": "291"
+  },
+  "315011400": {
+    "sa2Id": "315011400",
+    "sa3Id": "31501",
+    "sa3Name": "Far North",
+    "numOfPph": "1,097",
+    "percentPphPerDay": "37.3",
+    "sa2Name": "Tablelands",
+    "indigenous": "1088",
+    "nonIndigenous": "5002"
+  },
+  "315011401": {
+    "sa2Id": "315011401",
+    "sa3Id": "31501",
+    "sa3Name": "Far North",
+    "numOfPph": "1,097",
+    "percentPphPerDay": "37.3",
+    "sa2Name": "Torres",
+    "indigenous": "2894",
+    "nonIndigenous": "905"
+  },
+  "315011402": {
+    "sa2Id": "315011402",
+    "sa3Id": "31501",
+    "sa3Name": "Far North",
+    "numOfPph": "1,097",
+    "percentPphPerDay": "37.3",
+    "sa2Name": "Torres Strait Islands",
+    "indigenous": "4510",
+    "nonIndigenous": "265"
+  },
+  "315011403": {
+    "sa2Id": "315011403",
+    "sa3Id": "31501",
+    "sa3Name": "Far North",
+    "numOfPph": "1,097",
+    "percentPphPerDay": "37.3",
+    "sa2Name": "Weipa",
+    "indigenous": "952",
+    "nonIndigenous": "3087"
+  },
+  "315021404": {
+    "sa2Id": "315021404",
+    "sa3Id": "31502",
+    "sa3Name": "Outback - North",
+    "numOfPph": "1,002",
+    "percentPphPerDay": "37.2",
+    "sa2Name": "Carpentaria",
+    "indigenous": "3652",
+    "nonIndigenous": "1415"
+  },
+  "315021405": {
+    "sa2Id": "315021405",
+    "sa3Id": "31502",
+    "sa3Name": "Outback - North",
+    "numOfPph": "1,002",
+    "percentPphPerDay": "37.2",
+    "sa2Name": "Mount Isa",
+    "indigenous": "3978",
+    "nonIndigenous": "15293"
+  },
+  "315021406": {
+    "sa2Id": "315021406",
+    "sa3Id": "31502",
+    "sa3Name": "Outback - North",
+    "numOfPph": "1,002",
+    "percentPphPerDay": "37.2",
+    "sa2Name": "Mount Isa Region",
+    "indigenous": "1016",
+    "nonIndigenous": "2442"
+  },
+  "315021407": {
+    "sa2Id": "315021407",
+    "sa3Id": "31502",
+    "sa3Name": "Outback - North",
+    "numOfPph": "1,002",
+    "percentPphPerDay": "37.2",
+    "sa2Name": "Northern Highlands",
+    "indigenous": "227",
+    "nonIndigenous": "2977"
+  },
+  "315031408": {
+    "sa2Id": "315031408",
+    "sa3Id": "31503",
+    "sa3Name": "Outback - South",
+    "numOfPph": "523",
+    "percentPphPerDay": "23.7",
+    "sa2Name": "Barcaldine - Blackall",
+    "indigenous": "325",
+    "nonIndigenous": "4509"
+  },
+  "315031409": {
+    "sa2Id": "315031409",
+    "sa3Id": "31503",
+    "sa3Name": "Outback - South",
+    "numOfPph": "523",
+    "percentPphPerDay": "23.7",
+    "sa2Name": "Charleville",
+    "indigenous": "635",
+    "nonIndigenous": "3751"
+  },
+  "315031410": {
+    "sa2Id": "315031410",
+    "sa3Id": "31503",
+    "sa3Name": "Outback - South",
+    "numOfPph": "523",
+    "percentPphPerDay": "23.7",
+    "sa2Name": "Far Central West",
+    "indigenous": "346",
+    "nonIndigenous": "1812"
+  },
+  "315031411": {
+    "sa2Id": "315031411",
+    "sa3Id": "31503",
+    "sa3Name": "Outback - South",
+    "numOfPph": "523",
+    "percentPphPerDay": "23.7",
+    "sa2Name": "Far South West",
+    "indigenous": "724",
+    "nonIndigenous": "2125"
+  },
+  "315031412": {
+    "sa2Id": "315031412",
+    "sa3Id": "31503",
+    "sa3Name": "Outback - South",
+    "numOfPph": "523",
+    "percentPphPerDay": "23.7",
+    "sa2Name": "Longreach",
+    "indigenous": "240",
+    "nonIndigenous": "3487"
+  },
+  "316011413": {
+    "sa2Id": "316011413",
+    "sa3Id": "31601",
+    "sa3Name": "Buderim",
+    "numOfPph": "699",
+    "percentPphPerDay": "49.5",
+    "sa2Name": "Buderim - North",
+    "indigenous": "218",
+    "nonIndigenous": "16867"
+  },
+  "316011414": {
+    "sa2Id": "316011414",
+    "sa3Id": "31601",
+    "sa3Name": "Buderim",
+    "numOfPph": "699",
+    "percentPphPerDay": "49.5",
+    "sa2Name": "Buderim - South",
+    "indigenous": "228",
+    "nonIndigenous": "16566"
+  },
+  "316011415": {
+    "sa2Id": "316011415",
+    "sa3Id": "31601",
+    "sa3Name": "Buderim",
+    "numOfPph": "699",
+    "percentPphPerDay": "49.5",
+    "sa2Name": "Mountain Creek",
+    "indigenous": "236",
+    "nonIndigenous": "11453"
+  },
+  "316011416": {
+    "sa2Id": "316011416",
+    "sa3Id": "31601",
+    "sa3Name": "Buderim",
+    "numOfPph": "699",
+    "percentPphPerDay": "49.5",
+    "sa2Name": "Sippy Downs",
+    "indigenous": "254",
+    "nonIndigenous": "10378"
+  },
+  "316021417": {
+    "sa2Id": "316021417",
+    "sa3Id": "31602",
+    "sa3Name": "Caloundra",
+    "numOfPph": "1,404",
+    "percentPphPerDay": "43.4",
+    "sa2Name": "Aroona - Currimundi",
+    "indigenous": "270",
+    "nonIndigenous": "10011"
+  },
+  "316021418": {
+    "sa2Id": "316021418",
+    "sa3Id": "31602",
+    "sa3Name": "Caloundra",
+    "numOfPph": "1,404",
+    "percentPphPerDay": "43.4",
+    "sa2Name": "Buddina - Minyama",
+    "indigenous": "109",
+    "nonIndigenous": "6610"
+  },
+  "316021419": {
+    "sa2Id": "316021419",
+    "sa3Id": "31602",
+    "sa3Name": "Caloundra",
+    "numOfPph": "1,404",
+    "percentPphPerDay": "43.4",
+    "sa2Name": "Caloundra - Kings Beach",
+    "indigenous": "139",
+    "nonIndigenous": "6746"
+  },
+  "316021420": {
+    "sa2Id": "316021420",
+    "sa3Id": "31602",
+    "sa3Name": "Caloundra",
+    "numOfPph": "1,404",
+    "percentPphPerDay": "43.4",
+    "sa2Name": "Caloundra - West",
+    "indigenous": "496",
+    "nonIndigenous": "20319"
+  },
+  "316021421": {
+    "sa2Id": "316021421",
+    "sa3Id": "31602",
+    "sa3Name": "Caloundra",
+    "numOfPph": "1,404",
+    "percentPphPerDay": "43.4",
+    "sa2Name": "Golden Beach - Pelican Waters",
+    "indigenous": "249",
+    "nonIndigenous": "11949"
+  },
+  "316021422": {
+    "sa2Id": "316021422",
+    "sa3Id": "31602",
+    "sa3Name": "Caloundra",
+    "numOfPph": "1,404",
+    "percentPphPerDay": "43.4",
+    "sa2Name": "Moffat Beach - Battery Hill",
+    "indigenous": "165",
+    "nonIndigenous": "7947"
+  },
+  "316021423": {
+    "sa2Id": "316021423",
+    "sa3Id": "31602",
+    "sa3Name": "Caloundra",
+    "numOfPph": "1,404",
+    "percentPphPerDay": "43.4",
+    "sa2Name": "Parrearra - Warana",
+    "indigenous": "211",
+    "nonIndigenous": "9593"
+  },
+  "316021424": {
+    "sa2Id": "316021424",
+    "sa3Id": "31602",
+    "sa3Name": "Caloundra",
+    "numOfPph": "1,404",
+    "percentPphPerDay": "43.4",
+    "sa2Name": "Wurtulla - Birtinya",
+    "indigenous": "183",
+    "nonIndigenous": "7848"
+  },
+  "316031425": {
+    "sa2Id": "316031425",
+    "sa3Id": "31603",
+    "sa3Name": "Maroochy",
+    "numOfPph": "794",
+    "percentPphPerDay": "42.8",
+    "sa2Name": "Coolum Beach",
+    "indigenous": "340",
+    "nonIndigenous": "14652"
+  },
+  "316031426": {
+    "sa2Id": "316031426",
+    "sa3Id": "31603",
+    "sa3Name": "Maroochy",
+    "numOfPph": "794",
+    "percentPphPerDay": "42.8",
+    "sa2Name": "Marcoola - Mudjimba",
+    "indigenous": "252",
+    "nonIndigenous": "11062"
+  },
+  "316031427": {
+    "sa2Id": "316031427",
+    "sa3Id": "31603",
+    "sa3Name": "Maroochy",
+    "numOfPph": "794",
+    "percentPphPerDay": "42.8",
+    "sa2Name": "Maroochydore - Kuluin",
+    "indigenous": "460",
+    "nonIndigenous": "19527"
+  },
+  "316031428": {
+    "sa2Id": "316031428",
+    "sa3Id": "31603",
+    "sa3Name": "Maroochy",
+    "numOfPph": "794",
+    "percentPphPerDay": "42.8",
+    "sa2Name": "Mooloolaba - Alexandra Headland",
+    "indigenous": "191",
+    "nonIndigenous": "11977"
+  },
+  "316051434": {
+    "sa2Id": "316051434",
+    "sa3Id": "31605",
+    "sa3Name": "Noosa",
+    "numOfPph": "551",
+    "percentPphPerDay": "39.7",
+    "sa2Name": "Noosa Heads",
+    "indigenous": "36",
+    "nonIndigenous": "4718"
+  },
+  "316051435": {
+    "sa2Id": "316051435",
+    "sa3Id": "31605",
+    "sa3Name": "Noosa",
+    "numOfPph": "551",
+    "percentPphPerDay": "39.7",
+    "sa2Name": "Noosaville",
+    "indigenous": "90",
+    "nonIndigenous": "8983"
+  },
+  "316051437": {
+    "sa2Id": "316051437",
+    "sa3Id": "31605",
+    "sa3Name": "Noosa",
+    "numOfPph": "551",
+    "percentPphPerDay": "39.7",
+    "sa2Name": "Sunshine Beach",
+    "indigenous": "65",
+    "nonIndigenous": "6750"
+  },
+  "316051438": {
+    "sa2Id": "316051438",
+    "sa3Id": "31605",
+    "sa3Name": "Noosa",
+    "numOfPph": "551",
+    "percentPphPerDay": "39.7",
+    "sa2Name": "Tewantin",
+    "indigenous": "234",
+    "nonIndigenous": "10344"
+  },
+  "316051543": {
+    "sa2Id": "316051543",
+    "sa3Id": "31605",
+    "sa3Name": "Noosa",
+    "numOfPph": "551",
+    "percentPphPerDay": "39.7",
+    "sa2Name": "Peregian Beach - Marcus Beach",
+    "indigenous": "49",
+    "nonIndigenous": "3825"
+  },
+  "316051544": {
+    "sa2Id": "316051544",
+    "sa3Id": "31605",
+    "sa3Name": "Noosa",
+    "numOfPph": "551",
+    "percentPphPerDay": "39.7",
+    "sa2Name": "Peregian Springs",
+    "indigenous": "113",
+    "nonIndigenous": "7376"
+  },
+  "316061439": {
+    "sa2Id": "316061439",
+    "sa3Id": "31606",
+    "sa3Name": "Sunshine Coast Hinterland",
+    "numOfPph": "767",
+    "percentPphPerDay": "40.9",
+    "sa2Name": "Beerwah",
+    "indigenous": "259",
+    "nonIndigenous": "8116"
+  },
+  "316061440": {
+    "sa2Id": "316061440",
+    "sa3Id": "31606",
+    "sa3Name": "Sunshine Coast Hinterland",
+    "numOfPph": "767",
+    "percentPphPerDay": "40.9",
+    "sa2Name": "Caloundra Hinterland",
+    "indigenous": "142",
+    "nonIndigenous": "8584"
+  },
+  "316061441": {
+    "sa2Id": "316061441",
+    "sa3Id": "31606",
+    "sa3Name": "Sunshine Coast Hinterland",
+    "numOfPph": "767",
+    "percentPphPerDay": "40.9",
+    "sa2Name": "Glass House Mountains",
+    "indigenous": "128",
+    "nonIndigenous": "5793"
+  },
+  "316061442": {
+    "sa2Id": "316061442",
+    "sa3Id": "31606",
+    "sa3Name": "Sunshine Coast Hinterland",
+    "numOfPph": "767",
+    "percentPphPerDay": "40.9",
+    "sa2Name": "Landsborough",
+    "indigenous": "283",
+    "nonIndigenous": "10151"
+  },
+  "316061443": {
+    "sa2Id": "316061443",
+    "sa3Id": "31606",
+    "sa3Name": "Sunshine Coast Hinterland",
+    "numOfPph": "767",
+    "percentPphPerDay": "40.9",
+    "sa2Name": "Maroochy Hinterland",
+    "indigenous": "113",
+    "nonIndigenous": "6289"
+  },
+  "316061444": {
+    "sa2Id": "316061444",
+    "sa3Id": "31606",
+    "sa3Name": "Sunshine Coast Hinterland",
+    "numOfPph": "767",
+    "percentPphPerDay": "40.9",
+    "sa2Name": "Palmwoods",
+    "indigenous": "206",
+    "nonIndigenous": "10632"
+  },
+  "316071545": {
+    "sa2Id": "316071545",
+    "sa3Id": "31607",
+    "sa3Name": "Nambour",
+    "numOfPph": "941",
+    "percentPphPerDay": "41.9",
+    "sa2Name": "Bli Bli",
+    "indigenous": "240",
+    "nonIndigenous": "8270"
+  },
+  "316071546": {
+    "sa2Id": "316071546",
+    "sa3Id": "31607",
+    "sa3Name": "Nambour",
+    "numOfPph": "941",
+    "percentPphPerDay": "41.9",
+    "sa2Name": "Diddillibah - Rosemount",
+    "indigenous": "64",
+    "nonIndigenous": "3812"
+  },
+  "316071547": {
+    "sa2Id": "316071547",
+    "sa3Id": "31607",
+    "sa3Name": "Nambour",
+    "numOfPph": "941",
+    "percentPphPerDay": "41.9",
+    "sa2Name": "Eumundi - Yandina",
+    "indigenous": "297",
+    "nonIndigenous": "10471"
+  },
+  "316071548": {
+    "sa2Id": "316071548",
+    "sa3Id": "31607",
+    "sa3Name": "Nambour",
+    "numOfPph": "941",
+    "percentPphPerDay": "41.9",
+    "sa2Name": "Nambour",
+    "indigenous": "815",
+    "nonIndigenous": "19565"
+  },
+  "316081549": {
+    "sa2Id": "316081549",
+    "sa3Id": "31608",
+    "sa3Name": "Noosa Hinterland",
+    "numOfPph": "374",
+    "percentPphPerDay": "47.6",
+    "sa2Name": "Noosa Hinterland",
+    "indigenous": "509",
+    "nonIndigenous": "21935"
+  },
+  "317011445": {
+    "sa2Id": "317011445",
+    "sa3Id": "31701",
+    "sa3Name": "Toowoomba",
+    "numOfPph": "2,216",
+    "percentPphPerDay": "40.5",
+    "sa2Name": "Cambooya - Wyreema",
+    "indigenous": "221",
+    "nonIndigenous": "6914"
+  },
+  "317011446": {
+    "sa2Id": "317011446",
+    "sa3Id": "31701",
+    "sa3Name": "Toowoomba",
+    "numOfPph": "2,216",
+    "percentPphPerDay": "40.5",
+    "sa2Name": "Darling Heights",
+    "indigenous": "562",
+    "nonIndigenous": "13488"
+  },
+  "317011447": {
+    "sa2Id": "317011447",
+    "sa3Id": "31701",
+    "sa3Name": "Toowoomba",
+    "numOfPph": "2,216",
+    "percentPphPerDay": "40.5",
+    "sa2Name": "Drayton - Harristown",
+    "indigenous": "663",
+    "nonIndigenous": "9742"
+  },
+  "317011448": {
+    "sa2Id": "317011448",
+    "sa3Id": "31701",
+    "sa3Name": "Toowoomba",
+    "numOfPph": "2,216",
+    "percentPphPerDay": "40.5",
+    "sa2Name": "Gatton",
+    "indigenous": "282",
+    "nonIndigenous": "7375"
+  },
+  "317011449": {
+    "sa2Id": "317011449",
+    "sa3Id": "31701",
+    "sa3Name": "Toowoomba",
+    "numOfPph": "2,216",
+    "percentPphPerDay": "40.5",
+    "sa2Name": "Gowrie (Qld)",
+    "indigenous": "325",
+    "nonIndigenous": "6210"
+  },
+  "317011450": {
+    "sa2Id": "317011450",
+    "sa3Id": "31701",
+    "sa3Name": "Toowoomba",
+    "numOfPph": "2,216",
+    "percentPphPerDay": "40.5",
+    "sa2Name": "Highfields",
+    "indigenous": "351",
+    "nonIndigenous": "13078"
+  },
+  "317011451": {
+    "sa2Id": "317011451",
+    "sa3Id": "31701",
+    "sa3Name": "Toowoomba",
+    "numOfPph": "2,216",
+    "percentPphPerDay": "40.5",
+    "sa2Name": "Lockyer Valley - West",
+    "indigenous": "394",
+    "nonIndigenous": "11157"
+  },
+  "317011452": {
+    "sa2Id": "317011452",
+    "sa3Id": "31701",
+    "sa3Name": "Toowoomba",
+    "numOfPph": "2,216",
+    "percentPphPerDay": "40.5",
+    "sa2Name": "Middle Ridge",
+    "indigenous": "89",
+    "nonIndigenous": "7255"
+  },
+  "317011453": {
+    "sa2Id": "317011453",
+    "sa3Id": "31701",
+    "sa3Name": "Toowoomba",
+    "numOfPph": "2,216",
+    "percentPphPerDay": "40.5",
+    "sa2Name": "Newtown (Qld)",
+    "indigenous": "729",
+    "nonIndigenous": "9083"
+  },
+  "317011454": {
+    "sa2Id": "317011454",
+    "sa3Id": "31701",
+    "sa3Name": "Toowoomba",
+    "numOfPph": "2,216",
+    "percentPphPerDay": "40.5",
+    "sa2Name": "North Toowoomba - Harlaxton",
+    "indigenous": "405",
+    "nonIndigenous": "5508"
+  },
+  "317011455": {
+    "sa2Id": "317011455",
+    "sa3Id": "31701",
+    "sa3Name": "Toowoomba",
+    "numOfPph": "2,216",
+    "percentPphPerDay": "40.5",
+    "sa2Name": "Rangeville",
+    "indigenous": "197",
+    "nonIndigenous": "8276"
+  },
+  "317011456": {
+    "sa2Id": "317011456",
+    "sa3Id": "31701",
+    "sa3Name": "Toowoomba",
+    "numOfPph": "2,216",
+    "percentPphPerDay": "40.5",
+    "sa2Name": "Toowoomba - Central",
+    "indigenous": "692",
+    "nonIndigenous": "13061"
+  },
+  "317011457": {
+    "sa2Id": "317011457",
+    "sa3Id": "31701",
+    "sa3Name": "Toowoomba",
+    "numOfPph": "2,216",
+    "percentPphPerDay": "40.5",
+    "sa2Name": "Toowoomba - East",
+    "indigenous": "282",
+    "nonIndigenous": "9730"
+  },
+  "317011458": {
+    "sa2Id": "317011458",
+    "sa3Id": "31701",
+    "sa3Name": "Toowoomba",
+    "numOfPph": "2,216",
+    "percentPphPerDay": "40.5",
+    "sa2Name": "Toowoomba - West",
+    "indigenous": "578",
+    "nonIndigenous": "12700"
+  },
+  "317011459": {
+    "sa2Id": "317011459",
+    "sa3Id": "31701",
+    "sa3Name": "Toowoomba",
+    "numOfPph": "2,216",
+    "percentPphPerDay": "40.5",
+    "sa2Name": "Wilsonton",
+    "indigenous": "1040",
+    "nonIndigenous": "12475"
+  },
+  "318011460": {
+    "sa2Id": "318011460",
+    "sa3Id": "31801",
+    "sa3Name": "Charters Towers - Ayr - Ingham",
+    "numOfPph": "810",
+    "percentPphPerDay": "23.6",
+    "sa2Name": "Ayr",
+    "indigenous": "759",
+    "nonIndigenous": "8476"
+  },
+  "318011461": {
+    "sa2Id": "318011461",
+    "sa3Id": "31801",
+    "sa3Name": "Charters Towers - Ayr - Ingham",
+    "numOfPph": "810",
+    "percentPphPerDay": "23.6",
+    "sa2Name": "Burdekin",
+    "indigenous": "380",
+    "nonIndigenous": "7656"
+  },
+  "318011462": {
+    "sa2Id": "318011462",
+    "sa3Id": "31801",
+    "sa3Name": "Charters Towers - Ayr - Ingham",
+    "numOfPph": "810",
+    "percentPphPerDay": "23.6",
+    "sa2Name": "Charters Towers",
+    "indigenous": "1079",
+    "nonIndigenous": "7214"
+  },
+  "318011463": {
+    "sa2Id": "318011463",
+    "sa3Id": "31801",
+    "sa3Name": "Charters Towers - Ayr - Ingham",
+    "numOfPph": "810",
+    "percentPphPerDay": "23.6",
+    "sa2Name": "Dalrymple",
+    "indigenous": "180",
+    "nonIndigenous": "3614"
+  },
+  "318011464": {
+    "sa2Id": "318011464",
+    "sa3Id": "31801",
+    "sa3Name": "Charters Towers - Ayr - Ingham",
+    "numOfPph": "810",
+    "percentPphPerDay": "23.6",
+    "sa2Name": "Ingham",
+    "indigenous": "401",
+    "nonIndigenous": "4067"
+  },
+  "318011465": {
+    "sa2Id": "318011465",
+    "sa3Id": "31801",
+    "sa3Name": "Charters Towers - Ayr - Ingham",
+    "numOfPph": "810",
+    "percentPphPerDay": "23.6",
+    "sa2Name": "Ingham Region",
+    "indigenous": "377",
+    "nonIndigenous": "6123"
+  },
+  "318011466": {
+    "sa2Id": "318011466",
+    "sa3Id": "31801",
+    "sa3Name": "Charters Towers - Ayr - Ingham",
+    "numOfPph": "810",
+    "percentPphPerDay": "23.6",
+    "sa2Name": "Palm Island",
+    "indigenous": "2470",
+    "nonIndigenous": "111"
+  },
+  "318021467": {
+    "sa2Id": "318021467",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Aitkenvale",
+    "indigenous": "379",
+    "nonIndigenous": "4529"
+  },
+  "318021468": {
+    "sa2Id": "318021468",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Annandale",
+    "indigenous": "329",
+    "nonIndigenous": "10048"
+  },
+  "318021469": {
+    "sa2Id": "318021469",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Belgian Gardens - Pallarenda",
+    "indigenous": "137",
+    "nonIndigenous": "3250"
+  },
+  "318021470": {
+    "sa2Id": "318021470",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Bohle Plains",
+    "indigenous": "331",
+    "nonIndigenous": "7085"
+  },
+  "318021471": {
+    "sa2Id": "318021471",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Condon - Rasmussen",
+    "indigenous": "1590",
+    "nonIndigenous": "9133"
+  },
+  "318021472": {
+    "sa2Id": "318021472",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Cranbrook",
+    "indigenous": "547",
+    "nonIndigenous": "5490"
+  },
+  "318021473": {
+    "sa2Id": "318021473",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Deeragun",
+    "indigenous": "1621",
+    "nonIndigenous": "21296"
+  },
+  "318021474": {
+    "sa2Id": "318021474",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Douglas",
+    "indigenous": "241",
+    "nonIndigenous": "7796"
+  },
+  "318021475": {
+    "sa2Id": "318021475",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Garbutt - West End",
+    "indigenous": "735",
+    "nonIndigenous": "5966"
+  },
+  "318021476": {
+    "sa2Id": "318021476",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Gulliver - Currajong - Vincent",
+    "indigenous": "994",
+    "nonIndigenous": "6927"
+  },
+  "318021477": {
+    "sa2Id": "318021477",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Heatley",
+    "indigenous": "535",
+    "nonIndigenous": "3590"
+  },
+  "318021478": {
+    "sa2Id": "318021478",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Hermit Park - Rosslea",
+    "indigenous": "380",
+    "nonIndigenous": "4911"
+  },
+  "318021479": {
+    "sa2Id": "318021479",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Hyde Park - Pimlico",
+    "indigenous": "351",
+    "nonIndigenous": "4437"
+  },
+  "318021480": {
+    "sa2Id": "318021480",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Kelso",
+    "indigenous": "1528",
+    "nonIndigenous": "9333"
+  },
+  "318021481": {
+    "sa2Id": "318021481",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Kirwan - East",
+    "indigenous": "1036",
+    "nonIndigenous": "6913"
+  },
+  "318021482": {
+    "sa2Id": "318021482",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Kirwan - West",
+    "indigenous": "1226",
+    "nonIndigenous": "14661"
+  },
+  "318021483": {
+    "sa2Id": "318021483",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Magnetic Island",
+    "indigenous": "77",
+    "nonIndigenous": "2300"
+  },
+  "318021484": {
+    "sa2Id": "318021484",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Mount Louisa",
+    "indigenous": "710",
+    "nonIndigenous": "8766"
+  },
+  "318021485": {
+    "sa2Id": "318021485",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Mundingburra",
+    "indigenous": "185",
+    "nonIndigenous": "3515"
+  },
+  "318021486": {
+    "sa2Id": "318021486",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Northern Beaches",
+    "indigenous": "334",
+    "nonIndigenous": "6119"
+  },
+  "318021487": {
+    "sa2Id": "318021487",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Oonoonba",
+    "indigenous": "329",
+    "nonIndigenous": "6408"
+  },
+  "318021488": {
+    "sa2Id": "318021488",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "South Townsville - Railway Estate",
+    "indigenous": "388",
+    "nonIndigenous": "4947"
+  },
+  "318021489": {
+    "sa2Id": "318021489",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Townsville - South",
+    "indigenous": "137",
+    "nonIndigenous": "4192"
+  },
+  "318021490": {
+    "sa2Id": "318021490",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Townsville City - North Ward",
+    "indigenous": "411",
+    "nonIndigenous": "9043"
+  },
+  "318021491": {
+    "sa2Id": "318021491",
+    "sa3Id": "31802",
+    "sa3Name": "Townsville",
+    "numOfPph": "2,512",
+    "percentPphPerDay": "30.5",
+    "sa2Name": "Wulguru - Roseneath",
+    "indigenous": "1111",
+    "nonIndigenous": "5106"
+  },
+  "319011492": {
+    "sa2Id": "319011492",
+    "sa3Id": "31901",
+    "sa3Name": "Bundaberg",
+    "numOfPph": "1,797",
+    "percentPphPerDay": "31.1",
+    "sa2Name": "Ashfield - Kepnock",
+    "indigenous": "316",
+    "nonIndigenous": "5016"
+  },
+  "319011493": {
+    "sa2Id": "319011493",
+    "sa3Id": "31901",
+    "sa3Name": "Bundaberg",
+    "numOfPph": "1,797",
+    "percentPphPerDay": "31.1",
+    "sa2Name": "Bargara - Burnett Heads",
+    "indigenous": "524",
+    "nonIndigenous": "16388"
+  },
+  "319011494": {
+    "sa2Id": "319011494",
+    "sa3Id": "31901",
+    "sa3Name": "Bundaberg",
+    "numOfPph": "1,797",
+    "percentPphPerDay": "31.1",
+    "sa2Name": "Branyan - Kensington",
+    "indigenous": "166",
+    "nonIndigenous": "4592"
+  },
+  "319011495": {
+    "sa2Id": "319011495",
+    "sa3Id": "31901",
+    "sa3Name": "Bundaberg",
+    "numOfPph": "1,797",
+    "percentPphPerDay": "31.1",
+    "sa2Name": "Bundaberg",
+    "indigenous": "411",
+    "nonIndigenous": "5839"
+  },
+  "319011496": {
+    "sa2Id": "319011496",
+    "sa3Id": "31901",
+    "sa3Name": "Bundaberg",
+    "numOfPph": "1,797",
+    "percentPphPerDay": "31.1",
+    "sa2Name": "Bundaberg East - Kalkie",
+    "indigenous": "233",
+    "nonIndigenous": "5331"
+  },
+  "319011497": {
+    "sa2Id": "319011497",
+    "sa3Id": "31901",
+    "sa3Name": "Bundaberg",
+    "numOfPph": "1,797",
+    "percentPphPerDay": "31.1",
+    "sa2Name": "Bundaberg North - Gooburrum",
+    "indigenous": "390",
+    "nonIndigenous": "6913"
+  },
+  "319011498": {
+    "sa2Id": "319011498",
+    "sa3Id": "31901",
+    "sa3Name": "Bundaberg",
+    "numOfPph": "1,797",
+    "percentPphPerDay": "31.1",
+    "sa2Name": "Bundaberg Region - North",
+    "indigenous": "381",
+    "nonIndigenous": "8591"
+  },
+  "319011499": {
+    "sa2Id": "319011499",
+    "sa3Id": "31901",
+    "sa3Name": "Bundaberg",
+    "numOfPph": "1,797",
+    "percentPphPerDay": "31.1",
+    "sa2Name": "Bundaberg Region - South",
+    "indigenous": "358",
+    "nonIndigenous": "9563"
+  },
+  "319011500": {
+    "sa2Id": "319011500",
+    "sa3Id": "31901",
+    "sa3Name": "Bundaberg",
+    "numOfPph": "1,797",
+    "percentPphPerDay": "31.1",
+    "sa2Name": "Millbank - Avoca",
+    "indigenous": "404",
+    "nonIndigenous": "7089"
+  },
+  "319011501": {
+    "sa2Id": "319011501",
+    "sa3Id": "31901",
+    "sa3Name": "Bundaberg",
+    "numOfPph": "1,797",
+    "percentPphPerDay": "31.1",
+    "sa2Name": "Svensson Heights - Norville",
+    "indigenous": "347",
+    "nonIndigenous": "5354"
+  },
+  "319011502": {
+    "sa2Id": "319011502",
+    "sa3Id": "31901",
+    "sa3Name": "Bundaberg",
+    "numOfPph": "1,797",
+    "percentPphPerDay": "31.1",
+    "sa2Name": "Walkervale - Avenell Heights",
+    "indigenous": "667",
+    "nonIndigenous": "10199"
+  },
+  "319021503": {
+    "sa2Id": "319021503",
+    "sa3Id": "31902",
+    "sa3Name": "Burnett",
+    "numOfPph": "1,106",
+    "percentPphPerDay": "25.5",
+    "sa2Name": "Gayndah - Mundubbera",
+    "indigenous": "493",
+    "nonIndigenous": "6283"
+  },
+  "319021504": {
+    "sa2Id": "319021504",
+    "sa3Id": "31902",
+    "sa3Name": "Burnett",
+    "numOfPph": "1,106",
+    "percentPphPerDay": "25.5",
+    "sa2Name": "Gin Gin",
+    "indigenous": "165",
+    "nonIndigenous": "5011"
+  },
+  "319021505": {
+    "sa2Id": "319021505",
+    "sa3Id": "31902",
+    "sa3Name": "Burnett",
+    "numOfPph": "1,106",
+    "percentPphPerDay": "25.5",
+    "sa2Name": "Kingaroy",
+    "indigenous": "576",
+    "nonIndigenous": "9888"
+  },
+  "319021506": {
+    "sa2Id": "319021506",
+    "sa3Id": "31902",
+    "sa3Name": "Burnett",
+    "numOfPph": "1,106",
+    "percentPphPerDay": "25.5",
+    "sa2Name": "Kingaroy Region - North",
+    "indigenous": "2284",
+    "nonIndigenous": "7455"
+  },
+  "319021507": {
+    "sa2Id": "319021507",
+    "sa3Id": "31902",
+    "sa3Name": "Burnett",
+    "numOfPph": "1,106",
+    "percentPphPerDay": "25.5",
+    "sa2Name": "Kingaroy Region - South",
+    "indigenous": "93",
+    "nonIndigenous": "3856"
+  },
+  "319021508": {
+    "sa2Id": "319021508",
+    "sa3Id": "31902",
+    "sa3Name": "Burnett",
+    "numOfPph": "1,106",
+    "percentPphPerDay": "25.5",
+    "sa2Name": "Monto - Eidsvold",
+    "indigenous": "348",
+    "nonIndigenous": "3522"
+  },
+  "319021509": {
+    "sa2Id": "319021509",
+    "sa3Id": "31902",
+    "sa3Name": "Burnett",
+    "numOfPph": "1,106",
+    "percentPphPerDay": "25.5",
+    "sa2Name": "Nanango",
+    "indigenous": "538",
+    "nonIndigenous": "9237"
+  },
+  "319021510": {
+    "sa2Id": "319021510",
+    "sa3Id": "31902",
+    "sa3Name": "Burnett",
+    "numOfPph": "1,106",
+    "percentPphPerDay": "25.5",
+    "sa2Name": "North Burnett",
+    "indigenous": "5",
+    "nonIndigenous": "3"
+  },
+  "319031511": {
+    "sa2Id": "319031511",
+    "sa3Id": "31903",
+    "sa3Name": "Gympie - Cooloola",
+    "numOfPph": "870",
+    "percentPphPerDay": "41.6",
+    "sa2Name": "Cooloola",
+    "indigenous": "311",
+    "nonIndigenous": "6040"
+  },
+  "319031512": {
+    "sa2Id": "319031512",
+    "sa3Id": "31903",
+    "sa3Name": "Gympie - Cooloola",
+    "numOfPph": "870",
+    "percentPphPerDay": "41.6",
+    "sa2Name": "Gympie - North",
+    "indigenous": "718",
+    "nonIndigenous": "13788"
+  },
+  "319031513": {
+    "sa2Id": "319031513",
+    "sa3Id": "31903",
+    "sa3Name": "Gympie - Cooloola",
+    "numOfPph": "870",
+    "percentPphPerDay": "41.6",
+    "sa2Name": "Gympie - South",
+    "indigenous": "249",
+    "nonIndigenous": "6560"
+  },
+  "319031514": {
+    "sa2Id": "319031514",
+    "sa3Id": "31903",
+    "sa3Name": "Gympie - Cooloola",
+    "numOfPph": "870",
+    "percentPphPerDay": "41.6",
+    "sa2Name": "Gympie Region",
+    "indigenous": "647",
+    "nonIndigenous": "18192"
+  },
+  "319031515": {
+    "sa2Id": "319031515",
+    "sa3Id": "31903",
+    "sa3Name": "Gympie - Cooloola",
+    "numOfPph": "870",
+    "percentPphPerDay": "41.6",
+    "sa2Name": "Kilkivan",
+    "indigenous": "186",
+    "nonIndigenous": "3561"
+  },
+  "319041516": {
+    "sa2Id": "319041516",
+    "sa3Id": "31904",
+    "sa3Name": "Hervey Bay",
+    "numOfPph": "982",
+    "percentPphPerDay": "33.0",
+    "sa2Name": "Booral - River Heads",
+    "indigenous": "255",
+    "nonIndigenous": "4382"
+  },
+  "319041517": {
+    "sa2Id": "319041517",
+    "sa3Id": "31904",
+    "sa3Name": "Hervey Bay",
+    "numOfPph": "982",
+    "percentPphPerDay": "33.0",
+    "sa2Name": "Craignish - Dundowran Beach",
+    "indigenous": "187",
+    "nonIndigenous": "4750"
+  },
+  "319041518": {
+    "sa2Id": "319041518",
+    "sa3Id": "31904",
+    "sa3Name": "Hervey Bay",
+    "numOfPph": "982",
+    "percentPphPerDay": "33.0",
+    "sa2Name": "Pialba - Eli Waters",
+    "indigenous": "651",
+    "nonIndigenous": "13534"
+  },
+  "319041519": {
+    "sa2Id": "319041519",
+    "sa3Id": "31904",
+    "sa3Name": "Hervey Bay",
+    "numOfPph": "982",
+    "percentPphPerDay": "33.0",
+    "sa2Name": "Point Vernon",
+    "indigenous": "283",
+    "nonIndigenous": "5502"
+  },
+  "319041520": {
+    "sa2Id": "319041520",
+    "sa3Id": "31904",
+    "sa3Name": "Hervey Bay",
+    "numOfPph": "982",
+    "percentPphPerDay": "33.0",
+    "sa2Name": "Torquay - Scarness - Kawungan",
+    "indigenous": "779",
+    "nonIndigenous": "14488"
+  },
+  "319041521": {
+    "sa2Id": "319041521",
+    "sa3Id": "31904",
+    "sa3Name": "Hervey Bay",
+    "numOfPph": "982",
+    "percentPphPerDay": "33.0",
+    "sa2Name": "Urangan - Wondunna",
+    "indigenous": "549",
+    "nonIndigenous": "12293"
+  },
+  "319051522": {
+    "sa2Id": "319051522",
+    "sa3Id": "31905",
+    "sa3Name": "Maryborough",
+    "numOfPph": "887",
+    "percentPphPerDay": "40.0",
+    "sa2Name": "Burrum - Fraser",
+    "indigenous": "498",
+    "nonIndigenous": "9195"
+  },
+  "319051523": {
+    "sa2Id": "319051523",
+    "sa3Id": "31905",
+    "sa3Name": "Maryborough",
+    "numOfPph": "887",
+    "percentPphPerDay": "40.0",
+    "sa2Name": "Granville",
+    "indigenous": "201",
+    "nonIndigenous": "3045"
+  },
+  "319051524": {
+    "sa2Id": "319051524",
+    "sa3Id": "31905",
+    "sa3Name": "Maryborough",
+    "numOfPph": "887",
+    "percentPphPerDay": "40.0",
+    "sa2Name": "Maryborough (Qld)",
+    "indigenous": "1154",
+    "nonIndigenous": "17335"
+  },
+  "319051525": {
+    "sa2Id": "319051525",
+    "sa3Id": "31905",
+    "sa3Name": "Maryborough",
+    "numOfPph": "887",
+    "percentPphPerDay": "40.0",
+    "sa2Name": "Maryborough Region - South",
+    "indigenous": "281",
+    "nonIndigenous": "8161"
+  },
+  "319051526": {
+    "sa2Id": "319051526",
+    "sa3Id": "31905",
+    "sa3Name": "Maryborough",
+    "numOfPph": "887",
+    "percentPphPerDay": "40.0",
+    "sa2Name": "Tinana",
+    "indigenous": "193",
+    "nonIndigenous": "5312"
+  },
+  "397979799": {
+    "sa2Id": "397979799"
+  },
+  "399999499": {
+    "sa2Id": "399999499"
+  }
+}
