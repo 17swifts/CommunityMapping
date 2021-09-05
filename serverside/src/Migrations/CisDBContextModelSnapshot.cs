@@ -17,7 +17,7 @@ namespace Cis.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasPostgresEnum(null, "categories", new[] { "aboriginal_service", "accommodation_service", "advocacy_service", "alcohol_and_drug_service", "animal_service", "arts_and_creatives", "child_service", "communication_and_information", "community_centres_halls_and_facilities", "community_club", "crisis_and_emergency_service", "cultural_and_migrant_service", "disability_service", "education", "employment_and_training", "environment_and_conservation", "health_service", "information_and_counselling", "legal_service", "industry_and_funding_bodies", "recreation_and_leisure", "religion_and_philosophy", "self_help", "sport", "transport_service", "volunteering", "welfare_assistance", "youth_service" })
-                .HasPostgresEnum(null, "gender", new[] { "female", "male", "other" })
+                .HasPostgresEnum(null, "gender", new[] { "female", "male", "other", "both" })
                 .HasPostgresEnum(null, "servicetype", new[] { "permanent", "visiting" })
                 .HasPostgresExtension("uuid-ossp")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
@@ -61,6 +61,9 @@ namespace Cis.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
                         .HasDefaultValueSql("uuid_generate_v4()");
+
+                    b.Property<int?>("Australianrank")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("Created")
                         .ValueGeneratedOnAdd()

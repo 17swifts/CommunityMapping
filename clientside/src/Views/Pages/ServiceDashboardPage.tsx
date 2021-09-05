@@ -23,14 +23,16 @@ import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation'
 
 // % protected region % [Add any extra imports here] on begin
 import { ICollectionHeaderProps } from 'Views/Components/Collection/CollectionHeaders';
-import { RegionalAreaEntity } from 'Models/Entities';
-import { observable, runInAction } from 'mobx';
+import { RegionalAreaEntity, ServiceEntity } from 'Models/Entities';
+import { action, observable, runInAction } from 'mobx';
 import Collection from 'Views/Components/Collection/Collection';
 import axios from 'axios';
-import ChartTile from "Views/Tiles/ChartTile";
 import ChartCard  from "Views/Tiles/CardTile";
 import Pie from 'Views/Components/Charts/Pie';
+import Doughnut from 'Views/Components/Charts/Doughnut';
 import VerticalBar from 'Views/Components/Charts/VerticalBar';
+import HorizontalBar from 'Views/Components/Charts/HorizontalBar';
+import MultiType from 'Views/Components/Charts/MultiType';
 // % protected region % [Add any extra imports here] end
 
 export interface ServiceDashboardPageProps extends RouteComponentProps {
@@ -48,9 +50,11 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 	private searchTerm = { Sa2NameToSearch: "" };
 	@observable
 	regionalAreaSearchedBySa2Name: RegionalAreaEntity[] = [];
+	emptyRegionalArea : RegionalAreaEntity = new RegionalAreaEntity({indigenous: 0, nonindigenous: 0, numofpph: 0, percentpphperday: 0, irsd: 0, irsad: 0, ieo: 0, ier: 0, australianrank: 0, servicess: Array<ServiceEntity>()});
 	@observable
-	regionalAreaSelected : RegionalAreaEntity;
-	population : number[] = [0,0];
+	regionalAreaSelected : RegionalAreaEntity = this.emptyRegionalArea;
+	@observable
+	selectedItem: string | undefined;
 
 	// Chart data
 	populationData = [0,0];
@@ -69,8 +73,6 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 			}
 		]
 
-		let selectedItem: string | undefined;
-
 		const searchCollection = (
 			<>
 			<h5> Search by Regional Area Name</h5>
@@ -79,26 +81,27 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 				onSearchTriggered={this.onSearchTriggered}
 				collection={this.regionalAreaSearchedBySa2Name}
 				selectableItems
-				itemSelectionChanged={((checked, changedItems) => {
-					if (checked) {
-						selectedItem = (changedItems[0]?.sa2name);
-						this.population = [changedItems[0].indigenous, changedItems[0].nonindigenous];
-						this.regionalAreaSelected = changedItems[0];
-						return [changedItems[0]];
-					} else {
-						selectedItem = (undefined);
-						return [];
-					}
-				})}
+				itemSelectionChanged={this.itemSelectionChanged}
 				getSelectedItems={() => {
-					return [this.regionalAreaSearchedBySa2Name.find(x => x.sa2name === selectedItem)!];
+					return this.regionalAreaSearchedBySa2Name.filter(x => x.sa2id === this.selectedItem);
 				}}
-				menuCountFunction={() => selectedItem === undefined ? 0 : 1}
+				menuCountFunction={() => this.selectedItem === undefined ? 0 : 1}
 				idColumn="Sa2id" />
 				</>
 	)
 
 		return searchCollection;
+	}
+	@action
+	private itemSelectionChanged = (checked : boolean, changedItems : RegionalAreaEntity[]) => {
+		if (checked) {
+			this.selectedItem = (changedItems[0]?.sa2id);
+			this.regionalAreaSelected = changedItems[0];
+		} else {
+			this.selectedItem = (undefined);
+			this.regionalAreaSelected = this.emptyRegionalArea;
+		}
+		return [];
 	}
 
 	private onSearchTriggered = (searchTerm: string) => {
@@ -110,23 +113,18 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 			);
 		});	
 	}
-
-	private displayCharts(){
-		const charts = (
-			<>
-			<div>
-				<ChartCard title="Population indexes" chart={<Pie labels={['Indigenous', 'Non-Indigenous']} label="Population" data={[this.regionalAreaSelected.indigenous,this.regionalAreaSelected.nonindigenous]} backgroundColor={['rgba(225, 150, 255)', 'rgba(239, 233, 242)']}/>}/>
-				<ChartCard title="Socio-Economic Indexes for Areas (SEIFA)" description="SEIFA ranks areas in Australia according to relative socio-economic advantage and disadvantage." chart={<VerticalBar labels={['IRSD', 'IRSAD', 'IER', 'IEO']} label="SIEFA" data={[this.regionalAreaSelected.irsd,this.regionalAreaSelected.irsad, this.regionalAreaSelected.ieo, this.regionalAreaSelected.ier]} backgroundColor={['rgba(255, 191, 217)', 'rgba(255, 171, 205)', 'rgba(252, 136, 183)', 'rgba(255, 105, 166)']}/>}/>
-			</div>
-			</>
-		)
-		return charts;
-	}
-
 	// % protected region % [Add class properties here] end
 
 	render() {
-		// % protected region % [Add logic before rendering contents here] off begin
+		// % protected region % [Add logic before rendering contents here] on begin
+		const population = this.regionalAreaSelected.indigenous + this.regionalAreaSelected.nonindigenous;
+		const investment = this.regionalAreaSelected.servicess ?
+		this.regionalAreaSelected.servicess.reduce(function(prev,current){
+			return prev + current.investment
+		},0) : 0;
+		// const investment = this.regionalAreaSelected.servicess.reduce(function(prev,current){
+		// 	return prev + current.investment
+		// },0);
 		// % protected region % [Add logic before rendering contents here] end
 
 		let contents = (
@@ -158,13 +156,18 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 						{this.CustomSingleSelectionSearchCollection()}
 					</div>
 					<div className="layout__horizontal">
-						 {/* <ChartCard title="Active services" chart={<ChartTile {...this.props}/>}/> */}
-						 {/* <ChartCard title="Socio-Economic Indexes for Areas (SEIFA)" description="SEIFA ranks areas in Australia according to relative socio-economic advantage and disadvantage." chart={<VerticalBar labels={['IRSD', 'IRSAD', 'IER', 'IEO']} label="SIEFA" data={[this.regionalAreaSelected.irsd,this.regionalAreaSelected.irsad, this.regionalAreaSelected.ieo, this.regionalAreaSelected.ier]} backgroundColor={['rgba(255, 191, 217)', 'rgba(255, 171, 205)', 'rgba(252, 136, 183)', 'rgba(255, 105, 166)']}/>}/> */}
-						 <ChartCard title="Socio-Economic Indexes for Areas (SEIFA)" description="SEIFA ranks areas in Australia according to relative socio-economic advantage and disadvantage." chart={<VerticalBar labels={['IRSD', 'IRSAD', 'IER', 'IEO']} label="SIEFA" data={[100,230, 86, 345]} backgroundColor={['rgba(255, 191, 217)', 'rgba(255, 171, 205)', 'rgba(252, 136, 183)', 'rgba(255, 105, 166)']}/>}/>
-						 <ChartCard title="Population indexes" chart={<Pie labels={['Indigenous', 'Non-Indigenous']} label="Population" data={this.population} backgroundColor={['rgba(225, 150, 255)', 'rgba(239, 233, 242)']}/>}/>
+						 <ChartCard title="Rank within Australia (SEIFA)" statistic={this.regionalAreaSelected.australianrank}/>
+						 <ChartCard title="Socio-Economic Indexes for Areas (SEIFA)" description="SEIFA ranks areas in Australia according to relative socio-economic advantage and disadvantage." chart={<MultiType labels={['IRSD', 'IRSAD', 'IER', 'IEO']} label1="index score" data1={[this.regionalAreaSelected.irsd,this.regionalAreaSelected.irsad, this.regionalAreaSelected.ieo, this.regionalAreaSelected.ier]} 
+						 backgroundColor={['rgba(255, 191, 217)', 'rgba(255, 171, 205)', 'rgba(252, 136, 183)', 'rgba(255, 105, 166)']} type1='bar' type2='line' label2='mean' data2={[1000,1000,1000,1000]} borderColor='rgba(199, 52, 184)'/>}/>
+						 <ChartCard title="Population indexes" description={"Population: "+population} chart={<Pie labels={['Indigenous', 'Non-Indigenous']} label="Population" data={[this.regionalAreaSelected.indigenous, this.regionalAreaSelected.nonindigenous]} backgroundColor={['rgba(225, 150, 255)', 'rgba(239, 233, 242)']}/>}/>
 						 <ChartCard title="Potentially Preventable Hospitalisations" description=
-						 "PPH are defined by Admission to hospital for a condition where the hospitalisation could have potentially been prevented." statistic="980 | 0.32%"/>
+						 "PPH are defined by Admission to hospital for a condition where the hospitalisation could have potentially been prevented." statistic={this.regionalAreaSelected.numofpph+"|"+this.regionalAreaSelected.percentpphperday+"%"}/>
 					</div>
+					<div className="layout__horizontal">
+						<ChartCard title="Total Investment" statistic={"$"+investment}/>
+						<ChartCard title="Active Services" chart={<Doughnut labels={['Active', 'In-Active']} label="Active Services" data={this.regionalAreaSelected.servicess? [this.regionalAreaSelected.servicess.filter(s => s.active === true).length, this.regionalAreaSelected.servicess.filter(s => s.active === false).length] : [0,0]} backgroundColor={['rgba(225, 150, 255)', 'rgba(239, 233, 242)']}/>} />
+						<ChartCard title="Service Type Breakdown" chart={<HorizontalBar labels={['Permanent', 'Visiting']} label="Service Type" data={this.regionalAreaSelected.servicess? [this.regionalAreaSelected.servicess.filter(s => s.servicetype === 'PERMANENT').length, this.regionalAreaSelected.servicess.filter(s => s.servicetype === 'VISITING').length]:[0,0]} backgroundColor={['rgba(225, 150, 255)', 'rgba(239, 233, 242)']}/>} />
+					</div> 
 					{
 					// % protected region % [Add code for a3b19bca-d710-4b91-8d19-45171c92b6d6 here] end
 					}
