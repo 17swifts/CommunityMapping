@@ -48,7 +48,7 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Create
 				{
 					// % protected region % [Configure entity theory data for ServiceCommissioningBody here] off begin
 					{new RegionalAreaEntity(), SecurityStringHelper.UserPermissionDenied, "ServiceCommissioningBody"},
-					{new ServiceEntity(), SecurityStringHelper.UserPermissionDenied, "ServiceCommissioningBody"},
+					{new ServiceEntity(), null, "ServiceCommissioningBody"},
 					// % protected region % [Configure entity theory data for ServiceCommissioningBody here] end
 				};
 				// % protected region % [Add any extra theory data here] off begin
@@ -57,6 +57,8 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Create
 			}
 		}
 
+		// % protected region % [Add custom CreateTests traits here] off begin
+		// % protected region % [Add custom CreateTests traits here] end
 		[Theory]
 		[MemberData(nameof(ServiceCommissioningBodyCreateSecurityData))]
 		public async Task ServiceCommissioningBodyCreateTests<T>(T model, string message, string groupName)
@@ -84,8 +86,10 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Create
 			}
 		}
 
+		// % protected region % [Overwrite create user security test attributes here] off begin
 		[Theory]
 		[MemberData(nameof(ServiceCommissioningBodyCreateUserSecurityData))]
+		// % protected region % [Overwrite create user security test attributes here] end
 		public async Task ServiceCommissioningBodyCreateUserTests<T, TDto>(T model, TDto dto, string message, string groupName)
 			where T : User, IOwnerAbstractModel, new()
 			where TDto : ModelDto<T>, IRegistrationModel<T>, new()

@@ -17,7 +17,12 @@
 import * as React from 'react';
 import { action } from 'mobx';
 import { store } from "Models/Store";
-import { Redirect, Route, RouteComponentProps, Switch } from 'react-router';
+import {
+	Redirect,
+	Route,
+	RouteComponentProps,
+	Switch,
+} from 'react-router';
 import * as Pages from './Pages';
 import Logout from "./Components/Logout/Logout";
 import Auth from "./Components/Auth/Auth";

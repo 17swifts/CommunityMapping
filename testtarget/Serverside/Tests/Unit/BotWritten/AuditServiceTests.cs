@@ -24,6 +24,8 @@ namespace ServersideTests.Tests.Unit.BotWritten
 	[Trait("Category", "Unit")]
 	public class AuditServicesTests
 	{
+		// % protected region % [Add custom AuditLogsTest traits here] off begin
+		// % protected region % [Add custom AuditLogsTest traits here] end
 		[Fact]
 		public void AuditLogsTest()
 		{

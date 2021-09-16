@@ -72,6 +72,8 @@ namespace ServersideTests.Tests.Unit.BotWritten
 			// % protected region % [Override SingleConditionTheoryData here] end
 		}
 
+		// % protected region % [Add custom TestSingleCondition traits here] off begin
+		// % protected region % [Add custom TestSingleCondition traits here] end
 		[Theory]
 		[MemberData(nameof(SingleConditionTheoryData))]
 		public void TestSingleCondition(HasCondition condition, string[] expectedNames)
@@ -87,6 +89,8 @@ namespace ServersideTests.Tests.Unit.BotWritten
 			// % protected region % [Override TestSingleCondition here] end
 		}
 
+		// % protected region % [Add custom TestInvalidHasConditionReference traits here] off begin
+		// % protected region % [Add custom TestInvalidHasConditionReference traits here] end
 		[Fact]
 		public void TestInvalidHasConditionReference()
 		{
@@ -147,6 +151,8 @@ namespace ServersideTests.Tests.Unit.BotWritten
 			// % protected region % [Override TestConditionalExpressionBuilderTheoryData here] end
 		}
 
+		// % protected region % [Add custom TestConditionalExpressionBuilder traits here] off begin
+		// % protected region % [Add custom TestConditionalExpressionBuilder traits here] end
 		[Theory]
 		[MemberData(nameof(TestConditionalExpressionBuilderTheoryData))]
 		public void TestConditionalExpressionBuilder(List<List<TestCondition>> condition, string[] expectedResults)
