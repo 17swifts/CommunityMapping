@@ -21,7 +21,16 @@ import { RouteComponentProps } from 'react-router';
 import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
 
-// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] on begin
+import { store } from 'Models/Store';
+import EntityAttributeList, {IEntityAttributeBehaviour} from 'Views/Components/CRUD/EntityAttributeList';
+import { ServiceCommissioningBodyEntity } from 'Models/Entities';
+import { EntityFormMode } from 'Views/Components/Helpers/Common';
+import EntityEdit from 'Views/Components/CRUD/EntityEdit';
+import { useQuery } from '@apollo/client';
+import { action, observable } from 'mobx';
+import { getFetchSingleQuery, getModelName } from 'Util/EntityUtils';
+import { lowerCaseFirst } from 'Util/StringUtils';
 // % protected region % [Add any extra imports here] end
 
 export interface MyProfilePageProps extends RouteComponentProps {
@@ -34,11 +43,33 @@ export interface MyProfilePageProps extends RouteComponentProps {
 class MyProfilePage extends React.Component<MyProfilePageProps> {
 // % protected region % [Add any customisations to default class definition here] end
 
-	// % protected region % [Add class properties here] off begin
+	// % protected region % [Add class properties here] on begin
+	@observable
+	userData : ServiceCommissioningBodyEntity = new ServiceCommissioningBodyEntity();
+
+	@action
+	setUserData = (userData: ServiceCommissioningBodyEntity) => {
+		this.userData = userData;
+	}
+
+	@action
+	getUserData = () => {
+		if (store.userId) {
+			const data = ServiceCommissioningBodyEntity.fetch<ServiceCommissioningBodyEntity>({
+				ids: [store.userId],
+			}).then(data => {
+				if (data[0]) {
+					this.setUserData(data[0]);
+				}
+			});
+		}
+	}
+	
 	// % protected region % [Add class properties here] end
 
 	render() {
-		// % protected region % [Add logic before rendering contents here] off begin
+		// % protected region % [Add logic before rendering contents here] on begin
+		this.getUserData();
 		// % protected region % [Add logic before rendering contents here] end
 
 		let contents = (
@@ -63,6 +94,20 @@ class MyProfilePage extends React.Component<MyProfilePageProps> {
 							My Profile
 						</h2>
 					</div>
+					{
+					// % protected region % [Add code for 8ab74203-f187-43bb-bb11-e6951b5227e2 here] off begin
+					}
+					<EntityAttributeList
+						{...this.props}
+						model={this.userData}
+						sectionClassName="crud_view"
+						title={`Details`}
+						formMode={EntityFormMode.VIEW}
+						modelType={ServiceCommissioningBodyEntity}
+					/>
+					{
+					// % protected region % [Add code for 8ab74203-f187-43bb-bb11-e6951b5227e2 here] end
+					}
 				</div>
 			</SecuredPage>
 		);

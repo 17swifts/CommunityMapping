@@ -315,18 +315,15 @@ namespace Cis.Controllers.Entities
 			[FromQuery] string qstr,
 			[FromServices] CisDBContext dbContext)
 		{
-			if (string.IsNullOrWhiteSpace(qstr))
+			IQueryable<RegionalAreaEntity> query = dbContext.RegionalAreaEntity.Include(x => x.Servicess);
+
+			if (!string.IsNullOrWhiteSpace(qstr))
 			{
-				return await dbContext.RegionalAreaEntity.ToListAsync();
+				qstr = qstr.ToLower();
+				query = query.Where(a => a.Sa2name.ToLower().Contains(qstr));
 			}
 
-			qstr = qstr.ToLower();
-
-			var result = await dbContext.RegionalAreaEntity
-				.Where(a => a.Sa2name.ToLower().Contains(qstr))
-				.ToListAsync();
-
-			return result;
+			return await query.ToListAsync();
 		}
 
 		// % protected region % [Add any further endpoints here] end
