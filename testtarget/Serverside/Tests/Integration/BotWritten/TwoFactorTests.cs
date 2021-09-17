@@ -70,6 +70,8 @@ namespace ServersideTests.Tests.Integration.BotWritten
 		}
 		// % protected region % [Customize Dispose here] end
 
+		// % protected region % [Add custom VerifyEmailTwoFactorLogin traits here] off begin
+		// % protected region % [Add custom VerifyEmailTwoFactorLogin traits here] end
 		// % protected region % [Customize VerifyEmailTwoFactorLogin here] off begin
 		/// <summary>
 		/// Validate that an email two factor login generates an email with the correct code.
@@ -111,6 +113,8 @@ namespace ServersideTests.Tests.Integration.BotWritten
 		}
 		// % protected region % [Customize UserTheoryData method here] end
 
+		// % protected region % [Add custom VerifyValidTwoFactorEndpointResponse traits here] off begin
+		// % protected region % [Add custom VerifyValidTwoFactorEndpointResponse traits here] end
 		// % protected region % [Customize VerifyValidTwoFactorEndpointResponse here] off begin
 		/// <summary>
 		/// Validates that the endpoint to get the two factor methods for a user gets the correct methods.
@@ -154,6 +158,8 @@ namespace ServersideTests.Tests.Integration.BotWritten
 		}
 		// % protected region % [Customize UserMethodTheoryData here] end
 
+		// % protected region % [Add custom VerifyConfigureTwoFactorEndpoint traits here] off begin
+		// % protected region % [Add custom VerifyConfigureTwoFactorEndpoint traits here] end
 		// % protected region % [Customize VerifyConfigureTwoFactorEndpoint here] off begin
 		/// <summary>
 		/// Validates the functionality of the configure two factor endpoint.
@@ -184,6 +190,8 @@ namespace ServersideTests.Tests.Integration.BotWritten
 		}
 		// % protected region % [Customize VerifyConfigureTwoFactorEndpoint here] end
 
+		// % protected region % [Add custom VerifyDisableTwoFactorEndpoint traits here] off begin
+		// % protected region % [Add custom VerifyDisableTwoFactorEndpoint traits here] end
 		// % protected region % [Customize VerifyDisableTwoFactorEndpoint here] off begin
 		/// <summary>
 		/// Validates the functionality of the disable two factor endpoint.

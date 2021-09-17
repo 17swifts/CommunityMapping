@@ -66,6 +66,8 @@ namespace ServersideTests.Tests.Unit.BotWritten
 			_groupListNames = new List<string> { testGroupListName };
 		}
 
+		// % protected region % [Add custom UserServiceGetUserTest traits here] off begin
+		// % protected region % [Add custom UserServiceGetUserTest traits here] end
 		// % protected region % [Customize UserServiceGetUserTest here] off begin
 		/// <summary>
 		/// Attempt to get a user
@@ -100,6 +102,8 @@ namespace ServersideTests.Tests.Unit.BotWritten
 		}
 		// % protected region % [Customize UserServiceGetUserTest here] end
 
+		// % protected region % [Add custom UserServiceRegisterDuplicateUserTest traits here] off begin
+		// % protected region % [Add custom UserServiceRegisterDuplicateUserTest traits here] end
 		// % protected region % [Customize UserServiceRegisterDuplicateUserTest here] off begin
 		/// <summary>
 		/// Attempt to create a user which is already in the system,
@@ -136,6 +140,8 @@ namespace ServersideTests.Tests.Unit.BotWritten
 		}
 		// % protected region % [Customize UserServiceRegisterDuplicateUserTest here] end
 
+		// % protected region % [Add custom UserServiceRegisterUserTest traits here] off begin
+		// % protected region % [Add custom UserServiceRegisterUserTest traits here] end
 		// % protected region % [Customize UserServiceRegisterUserTest here] off begin
 		/// <summary>
 		/// Attempt to create a user successfully,

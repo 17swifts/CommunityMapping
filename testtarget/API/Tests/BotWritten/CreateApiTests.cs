@@ -44,7 +44,8 @@ namespace APITests.Tests.BotWritten
 			_configure = configure;
 			_output = output;
 		}
-
+		// % protected region % [Add custom CreateEntities traits here] off begin
+		// % protected region % [Add custom CreateEntities traits here] end
 		// % protected region % [Customize Create Entity tests here] off begin
 		[Theory]
 		[Trait("Category", "BotWritten")]

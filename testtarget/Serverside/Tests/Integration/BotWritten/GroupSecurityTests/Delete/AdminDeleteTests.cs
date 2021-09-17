@@ -55,8 +55,10 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Delete
 			}
 		}
 
+		// % protected region % [Overwrite delete security test attributes here] off begin
 		[Theory]
 		[MemberData(nameof(DeleteAdminSecurityData))]
+		// % protected region % [Overwrite delete security test attributes here] end
 		public async Task AdminDeleteSecurity<T>(T model, string message, string groupName)
 			where T : class, IOwnerAbstractModel, new()
 		{

@@ -35,6 +35,8 @@ namespace ServersideTests.Tests.Integration.BotWritten
 	[Trait("Category", "Unit")]
 	public class DeactivatedUserTests
 	{
+		// % protected region % [Add custom AdminEntity traits here] off begin
+		// % protected region % [Add custom AdminEntity traits here] end
 		// % protected region % [Customize CreateAndValidateUser Test for AdminEntity] off begin
 		[Fact]
 		public async void AdminEntityDeactivatedLoginTest()
@@ -43,6 +45,8 @@ namespace ServersideTests.Tests.Integration.BotWritten
 		}
 		// % protected region % [Customize CreateAndValidateUser Test for AdminEntity] end
 
+		// % protected region % [Add custom ServiceCommissioningBodyEntity traits here] off begin
+		// % protected region % [Add custom ServiceCommissioningBodyEntity traits here] end
 		// % protected region % [Customize CreateAndValidateUser Test for ServiceCommissioningBodyEntity] off begin
 		[Fact]
 		public async void ServiceCommissioningBodyEntityDeactivatedLoginTest()
@@ -101,7 +105,8 @@ namespace ServersideTests.Tests.Integration.BotWritten
 			};
 		}
 		// % protected region % [Customize DeactivatedUserTheoryData method here] end
-
+		// % protected region % [Add custom traits here] off begin
+		// % protected region % [Add custom traits here] end
 		// % protected region % [Customize DeactivateEndpointTest here] off begin
 		[Theory]
 		[MemberData(nameof(DeactivatedUserTheoryData))]

@@ -55,8 +55,10 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Update
 			}
 		}
 
+		// % protected region % [Overwrite update security test attributes here] off begin
 		[Theory]
 		[MemberData(nameof(AdminUpdateSecurityData))]
+		// % protected region % [Overwrite update security test attributes here] end
 		public async Task AdminUpdateSecurityTests<T>(T model, string message, string groupName)
 			where T : class, IOwnerAbstractModel, new()
 		{

@@ -95,7 +95,7 @@ class MyProfilePage extends React.Component<MyProfilePageProps> {
 						</h2>
 					</div>
 					{
-					// % protected region % [Add code for 8ab74203-f187-43bb-bb11-e6951b5227e2 here] off begin
+					// % protected region % [Add code for 8ab74203-f187-43bb-bb11-e6951b5227e2 here] on begin
 					}
 					<EntityAttributeList
 						{...this.props}

@@ -34,7 +34,7 @@ export class ServiceCommissioningBodyServiceCommissioningBodyEntity implements I
 	}
 	public canUpdate(): boolean {
 		// % protected region % [Override update rule contents here here] off begin
-		return false;
+		return true;
 		// % protected region % [Override update rule contents here here] end
 	}
 	public canDelete(): boolean {
