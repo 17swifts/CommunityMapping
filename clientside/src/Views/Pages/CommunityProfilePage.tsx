@@ -65,8 +65,8 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 							Community Profile
 						</h2>
 					</div>
-					<div style={{"width": "100vw", "height": "100vh" }}>
-						<embed src="https://community-map-3418c.web.app/" style={{"width": "100vw", "height": "100vh" }}></embed>
+					<div>
+						<embed src="https://community-map-3418c.web.app/" style={{"width": "100%", "height": "100%" }}></embed>
 					</div>
 					{
 					// % protected region % [Add code for 2586c999-ab9b-4685-879f-330ba2c7fab5 here] off begin
