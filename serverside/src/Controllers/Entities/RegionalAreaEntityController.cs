@@ -306,7 +306,26 @@ namespace Cis.Controllers.Entities
 			// % protected region % [Add any get params here] end
 		}
 
-		// % protected region % [Add any further endpoints here] off begin
+		// % protected region % [Add any further endpoints here] on begin
+		
+		[HttpGet]
+		[Route("search-regionalarea-by-name")]
+		[Authorize]
+		public async Task<IEnumerable<RegionalAreaEntity>> SearchRegionalAreaByName(
+			[FromQuery] string qstr,
+			[FromServices] CisDBContext dbContext)
+		{
+			IQueryable<RegionalAreaEntity> query = dbContext.RegionalAreaEntity.Include(x => x.Servicess);
+
+			if (!string.IsNullOrWhiteSpace(qstr))
+			{
+				qstr = qstr.ToLower();
+				query = query.Where(a => a.Sa2name.ToLower().Contains(qstr));
+			}
+
+			return await query.ToListAsync();
+		}
+
 		// % protected region % [Add any further endpoints here] end
 	}
 }
