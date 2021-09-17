@@ -129,7 +129,8 @@ namespace Cis
 			AddApplicationConfigurations(services);
 			// % protected region % [Configure configuration services here] end
 
-			// % protected region % [Add extra startup methods here] off begin
+			// % protected region % [Add extra startup methods here] on begin
+			services.AddScoped<ServiceManagementService>();
 			// % protected region % [Add extra startup methods here] end
 
 			// % protected region % [Configure ApiBehaviorOptions service here] off begin
