@@ -46,7 +46,7 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Update
 				{
 					// % protected region % [Configure entity theory data for ServiceCommissioningBody here] off begin
 					{new RegionalAreaEntity(), SecurityStringHelper.UserPermissionDenied, "ServiceCommissioningBody"},
-					{new ServiceEntity(), SecurityStringHelper.UserPermissionDenied, "ServiceCommissioningBody"},
+					{new ServiceEntity(), null, "ServiceCommissioningBody"},
 					// % protected region % [Configure entity theory data for ServiceCommissioningBody here] end
 				};
 				// % protected region % [Add any extra theory data here] off begin
@@ -55,8 +55,10 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Update
 			}
 		}
 
+		// % protected region % [Overwrite update security test attributes here] off begin
 		[Theory]
 		[MemberData(nameof(ServiceCommissioningBodyUpdateSecurityData))]
+		// % protected region % [Overwrite update security test attributes here] end
 		public async Task ServiceCommissioningBodyUpdateSecurityTests<T>(T model, string message, string groupName)
 			where T : class, IOwnerAbstractModel, new()
 		{

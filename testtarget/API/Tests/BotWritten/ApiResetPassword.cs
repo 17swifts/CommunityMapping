@@ -43,6 +43,8 @@ namespace APITests.Tests.BotWritten
 			_output = output;
 		}
 
+		// % protected region % [Add custom ResetPassword traits here] off begin
+		// % protected region % [Add custom ResetPassword traits here] end
 		// % protected region % [Customize ResetPassword tests here] off begin
 		[SkippableTheory]
 		[ClassData(typeof(UserEntityFactorySingleTheoryData))]

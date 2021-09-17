@@ -71,6 +71,8 @@ namespace ServersideTests.Tests.Unit.BotWritten
 			_fileSystemStorageProvider = new FileSystemStorageProvider(mockFileConfiguration.Object, mockLogger.Object);
 		}
 
+		// % protected region % [Add custom TestContainerNameInvalid traits here] off begin
+		// % protected region % [Add custom TestContainerNameInvalid traits here] end
 		[Theory]
 		[ClassData(typeof(InvalidPathNameTheoryData))]
 		public void TestContainerNameInvalid(string inputPathName)
@@ -86,6 +88,8 @@ namespace ServersideTests.Tests.Unit.BotWritten
 			act.Should().Throw<IOException>().WithMessage("Invalid path name");
 		}
 
+		// % protected region % [Add custom TestFileNameInvalid traits here] off begin
+		// % protected region % [Add custom TestFileNameInvalid traits here] end
 		[Theory]
 		[Trait("Category", "Immediate")]
 		[ClassData(typeof(InvalidPathNameTheoryData))]

@@ -92,6 +92,8 @@ namespace ServersideTests.Tests.Integration.BotWritten
 		/// Test for the Profile Image attribute on the Service Commissioning Body entity
 		/// that will will ensure that files can be fetched using the graphql API.
 		/// </summary>
+		// % protected region % [Add custom GetServiceCommissioningBody traits here] off begin
+		// % protected region % [Add custom GetServiceCommissioningBody traits here] end
 		[Fact]
 		public async void GetServiceCommissioningBodyProfileImageTest()
 		{
@@ -128,6 +130,8 @@ namespace ServersideTests.Tests.Integration.BotWritten
 		/// Test for the Profile Image attribute on the ServiceCommissioningBodyEntity entity
 		/// that will will ensure that files can be saved using the CrudService
 		/// </summary>
+		// % protected region % [Add custom CreateServiceCommissioningBody traits here] off begin
+		// % protected region % [Add custom CreateServiceCommissioningBody traits here] end
 		[Fact]
 		public async void CreateServiceCommissioningBodyEntityProfileImageTest()
 		{

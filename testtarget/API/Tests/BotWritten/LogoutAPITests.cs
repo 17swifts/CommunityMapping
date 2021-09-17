@@ -36,6 +36,8 @@ namespace APITests.Tests.BotWritten
 		}
 
 		#region GraphQl Logout
+		// % protected region % [Add custom APIUserLogoutTest traits here] off begin
+		// % protected region % [Add custom APIUserLogoutTest traits here] end
 		[Fact]
 		[Trait("Category", "BotWritten")]
 		[Trait("Category", "Integration")]

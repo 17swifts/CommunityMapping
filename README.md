@@ -8,7 +8,7 @@ Welcome to your application! Below is an overview of the source code to help you
 
 Now that your app has been built, you have complete ownership of the source code, including the code that the codebots have written. All of the code is customisable and ready to use, whether it be for commercial or non-commercial purposes.
 
-**Bot version:** 2.6.0.0 ([Release notes are here](https://forum.codebots.com/t/c-bot-release-2-6-0-0))
+**Bot version:** 2.6.1.0 ([Release notes are here](https://forum.codebots.com/t/c-bot-release-2-6-1-0))
 
 ----
 

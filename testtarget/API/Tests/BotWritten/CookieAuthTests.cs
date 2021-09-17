@@ -36,6 +36,8 @@ namespace APITests.Tests.BotWritten
 			_output = output;
 		}
 
+		// % protected region % [Add custom ValidCookiesValidXSRFTokenAuth traits here] off begin
+		// % protected region % [Add custom ValidCookiesValidXSRFTokenAuth traits here] end
 		[Fact]
 		public void ValidCookiesValidXSRFTokenAuth()
 		{
@@ -62,6 +64,8 @@ namespace APITests.Tests.BotWritten
 			ResponseHelpers.CheckResponse(client, request, expectValid: true);
 		}
 
+		// % protected region % [Add custom MissingXSRFTokenValidCookiesUnauthTest traits here] off begin
+		// % protected region % [Add custom MissingXSRFTokenValidCookiesUnauthTest traits here] end
 		[Fact]
 		public void MissingXSRFTokenValidCookiesUnauthTest()
 		{
@@ -85,6 +89,8 @@ namespace APITests.Tests.BotWritten
 			ResponseHelpers.CheckResponse(client, request, expectValid: false);
 		}
 
+		// % protected region % [Add custom MissingCookiesValidXSRFTokenUnauthTest traits here] off begin
+		// % protected region % [Add custom MissingCookiesValidXSRFTokenUnauthTest traits here] end
 		[Fact]
 		public void MissingCookiesValidXSRFTokenUnauthTest()
 		{

@@ -50,7 +50,7 @@ namespace Cis.Security.Acl
 			where TModel : IOwnerAbstractModel, new()
 		{
 			// % protected region % [Override conditional update rule contents here here] off begin
-			return model => false;
+			return model => true;
 			// % protected region % [Override conditional update rule contents here here] end
 		}
 
@@ -65,7 +65,7 @@ namespace Cis.Security.Acl
 		public bool GetUpdate(User user, IEnumerable<IAbstractModel> models, SecurityContext context)
 		{
 			// % protected region % [Override update rule contents here here] off begin
-			return false;
+			return true;
 			// % protected region % [Override update rule contents here here] end
 		}
 
