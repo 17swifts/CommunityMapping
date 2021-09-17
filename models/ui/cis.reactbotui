@@ -34,6 +34,8 @@
 	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="483b4f4c-1724-591d-ba77-86b26d171c7a" Source="6cc7b4b2-e189-4ca8-8755-924ba8a27e54" Target="7ef47c5e-65d5-4946-9b79-ba931efdf5ec" Order="0" />
 	<Components xsi:type="reactbotUi:HeadingComponent" Uuid="4f14613d-b676-4804-b749-69b0366b5c2b" Contents="My Profile" Level="2" />
 	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="f21a67ef-8a1f-501d-8e4e-2ce7099359f5" Source="7ef47c5e-65d5-4946-9b79-ba931efdf5ec" Target="4f14613d-b676-4804-b749-69b0366b5c2b" Order="0" />
+	<Components xsi:type="reactbotUi:CustomComponent" Uuid="8ab74203-f187-43bb-bb11-e6951b5227e2" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="4211e903-8491-52b0-b85a-869218a61496" Source="6cc7b4b2-e189-4ca8-8755-924ba8a27e54" Target="8ab74203-f187-43bb-bb11-e6951b5227e2" Order="1" />
 	<Pages xsi:type="reactbotUi:Page" Uuid="1ad16061-956f-4318-9187-242bb9d290bc" Name="My Services" IsHomePage="false" />
 	<Layouts xsi:type="reactbotUi:HorizontalStackLayout" Uuid="6294673c-5714-457b-8beb-ea50eb7e6226" />
 	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="c0d8b181-d595-5ead-ba93-2081c4fbfef9" Source="1ad16061-956f-4318-9187-242bb9d290bc" Target="6294673c-5714-457b-8beb-ea50eb7e6226" Order="0" />

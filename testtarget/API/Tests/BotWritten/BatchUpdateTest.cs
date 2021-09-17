@@ -42,6 +42,8 @@ namespace APITests.Tests.BotWritten
 		}
 
 		#region GraphQl Batch Update
+		// % protected region % [Add custom GraphqlBatchUpdateEntities traits here] off begin
+		// % protected region % [Add custom GraphqlBatchUpdateEntities traits here] end
 		// % protected region % [Customize GraphqlBatchUpdateEntities here] off begin
 		[SkippableTheory]
 		[Trait("Category", "BotWritten")]

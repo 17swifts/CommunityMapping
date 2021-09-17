@@ -50,6 +50,8 @@ namespace APITests.Tests.BotWritten
 			_output = output;
 		}
 
+		// % protected region % [Add custom ExportEntity traits here] off begin
+		// % protected region % [Add custom ExportEntity traits here] end
 		// % protected region % [Customize Export Entity tests here] off begin
 		[Theory]
 		[ClassData(typeof(EntityFactorySingleTheoryData))]

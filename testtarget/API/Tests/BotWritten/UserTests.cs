@@ -75,6 +75,8 @@ namespace APITests.Tests.BotWritten
 			_output = output;
 		}
 
+		// % protected region % [Add custom RegistrationInvalidPasswordTests traits here] off begin
+		// % protected region % [Add custom RegistrationInvalidPasswordTests traits here] end
 		// % protected region % [Customize RegistrationInvalidPasswordTests here] off begin
 		[Theory]
 		[ClassData(typeof(PasswordInvalidTheoryData))]
@@ -98,6 +100,8 @@ namespace APITests.Tests.BotWritten
 		}
 		// % protected region % [Customize RegistrationInvalidPasswordTests here] end
 
+		// % protected region % [Add custom RegistrationUserInvalidTests traits here] off begin
+		// % protected region % [Add custom RegistrationUserInvalidTests traits here] end
 		// % protected region % [Customize RegistrationUserInvalidTests here] off begin
 		[Theory]
 		[ClassData(typeof(UsernameInvalidTheoryData))]
@@ -121,6 +125,8 @@ namespace APITests.Tests.BotWritten
 		}
 		// % protected region % [Customize RegistrationUserInvalidTests here] end
 
+		// % protected region % [Add custom ValidLoginUserTests traits here] off begin
+		// % protected region % [Add custom ValidLoginUserTests traits here] end
 		// % protected region % [Customize ValidLoginUserTests here] off begin
 		[Theory]
 		[MemberData(nameof(ValidTokenResponse))]
@@ -134,6 +140,8 @@ namespace APITests.Tests.BotWritten
 		}
 		// % protected region % [Customize ValidLoginUserTests here] end
 
+		// % protected region % [Add custom InvalidLoginUserTests traits here] off begin
+		// % protected region % [Add custom InvalidLoginUserTests traits here] end
 		// % protected region % [Customise InvalidLoginUserTests here] off begin
 		[Theory]
 		[MemberData(nameof(GetExpectedInvalidLoginResponses))]

@@ -55,7 +55,7 @@ Any changes out side of "protected regions" will be lost next time the bot makes
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
-		<PackageReference Include="XunitXml.TestLogger" Version="3.0.56" />
+		<PackageReference Include="XunitXml.TestLogger" Version="3.0.66" />
 		<!-- % protected region % [Customise existing libraries here] end -->
 	</ItemGroup>
 

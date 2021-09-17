@@ -62,7 +62,8 @@ namespace ServersideTests.Tests.Integration.BotWritten
 			// % protected region % [Configure dispose here] end
 		}
 
-
+		// % protected region % [Add custom Admin Entity traits here] off begin
+		// % protected region % [Add custom Admin Entity traits here] end
 		// % protected region % [Customise Admin Entity crud tests here] off begin
 		[Fact]
 		public async void AdminEntityControllerGetTest()
@@ -85,7 +86,8 @@ namespace ServersideTests.Tests.Integration.BotWritten
 			data.Data.Select(d => d.Id).Should().Contain(entities.Select(d => d.Id));
 		}
 		// % protected region % [Customise Admin Entity crud tests here] end
-
+		// % protected region % [Add custom Regional area Entity traits here] off begin
+		// % protected region % [Add custom Regional area Entity traits here] end
 		// % protected region % [Customise Regional area Entity crud tests here] off begin
 		[Fact]
 		public async void RegionalAreaEntityControllerGetTest()
@@ -108,7 +110,8 @@ namespace ServersideTests.Tests.Integration.BotWritten
 			data.Data.Select(d => d.Id).Should().Contain(entities.Select(d => d.Id));
 		}
 		// % protected region % [Customise Regional area Entity crud tests here] end
-
+		// % protected region % [Add custom Service Entity traits here] off begin
+		// % protected region % [Add custom Service Entity traits here] end
 		// % protected region % [Customise Service Entity crud tests here] off begin
 		[Fact]
 		public async void ServiceEntityControllerGetTest()
@@ -131,7 +134,8 @@ namespace ServersideTests.Tests.Integration.BotWritten
 			data.Data.Select(d => d.Id).Should().Contain(entities.Select(d => d.Id));
 		}
 		// % protected region % [Customise Service Entity crud tests here] end
-
+		// % protected region % [Add custom Service Commissioning Body Entity traits here] off begin
+		// % protected region % [Add custom Service Commissioning Body Entity traits here] end
 		// % protected region % [Customise Service Commissioning Body Entity crud tests here] off begin
 		[Fact]
 		public async void ServiceCommissioningBodyEntityControllerGetTest()
