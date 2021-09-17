@@ -48,6 +48,8 @@ namespace APITests.Tests.BotWritten
 		}
 
 		#region GraphQl delete
+		// % protected region % [Add custom GraphqlDeleteEntities traits here] off begin
+		// % protected region % [Add custom GraphqlDeleteEntities traits here] end
 		[Theory]
 		[ClassData(typeof(EntityFactorySingleTheoryData))]
 		[ClassData(typeof(EntityFactoryMultipleTheoryData))]
@@ -92,6 +94,8 @@ namespace APITests.Tests.BotWritten
 		#endregion
 
 		#region Rest Endpoint Delete
+		// % protected region % [Add custom ApiDeleteEntities traits here] off begin
+		// % protected region % [Add custom ApiDeleteEntities traits here] end
 		// % protected region % [Customize Api Delete Entity tests here] off begin
 		[Theory]
 		[ClassData(typeof(EntityFactoryTheoryData))]

@@ -23,6 +23,8 @@ namespace ServersideTests.Tests.Unit.BotWritten
 {
 	public class CrudServiceTests
 	{
+		// % protected region % [Add custom TestPaginationValidation traits here] off begin
+		// % protected region % [Add custom TestPaginationValidation traits here] end
 		[Theory]
 		[InlineData(null, null, false)]
 		[InlineData(null, 0, false)]

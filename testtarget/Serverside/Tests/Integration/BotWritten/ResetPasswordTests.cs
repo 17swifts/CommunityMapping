@@ -39,6 +39,8 @@ namespace ServersideTests.Tests.Integration.BotWritten
 	[Trait("Category", "Unit")]
 	public class ResetPasswordTests
 	{
+		// % protected region % [Add custom traits here] off begin
+		// % protected region % [Add custom traits here] end
 		// % protected region % [Customize ResetPasswordTest here] off begin
 		[Fact]
 		public async Task ResetPasswordTest()

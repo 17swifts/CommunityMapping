@@ -16,9 +16,9 @@
 		<Acl Uuid="816e18e4-4e7e-4596-a46a-afc35f07fd5c" Group="3980059c-9720-4d33-bc03-a241fc7b9e01" SecurityScheme="1ad16061-956f-4318-9187-242bb9d290bc" Create="false" Read="false" Update="false" Delete="false" />
 		<Acl Uuid="3980059c-9720-4d33-bc03-a241fc7b9e01-2928a863-f822-4ef5-8aaf-df885c55332a" Group="3980059c-9720-4d33-bc03-a241fc7b9e01" SecurityScheme="2928a863-f822-4ef5-8aaf-df885c55332a" Create="false" Read="false" Update="false" Delete="false" />
 		<Acl Uuid="0a075329-6765-4944-85f7-ff832d0ae83b" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="5fa56df3-fc9b-455f-a163-bdb7c94534b7" Create="false" Read="true" Update="false" Delete="false" />
-		<Acl Uuid="1157bd52-3d30-49c9-8da7-d3277187313e" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="905ab383-496b-4e43-97fb-da6847041b4a" Create="false" Read="true" Update="false" Delete="false" />
+		<Acl Uuid="1157bd52-3d30-49c9-8da7-d3277187313e" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="905ab383-496b-4e43-97fb-da6847041b4a" Create="true" Read="true" Update="true" Delete="false" />
 		<Acl Uuid="7fac6e72-ad74-4e8b-9f5a-aaad1328cfd1" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="1a612178-01c4-4ded-a0a0-42d1d68c0927" Create="false" Read="true" Update="false" Delete="false" />
-		<Acl Uuid="1feeae91-7fdc-49fe-8cb3-032f6da3d55e" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="af844d6d-6624-4095-a2a1-acd3271f8137" Create="false" Read="true" Update="false" Delete="false" />
+		<Acl Uuid="1feeae91-7fdc-49fe-8cb3-032f6da3d55e" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="af844d6d-6624-4095-a2a1-acd3271f8137" Create="false" Read="true" Update="true" Delete="false" />
 		<Acl Uuid="b4859ee6-ebd1-483a-86f2-51f9f3c6e5e1" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="e7955813-8651-4b0f-a75f-813272bf1994" Create="false" Read="true" Update="false" Delete="false" />
 		<Acl Uuid="10d2963b-b3f4-45be-a897-73c9b7bad2b7" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="6ea4408d-19f9-4b7b-847b-a8deb5905a9e" Create="false" Read="true" Update="false" Delete="false" />
 		<Acl Uuid="a7895f19-407f-44c0-b2cb-13aac776854a" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="5cae6334-9bc6-4e92-b6e9-109a83b6936c" Create="false" Read="true" Update="false" Delete="false" />

@@ -51,6 +51,8 @@ namespace APITests.Tests.BotWritten
 				new EntityFactory("ServiceEntity"),
 			};
 		}
+		// % protected region % [Add custom CreateInvalidEntity traits here] off begin
+		// % protected region % [Add custom CreateInvalidEntity traits here] end
 		// % protected region % [Customize CreateInvalidEntity here] off begin
 		[Theory]
 		[Trait("Category", "BotWritten")]

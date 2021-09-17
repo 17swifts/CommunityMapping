@@ -44,6 +44,8 @@ namespace APITests.Tests.BotWritten
 		/// Should receive a  a HTPP Status Code OK.
 		/// </summary>
 		/// <param name="entityName"></param>
+		// % protected region % [Add custom TestGraphqlEndPointsUnauthorized traits here] off begin
+		// % protected region % [Add custom TestGraphqlEndPointsUnauthorized traits here] end
 		[Theory]
 		[ClassData(typeof(EntityNamePluralizedTheoryData))]
 		public void TestGraphqlEndPointsUnauthorized(string entityName)
@@ -58,6 +60,8 @@ namespace APITests.Tests.BotWritten
 			Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 		}
 
+		// % protected region % [Add custom VisitorUnauthorisedEntityNameTheoryData traits here] off begin
+		// % protected region % [Add custom VisitorUnauthorisedEntityNameTheoryData traits here] end
 		[Theory]
 		[ClassData(typeof(VisitorUnauthorisedEntityNameTheoryData))]
 		public void TestApiEndPointsUnauthorized(string entityName)

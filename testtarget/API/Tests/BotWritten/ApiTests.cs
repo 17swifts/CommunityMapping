@@ -41,6 +41,8 @@ namespace APITests.Tests.BotWritten
 			_output = output;
 		}
 
+		// % protected region % [Add custom TestGraphqlEndPoints traits here] off begin
+		// % protected region % [Add custom TestGraphqlEndPoints traits here] end
 		// % protected region % [Customize GraphQl endpoint tests here] off begin
 		[Theory]
 		[ClassData(typeof(EntityNamePluralizedTheoryData))]
@@ -65,6 +67,8 @@ namespace APITests.Tests.BotWritten
 		}
 		// % protected region % [Customize GraphQl endpoint tests here] end
 
+		// % protected region % [Add custom TestApiEndPoints traits here] off begin
+		// % protected region % [Add custom TestApiEndPoints traits here] end
 		// % protected region % [Customize Api endpoint tests here] off begin
 		[Theory]
 		[ClassData(typeof(EntityNameTheoryData))]

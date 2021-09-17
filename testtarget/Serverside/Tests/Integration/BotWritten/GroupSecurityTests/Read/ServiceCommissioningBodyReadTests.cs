@@ -56,14 +56,16 @@ namespace ServersideTests.Tests.Integration.BotWritten.GroupSecurityTests.Read
 			}
 		}
 
+		// % protected region % [Overwrite read security test attributes here] off begin
 		[Theory]
 		[MemberData(nameof(ServiceCommissioningBodyReadSecurityData))]
+		// % protected region % [Overwrite read security test attributes here] end
 		public async Task ServiceCommissioningBodyReadSecurityTests<T>(T entity, bool canRead, string groupName)
 			where T : class, IOwnerAbstractModel, new()
 		{
-			// % protected region % [Overwrite delete security test here] off begin
+			// % protected region % [Overwrite read security test here] off begin
 			await ReadTest(entity, canRead, groupName);
-			// % protected region % [Overwrite delete security test here] end
+			// % protected region % [Overwrite read security test here] end
 		}
 	}
 }

@@ -44,6 +44,7 @@ Any changes out side of "protected regions" will be lost next time the bot makes
 		<PackageReference Include="SpecFlow" Version="3.3.57" />
 		<PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.3.57" />
 		<PackageReference Include="SpecFlow.xUnit" Version="3.3.57" />
+		<PackageReference Include="XunitXml.TestLogger" Version="3.0.66" />
 
 		<!-- % protected region % [The default web driver versions, change to suit needs] off begin -->
 		<PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="90.0.4430.2400" />
