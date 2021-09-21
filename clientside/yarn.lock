@@ -8051,6 +8051,14 @@ jest-worker@^26.5.0, jest-worker@^26.6.2:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
+jest-xunit@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/jest-xunit/-/jest-xunit-1.0.11.tgz#78c388391e95dee459293b7ed03dc5ec44b7d90b"
+  integrity sha512-TA8bh+mqfp14FrV1fMtbqfnGCjZHBKZodVa1KD/cYkDLUcnUbDAamb0C1vl627vZb6fepiDtNGLRG4CN/hq9hg==
+  dependencies:
+    mkdirp "^0.5.1"
+    xml "^1.0.1"
+
 jest@26.6.0:
   version "26.6.0"
   resolved "https://registry.yarnpkg.com/jest/-/jest-26.6.0.tgz#546b25a1d8c888569dbbe93cae131748086a4a25"
