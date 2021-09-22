@@ -26,11 +26,7 @@ import { store } from 'Models/Store';
 import EntityAttributeList, {IEntityAttributeBehaviour} from 'Views/Components/CRUD/EntityAttributeList';
 import { ServiceCommissioningBodyEntity } from 'Models/Entities';
 import { EntityFormMode } from 'Views/Components/Helpers/Common';
-import EntityEdit from 'Views/Components/CRUD/EntityEdit';
-import { useQuery } from '@apollo/client';
 import { action, observable } from 'mobx';
-import { getFetchSingleQuery, getModelName } from 'Util/EntityUtils';
-import { lowerCaseFirst } from 'Util/StringUtils';
 // % protected region % [Add any extra imports here] end
 
 export interface MyProfilePageProps extends RouteComponentProps {
@@ -75,7 +71,7 @@ class MyProfilePage extends React.Component<MyProfilePageProps> {
 		let contents = (
 			<SecuredPage groups={['Super Administrators', 'ServiceCommissioningBody', 'Admin']}>
 				{
-				// % protected region % [Alter navigation here] off begin
+				// % protected region % [Alter navigation here] on begin
 				}
 				<Navigation
 					linkGroups={getFrontendNavLinks(this.props)}

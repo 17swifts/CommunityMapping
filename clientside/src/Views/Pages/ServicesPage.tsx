@@ -24,7 +24,6 @@ import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
 
 // % protected region % [Add any extra imports here] on begin
-import { PageWrapper } from 'Views/Components/PageWrapper/PageWrapper';
 // % protected region % [Add any extra imports here] end
 
 export interface ServicesPageProps extends RouteComponentProps {
