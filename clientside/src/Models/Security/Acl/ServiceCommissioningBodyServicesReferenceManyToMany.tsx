@@ -29,12 +29,12 @@ export class ServiceCommissioningBodyServicesReferenceManyToMany implements IAcl
 	}
 	public canCreate(): boolean {
 		// % protected region % [Override create rule contents here here] off begin
-		return false;
+		return true;
 		// % protected region % [Override create rule contents here here] end
 	}
 	public canUpdate(): boolean {
 		// % protected region % [Override update rule contents here here] off begin
-		return false;
+		return true;
 		// % protected region % [Override update rule contents here here] end
 	}
 	public canDelete(): boolean {
