@@ -33,9 +33,6 @@ import Doughnut from 'Views/Components/Charts/Doughnut';
 import VerticalBar from 'Views/Components/Charts/VerticalBar';
 import MultiType from 'Views/Components/Charts/MultiType';
 import PolarChart from 'Views/Components/Charts/PolarArea';
-import ReactDOM from "react-dom";
-import html2canvas from "html2canvas";
-import jsPDF from 'jspdf';
 // % protected region % [Add any extra imports here] end
 
 export interface ServiceDashboardPageProps extends RouteComponentProps {
@@ -58,9 +55,6 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 	regionalAreaSelected : RegionalAreaEntity = this.emptyRegionalArea;
 	@observable
 	selectedItem: string | undefined;
-
-	// Chart data
-	populationData = [0,0];
 
 	private CustomSingleSelectionSearchCollection = () => {
 		const tableHeaders: ICollectionHeaderProps<RegionalAreaEntity>[] = [
@@ -121,25 +115,6 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 		});	
 	}
 
-	div2PDF = (e: { target: any; }, regionalAreaName : string) => {
-
-		const but = e.target;
-		but.style.display = "none";
-		const input = window.document.getElementById("div2PDF") as HTMLElement;
-		const fileName = regionalAreaName + ".pdf";
-	
-		html2canvas(input)
-		.then((canvas) => {
-		  const imgData = canvas.toDataURL('image/png');
-		  const pdf = new jsPDF("l", "pt");
-		  pdf.addImage(imgData, 'PNG', 
-		  0,
-		  0,
-		  0,
-		  0);
-		  pdf.save(fileName);
-		});
-	  };
 	// % protected region % [Add class properties here] end
 
 	render() {
@@ -149,6 +124,7 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 		this.regionalAreaSelected.servicess.reduce(function(prev,current){
 			return prev + current.investment
 		},0) : 0;
+
 		// % protected region % [Add logic before rendering contents here] end
 		debugger
 		let contents = (
@@ -179,24 +155,23 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 					<div className="layout__horizontal">
 						{this.CustomSingleSelectionSearchCollection()}
 					</div>
-					<div className="layout__horizontal" id="div2PDF">
-						 <ChartCard title="Rank within Australia (SEIFA)" description="Averaged rank from the four SEIFA areas. A lower score indicates that an area is relatively disadvantaged compared to an area with a higher score (lowest score of 1, highest of 2206." statistic={this.regionalAreaSelected.australianrank}/>
-						 <ChartCard title="Socio-Economic Indexes for Areas (SEIFA)" description="SEIFA ranks areas in Australia according to relative socio-economic advantage and disadvantage. The scores for all SA1s are then standardised to a distribution where the average equals 1000 and the standard deviation is 100. " 
-						 chart={<MultiType labels={['IRSD', 'IRSAD', 'IER', 'IEO']} label1="index score" data1={[this.regionalAreaSelected.irsd,this.regionalAreaSelected.irsad, this.regionalAreaSelected.ieo, this.regionalAreaSelected.ier]} 
-						 backgroundColor={['rgba(255, 191, 217)', 'rgba(255, 171, 205)', 'rgba(252, 136, 183)', 'rgba(255, 105, 166)']} type1='bar' type2='line' label2='mean' data2={[1000,1000,1000,1000]} borderColor='rgba(199, 52, 184)'/>}/>
-						 <ChartCard title="Population indexes" description={"Population: "+population} chart={<Pie labels={['Indigenous', 'Non-Indigenous']} label="Population" data={[this.regionalAreaSelected.indigenous, this.regionalAreaSelected.nonindigenous]} backgroundColor={['rgba(225, 150, 255)', 'rgba(239, 233, 242)']}/>}/>
-						 <ChartCard title="Potentially Preventable Hospitalisations" description=
-						 "PPH are defined by Admission to hospital for a condition where the hospitalisation could have potentially been prevented." statistic={this.regionalAreaSelected.numofpph+"|"+this.regionalAreaSelected.percentpphperday+"%"}/>
-					</div>
-					<div className="layout__horizontal" id="div2PDF">
-						<ChartCard title="Total Investment" statistic={"$"+investment}/>
-						<ChartCard title="Active Services" chart={<Doughnut labels={['Active', 'In-Active']} label="Active Services" data={this.regionalAreaSelected.servicess? [this.regionalAreaSelected.servicess.filter(s => s.active === true).length, this.regionalAreaSelected.servicess.filter(s => s.active === false).length] : [0,0]} backgroundColor={['rgba(225, 150, 255)', 'rgba(239, 233, 242)']}/>} />
-						<ChartCard title="Service Type Breakdown" chart={<VerticalBar labels={['Permanent', 'Visiting']} label="Service Type" data={this.regionalAreaSelected.servicess? [this.regionalAreaSelected.servicess.filter(s => s.servicetype === 'PERMANENT').length, this.regionalAreaSelected.servicess.filter(s => s.servicetype === 'VISITING').length]:[0,0]} backgroundColor={['rgba(225, 150, 255)', 'rgba(239, 233, 242)']}/>} />
-						<ChartCard title="Service Category Breakdown" chart={<PolarChart labels={['Aboriginal', 'Alcohol and Drug', 'Self Help', 'Youth', 'Health', 'Cultural and Migrant', 'Information and Counselling']} label='Category' 
-						data={this.regionalAreaSelected.servicess? [this.regionalAreaSelected.servicess.filter(s => s.category === 'ABORIGINAL_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'ALCOHOL_AND_DRUG_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'SELF_HELP').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'YOUTH_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'HEALTH_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'CULTURAL_AND_MIGRANT_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'INFORMATION_AND_COUNSELLING').length]:[0,0,0,0,0,0,0]} backgroundColor={['rgba(225, 150, 255)', 'rgba(239, 233, 242)', 'rgba(111, 243, 252)', 'rgba(67, 247, 181)', 'rgba(240, 224, 79)', 'rgba(247, 170, 45)', 'rgba(199, 102, 255)']}/>}/>
-					</div> 
-					<div>
-						<button onClick={(e) => this.div2PDF(e,this.regionalAreaSelected.sa2name)}>Export to PDF</button>
+					<div id="div2PDF" style={{ display: 'contents' }} >
+						<div className="layout__horizontal">
+							<ChartCard title="Rank within Australia (SEIFA)" description="Averaged rank from the four SEIFA areas. A lower score indicates that an area is relatively disadvantaged compared to an area with a higher score (lowest score of 1, highest of 2206." statistic={this.regionalAreaSelected.australianrank}/>
+							<ChartCard title="Socio-Economic Indexes for Areas (SEIFA)" description="SEIFA ranks areas in Australia according to relative socio-economic advantage and disadvantage. The scores for all SA1s are then standardised to a distribution where the average equals 1000 and the standard deviation is 100. " 
+							chart={<MultiType labels={['IRSD', 'IRSAD', 'IER', 'IEO']} label1="index score" data1={[this.regionalAreaSelected.irsd,this.regionalAreaSelected.irsad, this.regionalAreaSelected.ieo, this.regionalAreaSelected.ier]} 
+							backgroundColor={['rgba(255, 191, 217)', 'rgba(255, 171, 205)', 'rgba(252, 136, 183)', 'rgba(255, 105, 166)']} type1='bar' type2='line' label2='mean' data2={[1000,1000,1000,1000]} borderColor='rgba(199, 52, 184)'/>}/>
+							<ChartCard title="Population indexes" description={"Population: "+population} chart={<Pie labels={['Indigenous', 'Non-Indigenous']} label="Population" data={[this.regionalAreaSelected.indigenous, this.regionalAreaSelected.nonindigenous]} backgroundColor={['rgba(225, 150, 255)', 'rgba(239, 233, 242)']}/>}/>
+							<ChartCard title="Potentially Preventable Hospitalisations" description=
+							"PPH are defined by Admission to hospital for a condition where the hospitalisation could have potentially been prevented." statistic={this.regionalAreaSelected.numofpph+"|"+this.regionalAreaSelected.percentpphperday+"%"}/>
+						</div>
+						<div className="layout__horizontal">
+							<ChartCard title="Total Investment" statistic={"$"+investment}/>
+							<ChartCard title="Active Services" chart={<Doughnut labels={['Active', 'In-Active']} label="Active Services" data={this.regionalAreaSelected.servicess? [this.regionalAreaSelected.servicess.filter(s => s.active === true).length, this.regionalAreaSelected.servicess.filter(s => s.active === false).length] : [0,0]} backgroundColor={['rgba(225, 150, 255)', 'rgba(239, 233, 242)']}/>} />
+							<ChartCard title="Service Type Breakdown" chart={<VerticalBar labels={['Permanent', 'Visiting']} label="Service Type" data={this.regionalAreaSelected.servicess? [this.regionalAreaSelected.servicess.filter(s => s.servicetype === 'PERMANENT').length, this.regionalAreaSelected.servicess.filter(s => s.servicetype === 'VISITING').length]:[0,0]} backgroundColor={['rgba(225, 150, 255)', 'rgba(239, 233, 242)']}/>} />
+							<ChartCard title="Service Category Breakdown" chart={<PolarChart labels={['Aboriginal', 'Alcohol and Drug', 'Self Help', 'Youth', 'Health', 'Cultural and Migrant', 'Information and Counselling']} label='Category' 
+							data={this.regionalAreaSelected.servicess? [this.regionalAreaSelected.servicess.filter(s => s.category === 'ABORIGINAL_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'ALCOHOL_AND_DRUG_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'SELF_HELP').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'YOUTH_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'HEALTH_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'CULTURAL_AND_MIGRANT_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'INFORMATION_AND_COUNSELLING').length]:[0,0,0,0,0,0,0]} backgroundColor={['rgba(225, 150, 255)', 'rgba(239, 233, 242)', 'rgba(111, 243, 252)', 'rgba(67, 247, 181)', 'rgba(240, 224, 79)', 'rgba(247, 170, 45)', 'rgba(199, 102, 255)']}/>}/>
+						</div> 
 					</div>
 					{
 					// % protected region % [Add code for a3b19bca-d710-4b91-8d19-45171c92b6d6 here] end

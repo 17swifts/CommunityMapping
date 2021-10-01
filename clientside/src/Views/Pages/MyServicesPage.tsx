@@ -22,6 +22,7 @@ import { observer } from 'mobx-react';
 import { RouteComponentProps } from 'react-router';
 import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
+import { store } from 'Models/Store';
 
 // % protected region % [Add any extra imports here] on begin
 // % protected region % [Add any extra imports here] end
@@ -73,6 +74,13 @@ class MyServicesPage extends React.Component<MyServicesPageProps> {
 							// % protected region % [Add props to crud component 13053bdd-361f-49f9-831b-0126368492f2 here] on begin
 							removeModifiedFilter={true}
 							removeCreatedFilter={true}
+							entityCollectionProps={{
+								conditions: [[{
+									path: 'owner',
+									comparison: 'equal',
+									value: store.userId
+								}]]
+							}}
 							// % protected region % [Add props to crud component 13053bdd-361f-49f9-831b-0126368492f2 here] end
 						/>
 					</div>
