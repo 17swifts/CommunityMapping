@@ -55,7 +55,7 @@ namespace SeleniumTests.Steps.Login
 			LoginPage.Login(user, pass);
 			try
 			{
-				ContextConfiguration.WebDriverWait.Until(wd => wd.Url == ContextConfiguration.BaseUrl + "/serviceprofile");
+				ContextConfiguration.WebDriverWait.Until(wd => wd.Url == ContextConfiguration.BaseUrl + "/mycommunitymapping");
 				Assert.Equal("success", success);
 			}
 			catch (OpenQA.Selenium.UnhandledAlertException)

@@ -16,11 +16,11 @@
  */
 import { IAcl } from '../IAcl';
 
-export class ServiceCommissioningBodyServicesPage implements IAcl {
+export class AdminAllServicesPage implements IAcl {
 	public group?: string;
 	public isVisitorAcl = false;
 	public constructor() {
-		this.group = 'ServiceCommissioningBody';
+		this.group = 'Admin';
 	}
 	public canRead(): boolean {
 		// % protected region % [Override read rule contents here here] off begin
@@ -29,17 +29,17 @@ export class ServiceCommissioningBodyServicesPage implements IAcl {
 	}
 	public canCreate(): boolean {
 		// % protected region % [Override create rule contents here here] off begin
-		return false;
+		return true;
 		// % protected region % [Override create rule contents here here] end
 	}
 	public canUpdate(): boolean {
 		// % protected region % [Override update rule contents here here] off begin
-		return false;
+		return true;
 		// % protected region % [Override update rule contents here here] end
 	}
 	public canDelete(): boolean {
 		// % protected region % [Override delete rule contents here here] off begin
-		return false;
+		return true;
 		// % protected region % [Override delete rule contents here here] end
 	}
 }

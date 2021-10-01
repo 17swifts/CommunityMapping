@@ -24,12 +24,12 @@ using Cis.Models;
 namespace Cis.Security.Acl
 {
 	/// <summary>
-	/// Security listing for the Visitors group for the ServicesPage scheme
+	/// Security listing for the ServiceCommissioningBody group for the MyCommunityMappingPage scheme
 	/// </summary>
-	public class VisitorsServicesPage : IAcl
+	public class ServiceCommissioningBodyMyCommunityMappingPage : IAcl
 	{
-		public string Group => "Visitors";
-		public bool IsVisitorAcl => true;
+		public string Group => "ServiceCommissioningBody";
+		public bool IsVisitorAcl => false;
 
 		public bool GetCreate(User user, IEnumerable<IAbstractModel> models, SecurityContext context)
 		{

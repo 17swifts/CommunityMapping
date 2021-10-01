@@ -26,14 +26,14 @@ import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation'
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
 
-export interface ServicesPageProps extends RouteComponentProps {
+export interface AllServicesPageProps extends RouteComponentProps {
 	// % protected region % [Add any extra props here] off begin
 	// % protected region % [Add any extra props here] end
 }
 
 @observer
 // % protected region % [Add any customisations to default class definition here] off begin
-class ServicesPage extends React.Component<ServicesPageProps> {
+class AllServicesPage extends React.Component<AllServicesPageProps> {
 // % protected region % [Add any customisations to default class definition here] end
 
 	// % protected region % [Add class properties here] off begin
@@ -84,5 +84,5 @@ class ServicesPage extends React.Component<ServicesPageProps> {
 }
 
 // % protected region % [Override export here] off begin
-export default ServicesPage;
+export default AllServicesPage;
 // % protected region % [Override export here] end

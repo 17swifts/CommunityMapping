@@ -16,13 +16,13 @@
 ###
 # % protected region % [Override feature properties here] off begin
 @BotWritten @pages
-Feature: ServicesPage Contents Feature
+Feature: MyCommunityMappingPage Contents Feature
 # % protected region % [Override feature properties here] end
 
 # % protected region % [Override test contents here] off begin
-@ServicesPage
-Scenario: Check contents of ServicesPage page
+@MyCommunityMappingPage
+Scenario: Check contents of MyCommunityMappingPage page
 Given I login to the site as a user
-And I navigate to the ServicesPage frontend page
-Then The contents of the ServicesPage is correct
+And I navigate to the MyCommunityMappingPage frontend page
+Then The contents of the MyCommunityMappingPage is correct
 # % protected region % [Override test contents here] end

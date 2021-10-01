@@ -112,12 +112,13 @@ export default class Frontend extends React.Component<RouteComponentProps> {
 										{
 										// % protected region % [customize the page routes] off begin
 										}
-										<Redirect exact={true} from={`/`} to={`${path}/serviceprofile`} />
 										<Route path={`${path}/serviceprofile`} component={Pages.ServiceProfilePage} />
 										<Route path={`${path}/servicedashboard`} component={Pages.ServiceDashboardPage} />
 										<Route path={`${path}/myprofile`} component={Pages.MyProfilePage} />
 										<Route path={`${path}/myservices`} component={Pages.MyServicesPage} />
-										<Route path={`${path}/services`} component={Pages.ServicesPage} />
+										<Route path={`${path}/allservices`} component={Pages.AllServicesPage} />
+										<Redirect exact={true} from={`/`} to={`${path}/mycommunitymapping`} />
+										<Route path={`${path}/mycommunitymapping`} component={Pages.MyCommunityMappingPage} />
 										{
 										// % protected region % [customize the page routes] end
 										}
