@@ -15,7 +15,7 @@ const options = {
 
 export default function VerticalBar(props : any){
     return(
-        <Bar options={options} data={
+        <Bar data={
           {
             labels: props.labels,
             datasets: [
