@@ -63,7 +63,8 @@ namespace SeleniumTests.Steps.BotWritten.Pages
 				"ServiceDashboardPage" => new ServiceDashboardPage(_contextConfiguration),
 				"MyProfilePage" => new MyProfilePage(_contextConfiguration),
 				"MyServicesPage" => new MyServicesPage(_contextConfiguration),
-				"ServicesPage" => new ServicesPage(_contextConfiguration),
+				"AllServicesPage" => new AllServicesPage(_contextConfiguration),
+				"MyCommunityMappingPage" => new MyCommunityMappingPage(_contextConfiguration),
 				_ => throw new Exception("Failed to switch on page name.")
 			};
 		}

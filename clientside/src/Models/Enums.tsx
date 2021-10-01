@@ -21,10 +21,7 @@ export type categories =
 		'ACCOMMODATION_SERVICE' |
 		'ADVOCACY_SERVICE' |
 		'ALCOHOL_AND_DRUG_SERVICE' |
-		'ANIMAL_SERVICE' |
 		'ARTS_AND_CREATIVES' |
-		'CHILD_SERVICE' |
-		'COMMUNICATION_AND_INFORMATION' |
 		'COMMUNITY_CENTRES_HALLS_AND_FACILITIES' |
 		'COMMUNITY_CLUB' |
 		'CRISIS_AND_EMERGENCY_SERVICE' |
@@ -32,17 +29,13 @@ export type categories =
 		'DISABILITY_SERVICE' |
 		'EDUCATION' |
 		'EMPLOYMENT_AND_TRAINING' |
-		'ENVIRONMENT_AND_CONSERVATION' |
 		'HEALTH_SERVICE' |
 		'INFORMATION_AND_COUNSELLING' |
 		'LEGAL_SERVICE' |
-		'INDUSTRY_AND_FUNDING_BODIES' |
-		'RECREATION_AND_LEISURE' |
 		'RELIGION_AND_PHILOSOPHY' |
 		'SELF_HELP' |
 		'SPORT' |
 		'TRANSPORT_SERVICE' |
-		'VOLUNTEERING' |
 		'WELFARE_ASSISTANCE' |
 		'YOUTH_SERVICE';
 	// % protected region % [Override categories keys here] end
@@ -53,10 +46,7 @@ export const categoriesOptions: { [key in categories]: string } = {
 	ACCOMMODATION_SERVICE: 'Accommodation Service',
 	ADVOCACY_SERVICE: 'Advocacy Service',
 	ALCOHOL_AND_DRUG_SERVICE: 'Alcohol and Drug Service',
-	ANIMAL_SERVICE: 'Animal Service',
 	ARTS_AND_CREATIVES: 'Arts and Creatives',
-	CHILD_SERVICE: 'Child Service',
-	COMMUNICATION_AND_INFORMATION: 'Communication and Information',
 	COMMUNITY_CENTRES_HALLS_AND_FACILITIES: 'Community Centres Halls and Facilities',
 	COMMUNITY_CLUB: 'Community Club',
 	CRISIS_AND_EMERGENCY_SERVICE: 'Crisis and Emergency Service',
@@ -64,17 +54,13 @@ export const categoriesOptions: { [key in categories]: string } = {
 	DISABILITY_SERVICE: 'Disability Service',
 	EDUCATION: 'Education',
 	EMPLOYMENT_AND_TRAINING: 'Employment and Training',
-	ENVIRONMENT_AND_CONSERVATION: 'Environment and Conservation',
 	HEALTH_SERVICE: 'Health Service',
 	INFORMATION_AND_COUNSELLING: 'Information and Counselling',
 	LEGAL_SERVICE: 'Legal Service',
-	INDUSTRY_AND_FUNDING_BODIES: 'Industry and Funding Bodies',
-	RECREATION_AND_LEISURE: 'Recreation and Leisure ',
 	RELIGION_AND_PHILOSOPHY: 'Religion and Philosophy',
 	SELF_HELP: 'Self Help',
 	SPORT: 'Sport',
 	TRANSPORT_SERVICE: 'Transport Service',
-	VOLUNTEERING: 'Volunteering',
 	WELFARE_ASSISTANCE: 'Welfare Assistance',
 	YOUTH_SERVICE: 'Youth Service',
 	// % protected region % [Override categories display fields here] end

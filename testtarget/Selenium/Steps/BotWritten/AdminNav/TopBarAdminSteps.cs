@@ -53,7 +53,7 @@ namespace SeleniumTests.Steps.BotWritten.TopBar
 			switch (topBarMenuText)
 			{
 				case TopbarMenuType.ADMIN:
-					Assert.Equal($"{_baseUrl}/serviceprofile", _driver.Url);
+					Assert.Equal($"{_baseUrl}/mycommunitymapping", _driver.Url);
 					break;
 				case TopbarMenuType.FRONTEND:
 					Assert.Equal($"{_baseUrl}/admin", _driver.Url);

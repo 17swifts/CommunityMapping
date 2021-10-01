@@ -20,26 +20,38 @@ import { observer } from 'mobx-react';
 import { RouteComponentProps } from 'react-router';
 import { observable } from 'mobx';
 import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
+import { Button } from 'Views/Components/Button/Button';
 import { TextArea } from 'Views/Components/TextArea/TextArea';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
 
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
 
-export interface CommunityProfilePageProps extends RouteComponentProps {
+export interface MyCommunityMappingPageProps extends RouteComponentProps {
 	// % protected region % [Add any extra props here] off begin
 	// % protected region % [Add any extra props here] end
 }
 
 @observer
 // % protected region % [Add any customisations to default class definition here] off begin
-class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
+class MyCommunityMappingPage extends React.Component<MyCommunityMappingPageProps> {
 // % protected region % [Add any customisations to default class definition here] end
 
 	@observable
 	model = {
 		description: '',
+		supporters: '',
 	}
+
+	// % protected region % [Override onCommunityProfileClick here] off begin
+	onCommunityProfileClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+	}
+	// % protected region % [Override onCommunityProfileClick here] end
+
+	// % protected region % [Override onServiceProfileClick here] off begin
+	onServiceProfileClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+	}
+	// % protected region % [Override onServiceProfileClick here] end
 
 	// % protected region % [Add class properties here] off begin
 	// % protected region % [Add class properties here] end
@@ -49,7 +61,7 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 		// % protected region % [Add logic before rendering contents here] end
 
 		let contents = (
-			<SecuredPage>
+			<SecuredPage groups={['Super Administrators']}>
 				{
 				// % protected region % [Alter navigation here] off begin
 				}
@@ -67,19 +79,39 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 				<div className="body-content">
 					<div className="layout__horizontal">
 						<h2>
-							SEIFA Indexes Map
+							My Community Mapping
 						</h2>
 					</div>
-					<TextArea
-						model={this.model}
-						modelProperty="description"
-						label="Description"
-					/>
+					<div className="layout__horizontal">
+						<Button onClick={this.onServiceProfileClick} >
+							Community Services Map
+						</Button>
+						<Button onClick={this.onCommunityProfileClick} >
+							SEIFA Index Map
+						</Button>
+					</div>
+					<div className="layout__horizontal">
+						<TextArea
+							model={this.model}
+							modelProperty="description"
+							label="Description"
+						/>
+						<h5>
+							What is My Community Mapping
+						</h5>
+					</div>
+					<div className="layout__horizontal">
+						<TextArea
+							model={this.model}
+							modelProperty="supporters"
+							label="Supporters"
+						/>
+					</div>
 					{
-					// % protected region % [Add code for 2586c999-ab9b-4685-879f-330ba2c7fab5 here] off begin
+					// % protected region % [Add code for f597d2a9-5cee-4646-bd24-8c4b0c15624b here] off begin
 					}
 					{
-					// % protected region % [Add code for 2586c999-ab9b-4685-879f-330ba2c7fab5 here] end
+					// % protected region % [Add code for f597d2a9-5cee-4646-bd24-8c4b0c15624b here] end
 					}
 				</div>
 			</SecuredPage>
@@ -93,5 +125,5 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 }
 
 // % protected region % [Override export here] off begin
-export default CommunityProfilePage;
+export default MyCommunityMappingPage;
 // % protected region % [Override export here] end

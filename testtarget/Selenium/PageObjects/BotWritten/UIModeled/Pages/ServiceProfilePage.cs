@@ -29,12 +29,10 @@ namespace SeleniumTests.PageObjects.BotWritten.UIModeled.Pages
 		// % protected region % [Override class properties here] off begin
 		public override string Url => baseUrl + "/serviceprofile";
 		private const string RootSelector = "//div[@class='body-content']";
-		private string ServiceProfilePageHorizontalLayout1Selector => RootSelector + "//*[@class='layout__horizontal']";
-		private By ServiceProfilePageHorizontalLayout1By => By.XPath(ServiceProfilePageHorizontalLayout1Selector);
-		private By HeadingComponentBy => By.XPath($"{ServiceProfilePageHorizontalLayout1Selector}//h2[text()='Service Gaps']");
-		private string ServiceProfilePageHorizontalLayout2Selector => RootSelector + "//*[@class='layout__horizontal']";
-		private By ServiceProfilePageHorizontalLayout2By => By.XPath(ServiceProfilePageHorizontalLayout2Selector);
-		private By HeadingComponentBy => By.XPath($"{ServiceProfilePageHorizontalLayout2Selector}//h3[text()='Compare service gaps']");
+		private string ServiceProfilePageHorizontalLayoutSelector => RootSelector + "//*[@class='layout__horizontal']";
+		private By ServiceProfilePageHorizontalLayoutBy => By.XPath(ServiceProfilePageHorizontalLayoutSelector);
+		private By HeadingComponentBy => By.XPath($"{ServiceProfilePageHorizontalLayoutSelector}//h2[text()='Community Services Map']");
+		private By TextAreaComponentBy => By.XPath($"{RootSelector}//label[text()='Description']/following-sibling::textarea");
 		// % protected region % [Override class properties here] end
 		// % protected region % [Override constructor here] off begin
 		public ServiceProfilePage(ContextConfiguration currentContext) : base(currentContext)
@@ -45,10 +43,9 @@ namespace SeleniumTests.PageObjects.BotWritten.UIModeled.Pages
 		public override bool ContainsModeledElements()
 		{
 			var validContents = true;
-			validContents &= WaitUtils.elementState(DriverWait, ServiceProfilePageHorizontalLayout1By, ElementState.VISIBLE);
+			validContents &= WaitUtils.elementState(DriverWait, ServiceProfilePageHorizontalLayoutBy, ElementState.VISIBLE);
 			validContents &= WaitUtils.elementState(DriverWait, HeadingComponentBy, ElementState.VISIBLE);
-			validContents &= WaitUtils.elementState(DriverWait, ServiceProfilePageHorizontalLayout2By, ElementState.VISIBLE);
-			validContents &= WaitUtils.elementState(DriverWait, HeadingComponentBy, ElementState.VISIBLE);
+			validContents &= WaitUtils.elementState(DriverWait, TextAreaComponentBy, ElementState.VISIBLE);
 			return validContents;
 		}
 		// % protected region % [Override ContainsModeledElements here] end
