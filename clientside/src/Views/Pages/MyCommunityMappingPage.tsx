@@ -53,7 +53,7 @@ class MyCommunityMappingPage extends React.Component<MyCommunityMappingPageProps
 		// % protected region % [Add logic before rendering contents here] end
 
 		let contents = (
-			<SecuredPage groups={['Super Administrators']}>
+			<SecuredPage>
 				{
 				// % protected region % [Alter navigation here] off begin
 				}

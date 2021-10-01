@@ -24,7 +24,7 @@ export class ServiceCommissioningBodyMyCommunityMappingPage implements IAcl {
 	}
 	public canRead(): boolean {
 		// % protected region % [Override read rule contents here here] off begin
-		return false;
+		return true;
 		// % protected region % [Override read rule contents here here] end
 	}
 	public canCreate(): boolean {

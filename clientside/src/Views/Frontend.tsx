@@ -94,6 +94,14 @@ export default class Frontend extends React.Component<RouteComponentProps> {
 								{
 								// % protected region % [customize the CommunityProfile public routes] end
 								}
+								{
+								// % protected region % [customize the MyCommunityMapping public routes] off begin
+								}
+								<Route path={"/mycommunitymapping"} component={Pages.MyCommunityMappingPage} />
+								<Redirect exact={true} from={`/`} to={`${path}/mycommunitymapping`} />
+								{
+								// % protected region % [customize the MyCommunityMapping public routes] end
+								}
 
 								<Route path={`${path}/404`} component={PageNotFound} />
 								<Route path={`${path}/403`} component={PageAccessDenied} />
@@ -117,8 +125,6 @@ export default class Frontend extends React.Component<RouteComponentProps> {
 										<Route path={`${path}/myprofile`} component={Pages.MyProfilePage} />
 										<Route path={`${path}/myservices`} component={Pages.MyServicesPage} />
 										<Route path={`${path}/allservices`} component={Pages.AllServicesPage} />
-										<Redirect exact={true} from={`/`} to={`${path}/mycommunitymapping`} />
-										<Route path={`${path}/mycommunitymapping`} component={Pages.MyCommunityMappingPage} />
 										{
 										// % protected region % [customize the page routes] end
 										}
