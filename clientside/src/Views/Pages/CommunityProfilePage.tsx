@@ -16,6 +16,7 @@
  */
 import * as React from 'react';
 import SecuredPage from 'Views/Components/Security/SecuredPage';
+import Map from 'Views/Components/Map/Map';
 import { observer } from 'mobx-react';
 import { RouteComponentProps } from 'react-router';
 import { observable } from 'mobx';
@@ -76,8 +77,11 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 						label="Description"
 					/>
 					{
-					// % protected region % [Add code for 2586c999-ab9b-4685-879f-330ba2c7fab5 here] off begin
+					// % protected region % [Add code for 2586c999-ab9b-4685-879f-330ba2c7fab5 here] on begin
 					}
+					<div style={{ "width": "100%", "height": "100%" }}>
+						<Map></Map>
+					</div>
 					{
 					// % protected region % [Add code for 2586c999-ab9b-4685-879f-330ba2c7fab5 here] end
 					}
