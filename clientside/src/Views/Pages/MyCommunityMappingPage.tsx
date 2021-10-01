@@ -22,7 +22,12 @@ import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
 import { Button } from 'Views/Components/Button/Button';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
 
-// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] on begin
+import cissLogo from '../../assets/img/CISSLogo.png';
+import WAGov from '../../assets/img/WAGov.png';
+import QLDGov from '../../assets/img/QLDGov.png';
+import ACTGov from '../../assets/img/ACTGov.svg';
+import AustraliaImg from '../../assets/img/australia-map.gif';
 // % protected region % [Add any extra imports here] end
 
 export interface MyCommunityMappingPageProps extends RouteComponentProps {
@@ -35,13 +40,15 @@ export interface MyCommunityMappingPageProps extends RouteComponentProps {
 class MyCommunityMappingPage extends React.Component<MyCommunityMappingPageProps> {
 // % protected region % [Add any customisations to default class definition here] end
 
-	// % protected region % [Override onCommunityProfileClick here] off begin
+	// % protected region % [Override onCommunityProfileClick here] on begin
 	onCommunityProfileClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+		this.props.history.push('/communityprofile');
 	}
 	// % protected region % [Override onCommunityProfileClick here] end
 
 	// % protected region % [Override onServiceProfileClick here] off begin
 	onServiceProfileClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+		this.props.history.push('/serviceprofile');
 	}
 	// % protected region % [Override onServiceProfileClick here] end
 
@@ -75,17 +82,19 @@ class MyCommunityMappingPage extends React.Component<MyCommunityMappingPageProps
 						</h2>
 					</div>
 					<div className="layout__horizontal">
-						<Button onClick={this.onServiceProfileClick} >
-							Community Services Map
-						</Button>
 						<Button onClick={this.onCommunityProfileClick} >
 							SEIFA Index Map
 						</Button>
+						<Button onClick={this.onServiceProfileClick} >
+							Community Services Map
+						</Button>
 					</div>
-					<div className="layout__horizontal">
+					<div className="layout__paragraph">
 						<h5>
 							What is My Community Mapping
 						</h5>
+					</div>
+					<div className="layout__paragraph">
 						<p>
 							My Community Mapping was built in conjunction with My Community Directory 
 							and My Community Diary as a premier source of connection between Government, 
@@ -94,11 +103,21 @@ class MyCommunityMappingPage extends React.Component<MyCommunityMappingPageProps
 							infrastructure to enable better matching, planning and provision of health and 
 							community services to meet individual and emerging community needs. 
 						</p>
+						<img src={AustraliaImg} alt="State map of Australia" style={{padding: 10}}></img>
 					</div>
-					<div className="layout__horizontal">
+
+					<div className="layout__paragraph">
 						<p>
 							Supported By
 						</p>
+					</div>
+					<div className="layout__horizontal">
+						<a href="http://www.communityinfo.org.au/">
+							<img src={cissLogo} alt="Community Information Support Services" width="200" height="100"></img>
+						</a>
+						<img src={WAGov} alt="Government of Western Australia" width="100" height="100"></img>
+						<img src={QLDGov} alt="Queensland Government" width="100" height="100"></img>
+						<img src={ACTGov} alt="ACT Government" width="100" height="100"></img>
 					</div>
 					{
 					// % protected region % [Add code for f597d2a9-5cee-4646-bd24-8c4b0c15624b here] off begin

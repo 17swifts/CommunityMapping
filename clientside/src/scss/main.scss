@@ -14,61 +14,67 @@
  * This file is bot-written.
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
-@import 'shared/harmony.scss';
-// % protected region % [Add additional imports here] off begin
-// % protected region % [Add additional imports here] end
-
-.admin {
-	@import 'admin/harmony.scss';
-	@import 'admin/import-custom.scss';
-
-	.graphiql-content-container {
-		padding: 0;
-		height: 100%;
-	}
-
-	/* % protected region % [Add extra admin scss here] off begin */
-	/* % protected region % [Add extra admin scss here] end */
-}
-
-.frontend {
-	// % protected region % [If you do not want to include any harmony in the front-end, you can remove the imports below and the scss files] off begin
-	@import 'frontend/harmony.scss';
-	//styles specific to bot only and not related to harmony
-	@import 'frontend/custom-bot-imports.scss';
-	// % protected region % [If you do not want to include any harmony in the front-end, you can remove the imports below and the scss files] end
-
-	.layout__horizontal {
-		display: flex;
-		justify-content: space-evenly;
-		align-items: center;
-	}
-
-	.layout__vertical {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-evenly;
-	}
-
-	.style-guide {
-		padding: 2vw;
-		margin-left: 3vw;
-	}
-
-	// % protected region % [Add additional front-end style content here] on begin
-	.layout__scroll {
-		> div {
-			max-width: calc(100vw - 32px);
-	   }
-	}
-	// % protected region % [Add additional front-end style content here] end
-}
-
-// % protected region % [Customise react-contextify here] off begin
-/* -------- CONTEXT MENU -------- */
-//currently sitting outside of all body-content - style is super generic
-@import 'admin/react-contextify.scss';
-// % protected region % [Customise react-contextify here] end
-
-/* % protected region % [Add extra scss here] off begin */
-/* % protected region % [Add extra scss here] end */
+ @import 'shared/harmony.scss';
+ // % protected region % [Add additional imports here] off begin
+ // % protected region % [Add additional imports here] end
+ 
+ .admin {
+	 @import 'admin/harmony.scss';
+	 @import 'admin/import-custom.scss';
+ 
+	 .graphiql-content-container {
+		 padding: 0;
+		 height: 100%;
+	 }
+ 
+	 /* % protected region % [Add extra admin scss here] off begin */
+	 /* % protected region % [Add extra admin scss here] end */
+ }
+ 
+ .frontend {
+	 // % protected region % [If you do not want to include any harmony in the front-end, you can remove the imports below and the scss files] off begin
+	 @import 'frontend/harmony.scss';
+	 //styles specific to bot only and not related to harmony
+	 @import 'frontend/custom-bot-imports.scss';
+	 // % protected region % [If you do not want to include any harmony in the front-end, you can remove the imports below and the scss files] end
+ 
+	 .layout__horizontal {
+		 display: flex;
+		 justify-content: space-evenly;
+		 align-items: center;
+		 padding: 35px 10px;
+	 }
+ 
+	 .layout__vertical {
+		 display: flex;
+		 flex-direction: column;
+		 justify-content: space-evenly;
+	 }
+ 
+	 .style-guide {
+		 padding: 2vw;
+		 margin-left: 2vw;
+	 }
+ 
+	 // % protected region % [Add additional front-end style content here] on begin
+	 .layout__scroll {
+		 > div {
+			 max-width: calc(100vw - 32px);
+		}
+	 }
+	 .layout__paragraph{
+		display:inline-block;
+		align-items: left;
+		padding: 40px 10px;
+	 }
+	 // % protected region % [Add additional front-end style content here] end
+ }
+ 
+ // % protected region % [Customise react-contextify here] off begin
+ /* -------- CONTEXT MENU -------- */
+ //currently sitting outside of all body-content - style is super generic
+ @import 'admin/react-contextify.scss';
+ // % protected region % [Customise react-contextify here] end
+ 
+ /* % protected region % [Add extra scss here] off begin */
+ /* % protected region % [Add extra scss here] end */

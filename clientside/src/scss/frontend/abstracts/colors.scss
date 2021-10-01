@@ -27,10 +27,11 @@ Set your target colours but do not remove variables that you do not plan to use.
 /* ----------Set your brand colours here ----------*/
 /* -------------------------------------------------*/
 
-// % protected region % [Set colours, accent colours, and greyscale colours] off begin
+// % protected region % [Set colours, accent colours, and greyscale colours] on begin
 //Primary and theme colour
-$color-primary: rgb(21, 21, 23); // #151517 // Black
-$color-secondary: rgb(197, 197, 197); // #c5c5c5 // Grey
+$color-primary: rgba(84, 71, 200); // #5447C8 // Purple
+$color-primary-variant: rgb(145, 134, 201); // #9186C9 // Purple Variant
+$color-secondary: rgb(0, 224, 150); // #00E096 // Green
 $color-brand-01: rgb(57, 57, 57) !default; // #393939 // Charcoal
 $color-brand-02: rgb(213, 213, 213) !default; // #D5D5D5; // Grey
 $color-brand-03: rgb(244, 244, 244) !default; //#F4F4F4 // Light grey
@@ -69,7 +70,6 @@ $color-text-light: $white;
 /*
 From here are calculations that are made to create shades and shadow
 colours using the colours that have been set above.
-
 It is not recommended to make these changes unless you specifically want
 an assigned shade to the variables.
 */

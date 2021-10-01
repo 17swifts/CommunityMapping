@@ -66,6 +66,7 @@ class MyServicesPage extends React.Component<MyServicesPageProps> {
 							My Services
 						</h2>
 					</div>
+					<div className="layout__scroll">
 					<EntityCRUD
 						{...this.props}
 						modelType={ServiceEntity}
@@ -82,6 +83,7 @@ class MyServicesPage extends React.Component<MyServicesPageProps> {
 							}}
 							// % protected region % [Add props to crud component 13053bdd-361f-49f9-831b-0126368492f2 here] end
 					/>
+					</div>
 				</div>
 			</SecuredPage>
 		);
