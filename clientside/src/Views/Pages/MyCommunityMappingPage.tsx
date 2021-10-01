@@ -83,12 +83,17 @@ class MyCommunityMappingPage extends React.Component<MyCommunityMappingPageProps
 						</Button>
 					</div>
 					<div className="layout__horizontal">
-						<p>
-							...
-						</p>
 						<h5>
 							What is My Community Mapping
 						</h5>
+						<p>
+							My Community Mapping was built in conjunction with My Community Directory 
+							and My Community Diary as a premier source of connection between Government, 
+							community organisations, and the public. Our vision is to support the future 
+							public health needs of an entire region by leading the development of digital 
+							infrastructure to enable better matching, planning and provision of health and 
+							community services to meet individual and emerging community needs. 
+						</p>
 					</div>
 					<div className="layout__horizontal">
 						<p>
