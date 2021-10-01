@@ -38,11 +38,11 @@ namespace SeleniumTests.PageObjects.BotWritten.UIModeled.Pages
 		private By Button2By => By.XPath($"{MyCommunityMappingPageHorizontalLayout2Selector}//button[text()='SEIFA Index Map']");
 		private string MyCommunityMappingPageHorizontalLayout3Selector => RootSelector + "//*[@class='layout__horizontal']";
 		private By MyCommunityMappingPageHorizontalLayout3By => By.XPath(MyCommunityMappingPageHorizontalLayout3Selector);
-		private By TextAreaComponentBy => By.XPath($"{MyCommunityMappingPageHorizontalLayout3Selector}//label[text()='Description']/following-sibling::textarea");
+		private By ParagraphBy => By.XPath($"{MyCommunityMappingPageHorizontalLayout3Selector}//p[text()='...']");
 		private By HeadingComponentBy => By.XPath($"{MyCommunityMappingPageHorizontalLayout3Selector}//h5[text()='What is My Community Mapping']");
 		private string MyCommunityMappingPageHorizontalLayout4Selector => RootSelector + "//*[@class='layout__horizontal']";
 		private By MyCommunityMappingPageHorizontalLayout4By => By.XPath(MyCommunityMappingPageHorizontalLayout4Selector);
-		private By TextAreaComponentBy => By.XPath($"{MyCommunityMappingPageHorizontalLayout4Selector}//label[text()='Supporters']/following-sibling::textarea");
+		private By ParagraphBy => By.XPath($"{MyCommunityMappingPageHorizontalLayout4Selector}//p[text()='Supported By']");
 		// % protected region % [Override class properties here] end
 		// % protected region % [Override constructor here] off begin
 		public MyCommunityMappingPage(ContextConfiguration currentContext) : base(currentContext)
@@ -59,10 +59,10 @@ namespace SeleniumTests.PageObjects.BotWritten.UIModeled.Pages
 			validContents &= WaitUtils.elementState(DriverWait, Button1By, ElementState.VISIBLE);
 			validContents &= WaitUtils.elementState(DriverWait, Button2By, ElementState.VISIBLE);
 			validContents &= WaitUtils.elementState(DriverWait, MyCommunityMappingPageHorizontalLayout3By, ElementState.VISIBLE);
-			validContents &= WaitUtils.elementState(DriverWait, TextAreaComponentBy, ElementState.VISIBLE);
+			validContents &= WaitUtils.elementState(DriverWait, ParagraphBy, ElementState.VISIBLE);
 			validContents &= WaitUtils.elementState(DriverWait, HeadingComponentBy, ElementState.VISIBLE);
 			validContents &= WaitUtils.elementState(DriverWait, MyCommunityMappingPageHorizontalLayout4By, ElementState.VISIBLE);
-			validContents &= WaitUtils.elementState(DriverWait, TextAreaComponentBy, ElementState.VISIBLE);
+			validContents &= WaitUtils.elementState(DriverWait, ParagraphBy, ElementState.VISIBLE);
 			return validContents;
 		}
 		// % protected region % [Override ContainsModeledElements here] end

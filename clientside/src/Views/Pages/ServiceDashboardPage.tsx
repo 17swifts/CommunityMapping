@@ -126,7 +126,7 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 		},0) : 0;
 
 		// % protected region % [Add logic before rendering contents here] end
-		debugger
+
 		let contents = (
 			<SecuredPage groups={['Super Administrators', 'ServiceCommissioningBody', 'Admin']}>
 				{

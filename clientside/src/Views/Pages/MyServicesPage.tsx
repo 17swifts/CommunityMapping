@@ -22,7 +22,6 @@ import { observer } from 'mobx-react';
 import { RouteComponentProps } from 'react-router';
 import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
-import { store } from 'Models/Store';
 
 // % protected region % [Add any extra imports here] on begin
 // % protected region % [Add any extra imports here] end
@@ -66,12 +65,11 @@ class MyServicesPage extends React.Component<MyServicesPageProps> {
 							My Services
 						</h2>
 					</div>
-					<div className="layout__scroll">
-						<EntityCRUD
-							{...this.props}
-							modelType={ServiceEntity}
-							URLExtension="13053bdd-361f-49f9-831b-0126368492f2"
-							// % protected region % [Add props to crud component 13053bdd-361f-49f9-831b-0126368492f2 here] on begin
+					<EntityCRUD
+						{...this.props}
+						modelType={ServiceEntity}
+						URLExtension="13053bdd-361f-49f9-831b-0126368492f2"
+						// % protected region % [Add props to crud component 13053bdd-361f-49f9-831b-0126368492f2 here] on begin
 							removeModifiedFilter={true}
 							removeCreatedFilter={true}
 							entityCollectionProps={{
@@ -82,9 +80,7 @@ class MyServicesPage extends React.Component<MyServicesPageProps> {
 								}]]
 							}}
 							// % protected region % [Add props to crud component 13053bdd-361f-49f9-831b-0126368492f2 here] end
-						/>
-					</div>
-					
+					/>
 				</div>
 			</SecuredPage>
 		);

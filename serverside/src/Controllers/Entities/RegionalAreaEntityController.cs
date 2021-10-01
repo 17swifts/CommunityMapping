@@ -307,7 +307,6 @@ namespace Cis.Controllers.Entities
 		}
 
 		// % protected region % [Add any further endpoints here] on begin
-		
 		[HttpGet]
 		[Route("search-regionalarea-by-name")]
 		[Authorize]
