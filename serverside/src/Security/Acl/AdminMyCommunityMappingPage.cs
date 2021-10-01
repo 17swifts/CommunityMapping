@@ -42,7 +42,7 @@ namespace Cis.Security.Acl
 			where TModel : IOwnerAbstractModel, new()
 		{
 			// % protected region % [Override read rule contents here here] off begin
-			return model => false;
+			return model => true;
 			// % protected region % [Override read rule contents here here] end
 		}
 
