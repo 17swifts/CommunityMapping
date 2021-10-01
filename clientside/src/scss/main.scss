@@ -55,7 +55,12 @@
 		margin-left: 3vw;
 	}
 
-	// % protected region % [Add additional front-end style content here] off begin
+	// % protected region % [Add additional front-end style content here] on begin
+	.layout__scroll {
+		> div {
+			max-width: calc(100vw - 32px);
+	   }
+	}
 	// % protected region % [Add additional front-end style content here] end
 }
 

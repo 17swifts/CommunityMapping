@@ -31,7 +31,7 @@ export function getFrontendNavLinks(pageProps: RouteComponentProps): ILink[][] {
 			// % protected region % [Customise top nav section here] end
 		],
 		[
-			// % protected region % [Customise middle nav section here] off begin
+			// % protected region % [Customise middle nav section here] on begin
 			{label: "My Community Mapping", path: '/mycommunitymapping', icon: "home", iconPos: 'icon-left'},
 			{label: "Service Profile", path: '/serviceprofile', icon: "roadmap", iconPos: 'icon-left', subLinks: [{label: "Service  Dashboard", path: '/servicedashboard', icon: "chart-pie", iconPos: 'icon-left'},{label: "Services", path: '/allservices', icon: "actions", iconPos: 'icon-left'}]},
 			{label: "Community Profile", path: '/communityprofile', icon: "map", iconPos: 'icon-left'},

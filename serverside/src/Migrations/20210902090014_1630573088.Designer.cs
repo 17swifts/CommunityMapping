@@ -11,13 +11,15 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Cis.Migrations
 {
     [DbContext(typeof(CisDBContext))]
-    [Migration("20210811030113_1628650741")]
-    partial class _1628650741
+    [Migration("20210902090014_1630573088")]
+    partial class _1630573088
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasPostgresEnum(null, "categories", new[] { "aboriginal_service", "accommodation_service", "advocacy_service", "alcohol_and_drug_service", "animal_service", "arts_and_creatives", "child_service", "communication_and_information", "community_centres_halls_and_facilities", "community_club", "crisis_and_emergency_service", "cultural_and_migrant_service", "disability_service", "education", "employment_and_training", "environment_and_conservation", "health_service", "information_and_counselling", "legal_service", "industry_and_funding_bodies", "recreation_and_leisure", "religion_and_philosophy", "self_help", "sport", "transport_service", "volunteering", "welfare_assistance", "youth_service" })
+                .HasPostgresEnum(null, "gender", new[] { "female", "male", "other", "both" })
                 .HasPostgresEnum(null, "servicetype", new[] { "permanent", "visiting" })
                 .HasPostgresExtension("uuid-ossp")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
@@ -55,43 +57,15 @@ namespace Cis.Migrations
                     b.ToTable("AspNetRoles");
                 });
 
-            modelBuilder.Entity("Cis.Models.MetricEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasDefaultValueSql("uuid_generate_v4()");
-
-                    b.Property<DateTime>("Created")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp without time zone")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("Modified")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp without time zone")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("text");
-
-                    b.Property<Guid>("Owner")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Metric");
-                });
-
             modelBuilder.Entity("Cis.Models.RegionalAreaEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
                         .HasDefaultValueSql("uuid_generate_v4()");
+
+                    b.Property<int?>("Australianrank")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("Created")
                         .ValueGeneratedOnAdd()
@@ -124,9 +98,6 @@ namespace Cis.Migrations
                     b.Property<int?>("Nonindigenous")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("Noservices")
-                        .HasColumnType("integer");
-
                     b.Property<int?>("Numofpph")
                         .HasColumnType("integer");
 
@@ -150,9 +121,6 @@ namespace Cis.Migrations
                     b.Property<string>("Sa3name")
                         .HasColumnType("text");
 
-                    b.Property<double?>("Totalinvestment")
-                        .HasColumnType("double precision");
-
                     b.HasKey("Id");
 
                     b.HasIndex("GapScore");
@@ -167,49 +135,6 @@ namespace Cis.Migrations
                     b.HasIndex("Sa3name");
 
                     b.ToTable("RegionalArea");
-                });
-
-            modelBuilder.Entity("Cis.Models.RegionalAreaTimelineEventsEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasDefaultValueSql("uuid_generate_v4()");
-
-                    b.Property<string>("Action")
-                        .HasColumnType("text");
-
-                    b.Property<string>("ActionTitle")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("Created")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp without time zone")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
-
-                    b.Property<Guid?>("EntityId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid?>("GroupId")
-                        .IsRequired()
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("Modified")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp without time zone")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
-
-                    b.Property<Guid>("Owner")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EntityId");
-
-                    b.ToTable("RegionalAreaTimelineEvents");
                 });
 
             modelBuilder.Entity("Cis.Models.ServiceCommissioningBodiesServices", b =>
@@ -254,14 +179,32 @@ namespace Cis.Migrations
                         .HasColumnType("uuid")
                         .HasDefaultValueSql("uuid_generate_v4()");
 
-                    b.Property<string>("Category")
+                    b.Property<bool?>("Active")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("boolean");
+
+                    b.Property<int?>("Agemax")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("Agemin")
+                        .HasColumnType("integer");
+
+                    b.Property<Categories>("Category")
+                        .HasColumnType("categories");
 
                     b.Property<DateTime>("Created")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp without time zone")
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("Enddate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<Gender>("Gender")
+                        .HasColumnType("gender");
 
                     b.Property<double?>("Investment")
                         .HasColumnType("double precision");
@@ -287,15 +230,27 @@ namespace Cis.Migrations
                     b.Property<Servicetype>("Servicetype")
                         .HasColumnType("servicetype");
 
+                    b.Property<DateTime?>("Startdate")
+                        .IsRequired()
+                        .HasColumnType("timestamp without time zone");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("Active");
+
                     b.HasIndex("Category");
+
+                    b.HasIndex("Enddate");
+
+                    b.HasIndex("Investment");
 
                     b.HasIndex("Name");
 
                     b.HasIndex("RegionalAreaId");
 
                     b.HasIndex("Servicetype");
+
+                    b.HasIndex("Startdate");
 
                     b.ToTable("Service");
                 });
@@ -1013,16 +968,6 @@ namespace Cis.Migrations
                     b.HasDiscriminator().HasValue("ServiceCommissioningBodyEntity");
                 });
 
-            modelBuilder.Entity("Cis.Models.RegionalAreaTimelineEventsEntity", b =>
-                {
-                    b.HasOne("Cis.Models.RegionalAreaEntity", "Entity")
-                        .WithMany("LoggedEvents")
-                        .HasForeignKey("EntityId")
-                        .OnDelete(DeleteBehavior.SetNull);
-
-                    b.Navigation("Entity");
-                });
-
             modelBuilder.Entity("Cis.Models.ServiceCommissioningBodiesServices", b =>
                 {
                     b.HasOne("Cis.Models.ServiceCommissioningBodyEntity", "ServiceCommissioningBodies")
@@ -1181,8 +1126,6 @@ namespace Cis.Migrations
 
             modelBuilder.Entity("Cis.Models.RegionalAreaEntity", b =>
                 {
-                    b.Navigation("LoggedEvents");
-
                     b.Navigation("Servicess");
                 });
 

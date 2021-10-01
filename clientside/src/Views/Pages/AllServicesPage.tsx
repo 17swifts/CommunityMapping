@@ -23,7 +23,7 @@ import { RouteComponentProps } from 'react-router';
 import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
 
-// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] on begin
 // % protected region % [Add any extra imports here] end
 
 export interface AllServicesPageProps extends RouteComponentProps {
@@ -65,13 +65,17 @@ class AllServicesPage extends React.Component<AllServicesPageProps> {
 							Services
 						</h2>
 					</div>
+					<div className="layout__scroll">
 					<EntityCRUD
 						{...this.props}
 						modelType={ServiceEntity}
 						URLExtension="2440f338-578d-4708-8fc0-a96fef11af54"
-						// % protected region % [Add props to crud component 2440f338-578d-4708-8fc0-a96fef11af54 here] off begin
+						// % protected region % [Add props to crud component 2440f338-578d-4708-8fc0-a96fef11af54 here] on begin
+						removeModifiedFilter={true}
+						removeCreatedFilter={true}
 						// % protected region % [Add props to crud component 2440f338-578d-4708-8fc0-a96fef11af54 here] end
 					/>
+					</div>
 				</div>
 			</SecuredPage>
 		);
