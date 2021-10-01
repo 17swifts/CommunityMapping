@@ -21,11 +21,11 @@ Sublinks navigation
 Sublinks navigation are the lists that displays under an li link. Example of this is found in the admin navigation.
 */
 
-// % protected region % [Change sublinks navigation styles here] off begin
+// % protected region % [Change sublinks navigation styles here] on begin
 .nav__sublinks {
 	opacity: 0;
-	background-color: $grey-2;
-	color: get-contrasting-text-color($grey-2);
+	background-color: $white;
+	color: get-contrasting-text-color($white);
 	position: absolute;
 	z-index: 3;
 	padding: 0;
@@ -40,7 +40,7 @@ Sublinks navigation are the lists that displays under an li link. Example of thi
 		font-weight: $text-light;
 
 		a {
-			color: get-contrasting-text-color($grey-2);
+			color: get-contrasting-text-color($white);
 		}
 
 		&:last-of-type {
@@ -51,7 +51,7 @@ Sublinks navigation are the lists that displays under an li link. Example of thi
 		&:active,
 		&:focus {
 			a {
-				color: get-contrasting-text-color($grey-2);
+				color: get-contrasting-text-color($white);
 				@include transform-timing($animation-time);
 			}
 		}

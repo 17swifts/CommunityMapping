@@ -131,9 +131,9 @@ a {
 
 	&:hover,
 	&:active {
-		background-color: $color-primary;
-		color: get-contrasting-text-color($color-primary);
-		@include inner-box-shadow(convert-rem(0px), convert-rem(0px), convert-rem(0px), convert-rem(1px), $color-primary);
+		background-color: $color-secondary;
+		color: get-contrasting-text-color($color-secondary);
+		@include inner-box-shadow(convert-rem(0px), convert-rem(0px), convert-rem(0px), convert-rem(1px), $color-secondary);
 	}
 }
 .btn--text {

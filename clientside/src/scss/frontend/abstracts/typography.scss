@@ -22,18 +22,18 @@ https://medium.com/codyhouse/create-your-design-system-part-1-typography-7c630d9
 Just like colours this is where you set the style of your target project and assign your fonts, font-sizes, font spacings.
  */
 
-// % protected region % [Change font imports here] off begin
+// % protected region % [Change font imports here] on begin
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,700&display=swap');
 @import url("https://use.typekit.net/fzg7pnp.css");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,700;1,500;1,600&display=swap');
 // % protected region % [Change font imports here] end
 
-// % protected region % [Change font family here] off begin
+// % protected region % [Change font family here] on begin
 /* Font family */
-$heading-font-family: 'filson-soft', 'lato', Arial, Helvetica, sans-serif;
-$body-font-family: 'Lato', sans-serif;
-$source-font-family: monospace;
-
-$base-font-size: convert-rem(16px);
+$heading-font-family: 'Montserrat', sans-serif;
+$body-font-family: 'Open Sans', sans-serif;
+$base-font-size: 18px;
 $base-font-weight: 400;
 
 

@@ -21,8 +21,10 @@ Expanded navigation
 Expanded navigation is the vertical navigation that expands displaying titles next to icons.
 */
 
-// % protected region % [Change expanded navigation styles here] off begin
+// % protected region % [Change expanded navigation styles here] on begin
 .nav.nav--vertical {
+	background-color: transparent;
+	box-shadow: convert-rem(0px) convert-rem(0px) convert-rem(8px) convert-rem(-2px) $grey-6;
 	>ul {
 		&:first-of-type {
 			margin-top: $space-md;

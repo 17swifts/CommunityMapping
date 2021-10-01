@@ -59,6 +59,11 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 	private CustomSingleSelectionSearchCollection = () => {
 		const tableHeaders: ICollectionHeaderProps<RegionalAreaEntity>[] = [
 			{
+				name: 'sa2Id',
+				displayName: 'SA2 ID',
+				transformItem: regionalAreaEntity => regionalAreaEntity.sa2id
+			},
+			{
 				name: 'sa2Name',
 				displayName: 'Regional Area Name',
 				transformItem: regionalAreaEntity => regionalAreaEntity.sa2name
@@ -72,9 +77,6 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 
 		const searchCollection = (
 			<>
-			<div>
-				<h5> Search by Regional Area Name</h5>
-			</div>
 			<div>
 				<Collection
 					headers={tableHeaders}
@@ -152,6 +154,9 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 					{
 					// % protected region % [Add code for a3b19bca-d710-4b91-8d19-45171c92b6d6 here] on begin
 					}
+					<div className="layout__paragraph">
+						<h5> Search by Regional Area Name</h5>
+					</div>
 					<div className="layout__horizontal">
 						{this.CustomSingleSelectionSearchCollection()}
 					</div>

@@ -28,6 +28,7 @@ import WAGov from '../../assets/img/WAGov.png';
 import QLDGov from '../../assets/img/QLDGov.png';
 import ACTGov from '../../assets/img/ACTGov.svg';
 import AustraliaImg from '../../assets/img/australia-map.gif';
+//import MapVideo from '../../assets/vid/WorldMap.mov';
 // % protected region % [Add any extra imports here] end
 
 export interface MyCommunityMappingPageProps extends RouteComponentProps {
@@ -81,17 +82,29 @@ class MyCommunityMappingPage extends React.Component<MyCommunityMappingPageProps
 							My Community Mapping
 						</h2>
 					</div>
+					<div className="layout__paragraph">
+						<h4>
+							EXPLORE OUR MAPS
+						</h4>
+					</div>
 					<div className="layout__horizontal">
-						<Button onClick={this.onCommunityProfileClick} >
-							SEIFA Index Map
-						</Button>
-						<Button onClick={this.onServiceProfileClick} >
-							Community Services Map
-						</Button>
+						<div>
+							<video autoPlay loop>
+								<source type="video/mp4" src='/Videos/WorldMap.mov' />
+							</video>
+						</div>	
+						<div className="layout__vertical">
+							<Button onClick={this.onCommunityProfileClick} >
+								SEIFA Index Map
+							</Button>
+							<Button onClick={this.onServiceProfileClick} >
+								Community Services Map
+							</Button>
+						</div>
 					</div>
 					<div className="layout__paragraph">
 						<h5>
-							What is My Community Mapping
+							WHAT IS MY COMMUNITY MAPPING
 						</h5>
 					</div>
 					<div className="layout__paragraph">
@@ -103,7 +116,6 @@ class MyCommunityMappingPage extends React.Component<MyCommunityMappingPageProps
 							infrastructure to enable better matching, planning and provision of health and 
 							community services to meet individual and emerging community needs. 
 						</p>
-						<img src={AustraliaImg} alt="State map of Australia" style={{padding: 10}}></img>
 					</div>
 
 					<div className="layout__paragraph">

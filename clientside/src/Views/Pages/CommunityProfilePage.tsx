@@ -70,7 +70,8 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 							advantage and disadvantage. This map can be used to help visualise which areas in Australia require more 
 							funding and services. Areas can also be selected and compared graphically. 
 						</p>
-					</div><div className="layout__paragraph">
+					</div>
+					<div className="layout__paragraph">
 						<p>
 							The four indexes 
 							<ul>

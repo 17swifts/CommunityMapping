@@ -21,7 +21,7 @@ Collection - List View
 List view of the collection list.
 */
 
-// % protected region % [Change collection list view styles here] off begin
+// % protected region % [Change collection list view styles here] on begin
 .collection__list {
 	@include fadeIn(0.5s);
 	overflow-x: auto;
@@ -90,6 +90,7 @@ List view of the collection list.
 			@include truncate;
 			text-decoration: none;
 			min-width: 15rem;
+			max-width: 35rem;
 			width: auto;
 			text-align: left;
 
