@@ -21,7 +21,8 @@ import { RouteComponentProps } from 'react-router';
 import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
 
-// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] on begin
+import Map from 'Views/Components/Map/Map';
 // % protected region % [Add any extra imports here] end
 
 export interface CommunityProfilePageProps extends RouteComponentProps {
@@ -65,7 +66,18 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 					</div>
 					<div className="layout__horizontal">
 						<p>
-							Description...
+							Socio-Economic Indexes for Areas (SEIFA) ranks areas in Australia according to relative socio-economic 
+							advantage and disadvantage. This map can be used to help visualise which areas in Australia require more 
+							funding and services. Areas can also be selected and compared graphically. 
+						</p>
+						<p>
+							The four indexes 
+							<ul>
+							<li>The Index of Relative Socio-Economic Disadvantage (IRSD)</li>
+							<li>The Index of Relative Socio-Economic Advantage and Disadvantage (IRSAD)</li>
+							<li>The Index of Education and Occupation (IEO)</li>
+							<li>The Index of Economic Resources (IER). </li>
+							</ul>
 						</p>
 					</div>
 					{

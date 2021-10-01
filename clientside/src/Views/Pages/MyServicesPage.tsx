@@ -24,6 +24,7 @@ import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
 
 // % protected region % [Add any extra imports here] on begin
+import { store } from 'Models/Store';
 // % protected region % [Add any extra imports here] end
 
 export interface MyServicesPageProps extends RouteComponentProps {
