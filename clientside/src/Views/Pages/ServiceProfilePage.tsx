@@ -18,9 +18,7 @@ import * as React from 'react';
 import SecuredPage from 'Views/Components/Security/SecuredPage';
 import { observer } from 'mobx-react';
 import { RouteComponentProps } from 'react-router';
-import { observable } from 'mobx';
 import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
-import { TextArea } from 'Views/Components/TextArea/TextArea';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
 
 // % protected region % [Add any extra imports here] off begin
@@ -35,11 +33,6 @@ export interface ServiceProfilePageProps extends RouteComponentProps {
 // % protected region % [Add any customisations to default class definition here] off begin
 class ServiceProfilePage extends React.Component<ServiceProfilePageProps> {
 // % protected region % [Add any customisations to default class definition here] end
-
-	@observable
-	model = {
-		description: '',
-	}
 
 	// % protected region % [Add class properties here] off begin
 	// % protected region % [Add class properties here] end
@@ -70,11 +63,11 @@ class ServiceProfilePage extends React.Component<ServiceProfilePageProps> {
 							Community Services Map
 						</h2>
 					</div>
-					<TextArea
-						model={this.model}
-						modelProperty="description"
-						label="Description"
-					/>
+					<div className="layout__horizontal">
+						<p>
+							Description...
+						</p>
+					</div>
 					{
 					// % protected region % [Add code for a3ee24ec-0819-4d19-9334-ec3f0a06254f here] off begin
 					}

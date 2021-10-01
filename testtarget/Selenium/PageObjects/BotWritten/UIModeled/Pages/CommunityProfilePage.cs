@@ -29,10 +29,12 @@ namespace SeleniumTests.PageObjects.BotWritten.UIModeled.Pages
 		// % protected region % [Override class properties here] off begin
 		public override string Url => baseUrl + "/communityprofile";
 		private const string RootSelector = "//div[@class='body-content']";
-		private string CommunityProfilePageHorizontalLayoutSelector => RootSelector + "//*[@class='layout__horizontal']";
-		private By CommunityProfilePageHorizontalLayoutBy => By.XPath(CommunityProfilePageHorizontalLayoutSelector);
-		private By HeadingComponentBy => By.XPath($"{CommunityProfilePageHorizontalLayoutSelector}//h2[text()='SEIFA Indexes Map']");
-		private By TextAreaComponentBy => By.XPath($"{RootSelector}//label[text()='Description']/following-sibling::textarea");
+		private string CommunityProfilePageHorizontalLayout1Selector => RootSelector + "//*[@class='layout__horizontal']";
+		private By CommunityProfilePageHorizontalLayout1By => By.XPath(CommunityProfilePageHorizontalLayout1Selector);
+		private By HeadingComponentBy => By.XPath($"{CommunityProfilePageHorizontalLayout1Selector}//h2[text()='SEIFA Indexes Map']");
+		private string CommunityProfilePageHorizontalLayout2Selector => RootSelector + "//*[@class='layout__horizontal']";
+		private By CommunityProfilePageHorizontalLayout2By => By.XPath(CommunityProfilePageHorizontalLayout2Selector);
+		private By ParagraphBy => By.XPath($"{CommunityProfilePageHorizontalLayout2Selector}//p[text()='Description...']");
 		// % protected region % [Override class properties here] end
 		// % protected region % [Override constructor here] off begin
 		public CommunityProfilePage(ContextConfiguration currentContext) : base(currentContext)
@@ -43,9 +45,10 @@ namespace SeleniumTests.PageObjects.BotWritten.UIModeled.Pages
 		public override bool ContainsModeledElements()
 		{
 			var validContents = true;
-			validContents &= WaitUtils.elementState(DriverWait, CommunityProfilePageHorizontalLayoutBy, ElementState.VISIBLE);
+			validContents &= WaitUtils.elementState(DriverWait, CommunityProfilePageHorizontalLayout1By, ElementState.VISIBLE);
 			validContents &= WaitUtils.elementState(DriverWait, HeadingComponentBy, ElementState.VISIBLE);
-			validContents &= WaitUtils.elementState(DriverWait, TextAreaComponentBy, ElementState.VISIBLE);
+			validContents &= WaitUtils.elementState(DriverWait, CommunityProfilePageHorizontalLayout2By, ElementState.VISIBLE);
+			validContents &= WaitUtils.elementState(DriverWait, ParagraphBy, ElementState.VISIBLE);
 			return validContents;
 		}
 		// % protected region % [Override ContainsModeledElements here] end

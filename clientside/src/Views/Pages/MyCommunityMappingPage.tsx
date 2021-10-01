@@ -18,10 +18,8 @@ import * as React from 'react';
 import SecuredPage from 'Views/Components/Security/SecuredPage';
 import { observer } from 'mobx-react';
 import { RouteComponentProps } from 'react-router';
-import { observable } from 'mobx';
 import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
 import { Button } from 'Views/Components/Button/Button';
-import { TextArea } from 'Views/Components/TextArea/TextArea';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
 
 // % protected region % [Add any extra imports here] off begin
@@ -36,12 +34,6 @@ export interface MyCommunityMappingPageProps extends RouteComponentProps {
 // % protected region % [Add any customisations to default class definition here] off begin
 class MyCommunityMappingPage extends React.Component<MyCommunityMappingPageProps> {
 // % protected region % [Add any customisations to default class definition here] end
-
-	@observable
-	model = {
-		description: '',
-		supporters: '',
-	}
 
 	// % protected region % [Override onCommunityProfileClick here] off begin
 	onCommunityProfileClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -91,21 +83,17 @@ class MyCommunityMappingPage extends React.Component<MyCommunityMappingPageProps
 						</Button>
 					</div>
 					<div className="layout__horizontal">
-						<TextArea
-							model={this.model}
-							modelProperty="description"
-							label="Description"
-						/>
+						<p>
+							...
+						</p>
 						<h5>
 							What is My Community Mapping
 						</h5>
 					</div>
 					<div className="layout__horizontal">
-						<TextArea
-							model={this.model}
-							modelProperty="supporters"
-							label="Supporters"
-						/>
+						<p>
+							Supported By
+						</p>
 					</div>
 					{
 					// % protected region % [Add code for f597d2a9-5cee-4646-bd24-8c4b0c15624b here] off begin

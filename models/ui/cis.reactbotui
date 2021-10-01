@@ -5,8 +5,10 @@
 	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="f4294d15-f18a-596a-beb3-ed5b14c3d600" Source="6ea4408d-19f9-4b7b-847b-a8deb5905a9e" Target="7a881bda-7e39-40e6-8adb-6cec2f5db830" Order="0" />
 	<Components xsi:type="reactbotUi:HeadingComponent" Uuid="f6791394-6c71-4cbf-906f-995b456f01d6" Contents="Community Services Map" Level="2" />
 	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="fbff2ebb-40c3-57f3-9f64-44ba226aea6a" Source="7a881bda-7e39-40e6-8adb-6cec2f5db830" Target="f6791394-6c71-4cbf-906f-995b456f01d6" Order="0" />
-	<Components xsi:type="reactbotUi:TextAreaComponent" Uuid="6e9eb646-680e-49dc-9bcd-898571b55d91" Name="Description" />
-	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="1ccb1d22-1c77-5d92-a829-7a90017abc0a" Source="6ea4408d-19f9-4b7b-847b-a8deb5905a9e" Target="6e9eb646-680e-49dc-9bcd-898571b55d91" Order="1" />
+	<Layouts xsi:type="reactbotUi:HorizontalStackLayout" Uuid="e3318a09-6e99-497f-b312-299e9740ad70" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="aa2749dc-929e-55b7-a8f5-d8c331c7cb2a" Source="6ea4408d-19f9-4b7b-847b-a8deb5905a9e" Target="e3318a09-6e99-497f-b312-299e9740ad70" Order="1" />
+	<Components xsi:type="reactbotUi:ParagraphComponent" Uuid="be867a7e-4b4b-48f7-8f46-000984bca7cc" Contents="Description..." />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="14c4e8d2-9939-592c-a8e6-2066b79bfed1" Source="e3318a09-6e99-497f-b312-299e9740ad70" Target="be867a7e-4b4b-48f7-8f46-000984bca7cc" Order="0" />
 	<Components xsi:type="reactbotUi:CustomComponent" Uuid="a3ee24ec-0819-4d19-9334-ec3f0a06254f" />
 	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="1b931d49-a57e-5a62-89be-21016843cedf" Source="6ea4408d-19f9-4b7b-847b-a8deb5905a9e" Target="a3ee24ec-0819-4d19-9334-ec3f0a06254f" Order="2" />
 	<Pages xsi:type="reactbotUi:Page" Uuid="5cae6334-9bc6-4e92-b6e9-109a83b6936c" Name="Community Profile" IsHomePage="false" />
@@ -14,8 +16,10 @@
 	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="4061b0b6-8b74-5f5a-bbd8-2434af047854" Source="5cae6334-9bc6-4e92-b6e9-109a83b6936c" Target="32431e49-c22a-45d8-ae8f-05348402d87f" Order="0" />
 	<Components xsi:type="reactbotUi:HeadingComponent" Uuid="2d7a0c39-2933-4666-8bb7-def9173ca9b1" Contents="SEIFA Indexes Map" Level="2" />
 	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="7a28495b-0c6a-5070-8be7-67d3472f1fc5" Source="32431e49-c22a-45d8-ae8f-05348402d87f" Target="2d7a0c39-2933-4666-8bb7-def9173ca9b1" Order="0" />
-	<Components xsi:type="reactbotUi:TextAreaComponent" Uuid="5950a601-61a2-49a6-8a8b-5b4271a028e3" Name="Description" />
-	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="9b9bd024-41a4-5fd9-bbd2-7830b3a176f4" Source="5cae6334-9bc6-4e92-b6e9-109a83b6936c" Target="5950a601-61a2-49a6-8a8b-5b4271a028e3" Order="1" />
+	<Layouts xsi:type="reactbotUi:HorizontalStackLayout" Uuid="bf8e517c-3594-406c-812f-28d794ef3618" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="1704f6ea-6543-5bc0-8bb0-0a89b3a06a90" Source="5cae6334-9bc6-4e92-b6e9-109a83b6936c" Target="bf8e517c-3594-406c-812f-28d794ef3618" Order="1" />
+	<Components xsi:type="reactbotUi:ParagraphComponent" Uuid="073d2438-836f-4246-846d-7a766c69cc05" Contents="Description..." />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="80eb6ec2-5175-5e49-85cb-116354e0e34a" Source="bf8e517c-3594-406c-812f-28d794ef3618" Target="073d2438-836f-4246-846d-7a766c69cc05" Order="0" />
 	<Components xsi:type="reactbotUi:CustomComponent" Uuid="2586c999-ab9b-4685-879f-330ba2c7fab5" />
 	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="af0507de-276a-550b-b984-91bfe7c95449" Source="5cae6334-9bc6-4e92-b6e9-109a83b6936c" Target="2586c999-ab9b-4685-879f-330ba2c7fab5" Order="2" />
 	<Pages xsi:type="reactbotUi:Page" Uuid="ca6964ab-6505-4c1b-a34d-2141458a6d80" Name="Service  Dashboard" IsHomePage="false" />
@@ -63,14 +67,14 @@
 	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="51d16c41-c5d0-50a4-8af3-51b685d1834c" Source="aa1814cc-1976-42ca-b045-71e601cc4dc6" Target="93b426cb-f867-466e-b474-e43059a2ff5c" Order="1" />
 	<Layouts xsi:type="reactbotUi:HorizontalStackLayout" Uuid="261e27d2-8900-4b88-b0c1-425e1403a3f6" />
 	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="81510add-a800-53c7-8faf-d43e1964092e" Source="edc9c30e-94fa-420a-b54e-7fbdc8ee64ce" Target="261e27d2-8900-4b88-b0c1-425e1403a3f6" Order="2" />
-	<Components xsi:type="reactbotUi:TextAreaComponent" Uuid="ff284db9-4875-4f39-99cc-6a8247a06799" Name="Description" />
-	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="6d916a74-007f-52e5-b4ab-0349f048eb4e" Source="261e27d2-8900-4b88-b0c1-425e1403a3f6" Target="ff284db9-4875-4f39-99cc-6a8247a06799" Order="0" />
+	<Components xsi:type="reactbotUi:ParagraphComponent" Uuid="e8f16ed7-68fb-42e7-8cf1-0730e53d58d9" Contents="..." />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="2dc17970-235f-50eb-90a3-b34ae3c65079" Source="261e27d2-8900-4b88-b0c1-425e1403a3f6" Target="e8f16ed7-68fb-42e7-8cf1-0730e53d58d9" Order="0" />
 	<Components xsi:type="reactbotUi:HeadingComponent" Uuid="ba901343-0360-42e8-9d6c-8c0f9b23aa83" Contents="What is My Community Mapping" Level="5" />
 	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="dc2fb931-5ff4-54af-9173-d594d0c964a0" Source="261e27d2-8900-4b88-b0c1-425e1403a3f6" Target="ba901343-0360-42e8-9d6c-8c0f9b23aa83" Order="1" />
 	<Layouts xsi:type="reactbotUi:HorizontalStackLayout" Uuid="d01b2e87-bbd4-4b97-9b4a-8ad3c280f9ad" />
 	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="b9b1189e-57fe-51f1-bb88-90a5990907b4" Source="edc9c30e-94fa-420a-b54e-7fbdc8ee64ce" Target="d01b2e87-bbd4-4b97-9b4a-8ad3c280f9ad" Order="3" />
-	<Components xsi:type="reactbotUi:TextAreaComponent" Uuid="42cbd208-6c69-4190-b938-6c657ad28037" Name="Supporters" />
-	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="eef695cc-b1e3-5668-911a-6ef743648960" Source="d01b2e87-bbd4-4b97-9b4a-8ad3c280f9ad" Target="42cbd208-6c69-4190-b938-6c657ad28037" Order="0" />
+	<Components xsi:type="reactbotUi:ParagraphComponent" Uuid="7956ef82-d33e-43af-b2c2-35cd9d949f6a" Contents="Supported By" />
+	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="9d3a7480-987d-5b35-9426-9855ecbf15f0" Source="d01b2e87-bbd4-4b97-9b4a-8ad3c280f9ad" Target="7956ef82-d33e-43af-b2c2-35cd9d949f6a" Order="0" />
 	<Components xsi:type="reactbotUi:CustomComponent" Uuid="f597d2a9-5cee-4646-bd24-8c4b0c15624b" />
 	<ReferenceLayoutElements xsi:type="reactbotUi:LayoutElementReference" Uuid="61afb223-b60e-562b-82e9-9291718c6612" Source="edc9c30e-94fa-420a-b54e-7fbdc8ee64ce" Target="f597d2a9-5cee-4646-bd24-8c4b0c15624b" Order="4" />
 </reactbotUi:UserInterfaceModel>
