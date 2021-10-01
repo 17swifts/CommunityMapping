@@ -31,8 +31,8 @@ namespace SeleniumTests.PageObjects.BotWritten.UIModeled.Pages
 		private const string RootSelector = "//div[@class='body-content']";
 		private string CommunityProfilePageHorizontalLayoutSelector => RootSelector + "//*[@class='layout__horizontal']";
 		private By CommunityProfilePageHorizontalLayoutBy => By.XPath(CommunityProfilePageHorizontalLayoutSelector);
-		private By HeadingComponentBy => By.XPath($"{CommunityProfilePageHorizontalLayoutSelector}//h2[text()='Community Profile']");
-		
+		private By HeadingComponentBy => By.XPath($"{CommunityProfilePageHorizontalLayoutSelector}//h2[text()='SEIFA Indexes Map']");
+		private By TextAreaComponentBy => By.XPath($"{RootSelector}//label[text()='Description']/following-sibling::textarea");
 		// % protected region % [Override class properties here] end
 		// % protected region % [Override constructor here] off begin
 		public CommunityProfilePage(ContextConfiguration currentContext) : base(currentContext)
@@ -45,7 +45,7 @@ namespace SeleniumTests.PageObjects.BotWritten.UIModeled.Pages
 			var validContents = true;
 			validContents &= WaitUtils.elementState(DriverWait, CommunityProfilePageHorizontalLayoutBy, ElementState.VISIBLE);
 			validContents &= WaitUtils.elementState(DriverWait, HeadingComponentBy, ElementState.VISIBLE);
-			
+			validContents &= WaitUtils.elementState(DriverWait, TextAreaComponentBy, ElementState.VISIBLE);
 			return validContents;
 		}
 		// % protected region % [Override ContainsModeledElements here] end

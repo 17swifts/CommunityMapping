@@ -24,12 +24,12 @@ using Cis.Models;
 namespace Cis.Security.Acl
 {
 	/// <summary>
-	/// Security listing for the ServiceCommissioningBody group for the ServicesPage scheme
+	/// Security listing for the Visitors group for the AllServicesPage scheme
 	/// </summary>
-	public class ServiceCommissioningBodyServicesPage : IAcl
+	public class VisitorsAllServicesPage : IAcl
 	{
-		public string Group => "ServiceCommissioningBody";
-		public bool IsVisitorAcl => false;
+		public string Group => "Visitors";
+		public bool IsVisitorAcl => true;
 
 		public bool GetCreate(User user, IEnumerable<IAbstractModel> models, SecurityContext context)
 		{
@@ -42,7 +42,7 @@ namespace Cis.Security.Acl
 			where TModel : IOwnerAbstractModel, new()
 		{
 			// % protected region % [Override read rule contents here here] off begin
-			return model => true;
+			return model => false;
 			// % protected region % [Override read rule contents here here] end
 		}
 

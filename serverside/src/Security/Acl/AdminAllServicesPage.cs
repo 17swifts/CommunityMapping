@@ -24,9 +24,9 @@ using Cis.Models;
 namespace Cis.Security.Acl
 {
 	/// <summary>
-	/// Security listing for the Admin group for the ServicesPage scheme
+	/// Security listing for the Admin group for the AllServicesPage scheme
 	/// </summary>
-	public class AdminServicesPage : IAcl
+	public class AdminAllServicesPage : IAcl
 	{
 		public string Group => "Admin";
 		public bool IsVisitorAcl => false;

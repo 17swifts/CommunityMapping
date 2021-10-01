@@ -39,7 +39,8 @@ namespace Cis.Security
 				new VisitorsServiceDashboardPage(),
 				new VisitorsMyProfilePage(),
 				new VisitorsMyServicesPage(),
-				new VisitorsServicesPage(),
+				new VisitorsAllServicesPage(),
+				new VisitorsMyCommunityMappingPage(),
 				new ServiceCommissioningBodyAdminEntity(),
 				new ServiceCommissioningBodyServiceEntity(),
 				new ServiceCommissioningBodyRegionalAreaEntity(),
@@ -50,7 +51,8 @@ namespace Cis.Security
 				new ServiceCommissioningBodyServiceDashboardPage(),
 				new ServiceCommissioningBodyMyProfilePage(),
 				new ServiceCommissioningBodyMyServicesPage(),
-				new ServiceCommissioningBodyServicesPage(),
+				new ServiceCommissioningBodyAllServicesPage(),
+				new ServiceCommissioningBodyMyCommunityMappingPage(),
 				new AdminAdminEntity(),
 				new AdminServiceEntity(),
 				new AdminRegionalAreaEntity(),
@@ -61,7 +63,8 @@ namespace Cis.Security
 				new AdminServiceDashboardPage(),
 				new AdminMyProfilePage(),
 				new AdminMyServicesPage(),
-				new AdminServicesPage(),
+				new AdminAllServicesPage(),
+				new AdminMyCommunityMappingPage(),
 				// % protected region % [Add any additional ACLs to the return list here] off begin
 				// % protected region % [Add any additional ACLs to the return list here] end
 			};

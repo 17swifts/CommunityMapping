@@ -16,11 +16,11 @@
  */
 import { IAcl } from '../IAcl';
 
-export class VisitorsServicesPage implements IAcl {
+export class AdminMyCommunityMappingPage implements IAcl {
 	public group?: string;
-	public isVisitorAcl = true;
+	public isVisitorAcl = false;
 	public constructor() {
-		this.group = 'Visitors';
+		this.group = 'Admin';
 	}
 	public canRead(): boolean {
 		// % protected region % [Override read rule contents here here] off begin

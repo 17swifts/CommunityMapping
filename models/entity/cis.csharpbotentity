@@ -56,10 +56,7 @@
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="5f0b0100-06ef-452a-a2e9-cf5fa2be9c1c" Name="Accommodation Service"/>
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="92ead938-b9bc-4514-be8f-37cc70ee21b1" Name="Advocacy Service"/>
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="1b59f0f8-d674-42e3-baf1-7197841afc95" Name="Alcohol and Drug Service"/>
-		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="4a4bd471-f1fe-4180-8465-b994a9174310" Name="Animal Service"/>
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="7294dfa0-4ba4-4f31-bf0c-c1c064f6cbe5" Name="Arts and Creatives"/>
-		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="b8e9b22e-9379-4728-af77-3888fa3e3fec" Name="Child Service"/>
-		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="5ab7f613-f7a7-4f5f-924e-cecb35601b8f" Name="Communication and Information"/>
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="644cedc3-dd99-48ea-8a2c-4e08ea943193" Name="Community Centres Halls and Facilities"/>
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="de2b6723-7087-4d9e-8133-e6beecb5094e" Name="Community Club"/>
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="b628572e-fc0f-4bf1-a623-ff62da7f2c61" Name="Crisis and Emergency Service"/>
@@ -67,17 +64,13 @@
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="0c5e07b9-576b-4915-8b47-9da0e2022dda" Name="Disability Service"/>
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="ad1003da-9c51-4f30-9d58-cf5b7c576610" Name="Education"/>
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="640ae478-c6fb-47c0-b7df-700ab7132fd5" Name="Employment and Training"/>
-		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="56124f12-36b4-4347-94a4-52f665619218" Name="Environment and Conservation"/>
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="590ac672-c6e9-461a-9f5e-e5ca82a74930" Name="Health Service"/>
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="c1b9017f-048d-46cb-96e0-d0afe0de93b6" Name="Information and Counselling"/>
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="6c02367a-b2ac-43c4-8da5-64ef1586f439" Name="Legal Service"/>
-		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="b6bf9f1a-bf28-494d-820d-211a09231294" Name="Industry and Funding Bodies"/>
-		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="1c7d1fd2-1fc5-429a-a14b-22c787caff26" Name="Recreation and Leisure "/>
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="e58f6e4d-f8cc-4611-917a-3ee657120820" Name="Religion and Philosophy"/>
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="fee138ba-7160-4987-947b-279ba3111c35" Name="Self Help"/>
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="e16dbb43-5d6c-4bc0-80a3-cfc910f0ccf6" Name="Sport"/>
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="e5a0a1a7-8d7c-4dc5-99fe-61424dfb7632" Name="Transport Service"/>
-		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="1abef856-c52e-4eef-911d-5b4e5f24de9a" Name="Volunteering"/>
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="95485c0a-438c-4774-8e2a-9b4fbf40ea5d" Name="Welfare Assistance"/>
 		<EnumLiterals xsi:type="csharpbotEntity:EnumLiteral"  Uuid="52c769df-40bf-482f-aaa1-284c4c572f76" Name="Youth Service"/>
 	</Enumerations>

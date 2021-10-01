@@ -15,6 +15,7 @@
 		<Acl Uuid="17e31ec0-5cf7-436d-9dff-ba1d2e04cd35" Group="3980059c-9720-4d33-bc03-a241fc7b9e01" SecurityScheme="6cc7b4b2-e189-4ca8-8755-924ba8a27e54" Create="false" Read="false" Update="false" Delete="false" />
 		<Acl Uuid="816e18e4-4e7e-4596-a46a-afc35f07fd5c" Group="3980059c-9720-4d33-bc03-a241fc7b9e01" SecurityScheme="1ad16061-956f-4318-9187-242bb9d290bc" Create="false" Read="false" Update="false" Delete="false" />
 		<Acl Uuid="3980059c-9720-4d33-bc03-a241fc7b9e01-2928a863-f822-4ef5-8aaf-df885c55332a" Group="3980059c-9720-4d33-bc03-a241fc7b9e01" SecurityScheme="2928a863-f822-4ef5-8aaf-df885c55332a" Create="false" Read="false" Update="false" Delete="false" />
+		<Acl Uuid="3980059c-9720-4d33-bc03-a241fc7b9e01-edc9c30e-94fa-420a-b54e-7fbdc8ee64ce" Group="3980059c-9720-4d33-bc03-a241fc7b9e01" SecurityScheme="edc9c30e-94fa-420a-b54e-7fbdc8ee64ce" Create="false" Read="false" Update="false" Delete="false" />
 		<Acl Uuid="0a075329-6765-4944-85f7-ff832d0ae83b" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="5fa56df3-fc9b-455f-a163-bdb7c94534b7" Create="false" Read="true" Update="false" Delete="false" />
 		<Acl Uuid="1157bd52-3d30-49c9-8da7-d3277187313e" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="905ab383-496b-4e43-97fb-da6847041b4a" Create="true" Read="true" Update="true" Delete="false" />
 		<Acl Uuid="7fac6e72-ad74-4e8b-9f5a-aaad1328cfd1" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="1a612178-01c4-4ded-a0a0-42d1d68c0927" Create="false" Read="true" Update="false" Delete="false" />
@@ -26,6 +27,7 @@
 		<Acl Uuid="fcfaea76-446e-488e-8a84-9ee754703c8a" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="6cc7b4b2-e189-4ca8-8755-924ba8a27e54" Create="false" Read="true" Update="false" Delete="false" />
 		<Acl Uuid="56445097-386b-4901-9220-7d068819ab16" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="1ad16061-956f-4318-9187-242bb9d290bc" Create="false" Read="true" Update="false" Delete="false" />
 		<Acl Uuid="5af180ad-4a62-4c98-8b81-3f4d734a9a00" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="2928a863-f822-4ef5-8aaf-df885c55332a" Create="false" Read="true" Update="false" Delete="false" />
+		<Acl Uuid="835ac0ec-0a7c-4a84-abe5-e023c7c6763a-edc9c30e-94fa-420a-b54e-7fbdc8ee64ce" Group="835ac0ec-0a7c-4a84-abe5-e023c7c6763a" SecurityScheme="edc9c30e-94fa-420a-b54e-7fbdc8ee64ce" Create="false" Read="false" Update="false" Delete="false" />
 		<Acl Uuid="be5d8449-1c9d-4393-833f-3ccfd4b79177" Group="42512763-4fd8-44a7-a92c-b911e864ce65" SecurityScheme="5fa56df3-fc9b-455f-a163-bdb7c94534b7" Create="true" Read="true" Update="true" Delete="true" />
 		<Acl Uuid="90981d9c-5f4c-4630-adfb-e594fa885026" Group="42512763-4fd8-44a7-a92c-b911e864ce65" SecurityScheme="905ab383-496b-4e43-97fb-da6847041b4a" Create="true" Read="true" Update="true" Delete="true" />
 		<Acl Uuid="cbd3f31b-e9e7-4700-acad-4d750ae32662" Group="42512763-4fd8-44a7-a92c-b911e864ce65" SecurityScheme="1a612178-01c4-4ded-a0a0-42d1d68c0927" Create="true" Read="true" Update="true" Delete="true" />
@@ -37,6 +39,7 @@
 		<Acl Uuid="32c74fbf-ff91-4b3a-bd27-0a1cc6bab831" Group="42512763-4fd8-44a7-a92c-b911e864ce65" SecurityScheme="6cc7b4b2-e189-4ca8-8755-924ba8a27e54" Create="true" Read="true" Update="true" Delete="true" />
 		<Acl Uuid="5b7ff3a2-3fa2-4cb5-9210-5c9c173bef3d" Group="42512763-4fd8-44a7-a92c-b911e864ce65" SecurityScheme="1ad16061-956f-4318-9187-242bb9d290bc" Create="true" Read="true" Update="true" Delete="true" />
 		<Acl Uuid="40692958-0490-47a0-9a79-f98cb10ea66a" Group="42512763-4fd8-44a7-a92c-b911e864ce65" SecurityScheme="2928a863-f822-4ef5-8aaf-df885c55332a" Create="true" Read="true" Update="true" Delete="true" />
+		<Acl Uuid="42512763-4fd8-44a7-a92c-b911e864ce65-edc9c30e-94fa-420a-b54e-7fbdc8ee64ce" Group="42512763-4fd8-44a7-a92c-b911e864ce65" SecurityScheme="edc9c30e-94fa-420a-b54e-7fbdc8ee64ce" Create="false" Read="false" Update="false" Delete="false" />
 </Authorization>
 	<Auditing/>
 	<SecuritySchemes>
@@ -70,8 +73,11 @@
 		<SecuritySchemes Uuid="1ad16061-956f-4318-9187-242bb9d290bc" Name="My Services Page">
 			<Object href="../ui/cis.reactbotui#1ad16061-956f-4318-9187-242bb9d290bc"/>
 		</SecuritySchemes>
-		<SecuritySchemes Uuid="2928a863-f822-4ef5-8aaf-df885c55332a" Name="Services Page">
+		<SecuritySchemes Uuid="2928a863-f822-4ef5-8aaf-df885c55332a" Name="All Services Page">
 			<Object href="../ui/cis.reactbotui#2928a863-f822-4ef5-8aaf-df885c55332a"/>
+		</SecuritySchemes>
+		<SecuritySchemes Uuid="edc9c30e-94fa-420a-b54e-7fbdc8ee64ce" Name="My Community Mapping Page">
+			<Object href="../ui/cis.reactbotui#edc9c30e-94fa-420a-b54e-7fbdc8ee64ce"/>
 		</SecuritySchemes>
 </SecuritySchemes>
 	<TwoFactorAuthenticationProviders/>
