@@ -4,15 +4,17 @@ using Cis.Enums;
 using Cis.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Cis.Migrations
 {
     [DbContext(typeof(CisDBContext))]
-    partial class CisDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211001015016_1633052887")]
+    partial class _1633052887
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -65,7 +65,11 @@ class ServiceProfilePage extends React.Component<ServiceProfilePageProps> {
 					</div>
 					<div className="layout__horizontal">
 						<p>
-							Description...
+							Like the SEIFA map, the community services map visualises which Australian regional areas 
+							need more funding and services. A gap score is calculated based on the current support 
+							 the region is receiving against the required support the population needs. The higher the score, 
+							 the more services/ funding is needed. For a further breakdown of how the gap score is calculated for 
+							 each region, see Analytics Dashboard. 
 						</p>
 					</div>
 					{
