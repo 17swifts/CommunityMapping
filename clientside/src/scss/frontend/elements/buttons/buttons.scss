@@ -43,7 +43,7 @@ $btn-radius: $radius;
 // % protected region % [Add additional button variables here] end
 
 /********** STANDARD BUTTONS **********/
-// % protected region % [Change standard button style here] off begin
+// % protected region % [Change standard button style here] on begin
 a {
 	&.btn {
 		text-decoration: none;
@@ -64,7 +64,7 @@ a {
 	text-decoration: none;
 	line-height: 1;
 	padding: $space-xs;
-	border-radius: $btn-radius;
+	border-radius: 12px;
 	font-size: $btn-font-size;
 	cursor: pointer;
 	transition: .2s;

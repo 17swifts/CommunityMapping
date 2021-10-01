@@ -64,12 +64,13 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 							SEIFA Indexes Map
 						</h2>
 					</div>
-					<div className="layout__horizontal">
+					<div className="layout__paragraph">
 						<p>
 							Socio-Economic Indexes for Areas (SEIFA) ranks areas in Australia according to relative socio-economic 
 							advantage and disadvantage. This map can be used to help visualise which areas in Australia require more 
 							funding and services. Areas can also be selected and compared graphically. 
 						</p>
+					</div><div className="layout__paragraph">
 						<p>
 							The four indexes 
 							<ul>
@@ -83,7 +84,7 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 					{
 					// % protected region % [Add code for 2586c999-ab9b-4685-879f-330ba2c7fab5 here] on begin
 					}
-					<div style={{ "width": "100%", "height": "100%" }}>
+					<div className="layout__horizontal">
 						<Map></Map>
 					</div>
 					{

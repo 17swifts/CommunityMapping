@@ -65,6 +65,7 @@ class AllServicesPage extends React.Component<AllServicesPageProps> {
 							Services
 						</h2>
 					</div>
+					<div className="layout__scroll">
 					<EntityCRUD
 						{...this.props}
 						modelType={ServiceEntity}
@@ -74,6 +75,7 @@ class AllServicesPage extends React.Component<AllServicesPageProps> {
 						removeCreatedFilter={true}
 						// % protected region % [Add props to crud component 2440f338-578d-4708-8fc0-a96fef11af54 here] end
 					/>
+					</div>
 				</div>
 			</SecuredPage>
 		);
