@@ -25,7 +25,7 @@ export default function HeatMapTest() {
     return (
         <MapGL
             { ...viewport }
-            width="100vw"
+            width="95vw"
             height="100vh"
             mapStyle={ MAP_STYLE }
             onViewportChange={ setViewport }
