@@ -22,6 +22,7 @@ import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
 
 // % protected region % [Add any extra imports here] off begin
+import HeatMap from 'Views/Components/HeatMap/HeatMap';
 // % protected region % [Add any extra imports here] end
 
 export interface ServiceProfilePageProps extends RouteComponentProps {
@@ -72,6 +73,7 @@ class ServiceProfilePage extends React.Component<ServiceProfilePageProps> {
 							each region, see Analytics Dashboard. 
 						</p>
 					</div>
+					<HeatMap></HeatMap>
 					{
 					// % protected region % [Add code for a3ee24ec-0819-4d19-9334-ec3f0a06254f here] off begin
 					}
