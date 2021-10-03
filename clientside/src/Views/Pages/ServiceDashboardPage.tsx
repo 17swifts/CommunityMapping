@@ -33,6 +33,7 @@ import Doughnut from 'Views/Components/Charts/Doughnut';
 import VerticalBar from 'Views/Components/Charts/VerticalBar';
 import MultiType from 'Views/Components/Charts/MultiType';
 import PolarChart from 'Views/Components/Charts/PolarArea';
+import Footer from 'Views/Components/Footer/Footer';
 // % protected region % [Add any extra imports here] end
 
 export interface ServiceDashboardPageProps extends RouteComponentProps {
@@ -160,7 +161,7 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 					<div className="layout__horizontal">
 						{this.CustomSingleSelectionSearchCollection()}
 					</div>
-					<div id="div2PDF" style={{ display: 'contents' }} >
+					<div style={{ display: 'contents' }} >
 						<div className="layout__horizontal">
 							<ChartCard title="Rank within Australia (SEIFA)" description="Averaged rank from the four SEIFA areas. A lower score indicates that an area is relatively disadvantaged compared to an area with a higher score (lowest score of 1, highest of 2206." statistic={this.regionalAreaSelected.australianrank}/>
 							<ChartCard title="Socio-Economic Indexes for Areas (SEIFA)" description="SEIFA ranks areas in Australia according to relative socio-economic advantage and disadvantage. The scores for all SA1s are then standardised to a distribution where the average equals 1000 and the standard deviation is 100. " 
@@ -177,6 +178,9 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 							<ChartCard title="Service Category Breakdown" chart={<PolarChart labels={['Aboriginal', 'Alcohol and Drug', 'Self Help', 'Youth', 'Health', 'Cultural and Migrant', 'Information and Counselling']} label='Category' 
 							data={this.regionalAreaSelected.servicess? [this.regionalAreaSelected.servicess.filter(s => s.category === 'ABORIGINAL_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'ALCOHOL_AND_DRUG_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'SELF_HELP').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'YOUTH_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'HEALTH_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'CULTURAL_AND_MIGRANT_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'INFORMATION_AND_COUNSELLING').length]:[0,0,0,0,0,0,0]} backgroundColor={['rgba(225, 150, 255)', 'rgba(239, 233, 242)', 'rgba(111, 243, 252)', 'rgba(67, 247, 181)', 'rgba(240, 224, 79)', 'rgba(247, 170, 45)', 'rgba(199, 102, 255)']}/>}/>
 						</div> 
+					</div>
+					<div>
+						<Footer />
 					</div>
 					{
 					// % protected region % [Add code for a3b19bca-d710-4b91-8d19-45171c92b6d6 here] end

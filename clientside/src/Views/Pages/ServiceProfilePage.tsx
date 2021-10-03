@@ -20,6 +20,7 @@ import { observer } from 'mobx-react';
 import { RouteComponentProps } from 'react-router';
 import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
+import Footer from 'Views/Components/Footer/Footer';
 
 // % protected region % [Add any extra imports here] off begin
 // % protected region % [Add any extra imports here] end
@@ -73,8 +74,11 @@ class ServiceProfilePage extends React.Component<ServiceProfilePageProps> {
 						</p>
 					</div>
 					{
-					// % protected region % [Add code for a3ee24ec-0819-4d19-9334-ec3f0a06254f here] off begin
+					// % protected region % [Add code for a3ee24ec-0819-4d19-9334-ec3f0a06254f here] on begin
 					}
+					<div>
+						<Footer />
+					</div>
 					{
 					// % protected region % [Add code for a3ee24ec-0819-4d19-9334-ec3f0a06254f here] end
 					}

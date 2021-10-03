@@ -27,8 +27,9 @@ import cissLogo from '../../assets/img/CISSLogo.png';
 import WAGov from '../../assets/img/WAGov.png';
 import QLDGov from '../../assets/img/QLDGov.png';
 import ACTGov from '../../assets/img/ACTGov.svg';
-import AustraliaImg from '../../assets/img/australia-map.gif';
-//import MapVideo from '../../assets/vid/WorldMap.mov';
+import CommunityImg from '../../assets/img/regionalarea.jpg';
+import ServiceImg from '../../assets/img/community.jpg';
+import Footer from '../Components/Footer/Footer';
 // % protected region % [Add any extra imports here] end
 
 export interface MyCommunityMappingPageProps extends RouteComponentProps {
@@ -88,11 +89,25 @@ class MyCommunityMappingPage extends React.Component<MyCommunityMappingPageProps
 						</h4>
 					</div>
 					<div className="layout__horizontal">
-						<div>
-							<video autoPlay loop>
-								<source type="video/mp4" src='/Videos/WorldMap.mov' />
-							</video>
-						</div>	
+						<div className="container">
+							<img src={CommunityImg} alt="Community Profile" className="image"/>
+							<div className="overlay">
+								<a href="/communityprofile">
+									<div className="text" >SEIFA Index Map</div>
+								</a>
+							</div>
+						</div>
+						<div className="container">
+							<img src={ServiceImg} alt="Service Profile" className="image"/>
+							<div className="overlay">
+								<a href="/serviceprofile">
+									<div className="text">Community Services Map</div>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					{/* <div className="layout__horizontal">
 						<div className="layout__vertical">
 							<Button onClick={this.onCommunityProfileClick} >
 								SEIFA Index Map
@@ -101,7 +116,7 @@ class MyCommunityMappingPage extends React.Component<MyCommunityMappingPageProps
 								Community Services Map
 							</Button>
 						</div>
-					</div>
+					</div> */}
 					<div className="layout__paragraph">
 						<h5>
 							WHAT IS MY COMMUNITY MAPPING
@@ -134,6 +149,9 @@ class MyCommunityMappingPage extends React.Component<MyCommunityMappingPageProps
 					{
 					// % protected region % [Add code for f597d2a9-5cee-4646-bd24-8c4b0c15624b here] off begin
 					}
+					<div>
+						<Footer />
+					</div>
 					{
 					// % protected region % [Add code for f597d2a9-5cee-4646-bd24-8c4b0c15624b here] end
 					}

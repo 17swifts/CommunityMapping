@@ -142,8 +142,6 @@ export default class Frontend extends React.Component<RouteComponentProps> {
 						</>
 						{
 						// % protected region % [Add any footer content here] off begin
-						}
-						{
 						// % protected region % [Add any footer content here] end
 						}
 					</div>

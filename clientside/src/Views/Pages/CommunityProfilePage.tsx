@@ -23,6 +23,7 @@ import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation'
 
 // % protected region % [Add any extra imports here] on begin
 import Map from 'Views/Components/Map/Map';
+import Footer from 'Views/Components/Footer/Footer';
 // % protected region % [Add any extra imports here] end
 
 export interface CommunityProfilePageProps extends RouteComponentProps {
@@ -87,6 +88,9 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 					}
 					<div className="layout__horizontal">
 						<Map></Map>
+					</div>
+					<div>
+						<Footer />
 					</div>
 					{
 					// % protected region % [Add code for 2586c999-ab9b-4685-879f-330ba2c7fab5 here] end
