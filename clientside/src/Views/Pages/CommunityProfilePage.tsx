@@ -60,38 +60,37 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 				// % protected region % [Alter navigation here] end
 				}
 				<div className="body-content">
-					<div className="layout__horizontal">
-						<h2>
-							SEIFA Indexes Map
-						</h2>
-					</div>
-					<div className="layout__paragraph">
-						<p>
-							Socio-Economic Indexes for Areas (SEIFA) ranks areas in Australia according to relative socio-economic 
-							advantage and disadvantage. This map can be used to help visualise which areas in Australia require more 
-							funding and services. Areas can also be selected and compared graphically. 
-						</p>
-					</div>
-					<div className="layout__paragraph">
-						<p>
-							The four indexes 
-							<ul>
-							<li>The Index of Relative Socio-Economic Disadvantage (IRSD)</li>
-							<li>The Index of Relative Socio-Economic Advantage and Disadvantage (IRSAD)</li>
-							<li>The Index of Education and Occupation (IEO)</li>
-							<li>The Index of Economic Resources (IER). </li>
-							</ul>
-						</p>
-					</div>
+					<div className="page-wrapper">
+						<div className="header">
+							<h2>
+								SEIFA Indexes Map
+							</h2>
+						</div>
 					{
 					// % protected region % [Add code for 2586c999-ab9b-4685-879f-330ba2c7fab5 here] on begin
 					}
-					<div className="layout__horizontal">
-						<Map></Map>
-					</div>
-					<div>
-						<Footer />
-					</div>
+						<div className="body">
+							<div>
+								<p>
+									Socio-Economic Indexes for Areas (SEIFA) ranks areas in Australia according to relative socio-economic 
+									advantage and disadvantage. This map can be used to help visualise which areas in Australia require more 
+									funding and services. Areas can also be selected and compared graphically. 
+								</p>
+								<p>
+									The four indexes are the following:
+									<ul>
+										<li>The Index of Relative Socio-Economic Disadvantage (IRSD)</li>
+										<li>The Index of Relative Socio-Economic Advantage and Disadvantage (IRSAD)</li>
+										<li>The Index of Education and Occupation (IEO)</li>
+										<li>The Index of Economic Resources (IER). </li>
+									</ul>
+								</p>
+							</div>
+							<div className="map-wrapper">
+								<Map></Map>
+							</div>
+						</div>		
+					</div>			
 					{
 					// % protected region % [Add code for 2586c999-ab9b-4685-879f-330ba2c7fab5 here] end
 					}

@@ -23,6 +23,7 @@ import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation'
 import Footer from 'Views/Components/Footer/Footer';
 
 // % protected region % [Add any extra imports here] off begin
+import HeatMap from 'Views/Components/HeatMap/HeatMap';
 // % protected region % [Add any extra imports here] end
 
 export interface ServiceProfilePageProps extends RouteComponentProps {
@@ -59,20 +60,27 @@ class ServiceProfilePage extends React.Component<ServiceProfilePageProps> {
 				// % protected region % [Alter navigation here] end
 				}
 				<div className="body-content">
-					<div className="layout__horizontal">
-						<h2>
-							Community Services Map
-						</h2>
+					<div className="page-wrapper">
+						<div className="header">
+							<h2>
+								Community Services Map
+							</h2>
+						</div>
+						<div className="body">
+							<p>
+								Like the SEIFA map, the community services map visualises which Australian regional areas 
+								need more funding and services. A gap score is calculated based on the current support 
+								the region is receiving against the required support the population needs. The higher the score, 
+								the more services/ funding is needed. For a further breakdown of how the gap score is calculated for 
+								each region, see Analytics Dashboard. 
+							</p>
+							<div className="map-wrapper">
+								<HeatMap></HeatMap>
+							</div>
+						</div>
+						
 					</div>
-					<div className="layout__horizontal">
-						<p>
-							Like the SEIFA map, the community services map visualises which Australian regional areas 
-							need more funding and services. A gap score is calculated based on the current support 
-							the region is receiving against the required support the population needs. The higher the score, 
-							the more services/ funding is needed. For a further breakdown of how the gap score is calculated for 
-							each region, see Analytics Dashboard. 
-						</p>
-					</div>
+					
 					{
 					// % protected region % [Add code for a3ee24ec-0819-4d19-9334-ec3f0a06254f here] on begin
 					}
