@@ -19,7 +19,6 @@ import SecuredPage from 'Views/Components/Security/SecuredPage';
 import { observer } from 'mobx-react';
 import { RouteComponentProps } from 'react-router';
 import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
-import { Button } from 'Views/Components/Button/Button';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
 
 // % protected region % [Add any extra imports here] on begin

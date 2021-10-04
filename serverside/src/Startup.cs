@@ -73,7 +73,8 @@ using Cis.Services.Files;
 using Cis.Services.Files.Providers;
 using Cis.Services.TwoFactor;
 using Cis.Services.TwoFactor.Methods;
-// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] on begin
+using Cis.Services.Tasks;
 // % protected region % [Add any extra imports here] end
 
 namespace Cis
@@ -548,7 +549,8 @@ namespace Cis
 			}
 			// % protected region % [Configure storage provider services here] end
 
-			// % protected region % [Add extra core scoped services here] off begin
+			// % protected region % [Add extra core scoped services here] on begin
+			services.TryAddScoped<GapScoreServiceTask>();
 			// % protected region % [Add extra core scoped services here] end
 		}
 
@@ -684,7 +686,11 @@ namespace Cis
 			IApplicationBuilder app,
 			IWebHostEnvironment env)
 		{
-			// % protected region % [Add methods at the beginning of the request pipeline here] off begin
+			// % protected region % [Add methods at the beginning of the request pipeline here] on begin
+			 RecurringJob.AddOrUpdate<GapScoreServiceTask>(
+				"Update RegionalArea Gap Score", // A unique id for the scheduled task
+				o => o.UpdateGapScore(default), // The function to run
+				"0 0 * * 0");
 			// % protected region % [Add methods at the beginning of the request pipeline here] end
 
 			// % protected region % [Configure request logging here] off begin
