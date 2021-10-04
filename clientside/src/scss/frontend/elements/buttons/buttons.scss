@@ -26,9 +26,9 @@ Buttons - all styles are found here, the generic button style, accent colour sty
 
 //Variables have been set up, change sizes and radius according to your project style 
 
-// % protected region % [Change button variables here] off begin
+// % protected region % [Change button variables here] on begin
 $btn-font-size: $base-font-size;
-$radius: 0;
+$radius: convert-rem(5px);
 
 $btn-xs: calc(#{$btn-font-size} - 0.4rem);
 $btn-sm: calc(#{$btn-font-size} - 0.2rem);

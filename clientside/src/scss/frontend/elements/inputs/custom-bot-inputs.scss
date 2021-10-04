@@ -18,7 +18,7 @@
 Custom bot input styling
 -------------------------------- */
 
-// % protected region % [update input if required] off begin
+// % protected region % [update input if required] on begin
 /*This will enable dropdown fields requiring validation to manifest the same border red color as regular errored inputs*/
 .input-group--error{
 	.dropdown__container{
@@ -63,10 +63,10 @@ Custom bot input styling
     }
 
     .flatpickr-months .flatpickr-month {
-        background-color: $grey-2 !important;
+        background-color: $color-primary !important;
         border-radius: 0 !important;
         * {
-            color: get-contrasting-text-color($grey-2) !important;
+            color: get-contrasting-text-color($color-primary) !important;
         }
     }
 

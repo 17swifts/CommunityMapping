@@ -24,7 +24,7 @@ Styling for all types of inputs - checkboxes, radios, selects, textareas and too
 /******* INPUT VARIABLES *******/
 // % protected region % [Change input variables here] off begin
 $input-font-size: $base-font-size;
-$input-radius: $radius;
+$input-radius: convert-rem(5px);
 
 $input-md: calc(#{$btn-font-size} + 0.2rem);
 $input-lg: calc(#{$btn-font-size} + 2rem);
@@ -48,7 +48,7 @@ fieldset {
 /*******STANDARD INPUTS*******/
 /*Standard styles for general inputs such as text, number and password. These styles will control aspects such as width, font-size and line-height but can be combined
 with other modular classes for positioning and other overrides*/
-// % protected region % [Change standard input styles here] off begin
+// % protected region % [Change standard input styles here] on begin
 input[type="text"],
 input[type="number"],
 input[type="password"],
@@ -70,7 +70,7 @@ select {
 	border: none;
 		@include inner-box-shadow(convert-rem(0px), convert-rem(0px), convert-rem(0px), convert-rem(2px), get-contrasting-text-color($background));
 	@include truncate;
-	color: get-contrasting-text-color($background);
+	color: $grey-8;
 	font-weight: $text-regular;
 
 	&::placeholder {
