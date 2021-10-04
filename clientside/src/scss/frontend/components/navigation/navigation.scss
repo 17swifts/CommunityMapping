@@ -61,6 +61,7 @@ Styling for basic navigation, vertical navigation and horizontal navigation.
 			&:focus,
 			&:active,
 			&.active {
+				background-color: $grey-0;
 				@include transform-timing($animation-time);
 
 				.nav__link {

@@ -21,7 +21,7 @@ Collection - List View
 List view of the collection list.
 */
 
-// % protected region % [Change collection list view styles here] off begin
+// % protected region % [Change collection list view styles here] on begin
 .collection__list {
 	@include fadeIn(0.5s);
 	overflow-x: auto;
@@ -118,13 +118,19 @@ List view of the collection list.
 				top: auto;
 				box-shadow: convert-rem(2px) convert-rem(4px) convert-rem(7px) convert-rem(-1px);
 			}
+			&.list__header--actions {
+				background-color: transparent;
+			}
 		}
 
 
 		thead {
 			font-size: $base-font-size;
-			background-color: $grey-0;
-			color: get-contrasting-text-color($grey-0);
+			font-weight: $text-bold;
+			text-transform: uppercase;
+			color: $grey-8;
+			background-color: transparent;
+			border-bottom: convert-rem(4px) solid $color-primary;
 
 			tr {
 				th {
@@ -172,7 +178,7 @@ List view of the collection list.
 
 			tr {
 				@include fadeIn($slow-animation-time);
-				border-bottom: convert-rem(1px) solid $grey-2;
+				border-bottom: convert-rem(1px) solid $grey-1;
 
 				//Parent of expanded content
 				&.collection__item--has-expanded-child {

@@ -76,6 +76,7 @@ p {
 	font-size: $base-font-size;
 	line-height: $body-line-height;
 	margin-bottom: $space-xs;
+	color: $grey-8;
 	&.text--error {
 		color: $color-support-red;
 	}
@@ -122,6 +123,7 @@ h2 {
 h3 {
 	font-size: $text-xl;
 	font-weight: $text-regular;
+	color: $grey-8;
 	@include media(xs, sm) {
 		font-size: $text-lg;
 	}
@@ -130,6 +132,7 @@ h3 {
 h4 {
 	font-size: $text-lg;
 	font-weight: $text-medium;
+	color: $grey-8;
 	@include media(xs, sm) {
 		font-size: $text-md;
 	}
@@ -138,6 +141,7 @@ h4 {
 h5 {
 	font-size: $text-md;
 	font-weight: $text-regular;
+	color: $grey-8;
 	@include media(xs, sm) {
 		font-size: $text-md;
 	}
@@ -146,6 +150,7 @@ h5 {
 h6 {
 	font-size: $base-font-size;
 	font-weight: $text-medium;
+	color: $grey-8;
 	@include media(xs, sm) {
 		font-size: $text-md;
 	}
