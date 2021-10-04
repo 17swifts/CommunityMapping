@@ -106,17 +106,6 @@ class MyCommunityMappingPage extends React.Component<MyCommunityMappingPageProps
 							</div>
 						</div>
 					</div>
-
-					{/* <div className="layout__horizontal">
-						<div className="layout__vertical">
-							<Button onClick={this.onCommunityProfileClick} >
-								SEIFA Index Map
-							</Button>
-							<Button onClick={this.onServiceProfileClick} >
-								Community Services Map
-							</Button>
-						</div>
-					</div> */}
 					<div className="layout__paragraph">
 						<h5>
 							WHAT IS MY COMMUNITY MAPPING
