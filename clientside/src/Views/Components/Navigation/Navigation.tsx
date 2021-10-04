@@ -63,7 +63,7 @@ export interface INavigationProps<T extends ILink> extends RouteComponentProps {
 // % protected region % [Customise class implementation here] off begin
 class Navigation<T extends ILink> extends React.Component<INavigationProps<T>> {
 // % protected region % [Customise class implementation here] end
-	// % protected region % [Customise navigation fields here] off begin
+	// % protected region % [Customise navigation fields here] on begin
 	@computed
 	private get alwaysExpanded() {
 		const { alwaysExpanded, orientation } = this.props;
@@ -74,11 +74,11 @@ class Navigation<T extends ILink> extends React.Component<INavigationProps<T>> {
 	}
 
 	@observable
-	private navCollapsed: boolean = true;
+	private navCollapsed: boolean = false;
 	// % protected region % [Customise navigation fields here] end
 
 	public render() {
-		// % protected region % [Customise expand button here] off begin
+		// % protected region % [Customise expand button here] on begin
 		const { className, linkGroups, ...routerProps } = this.props;
 
 		let expandButton = null;
@@ -86,18 +86,25 @@ class Navigation<T extends ILink> extends React.Component<INavigationProps<T>> {
 
 		if (!this.alwaysExpanded) {
 			navClassName = classNames(navClassName, this.navCollapsed ? 'nav--collapsed' : 'nav--expanded');
-			expandButton = (
-				<button
-					className={classNames(
-						'nav__expand-icon',
-						'link-rm-txt-dec',
-						'expand-icon',
-						'icon-menu',
-						'icon-only',
-					)} 
-					onClick={this.onClickNavCollapse}
-				/>
-			);
+			
+			// NOTE: Commented out code below adds a button that allows the navigation bar to
+			// be collapsed when selected. The collapsed navigation bar was removed to
+			// prevent confusion with the icons. Let it be noted that the current collapsed
+			// menu has a bug where names do not display properly in the sub menu and was 
+			// part of the reason it was removed.
+
+			// expandButton = (
+			// 	<button
+			// 		className={classNames(
+			// 			'nav__expand-icon',
+			// 			'link-rm-txt-dec',
+			// 			'expand-icon',
+			// 			'icon-menu',
+			// 			'icon-only',
+			// 		)} 
+			// 		onClick={this.onClickNavCollapse}
+			// 	/>
+			// );
 		}
 
 		return (

@@ -1,0 +1,3 @@
+const MAP_TOKEN = 'pk.eyJ1IjoiamFtZXN0a2VsbHkiLCJhIjoiY2tzOGU4ejl1MG9icjJ1bzJ2MzV6d2xldSJ9.vFX3vaZcZjWnXnqOoMn2Vg';
+
+export default MAP_TOKEN;

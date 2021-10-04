@@ -24,6 +24,7 @@ import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
 
 // % protected region % [Add any extra imports here] on begin
+import Footer from 'Views/Components/Footer/Footer';
 // % protected region % [Add any extra imports here] end
 
 export interface AllServicesPageProps extends RouteComponentProps {
@@ -73,8 +74,13 @@ class AllServicesPage extends React.Component<AllServicesPageProps> {
 						// % protected region % [Add props to crud component 2440f338-578d-4708-8fc0-a96fef11af54 here] on begin
 						removeModifiedFilter={true}
 						removeCreatedFilter={true}
+						collectionCreateAction={undefined}
+						editComponent={undefined}
 						// % protected region % [Add props to crud component 2440f338-578d-4708-8fc0-a96fef11af54 here] end
 					/>
+					</div>
+					<div>
+						<Footer />
 					</div>
 				</div>
 			</SecuredPage>

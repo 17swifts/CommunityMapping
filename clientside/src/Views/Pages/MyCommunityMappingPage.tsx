@@ -19,7 +19,6 @@ import SecuredPage from 'Views/Components/Security/SecuredPage';
 import { observer } from 'mobx-react';
 import { RouteComponentProps } from 'react-router';
 import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
-import { Button } from 'Views/Components/Button/Button';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
 
 // % protected region % [Add any extra imports here] on begin
@@ -27,7 +26,9 @@ import cissLogo from '../../assets/img/CISSLogo.png';
 import WAGov from '../../assets/img/WAGov.png';
 import QLDGov from '../../assets/img/QLDGov.png';
 import ACTGov from '../../assets/img/ACTGov.svg';
-import AustraliaImg from '../../assets/img/australia-map.gif';
+import CommunityImg from '../../assets/img/regionalarea.jpg';
+import ServiceImg from '../../assets/img/community.jpg';
+import Footer from '../Components/Footer/Footer';
 // % protected region % [Add any extra imports here] end
 
 export interface MyCommunityMappingPageProps extends RouteComponentProps {
@@ -81,17 +82,32 @@ class MyCommunityMappingPage extends React.Component<MyCommunityMappingPageProps
 							My Community Mapping
 						</h2>
 					</div>
+					<div className="layout__paragraph">
+						<h4>
+							EXPLORE OUR MAPS
+						</h4>
+					</div>
 					<div className="layout__horizontal">
-						<Button onClick={this.onCommunityProfileClick} >
-							SEIFA Index Map
-						</Button>
-						<Button onClick={this.onServiceProfileClick} >
-							Community Services Map
-						</Button>
+						<div className="container">
+							<img src={CommunityImg} alt="Community Profile" className="image"/>
+							<div className="overlay">
+								<a href="/communityprofile">
+									<div className="text" >SEIFA Index Map</div>
+								</a>
+							</div>
+						</div>
+						<div className="container">
+							<img src={ServiceImg} alt="Service Profile" className="image"/>
+							<div className="overlay">
+								<a href="/serviceprofile">
+									<div className="text">Community Services Map</div>
+								</a>
+							</div>
+						</div>
 					</div>
 					<div className="layout__paragraph">
 						<h5>
-							What is My Community Mapping
+							WHAT IS MY COMMUNITY MAPPING
 						</h5>
 					</div>
 					<div className="layout__paragraph">
@@ -103,7 +119,6 @@ class MyCommunityMappingPage extends React.Component<MyCommunityMappingPageProps
 							infrastructure to enable better matching, planning and provision of health and 
 							community services to meet individual and emerging community needs. 
 						</p>
-						<img src={AustraliaImg} alt="State map of Australia" style={{padding: 10}}></img>
 					</div>
 
 					<div className="layout__paragraph">
@@ -122,6 +137,9 @@ class MyCommunityMappingPage extends React.Component<MyCommunityMappingPageProps
 					{
 					// % protected region % [Add code for f597d2a9-5cee-4646-bd24-8c4b0c15624b here] off begin
 					}
+					<div>
+						<Footer />
+					</div>
 					{
 					// % protected region % [Add code for f597d2a9-5cee-4646-bd24-8c4b0c15624b here] end
 					}
