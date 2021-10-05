@@ -95,6 +95,10 @@ export default class Frontend extends React.Component<RouteComponentProps> {
 								// % protected region % [customize the CommunityProfile public routes] end
 								}
 								{
+								// % protected region % [customize the FundingPage public routes] on begin
+								}
+								<Route path={"/funding"} component={Pages.FundingPage} />
+								{
 								// % protected region % [customize the MyCommunityMapping public routes] off begin
 								}
 								<Route path={"/mycommunitymapping"} component={Pages.MyCommunityMappingPage} />

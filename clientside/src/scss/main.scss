@@ -15,7 +15,8 @@
  * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
  */
  @import 'shared/harmony.scss';
- // % protected region % [Add additional imports here] off begin
+ // % protected region % [Add additional imports here] on begin
+ @import "~bootstrap/scss/bootstrap";
  // % protected region % [Add additional imports here] end
  
  .admin {
