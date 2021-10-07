@@ -46,7 +46,7 @@ Expanded navigation is the vertical navigation that expands displaying titles ne
 
 		//mobile responsive
 		@include media(xs, sm, md) {
-			position: absolute;
+			position: relative;
 		}
 
 		>ul {
