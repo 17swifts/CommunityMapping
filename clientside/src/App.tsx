@@ -33,6 +33,7 @@ import { TwoFactorContext, TwoFactorMethods } from 'Services/TwoFactor/Common';
 import { configureEmail2fa } from 'Services/TwoFactor/Email';
 import { onError } from '@apollo/client/link/error';
 import { logout } from 'Util/NavigationUtils';
+
 // % protected region % [Add extra page imports here] off begin
 // % protected region % [Add extra page imports here] end
 

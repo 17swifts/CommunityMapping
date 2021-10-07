@@ -25,11 +25,11 @@ Cards are often used to display a group of component inside a 'box'
 /* Cards with multiple background colors */
 .cards-wrapper {
 	display: flex;
-	margin: $space-sm auto;
+	margin: $space-md auto;
 
 	//wrapper for horizontal cards
 	&.horizontal {
-		flex-direction: row;
+		flex-direction: column;
 
 		.card {
 			margin: 0 $space-xs;
@@ -42,7 +42,7 @@ Cards are often used to display a group of component inside a 'box'
 		padding: $space-md;
 		min-height: convert-rem(120px);
 		min-width: convert-rem(250px);
-		display: flex;
+		display: grid;
 		flex-direction: column;
 		@include shadow-box(standard);
 		cursor: pointer;
@@ -53,6 +53,7 @@ Cards are often used to display a group of component inside a 'box'
 
 		.h4 {
 			margin: 0;
+			color: $color-primary;
 		}
 
 		&:hover,

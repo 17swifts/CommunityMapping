@@ -21,6 +21,7 @@ export { default as MyProfilePage } from './MyProfilePage';
 export { default as MyServicesPage } from './MyServicesPage';
 export { default as AllServicesPage } from './AllServicesPage';
 export { default as MyCommunityMappingPage } from './MyCommunityMappingPage';
+export { default as FundingPage } from './FundingPage';
 export { default as LoginRoutes } from './Login/LoginRoutes';
 export { default as LoginPage } from './Login/LoginPage';
 export { default as RegistrationPage } from './RegistrationPage';
@@ -29,4 +30,4 @@ export { default as ResetPasswordRequestPage } from './ResetPasswordRequestPage'
 export { default as ResetPasswordPage } from './ResetPasswordPage';
 
 // % protected region % [Add any extra page exports here] off begin
-// % protected region % [Add any extra page exports here] end
+// % protected region % [Add any extra page exports here] endG

@@ -35,6 +35,7 @@ export function getFrontendNavLinks(pageProps: RouteComponentProps): ILink[][] {
 			{label: "My Community Mapping", path: '/mycommunitymapping', icon: "home", iconPos: 'icon-left'},
 			{label: "Service Profile", path: '/serviceprofile', icon: "roadmap", iconPos: 'icon-left', subLinks: [{label: "Service Profile", path: '/serviceprofile', icon: "raodmap", iconPos: 'icon-left'},{label: "Service  Dashboard", path: '/servicedashboard', icon: "chart-pie", iconPos: 'icon-left'},{label: "Services", path: '/allservices', icon: "actions", iconPos: 'icon-left'}]},
 			{label: "Community Profile", path: '/communityprofile', icon: "map", iconPos: 'icon-left'},
+			{label: "Funding", path: '/funding', icon: "money", iconPos: 'icon-left'},
 			// % protected region % [Customise middle nav section here] end
 		],
 		[
