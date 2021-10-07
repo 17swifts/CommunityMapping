@@ -6,10 +6,28 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 285,
-    maxWidth: 285,
-    minHeight: 375,
-    maxHeight: 375,
+    minWidth: 320,
+    maxWidth: 320,
+    minHeight: 400,
+    maxHeight: 400,
+  },
+  smallcard: {
+    minWidth: 330,
+    maxWidth: 330,
+    minHeight: 400,
+    maxHeight: 400,
+  },
+  largecard:{
+    minWidth: 670,
+    maxWidth: 670,
+    minHeight: 700,
+    maxHeight: 700,
+  },
+  tallcard: {
+    minWidth: 330,
+    maxWidth: 330,
+    minHeight: 700,
+    maxHeight: 700,
   },
   bullet: {
     display: 'inline-block',
@@ -24,10 +42,18 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ChartCard(props: { title: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; description?: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; statistic?: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; chart?: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; }){
+export default function ChartCard(props: { title: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; description?: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; statistic?: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; chart?: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; cardstyle: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; }){
   const classes = useStyles();
+  var cardClass;
+  if(props.cardstyle === "small") {
+    cardClass = classes.smallcard;
+  } else if(props.cardstyle === "large") {
+    cardClass = classes.largecard;
+  } else if(props.cardstyle === "tall") {
+    cardClass = classes.tallcard;
+  }
   return(
-  <Card className={classes.root} variant="outlined">
+  <Card className={cardClass} variant="outlined">
     <CardContent>
       <Typography className={classes.title} color="textSecondary" gutterBottom>
         {props.title}
