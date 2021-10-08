@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using Cis.Models;
 using Microsoft.EntityFrameworkCore;
 using Cis.Enums;
@@ -58,50 +59,50 @@ namespace Cis.Services.Tasks
             var servicesGroupedByCategory = services.GroupBy(service => service.Category);
             
             // Aboriginal 
-            gapScore += CalculateSingleServiceGap(Categories.ABORIGINAL_SERVICE, needForAboriginalServiceByPop, regionalArea.Indigenous);
+            gapScore += CalculateSingleServiceGap(services, Categories.ABORIGINAL_SERVICE, needForAboriginalServiceByPop, Convert.ToDouble(regionalArea.Indigenous));
             // Accomodation
-            gapScore += CalculateSingleServiceGap(Categories.ACCOMMODATION_SERVICE, riskOfHomelessness, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.ACCOMMODATION_SERVICE, riskOfHomelessness, population);
             // Advocacy  
-            gapScore += CalculateSingleServiceGap(Categories.ADVOCACY_SERVICE, needForAdvocacyService, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.ADVOCACY_SERVICE, needForAdvocacyService, population);
             // Alcohol and Drug
-            gapScore += CalculateSingleServiceGap(Categories.ALCOHOL_AND_DRUG_SERVICE, riskOfAlcoholDrugProblem, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.ALCOHOL_AND_DRUG_SERVICE, riskOfAlcoholDrugProblem, population);
             // Community facilities FIXME
-            gapScore += CalculateSingleServiceGap(Categories.COMMUNITY_CENTRES_HALLS_AND_FACILITIES, communityVenuesNeededPerSA2Area, population);           
+            gapScore += CalculateSingleServiceGap(services, Categories.COMMUNITY_CENTRES_HALLS_AND_FACILITIES, communityVenuesNeededPerSA2Area, population);           
             // Community clubs FIXME
-            gapScore += CalculateSingleServiceGap(Categories.COMMUNITY_CLUB, communityClubNeededPerSA2Area, population);            
+            gapScore += CalculateSingleServiceGap(services, Categories.COMMUNITY_CLUB, communityClubNeededPerSA2Area, population);            
             // Crisis and Emergency  TODO
-            gapScore += CalculateSingleServiceGap(Categories.CRISIS_AND_EMERGENCY_SERVICE, 0, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.CRISIS_AND_EMERGENCY_SERVICE, 0, population);
             // Cultural and Migrant
-            gapScore += CalculateSingleServiceGap(Categories.CULTURAL_AND_MIGRANT_SERVICE, riskForCultrualMigrantService, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.CULTURAL_AND_MIGRANT_SERVICE, riskForCultrualMigrantService, population);
             // Disability 
-            gapScore += CalculateSingleServiceGap(Categories.DISABILITY_SERVICE, needForDisabilitySupport, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.DISABILITY_SERVICE, needForDisabilitySupport, population);
             // Education 
-            gapScore += CalculateSingleServiceGap(Categories.EDUCATION, needForEducationSupport, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.EDUCATION, needForEducationSupport, population);
             // Disability 
-            gapScore += CalculateSingleServiceGap(Categories.DISABILITY_SERVICE, needForDisabilitySupport, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.DISABILITY_SERVICE, needForDisabilitySupport, population);
             // Employment 
-            gapScore += CalculateSingleServiceGap(Categories.EMPLOYMENT_AND_TRAINING, needForEmploymentSupport, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.EMPLOYMENT_AND_TRAINING, needForEmploymentSupport, population);
             // Health TODO
-            gapScore += CalculateSingleServiceGap(Categories.HEALTH_SERVICE, 0, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.HEALTH_SERVICE, 0, population);
             // Information and counselling TODO
-            gapScore += CalculateSingleServiceGap(Categories.INFORMATION_AND_COUNSELLING, 0, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.INFORMATION_AND_COUNSELLING, 0, population);
             // Legal
-            gapScore += CalculateSingleServiceGap(Categories.LEGAL_SERVICE, needForLegalAssistance, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.LEGAL_SERVICE, needForLegalAssistance, population);
             // Self help TODO
-            gapScore += CalculateSingleServiceGap(Categories.SELF_HELP, 0, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.SELF_HELP, 0, population);
             // Sport
-            gapScore += CalculateSingleServiceGap(Categories.SPORT, needForSportAssistance, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.SPORT, needForSportAssistance, population);
             // Welfare Assistance TODO
-            gapScore += CalculateSingleServiceGap(Categories.WELFARE_ASSISTANCE, 0, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.WELFARE_ASSISTANCE, 0, population);
             // Youth
-            gapScore += CalculateSingleServiceGap(Categories.YOUTH_SERVICE, needForChildYouthService, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.YOUTH_SERVICE, needForChildYouthService, population);
 
             return gapScore;
         }
 
-        private double CalculateSingleServiceGap(var categoryType, double serviceNeed, int population){
+        private double CalculateSingleServiceGap(IEnumerable<ServiceEntity> services, Categories categoryType, double serviceNeed, double population){
             double currentServices = Convert.ToDouble(services.Where(service => service.Category == categoryType).Count());
-            double servicesNeeded = (serviceNeed * Convert.ToDouble(population)) / averageNumberPeopleAServiceCanService;
+            double servicesNeeded = (serviceNeed * population) / averageNumberPeopleAServiceCanService;
             if(currentServices < servicesNeeded){
                 return (servicesNeeded - currentServices);
             }
