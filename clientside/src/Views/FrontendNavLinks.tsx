@@ -17,7 +17,8 @@
 import { ILink } from 'Views/Components/Navigation/Navigation';
 import { RouteComponentProps } from 'react-router';
 import { store } from 'Models/Store';
-// % protected region % [Add any extra imports here] off begin
+// % protected region % [Add any extra imports here] on begin
+import Logo from "../../../assets/img/logo_favicon-3.png"
 // % protected region % [Add any extra imports here] end
 
 export function getFrontendNavLinks(pageProps: RouteComponentProps): ILink[][] {
@@ -27,7 +28,7 @@ export function getFrontendNavLinks(pageProps: RouteComponentProps): ILink[][] {
 		[
 			// % protected region % [Customise top nav section here] on begin
 			//{label: "Home", path: '/', icon: "home", iconPos: 'icon-left'},
-			{label: "Profile", path: '/myprofile', icon: "person", iconPos: 'icon-left', subLinks: [{label: "My Details", path: '/myprofile', icon: "person", iconPos: 'icon-left'}, {label: "My Services", path: '/myservices', icon: "actions", iconPos: 'icon-left'}]},
+			{label: "Profile", path: '/myprofile', icon: "person", iconPos: 'icon-left', subLinks: [{label: "My Details", path: '/myprofile', icon: "person", iconPos: 'icon-left'}, {label: "My Services", path: '/myservices', icon: "actions", iconPos: 'icon-left'}]},			
 			// % protected region % [Customise top nav section here] end
 		],
 		[

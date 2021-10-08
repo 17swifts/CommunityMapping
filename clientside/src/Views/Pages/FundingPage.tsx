@@ -68,26 +68,9 @@ class FundingPage extends React.Component<FundingPageProps> {
 					<div className="page-wrapper">
                         <div className="header">
 						    <h2>
-							    Funding
+							    Funding (In Progress)
 						    </h2>
                         </div>
-					</div>
-					<div style={{ display: 'contents' }} >
-						<div className="card--content"> 
-						<Card style={{ width: '33rem'}}>
-							<Card.Header as="h5">Funding of health services in Regional Areas</Card.Header>
-							<Card.Body>
-								<Card.Title>Investment</Card.Title>
-								<Card.Text>
-								content.
-								</Card.Text>
-								<Button variant="primary">View more</Button>
-							</Card.Body>
-						</Card>
-						</div>
-						<div>
-							<Footer />
-						</div>
 					</div>
 				</div>
 			</SecuredPage>

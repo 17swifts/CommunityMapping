@@ -30,6 +30,7 @@ import PageNotFound from './Pages/PageNotFound';
 import PageAccessDenied from './Pages/PageAccessDenied';
 import Topbar from "./Components/Topbar/Topbar";
 // % protected region % [Add any extra imports here] off begin
+
 // % protected region % [Add any extra imports here] end
 
 export default class Frontend extends React.Component<RouteComponentProps> {
