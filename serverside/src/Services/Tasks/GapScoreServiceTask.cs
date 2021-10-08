@@ -37,7 +37,7 @@ namespace Cis.Services.Tasks
         public async Task UpdateGapScore(CancellationToken cancellationToken = default)
         {
             // Fetch all regional areas
-            var regionalAreas = await _dbContext.RegionalAreaEntity.ToListAsync(cancellationToken);
+            var regionalAreas = await _dbContext.RegionalAreaEntity.Include(area => area.Servicess).ToListAsync(cancellationToken);
 
             // For each regional area calculate a new gap score
             foreach (var regionalArea in regionalAreas)
@@ -54,79 +54,58 @@ namespace Cis.Services.Tasks
             double gapScore = 0;
 
             var population = Convert.ToDouble(regionalArea.Indigenous + regionalArea.Nonindigenous);
-            var services = regionalArea.Servicess;
-            var servicesGroupedByCategory = services.Where(service => service.Active == true)
-                .GroupBy(service => service.Category);
+            var services = regionalArea.Servicess.Where(service => service.Active == true);
+            var servicesGroupedByCategory = services.GroupBy(service => service.Category);
             
-            foreach(var group in servicesGroupedByCategory){
-                double currentServices = Convert.ToDouble(group.Count());
-                double servicesNeeded = 0;
-                switch(group.Key)
-                {
-                case Categories.ABORIGINAL_SERVICE:
-                    servicesNeeded = (needForAboriginalServiceByPop * Convert.ToDouble(regionalArea.Indigenous)) / averageNumberPeopleAServiceCanService;
-                    break;
-                case Categories.ACCOMMODATION_SERVICE:
-                    servicesNeeded = (riskOfHomelessness * population) / averageNumberPeopleAServiceCanService;
-                    break;
-                case Categories.ADVOCACY_SERVICE:
-                    servicesNeeded = (needForAdvocacyService * population) / averageNumberPeopleAServiceCanService;
-                    break;
-                case Categories.ALCOHOL_AND_DRUG_SERVICE:
-                    servicesNeeded = (riskOfAlcoholDrugProblem * population) / averageNumberPeopleAServiceCanService;
-                    break;   
-                case Categories.COMMUNITY_CENTRES_HALLS_AND_FACILITIES:
-                    servicesNeeded = communityVenuesNeededPerSA2Area;
-                    break;
-                case Categories.COMMUNITY_CLUB:
-                    servicesNeeded = communityClubNeededPerSA2Area;
-                    break;
-                case Categories.CRISIS_AND_EMERGENCY_SERVICE:
+            // Aboriginal 
+            gapScore += CalculateSingleServiceGap(Categories.ABORIGINAL_SERVICE, needForAboriginalServiceByPop, regionalArea.Indigenous);
+            // Accomodation
+            gapScore += CalculateSingleServiceGap(Categories.ACCOMMODATION_SERVICE, riskOfHomelessness, population);
+            // Advocacy  
+            gapScore += CalculateSingleServiceGap(Categories.ADVOCACY_SERVICE, needForAdvocacyService, population);
+            // Alcohol and Drug
+            gapScore += CalculateSingleServiceGap(Categories.ALCOHOL_AND_DRUG_SERVICE, riskOfAlcoholDrugProblem, population);
+            // Community facilities FIXME
+            gapScore += CalculateSingleServiceGap(Categories.COMMUNITY_CENTRES_HALLS_AND_FACILITIES, communityVenuesNeededPerSA2Area, population);           
+            // Community clubs FIXME
+            gapScore += CalculateSingleServiceGap(Categories.COMMUNITY_CLUB, communityClubNeededPerSA2Area, population);            
+            // Crisis and Emergency  TODO
+            gapScore += CalculateSingleServiceGap(Categories.CRISIS_AND_EMERGENCY_SERVICE, 0, population);
+            // Cultural and Migrant
+            gapScore += CalculateSingleServiceGap(Categories.CULTURAL_AND_MIGRANT_SERVICE, riskForCultrualMigrantService, population);
+            // Disability 
+            gapScore += CalculateSingleServiceGap(Categories.DISABILITY_SERVICE, needForDisabilitySupport, population);
+            // Education 
+            gapScore += CalculateSingleServiceGap(Categories.EDUCATION, needForEducationSupport, population);
+            // Disability 
+            gapScore += CalculateSingleServiceGap(Categories.DISABILITY_SERVICE, needForDisabilitySupport, population);
+            // Employment 
+            gapScore += CalculateSingleServiceGap(Categories.EMPLOYMENT_AND_TRAINING, needForEmploymentSupport, population);
+            // Health TODO
+            gapScore += CalculateSingleServiceGap(Categories.HEALTH_SERVICE, 0, population);
+            // Information and counselling TODO
+            gapScore += CalculateSingleServiceGap(Categories.INFORMATION_AND_COUNSELLING, 0, population);
+            // Legal
+            gapScore += CalculateSingleServiceGap(Categories.LEGAL_SERVICE, needForLegalAssistance, population);
+            // Self help TODO
+            gapScore += CalculateSingleServiceGap(Categories.SELF_HELP, 0, population);
+            // Sport
+            gapScore += CalculateSingleServiceGap(Categories.SPORT, needForSportAssistance, population);
+            // Welfare Assistance TODO
+            gapScore += CalculateSingleServiceGap(Categories.WELFARE_ASSISTANCE, 0, population);
+            // Youth
+            gapScore += CalculateSingleServiceGap(Categories.YOUTH_SERVICE, needForChildYouthService, population);
 
-                    break;
-                case Categories.CULTURAL_AND_MIGRANT_SERVICE:
-                    servicesNeeded = (riskForCultrualMigrantService * population) / averageNumberPeopleAServiceCanService;                   
-                    break;
-                case Categories.DISABILITY_SERVICE:
-                    servicesNeeded = (needForDisabilitySupport * population) / averageNumberPeopleAServiceCanService;
-                    break;
-                case Categories.EDUCATION:
-                    servicesNeeded = (needForEducationSupport * population) / averageNumberPeopleAServiceCanService;
-                    break;
-                case Categories.EMPLOYMENT_AND_TRAINING:
-                    servicesNeeded = (needForEmploymentSupport * population) / averageNumberPeopleAServiceCanService;
-                    break;
-                case Categories.HEALTH_SERVICE:
-                    
-                    break;
-                case Categories.INFORMATION_AND_COUNSELLING:
-                    
-                    break;
-                case Categories.LEGAL_SERVICE:
-                    servicesNeeded = (needForLegalAssistance * population) / averageNumberPeopleAServiceCanService;
-                    break;
-                case Categories.SELF_HELP:
-
-                    break;
-                case Categories.SPORT:
-                    servicesNeeded = (needForSportAssistance * population) / averageNumberPeopleAServiceCanService;
-                    break;
-                case Categories.WELFARE_ASSISTANCE:
-
-                    break;
-                case Categories.YOUTH_SERVICE:
-                    servicesNeeded = (needForChildYouthService * population) / averageNumberPeopleAServiceCanService;
-                    break;
-                default:
-                    // code block
-                    break;
-                }
-
-                if(currentServices < servicesNeeded){
-                    gapScore += (servicesNeeded - currentServices);
-                }
-            }
             return gapScore;
+        }
+
+        private double CalculateSingleServiceGap(var categoryType, double serviceNeed, int population){
+            double currentServices = Convert.ToDouble(services.Where(service => service.Category == categoryType).Count());
+            double servicesNeeded = (serviceNeed * Convert.ToDouble(population)) / averageNumberPeopleAServiceCanService;
+            if(currentServices < servicesNeeded){
+                return (servicesNeeded - currentServices);
+            }
+            else return 0;
         }
     }
 }
