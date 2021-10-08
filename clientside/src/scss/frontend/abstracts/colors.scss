@@ -29,8 +29,8 @@ Set your target colours but do not remove variables that you do not plan to use.
 
 // % protected region % [Set colours, accent colours, and greyscale colours] on begin
 //Primary and theme colour
-$color-primary: rgba(84, 71, 200); // #5447C8 // Purple
-$color-primary-variant: rgb(145, 134, 201); // #9186C9 // Purple Variant
+$color-primary: rgba(92, 76, 171); // #5447C8 // Purple
+$color-primary-variant: rgb(125, 105, 231); // #9186C9 // Purple Variant
 $color-secondary: rgb(0, 224, 150); // #00E096 // Green
 $color-brand-01: rgb(57, 57, 57) !default; // #393939 // Charcoal
 $color-brand-02: rgb(213, 213, 213) !default; // #D5D5D5; // Grey
@@ -54,9 +54,10 @@ $grey-2: rgb(197, 197, 197); // #c5c5c5
 $grey-1: rgb(221, 221, 221); // #dddddd
 $grey-0: rgb(244, 244, 244); // #f4f4f4
 $white: rgb(255, 255, 255); // #ffffff
+$bg-color: rgb(241, 242, 246); // #F1F2F6
 
 //Assigning theme colours
-$background: $white;
+$background: $bg-color;
 $hover-state:  $color-primary;
 $element-hover:  $color-primary;
 

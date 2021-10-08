@@ -23,7 +23,8 @@ Expanded navigation is the vertical navigation that expands displaying titles ne
 
 // % protected region % [Change expanded navigation styles here] on begin
 .nav.nav--vertical {
-	background-color: transparent;
+	background-color: $color-primary;
+	color: $white;
 	box-shadow: convert-rem(0px) convert-rem(0px) convert-rem(8px) convert-rem(-2px) $grey-6;
 	>ul {
 		&:first-of-type {
@@ -50,12 +51,12 @@ Expanded navigation is the vertical navigation that expands displaying titles ne
 		}
 
 		>ul {
-			background-color: transparent;
+			color: $grey-0;
 			padding-top: $space-xs;
 
 			&:after {
 				content: '';
-				border-bottom: convert-rem(2px) solid $grey-2;
+				border-bottom: convert-rem(2px) solid $grey-1;
 				width: convert-rem(35px);
 				display: flex;
 				margin: 1.8rem 1.1rem;
@@ -66,7 +67,7 @@ Expanded navigation is the vertical navigation that expands displaying titles ne
 
 			>li {
 				position: relative;
-				color: $color-primary;
+				color: $grey-1;
 				//mobile responsive
 				@include media(xs, sm, md) {
 					position: inherit;
@@ -119,6 +120,7 @@ Expanded navigation is the vertical navigation that expands displaying titles ne
 	/***** When nav is expanded ******/
 
 	&.nav--expanded {
+		color: $black;
 		min-width: convert-rem(150px);
 		a {
 			span {
