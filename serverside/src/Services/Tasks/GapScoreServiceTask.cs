@@ -18,16 +18,20 @@ namespace Cis.Services.Tasks
         private double riskOfAlcoholDrugProblem = 0.054929;
         private double needForChildYouthService = 0.08;
 
-        private double communityVenuesNeededPerSA2Area = 1.75;
-        private double communityClubNeededPerSA2Area = 3.2;
+        private double communityVenuesNeededPerSA2Area = 0.002;
+        private double communityClubNeededPerSA2Area = 0.03;
         private double riskForCultrualMigrantService = 0.007776;
         private double needForDisabilitySupport = 0.057;
         private double needForEducationSupport = 0.16;
         private double needForEmploymentSupport = 0.093;
         private double needForLegalAssistance = 0.004;
         private double needForSportAssistance = 0.01;
+        private double needForCouncelling = 0.105;
+        private double needForSelfHelp = 0.21;
+        private double needForWelfareAssitance = 0.12;
+        private double neeedForHealthServices = 0.25;
 
-        private double averageNumberPeopleAServiceCanService = 80;
+        private double averageNumberPeopleAServiceCanService = 120;
 
         public GapScoreServiceTask(CisDBContext dbContext)
         {
@@ -66,9 +70,9 @@ namespace Cis.Services.Tasks
             gapScore += CalculateSingleServiceGap(services, Categories.ADVOCACY_SERVICE, needForAdvocacyService, population);
             // Alcohol and Drug
             gapScore += CalculateSingleServiceGap(services, Categories.ALCOHOL_AND_DRUG_SERVICE, riskOfAlcoholDrugProblem, population);
-            // Community facilities FIXME
+            // Community facilities
             gapScore += CalculateSingleServiceGap(services, Categories.COMMUNITY_CENTRES_HALLS_AND_FACILITIES, communityVenuesNeededPerSA2Area, population);           
-            // Community clubs FIXME
+            // Community clubs
             gapScore += CalculateSingleServiceGap(services, Categories.COMMUNITY_CLUB, communityClubNeededPerSA2Area, population);            
             // Crisis and Emergency  TODO
             gapScore += CalculateSingleServiceGap(services, Categories.CRISIS_AND_EMERGENCY_SERVICE, 0, population);
@@ -83,17 +87,17 @@ namespace Cis.Services.Tasks
             // Employment 
             gapScore += CalculateSingleServiceGap(services, Categories.EMPLOYMENT_AND_TRAINING, needForEmploymentSupport, population);
             // Health TODO
-            gapScore += CalculateSingleServiceGap(services, Categories.HEALTH_SERVICE, 0, population);
-            // Information and counselling TODO
-            gapScore += CalculateSingleServiceGap(services, Categories.INFORMATION_AND_COUNSELLING, 0, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.HEALTH_SERVICE, neeedForHealthServices, population);
+            // Information and counselling
+            gapScore += CalculateSingleServiceGap(services, Categories.INFORMATION_AND_COUNSELLING, needForCouncelling, population);
             // Legal
             gapScore += CalculateSingleServiceGap(services, Categories.LEGAL_SERVICE, needForLegalAssistance, population);
-            // Self help TODO
-            gapScore += CalculateSingleServiceGap(services, Categories.SELF_HELP, 0, population);
+            // Self help
+            gapScore += CalculateSingleServiceGap(services, Categories.SELF_HELP, needForSelfHelp, population);
             // Sport
             gapScore += CalculateSingleServiceGap(services, Categories.SPORT, needForSportAssistance, population);
-            // Welfare Assistance TODO
-            gapScore += CalculateSingleServiceGap(services, Categories.WELFARE_ASSISTANCE, 0, population);
+            // Welfare Assistance
+            gapScore += CalculateSingleServiceGap(services, Categories.WELFARE_ASSISTANCE, needForWelfareAssitance, population);
             // Youth
             gapScore += CalculateSingleServiceGap(services, Categories.YOUTH_SERVICE, needForChildYouthService, population);
 
