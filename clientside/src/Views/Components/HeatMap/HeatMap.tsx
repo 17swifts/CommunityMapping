@@ -20,7 +20,7 @@ export default function HeatMapTest() {
 
     // Fetch the data globally
     useEffect(() => {
-        fetch('https://raw.githubusercontent.com/jamestkelly/CommunityMappingData/main/geo-numeric.json')
+        fetch('https://raw.githubusercontent.com/jamestkelly/CommunityMappingData/main/data/geo-numeric.json')
             .then(resp => resp.json())
             .then(json => setData(json))
     })
