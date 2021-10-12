@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import MapGL, { Source, Layer } from 'react-map-gl';
-import { DataLayer, LineLayer } from './HeatMapStyle';
+import { DataLayer, LineLayer, HeatLayer } from './HeatMapStyle';
 
 // Access token for MapBox API
 const MAPBOX_TOKEN = "pk.eyJ1IjoiamFtZXN0a2VsbHkiLCJhIjoiY2tzOGU4ejl1MG9icjJ1bzJ2MzV6d2xldSJ9.vFX3vaZcZjWnXnqOoMn2Vg";
@@ -36,8 +36,7 @@ export default function HeatMapTest() {
             mapboxApiAccessToken={ MAPBOX_TOKEN }
         >
             <Source type="geojson" data={ data }>
-                <Layer {...DataLayer}/>
-                <Layer {...LineLayer}/>
+                <Layer {...HeatLayer}/>
             </Source>
         </MapGL>
     );
