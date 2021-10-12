@@ -22,6 +22,7 @@
 # This container will build the serverside of the application.
 ###
 FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine AS build-serverside
+RUN apt-get update -y && apt-get install python3 -y
 WORKDIR /build
 
 # Copy and restore project. This is done before copying the rest of the source files to cache dependencies independently
