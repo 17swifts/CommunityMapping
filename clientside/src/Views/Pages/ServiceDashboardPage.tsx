@@ -155,7 +155,7 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 					{
 					// % protected region % [Add code for a3b19bca-d710-4b91-8d19-45171c92b6d6 here] on begin
 					}
-					<div className="layout__paragraph">
+					<div className="layout__horizontal">
 						<h5> Search by Regional Area Name</h5>
 					</div>
 					<div className="layout__horizontal">

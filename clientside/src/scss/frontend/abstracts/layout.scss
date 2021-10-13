@@ -37,7 +37,7 @@ Change if require a new layout for your body content or if you have added a new 
 
 .body-content {
 	overflow-y: auto;
-	overflow-x: hidden;
+	overflow-x: auto;
 	grid-area: body;
 	display: grid;
 	grid-template-areas: "header" "content";
