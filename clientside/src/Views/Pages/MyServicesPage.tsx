@@ -25,6 +25,7 @@ import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation'
 
 // % protected region % [Add any extra imports here] on begin
 import { store } from 'Models/Store';
+import Footer from '../Components/Footer/Footer';
 // % protected region % [Add any extra imports here] end
 
 export interface MyServicesPageProps extends RouteComponentProps {
@@ -83,6 +84,9 @@ class MyServicesPage extends React.Component<MyServicesPageProps> {
 							}}
 							// % protected region % [Add props to crud component 13053bdd-361f-49f9-831b-0126368492f2 here] end
 					/>
+					</div>
+					<div>
+						<Footer />
 					</div>
 				</div>
 			</SecuredPage>
