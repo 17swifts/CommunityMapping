@@ -17,7 +17,7 @@
 import * as React from 'react';
 import SecuredPage from 'Views/Components/Security/SecuredPage';
 import { observer } from 'mobx-react';
-import { RouteComponentProps } from 'react-router';
+import { Redirect, RouteComponentProps } from 'react-router';
 import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
 
@@ -27,6 +27,7 @@ import EntityAttributeList, {IEntityAttributeBehaviour} from 'Views/Components/C
 import { ServiceCommissioningBodyEntity } from 'Models/Entities';
 import { EntityFormMode } from 'Views/Components/Helpers/Common';
 import { action, observable } from 'mobx';
+import EntityCRUD from 'Views/Components/CRUD/EntityCRUD';
 // % protected region % [Add any extra imports here] end
 
 export interface MyProfilePageProps extends RouteComponentProps {
@@ -93,6 +94,11 @@ class MyProfilePage extends React.Component<MyProfilePageProps> {
 					{
 					// % protected region % [Add code for 8ab74203-f187-43bb-bb11-e6951b5227e2 here] on begin
 					}
+					{
+						// !this.props.match.path.endsWith('view') && !this.props.match.path.endsWith('edit')
+						// 	? <Redirect to={`${this.props.match.path}/view`} />
+						// 	: <EntityCRUD  />
+					}
 					<EntityAttributeList
 						{...this.props}
 						model={this.userData}
@@ -100,6 +106,8 @@ class MyProfilePage extends React.Component<MyProfilePageProps> {
 						title={`Details`}
 						formMode={EntityFormMode.VIEW}
 						modelType={ServiceCommissioningBodyEntity}
+						// @ts-ignore
+						disableEdit={true}
 					/>
 					{
 					// % protected region % [Add code for 8ab74203-f187-43bb-bb11-e6951b5227e2 here] end

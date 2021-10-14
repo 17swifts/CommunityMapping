@@ -91,14 +91,14 @@ class EntityAttributeList<T extends Model> extends React.Component<IEntityCreate
 	private fieldErrors?: IEntityValidationErrors = {};
 
 	public render() {
-		// % protected region % [Modify Entity attribute render] off begin
+		// % protected region % [Modify Entity attribute render] on begin
 		const { title, modelType, formMode, customFields, sectionClassName } = this.props;
 		return (
 			<div className="crud-component">
 				{this.showSpinner && <Spinner />}
 				<section className={sectionClassName}>
 					<FormErrors error={this.generalFormError} detailedErrors={this.detailedFormError} />
-					{SecurityService.canUpdate(modelType) && formMode === EntityFormMode.VIEW
+					{SecurityService.canUpdate(modelType) && formMode === EntityFormMode.VIEW && this.props['disableEdit'] != true
 						? (
 							<div className="crud__header">
 								<h2>{title}</h2>
