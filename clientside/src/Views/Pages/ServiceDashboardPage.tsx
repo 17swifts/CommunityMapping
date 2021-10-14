@@ -146,7 +146,7 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 				{
 				// % protected region % [Alter navigation here] end
 				}
-				<div className="body-content">
+				<div className="scroll-body-content">
 					<div className="layout__horizontal">
 						<h2>
 							Analytics Dashboard

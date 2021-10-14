@@ -29,13 +29,25 @@ the type of navigation you choose to use. If you want things positioning differe
 /* -------------------------------------------------*/
 
 
-// % protected region % [Change project layout here] off begin
+// % protected region % [Change project layout here] on begin
 /*
 This class is where your information is in, sits next to the nav-vertical or below the nav-horizontal.
 Change if require a new layout for your body content or if you have added a new custom component
 */
 
 .body-content {
+	overflow-y: auto;
+	overflow-x: hidden;
+	grid-area: body;
+	display: grid;
+	grid-template-areas: "header" "content";
+	grid-template-rows: auto 1fr;
+	background-color: $background;
+	color: get-contrasting-text-color($background);
+}
+
+// Body content that gives a page a horizontal scroll bar
+.scroll-body-content {
 	overflow-y: auto;
 	overflow-x: auto;
 	grid-area: body;
