@@ -57,6 +57,8 @@ export default function HeatMapTest() {
             mapStyle={ MAP_STYLE }
             onViewportChange={ setViewport }
             mapboxApiAccessToken={ MAPBOX_TOKEN }
+            interactiveLayerIds={ [data] }
+            onHover={ onHover }
         >
             <Source type="geojson" data={ data }>
                 <Layer {...HeatLayer}/>
