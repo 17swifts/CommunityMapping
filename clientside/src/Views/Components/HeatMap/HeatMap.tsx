@@ -1,10 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import MapGL, { Source, Layer } from 'react-map-gl';
 import { DataLayer, LineLayer, HeatLayer } from './HeatMapStyle';
 
 // Access token for MapBox API
 const MAPBOX_TOKEN = "pk.eyJ1IjoiamFtZXN0a2VsbHkiLCJhIjoiY2tzOGU4ejl1MG9icjJ1bzJ2MzV6d2xldSJ9.vFX3vaZcZjWnXnqOoMn2Vg";
 const MAP_STYLE = "mapbox://styles/mapbox/light-v10"; // Map Styling
+
+function round(num: number) {
+    var m = Number((Math.abs(num) * 100).toPrecision(15));
+    return Math.round(m) / 100 * Math.sign(num);
+}
 
 export default function HeatMapTest() {
     // Set viewport options for map
@@ -16,15 +21,33 @@ export default function HeatMapTest() {
     });
 
     const [data, setData] = useState<any | null>(null); // Data set and get object
-    const [hoverInfo, setHoverInfo] = useState(null); // TODO: Add hover information
+    const [hoverInfo, setHoverInfo] = useState<any | null>(null); // Hover info object
 
     // Fetch the data globally
     useEffect(() => {
         fetch('https://raw.githubusercontent.com/jamestkelly/CommunityMappingData/main/data/geo-numeric.json')
             .then(resp => resp.json())
             .then(json => setData(json))
-    })
-    
+    });
+
+    const onHover = useCallback(event => {
+        const {
+            features,
+            srcEvent: { offsetX, offsetY}
+        } = event;
+        const hoveredFeature = features && features[0];
+
+        setHoverInfo(
+            hoveredFeature
+                ? {
+                    feature: hoveredFeature,
+                    x: offsetX,
+                    y: offsetY
+                }
+                : null
+        );
+    }, []);
+
     // Render the map component
     return (
         <MapGL
@@ -38,6 +61,14 @@ export default function HeatMapTest() {
             <Source type="geojson" data={ data }>
                 <Layer {...HeatLayer}/>
             </Source>
+            {hoverInfo && (
+                <div className="tooltip" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
+                    <div>SA2 Name: { hoverInfo.feature.properties.sa2Name }</div>
+                    <div>SA3 Name: { hoverInfo.feature.properties.sa3Name }</div>
+                    <div>State: { hoverInfo.feature.properties.stateName }</div>
+                    <div>Gap Score: { round(hoverInfo.feature.properties.gapScore) }</div>
+                </div>
+            )}
         </MapGL>
     );
 }
