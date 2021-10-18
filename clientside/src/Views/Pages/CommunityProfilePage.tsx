@@ -60,8 +60,7 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 				// % protected region % [Alter navigation here] end
 				}
 				<div className="body-content">
-					<div className="page-wrapper">
-						<div className="header">
+						<div className="layout__horizontal">
 							<h2>
 								SEIFA Indexes Map
 							</h2>
@@ -69,7 +68,7 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 					{
 					// % protected region % [Add code for 2586c999-ab9b-4685-879f-330ba2c7fab5 here] on begin
 					}
-						<div className="body">
+						<div className="layout__paragraph">
 							<div>
 								<p>
 									Socio-Economic Indexes for Areas (SEIFA) ranks areas in Australia according to relative socio-economic 
@@ -90,7 +89,6 @@ class CommunityProfilePage extends React.Component<CommunityProfilePageProps> {
 								<Map></Map>
 							</div>
 						</div>		
-					</div>
 					<div>
 						<Footer />
 					</div>			

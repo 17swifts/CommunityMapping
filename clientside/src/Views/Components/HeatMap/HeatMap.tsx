@@ -1,3 +1,4 @@
+import mapboxgl from 'mapbox-gl';
 import { useState, useEffect, useCallback } from 'react';
 import MapGL, { Source, Layer } from 'react-map-gl';
 import { DataLayer, LineLayer, HeatLayer } from './HeatMapStyle';
@@ -52,7 +53,7 @@ export default function HeatMapTest() {
     return (
         <MapGL
             { ...viewport }
-            width="95vw"
+            width="100%"
             height="100vh"
             mapStyle={ MAP_STYLE }
             onViewportChange={ setViewport }
@@ -60,6 +61,7 @@ export default function HeatMapTest() {
             interactiveLayerIds={ [data] }
             onHover={ onHover }
         >
+            
             <Source type="geojson" data={ data }>
                 <Layer {...HeatLayer}/>
             </Source>

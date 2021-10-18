@@ -60,13 +60,13 @@ class ServiceProfilePage extends React.Component<ServiceProfilePageProps> {
 				// % protected region % [Alter navigation here] end
 				}
 				<div className="body-content">
-					<div className="page-wrapper">
-						<div className="header">
+					{/* <div className="page-wrapper"> */}
+						<div className="layout__horizontal">
 							<h2>
 								Community Services Map
 							</h2>
 						</div>
-						<div className="body">
+						<div className="layout__paragraph">
 							<p>
 								Like the SEIFA map, the community services map visualises which Australian regional areas 
 								need more funding and services. A gap score is calculated based on the current support 
@@ -79,7 +79,7 @@ class ServiceProfilePage extends React.Component<ServiceProfilePageProps> {
 							</div>
 						</div>
 						
-					</div>
+					{/* </div> */}
 					
 					{
 					// % protected region % [Add code for a3ee24ec-0819-4d19-9334-ec3f0a06254f here] on begin
