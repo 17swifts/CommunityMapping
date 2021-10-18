@@ -1,3 +1,4 @@
+import useWindowDimensions from 'Hooks/useWindowDimensions';
 import mapboxgl from 'mapbox-gl';
 import { useState, useEffect, useCallback } from 'react';
 import MapGL, { Source, Layer } from 'react-map-gl';
@@ -13,11 +14,22 @@ function round(num: number) {
 }
 
 export default function HeatMapTest() {
+    const { height, width } = useWindowDimensions();
+
+    if (width < 700 || height < 600) {
+        var zoomNum = 2;
+    }
+    else if (width > 700 && width < 1200 || height > 600 && height < 800) {
+        var zoomNum = 3;
+    }
+    else {
+        var zoomNum = 4;
+    }
     // Set viewport options for map
     const [viewport, setViewport] = useState({
         latitude: -30.2744,
         longitude: 133.7751,
-        zoom: 4,
+        zoom: zoomNum,
         pitch: 30
     });
 
