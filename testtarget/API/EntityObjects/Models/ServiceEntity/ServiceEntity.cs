@@ -205,14 +205,8 @@ namespace APITests.EntityObjects.Models
 			{
 				entityVar["description"] = Description.ToString();
 			}
-			if(Servicetype != null) 
-			{
-				entityVar["servicetype"] = Servicetype.ToString();
-			}
-			if(Category != null) 
-			{
-				entityVar["category"] = Category.ToString();
-			}
+			entityVar["servicetype"] = Servicetype.ToString();
+			entityVar["category"] = Category.ToString();
 			if(Active != null) 
 			{
 				entityVar["active"] = Active.ToString();
@@ -233,10 +227,7 @@ namespace APITests.EntityObjects.Models
 			{
 				entityVar["enddate"] = Enddate?.ToString("s");
 			}
-			if(Gender != null) 
-			{
-				entityVar["gender"] = Gender.ToString();
-			}
+			entityVar["gender"] = Gender.ToString();
 			if(Agemin != null) 
 			{
 				entityVar["agemin"] = Agemin;
