@@ -130,8 +130,7 @@ namespace Cis
 			AddApplicationConfigurations(services);
 			// % protected region % [Configure configuration services here] end
 
-			// % protected region % [Add extra startup methods here] on begin
-			services.AddScoped<ServiceManagementService>();
+			// % protected region % [Add extra startup methods here] off begin
 			// % protected region % [Add extra startup methods here] end
 
 			// % protected region % [Configure ApiBehaviorOptions service here] off begin
@@ -551,6 +550,7 @@ namespace Cis
 
 			// % protected region % [Add extra core scoped services here] on begin
 			services.TryAddScoped<GapScoreServiceTask>();
+			services.TryAddScoped<ServiceActiveStatusTask>();
 			// % protected region % [Add extra core scoped services here] end
 		}
 
@@ -690,6 +690,10 @@ namespace Cis
 			 RecurringJob.AddOrUpdate<GapScoreServiceTask>(
 				"Update RegionalArea Gap Score", // A unique id for the scheduled task
 				o => o.UpdateGapScore(default), // The function to run
+				"0 0 * * 0");
+			RecurringJob.AddOrUpdate<ServiceActiveStatusTask>(
+				"Update Active Service Status", // A unique id for the scheduled task
+				o => o.UpdateServiceActiveStatus(default), // The function to run
 				"0 0 * * 0");
 			// % protected region % [Add methods at the beginning of the request pipeline here] end
 
