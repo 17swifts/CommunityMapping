@@ -1,12 +1,8 @@
-<!-- @bot-written -->
-<!-- % protected region % [Configure readme here] off begin -->
-# cis
+# Community Mapping
 
-> This readme is intended to help get you get started, and can be edited to suit your needs at any time.
+Welcome to the application for Community Information Support Services, Community Mapping! Below is an overview of the source code to help you get started. It provides an overview of the main concepts you need to be familiar with in order to continue development. 
 
-Welcome to your application! Below is an overview of the source code to help you get started. It provides an overview of the main concepts you need to be familiar with in order to develop with Codebots.
-
-Now that your app has been built, you have complete ownership of the source code, including the code that the codebots have written. All of the code is customisable and ready to use, whether it be for commercial or non-commercial purposes.
+The application framework was developed with the assitance of model driven code application Codebots. The bot version can be seen below. 
 
 **Bot version:** 2.6.1.0 ([Release notes are here](https://forum.codebots.com/t/c-bot-release-2-6-1-0))
 
@@ -19,7 +15,6 @@ Now that your app has been built, you have complete ownership of the source code
 	- [Installation](#installation)
 	- [Running your app](#running-your-app)
 - [Customising bot-written code](#customising-bot-written-code)
-	- [Protected regions](#protected-regions)
 - [Project features](#project-features)
 	- [Server-side](#server-side)
 	- [GraphQL](#graphql)
@@ -46,8 +41,6 @@ Now that your app has been built, you have complete ownership of the source code
 	- [ApiTests](#api-tests)
 	- [UnitTests](#unit-tests)
 	- [SeleniumTests](#selenium-tests)
-- [Extensions](#extensions)
-- [Support](#support)
 
 ----
 
@@ -56,7 +49,14 @@ Now that your app has been built, you have complete ownership of the source code
 ### Docker quick start (best for **viewing** your application)
 
 We generally use Docker to run applications locally since it is both quick and easy to use. The first step, is to make sure you have [Docker installed](https://docs.docker.com/get-docker/) on your computer and that the code is pulled down from Git. To start the application, use your OS start command script in the `_shortcuts` folder. Once running, it will be available at [localhost:8000](localhost:8000).
-> For more detailed instructions on setting up and running with Docker, [go here](https://codebots.com/docs/how-do-i-run-my-app).
+
+Alternatively, in the main directory of the project you can run 
+
+```
+docker-compose up -d
+```
+
+to start the project running in docker. To stop the containers, run `docker-compose down`
 
 ### Installing it locally (best for coding)
 
@@ -72,8 +72,6 @@ Before you can run your application, you will need to have the following install
 * [Yarn](https://classic.yarnpkg.com/en/docs/install)
 * [PostgreSQL](https://www.postgresql.org/download/)
 
-For further information on installation, follow the link for your operating system: [Mac](https://codebots.com/docs/c-bot-setting-up-your-development-environment-mac), [Linux](https://codebots.com/docs/c-bot-setting-up-your-development-environment-linux), [Windows](https://codebots.com/docs/c-bot-setting-up-your-development-environment-windows).
-
 #### Installation
 
 Once the dependencies have been installed, you can install your application.
@@ -83,39 +81,25 @@ Once the dependencies have been installed, you can install your application.
 3. Create your initial migration with `dotnet ef migrations add initial` from within the `serverside/src` directory.
 4. Apply your initial migration with `dotnet ef database update`, this will initialise your database schema.
 
+> Note: these steps are not needed to run the project as they were competed at the beginning of development by the dev team APEs. However, should the project be started again from scratch these are good starting steps. 
+
 #### Running your app
 
 You can now start you application by running `dotnet run` in the `serverside/src/` directory. If you start the application with this command, both the server-side and the client-side will be launched.
 If it runs successfully, you will be able to access your application at [localhost:5000](https://localhost:5000).
 
-> Please see [Running C#Bot](https://codebots.com/docs/running-c-bot) for more details about how you can run your application.
-
 ----
 
 ## Customising bot-written code
 
-The bots work like another member of your team, committing their work to the repository so that you can pull it down. It is important that if you want to continue building with the bots, **you commit and push your code before you build**. Pull at any time to get the bot's changes.
-
-### Protected regions
-
-Wondering how the bots know to leave your code alone? They use a thing called protected regions. Protected regions are areas where you can write code that the bots will not touch. They are scattered almost everywhere throughout the bot-written files, and look something like this:
+The application framework was generated using a model driven approach with the platform Codebots. The Bot writes the base code to be built upon and edited in all files and ensures that all generated code is liscenced to the user. Protected regions appear in files like below;
 
 ```
 // % protected region % [Add any additional imports here] off begin
 
 // % protected region % [Add any additional imports here] end
 ```
-
-To use a protected region, change the first comment to say `on` instead of `off`.
-
-If you do not turn it on, the bots will keep updating the code inside anytime you build your application.
-
-For more information on protected regions, [read this article](https://codebots.com/docs/protected-regions).
-
-#### Missing a protected region?
-
-[You can request new protected regions from our support desk.](https://codebots.com/docs/protected-region-request-process)
-
+Protected regions are areas where you can write code that the bots will not touch, if the code was regenerated. To use a protected region, change the first comment to say `on` instead of `off`. However, for the purpose of future development all files can be edited external to protected regions. 
 
 ----
 
@@ -125,7 +109,7 @@ For more information on protected regions, [read this article](https://codebots.
 
 The server-side is the back-end of your application. It handles the majority of the data processing as well as other tasks such as user management, security and control. The server-side can also be used to integrate with third party API's.
 
-C#Bot uses `ASP.Net Core` for the server-side. ASP.NET is an open source web framework which is free for everyone to use. For more information on the architecture underpinning of C#Bot, you can read [this article](https://codebots.com/docs/c-bot-file-structure).
+The server side uses `ASP.Net Core`. ASP.NET is an open source web framework which is free for everyone to use. 
 
 There are several maintenance tasks a developer will need to use when building their applications. One such task is maintaining your local database, this is managed through the [dotnet entity framework CLI tool](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet). You can run this tool in the root of your web server project (`/serverside/src`) using your command line.
 
@@ -144,7 +128,7 @@ dotnet ef database update
 
 ### GraphQL
 
-With GraphQL enabled, you get a fully functional and extensible GraphQL CRUD API based on the entities you have created in the Entity diagram. This API allows you to Create, Read, Update and Delete data for all of the bot-written entities, based on the security which you configure in the Security diagram. It can be used to make development easier by using the API to assist your internal application's code, and if you open it up, it can also be used as a fully functioning API make your application's data available to other applications.
+With GraphQL enabled, you get a fully functional and extensible GraphQL CRUD API based on the entities Regional Area, Service and Service Commissioning Body. This API allows you to Create, Read, Update and Delete data for all entities, based on the security defined for each entity. The API is a fully functioning API that makes the application's data available to other applications
 
 There is a GraphQl controller found in the `/serverside/src/Controllers/GraphQlController.cs` file. This is the entry point for all GraphQl requests.
 
@@ -152,11 +136,11 @@ The GraphQL schema can be found at `/serverside/src/Graphql/Schema.cs`. This con
 
 ### REST API
 
-The REST API controllers provide additional functionality for interacting with the server of your application using CRUD (create, read, update, delete) operations. The endpoints available are based on the entities create in the Entity diagram, with the same security settings you configured in the Security diagram. It can be used to make development easier by using the API to assist your internal application's code. The REST API is also a popular choice for creating a fully functioning API to make your application's data available to other applications.
+The REST API controllers provide additional functionality for interacting with the server of your application using CRUD (create, read, update, delete) operations. Similar to the GraphQL API, the REST API is also a popular choice for creating a fully functioning API that makes the application's data available to other applications.
 
 The [Export](#export) functionality makes use of the REST API to assist with the exporting process.
 
-Entity Controllers can be found at `serverside/src/Controllers/Entities` and can be called from the client-side using [Axios](https://github.com/axios/axios), which you can read more about [here](https://codebots.com/docs/what-is-axios).
+Entity Controllers can be found at `serverside/src/Controllers/Entities` and can be called from the client-side using [Axios](https://github.com/axios/axios).
 
 ### Security
 
@@ -174,15 +158,13 @@ The [SECURITY](./SECURITY.md) document is supplied to provide a guidance on the 
 
 #### Components
 
-The client-side comes with a collection of pre-built UI components that you can use to build out your application. You can use small components like buttons, or larger components like modals, to save yourself time and effort. The included elements all have a consistent structure and are easy to style. These components were also designed with accessibility in mind, so when used, many features required to make your site accessible are already done for you.
-
-For a full list of components and elements available, take a look [here](https://codebots.com/docs/c-bot-reusing-components).
+The client-side comes with a collection of pre-built UI components that you can use to further build out the application. You can use small components like buttons, or larger components like modals, to save yourself time and effort. The included elements all have a consistent structure and are easy to style. These components were also designed with accessibility in mind, so when used, many features required to make your site accessible are already done for you.
 
 ### Database
 
-Your application has been configured to use a POSTGRES database.
+The application has been configured to use a POSTGRES database.
 
-PostgreSQL is an open source Relational Database Management System, and is the recommended choice of database type for a C#Bot application. PostgreSQL can be integrated with many programming languages, including C#, and it is compatible with all operating systems. Compared to other database types it supports multiple features by default that are either not supported or require a third party plugin to enable. As a result, it is the best choice for a database which is expected to have a high number of concurrent users.
+PostgreSQL is an open source Relational Database Management System. PostgreSQL can be integrated with many programming languages, including C#, and it is compatible with all operating systems. Compared to other database types it supports multiple features by default that are either not supported or require a third party plugin to enable. As a result, it is the best choice for a database which is expected to have a high number of concurrent users.
 
 You can configure your database connection by going to `serverside/src/appsettings.Development.xml` and changing the line:
 
@@ -192,7 +174,7 @@ You can configure your database connection by going to `serverside/src/appsettin
 
 For caching data, your application is configured to use a [Redis](https://redis.io/) database.
 
-Redis is a high performance key value store capable of quickly storing and retrieving data. A C#Bot application will use Redis for caching and storing Hangfire jobs if there is a Redis instance configured. If there is no Redis instance, then the application will fall back to in memory caching. In a production environment, it is strongly recommended to configure a Redis instance, so the cache is persistent and can be shared across application instances.
+Redis is a high performance key value store capable of quickly storing and retrieving data. Redis is used  for caching and storing Hangfire jobs if there is a Redis instance configured. If there is no Redis instance, then the application will fall back to in memory caching. In a production environment, it is strongly recommended to configure a Redis instance, so the cache is persistent and can be shared across application instances.
 
 To configure your Redis connection string, you need to update the `RedisConnectionString` property in `appsettings.xml` to point to your Redis instance. The default configuration (shown below) points to a Redis instance running on `localhost`.
 
@@ -322,16 +304,7 @@ This feature integrates with the [email](#email) service to send password reset 
 
 ### Theme
 
-The styling of a bot-written application is implemented using [Sass](https://sass-lang.com/), a CSS pre-processor which makes it easier to work with the code. Your project uses a plain theme, which is designed to be neutral to allow for easier SCSS customisations.
-
-To get started with customising and styling your target application, you can read the following articles:
-
-- [Introduction to the SCSS](https://codebots.com/docs/introduction-to-harmony)
-- [Setting up variables and custom colours](https://codebots.com/docs/setting-up-scss-variables)
-- [Styling elements](https://codebots.com/docs/custom-element-styling)
-- [Styling components](https://codebots.com/docs/custom-component-styling)
-- [Styling custom pages](https://codebots.com/docs/styling-custom-tiles-and-importing-custom-scss)
-
+The styling of the application is implemented using [Sass](https://sass-lang.com/), a CSS pre-processor which makes it easier to work with the code. Your project uses a plain theme, which is designed to be neutral to allow for easier SCSS customisations. 
 
 ### Amazon S3
 
@@ -367,7 +340,7 @@ The Swagger docs can be accessed by launching your application and going to `/ap
 
 API tests can be used to test the API's in your application.
 
-Tests for your GraphQL endpoints are automatically written for you. They can be used as a basis for creating new custom tests or be used to test the bot-written API methods. Tests for your REST API endpoints are also written automatically, and can be used in the same way.
+Tests for the  GraphQL and REST API endpoints were automatically written by the Bot, and custom tests are based on this framework. 
 
 To run the API tests in your server-side, navigate to the `testtarget` directory within your project and run the following command:
 
@@ -399,8 +372,6 @@ yarn run test
 
 > This requires your application to have previously been installed. See [Client-side](#client-side) for details.
 
-For a full list of all testing technologies that could be used in your application, please see the article: [C#Bot Technology List: Testing](https://codebots.com/docs/c-bot-technology-list-testing)
-
 ### Selenium Tests
 
 Selenium allows you to create web browser automation tests to check that your application is functioning as expected from end to end. They utilise a behaviour driven development tool (BDD) called [SpecFlow](https://docs.specflow.org/en/latest/) for test definitions and Selenium for the web browser automation.
@@ -413,24 +384,3 @@ dotnet test .\Selenium.csproj
 
 > All server-side tests can be run with `dotnet test`.
 
-For more details, see [Selenium tests with C#Bot](https://codebots.com/docs/selenium-tests-with-c-bot).
-
-
-----
-
-## Extensions
-
-Your app is using: [User](https://codebots.com/docs/user-extension-overview)
-
-You aren't using: [Forms](https://codebots.com/docs/forms-extension-overview), [Timeline](https://codebots.com/docs/timelines-extension-overview), [Workflow](https://codebots.com/docs/workflow-extension-overview)
-
-Extensions are how you can add in pre-built functionality into your app. There are a whole range of extensions you can use. Add them into either the Entity or Interface diagram and build with the bots to see how they work.
-
-To find out more about the extensions your bot offers, or how to work with an extension you can click on one of the links above.
-
-----
-
-## Support
-
-If you ever get stuck or want to suggest a change, our support team is here to help! To submit a support request, follow the instructions in this article: [link](https://codebots.com/docs/submitting-feedback-and-bugs)
-<!-- % protected region % [Configure readme here] end -->

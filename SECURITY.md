@@ -1,26 +1,18 @@
-<!-- @bot-written -->
-<!-- % protected region % [Configure security document here] off begin -->
 # Security
 
-The purpose of this document is to outline and provide guidance on the security considerations of your application. As the security landscape is always changing, this document does not claim to cover all aspects of your application. Note that the ultimate responsibility for making this application secure is on the developer.
+The purpose of this document is to outline and provide guidance on the security considerations of the application. As the security landscape is always changing, this document does not claim to cover all aspects of your application. Note that the ultimate responsibility for making this application secure is on the developer.
 
 This guide aims to provide guidance on known areas of risk and considerations.
 
 For the purposes of this document, the [Application Security Verification Standard](https://github.com/OWASP/ASVS/tree/v4.0.2#latest-stable-version---402) will be used as the primary source of OWASP considerations.
 
-## Codebots Platform
-
-Your application can be configured with out-of-the-box security configurations using the [Security Diagram](https://codebots.com/docs/using-the-security-diagram). This will enable you to set CRUD permissions on each of your entities and describe which users have access to the pages defined in the UI model. You can also specify which users have access to the back-end.
-
 ## Application Summary
 
-While these default settings are a great start, it is the responsibility of the developer when making protected region changes to consider any custom security methods or endpoints they add to remain OWASP compliant. It is important to understand AAA (Application, Authentication, Auditing) to keep your application secure. To gain a better understanding for how AAA security works in your C#Bot application, please refer to our documentation on [handling security with C#Bot applications](https://codebots.com/docs/handling-security-in-c-bot-server-side).
-
-For an in-depth guide of performing custom security, please refer to our guide on [custom security with C#Bot](https://codebots.com/docs/c-bot-custom-security).
+While the default settings provided in this applicaiton are a great start, is it the client's developers responsibility to consider any custom security methods or endpoints they add to remain OWASP compliant. It is important to understand AAA (Application, Authentication, Auditing) to keep your application secure. 
 
 ## Two-Factor Authentication
 
-Your application comes with two-factor authentication out of the box. The default options available are email and authenticator app. You can find most of the configuration files in `./serverside/src/services/TwoFactor`.
+The application comes with two-factor authentication. The default options available are email and authenticator app. You can find most of the configuration files in `./serverside/src/services/TwoFactor`.
 
 Two-factor authentication is an optional feature, it is disabled by default for all users. It can be enabled and configured per user by an administrator in the all users page.
 
@@ -110,5 +102,3 @@ server {
 ```
 
 **NOTE: This will enforce HTTPS so make sure you also have your TLS certificates set and configured for your application otherwise you will lose access.**
-
-<!-- % protected region % [Configure security document here] end -->

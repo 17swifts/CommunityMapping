@@ -1,19 +1,3 @@
-/*
- * @bot-written
- *
- * WARNING AND NOTICE
- * Any access, download, storage, and/or use of this source code is subject to the terms and conditions of the
- * Full Software Licence as accepted by you before being granted access to this source code and other materials,
- * the terms of which can be accessed on the Codebots website at https://codebots.com/full-software-licence. Any
- * commercial use in contravention of the terms of the Full Software Licence may be pursued by Codebots through
- * licence termination and further legal action, and be required to indemnify Codebots for any loss or damage,
- * including interest and costs. You are deemed to have accepted the terms of the Full Software Licence on any
- * access, download, storage, and/or use of this source code.
- *
- * BOT WARNING
- * This file is bot-written.
- * Any changes out side of "protected regions" will be lost next time the bot makes any changes.
- */
 import * as React from 'react';
 import SecuredPage from 'Views/Components/Security/SecuredPage';
 import { observer } from 'mobx-react';
@@ -175,10 +159,25 @@ class ServiceDashboardPage extends React.Component<ServiceDashboardPageProps> {
 						</div> 
 						<div className="layout__horizontal">
 							<ChartCard title="Service Category Breakdown" chart={<PolarChart labels={['Aboriginal', 'Accommodation', 'Advocacy', 'Alcohol and Drug', 'Community Facilities', 'Community Club', 'Crisis and Emergency', 'Cultural and Migrant', 'Disability', 'Education', 'Employment', 'Health', 'Information and Counselling', 'Legal', 'Self Help', 'Sport', 'Welfare', 'Youth']} label='Category' 
-							data={this.regionalAreaSelected.servicess? [this.regionalAreaSelected.servicess.filter(s => s.category === 'ABORIGINAL_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'ACCOMMODATION_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'ALCOHOL_AND_DRUG_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'COMMUNITY_CENTRES_HALLS_AND_FACILITIES').length, 
-							this.regionalAreaSelected.servicess.filter(s => s.category === 'COMMUNITY_CLUB').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'CRISIS_AND_EMERGENCY_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'CULTURAL_AND_MIGRANT_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'DISABILITY_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'EDUCATION').length,  
-							this.regionalAreaSelected.servicess.filter(s => s.category === 'EMPLOYMENT_AND_TRAINING').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'HEALTH_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'INFORMATION_AND_COUNSELLING').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'LEGAL_SERVICE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'SELF_HELP').length,  
-							this.regionalAreaSelected.servicess.filter(s => s.category === 'SPORT').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'WELFARE_ASSISTANCE').length, this.regionalAreaSelected.servicess.filter(s => s.category === 'YOUTH_SERVICE').length]:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}
+							data={this.regionalAreaSelected.servicess? [
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'ABORIGINAL_SERVICE').length, 
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'ACCOMMODATION_SERVICE').length, 
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'ADVOCACY_SERVICE').length, 
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'ALCOHOL_AND_DRUG_SERVICE').length,
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'COMMUNITY_CENTRES_HALLS_AND_FACILITIES').length, 
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'COMMUNITY_CLUB').length, 
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'CRISIS_AND_EMERGENCY_SERVICE').length, 
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'CULTURAL_AND_MIGRANT_SERVICE').length, 
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'DISABILITY_SERVICE').length, 
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'EDUCATION').length,  
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'EMPLOYMENT_AND_TRAINING').length, 
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'HEALTH_SERVICE').length, 
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'INFORMATION_AND_COUNSELLING').length, 
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'LEGAL_SERVICE').length, 
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'SELF_HELP').length,  
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'SPORT').length, 
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'WELFARE_ASSISTANCE').length, 
+								this.regionalAreaSelected.servicess.filter(s => s.category === 'YOUTH_SERVICE').length]:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}
 							backgroundColor={['#F0F8FF','#E6E6FA', '#D8BFD8', '#DDA0DD', '#EE82EE', '#DA70D6', '#FF00FF', '#BA55D3', '#9370DB', '#8A2BE2', '#9400D3','#9932CC','#8B008B','#800080','#4B0082', '#7B68EE', '#483D8B','#191970']}/>} cardstyle="large"/>
 							
 							<ChartCard title="Socio-Economic Indexes for Areas (SEIFA)" description="SEIFA ranks areas in Australia according to relative socio-economic advantage and disadvantage. The scores for all SA1s are then standardised to a distribution where the average equals 1000 and the standard deviation is 100. " 
