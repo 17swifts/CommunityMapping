@@ -25,6 +25,7 @@
 		color: get-contrasting-text-color($background) !important;
 		>.text:not(.default) {
 			color: get-contrasting-text-color($background) !important;
+			left: 50%;
 		}
 		&.disabled {
 			background: $grey-0;
