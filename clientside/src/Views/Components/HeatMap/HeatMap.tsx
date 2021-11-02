@@ -13,7 +13,7 @@ function round(num: number) {
     return Math.round(m) / 100 * Math.sign(num);
 }
 
-export default function HeatMapTest() {
+export default function HeatMap() {
     const { height, width } = useWindowDimensions();
 
     if (width < 700 || height < 600) {
@@ -73,7 +73,6 @@ export default function HeatMapTest() {
             interactiveLayerIds={ [data] }
             onHover={ onHover }
         >
-            
             <Source type="geojson" data={ data }>
                 <Layer {...HeatLayer}/>
             </Source>
