@@ -130,8 +130,8 @@
 	  }
 	  
 	  .text {
-		color: white;
-		font-size: 20px;
+		color: #5c4cab;
+		font-size: 18px;
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -139,6 +139,8 @@
 		-ms-transform: translate(-50%, -50%);
 		transform: translate(-50%, -50%);
 		text-align: center;
+		line-height: 1.2;
+		width: 200px;
 	  }
 	 // % protected region % [Add additional front-end style content here] end
  }

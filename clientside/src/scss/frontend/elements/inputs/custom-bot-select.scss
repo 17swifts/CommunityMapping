@@ -47,7 +47,7 @@
 			>.item {		
 				color: get-contrasting-text-color($background) !important;
 				border: none;
-				padding: $space-xs $space-sm !important;
+				padding: calc(2 * 1rem) calc(1.5 * 1rem) !important;
 			}
 			.selected.item, .selected {
 			}
