@@ -114,6 +114,15 @@ export const HeatLayer = {
     }
 }
 
+export const HighlightHeatMapLayer ={
+    id: 'data-highlight',
+    type: 'fill' as 'fill',
+    paint: {
+        'fill-color': '#808080',
+        'fill-opacity': 0.3
+    }
+};
+
 export const LineLayer = {
     'id': 'seifa-outline',
     'type': 'line' as 'line',

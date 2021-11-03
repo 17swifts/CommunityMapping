@@ -1,8 +1,7 @@
 import useWindowDimensions from 'Hooks/useWindowDimensions';
-import mapboxgl from 'mapbox-gl';
-import { useState, useEffect, useCallback } from 'react';
-import MapGL, { Source, Layer } from 'react-map-gl';
-import { HeatLayer } from './HeatMapStyle';
+import { useState, useEffect, useCallback, useMemo } from 'react';
+import MapGL, { Source, Layer, Popup } from 'react-map-gl';
+import { HeatLayer, HighlightHeatMapLayer } from './HeatMapStyle';
 
 // Access token for MapBox API
 const MAPBOX_TOKEN = "pk.eyJ1IjoiamFtZXN0a2VsbHkiLCJhIjoiY2tzOGU4ejl1MG9icjJ1bzJ2MzV6d2xldSJ9.vFX3vaZcZjWnXnqOoMn2Vg";
@@ -44,23 +43,21 @@ export default function HeatMap() {
     });
 
     const onHover = useCallback(event => {
-        const {
-            features,
-            srcEvent: { offsetX, offsetY}
-        } = event;
-        const hoveredFeature = features && features[0];
+        const hoveredFeature = event.features && event.features[0];
 
         setHoverInfo(
             hoveredFeature
                 ? {
                     feature: hoveredFeature,
-                    x: offsetX,
-                    y: offsetY
+                    x: event.lngLat[0],
+                    y: event.lngLat[1]
                 }
                 : null
         );
     }, []);
 
+    const selectedRegion = (hoverInfo && hoverInfo.feature.properties.sa2Name) || '';
+    const filter = useMemo(() => ['in', 'sa2Name', selectedRegion], [selectedRegion]);
     // Render the map component
     return (
         <MapGL
@@ -75,14 +72,18 @@ export default function HeatMap() {
         >
             <Source type="geojson" data={ data }>
                 <Layer {...HeatLayer}/>
+                <Layer {...HighlightHeatMapLayer} filter={filter}/>
             </Source>
-            {hoverInfo && (
-                <div className="tooltip" style={{ left: hoverInfo.x, top: hoverInfo.y }}>
-                    <div>SA2 Name: { hoverInfo.feature.properties.sa2Name }</div>
-                    <div>SA3 Name: { hoverInfo.feature.properties.sa3Name }</div>
-                    <div>State: { hoverInfo.feature.properties.stateName }</div>
-                    <div>Gap Score: { hoverInfo.feature.properties.gapScore }</div>
-                </div>
+            {selectedRegion && (
+                <Popup
+                    longitude={hoverInfo.x}
+                    latitude={hoverInfo.y}
+                    closeButton={false}
+                    className='region-info'
+                >
+                    {selectedRegion}<br/>
+                    Score: {round(hoverInfo.feature.properties.gapScore)}
+                </Popup>
             )}
         </MapGL>
     );

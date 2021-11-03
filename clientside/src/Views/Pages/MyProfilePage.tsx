@@ -17,17 +17,16 @@
 import * as React from 'react';
 import SecuredPage from 'Views/Components/Security/SecuredPage';
 import { observer } from 'mobx-react';
-import { Redirect, RouteComponentProps } from 'react-router';
+import { RouteComponentProps } from 'react-router';
 import { getFrontendNavLinks } from 'Views/FrontendNavLinks';
 import Navigation, { Orientation } from 'Views/Components/Navigation/Navigation';
 
 // % protected region % [Add any extra imports here] on begin
 import { store } from 'Models/Store';
-import EntityAttributeList, {IEntityAttributeBehaviour} from 'Views/Components/CRUD/EntityAttributeList';
+import EntityAttributeList from 'Views/Components/CRUD/EntityAttributeList';
 import { ServiceCommissioningBodyEntity } from 'Models/Entities';
 import { EntityFormMode } from 'Views/Components/Helpers/Common';
 import { action, observable } from 'mobx';
-import EntityCRUD from 'Views/Components/CRUD/EntityCRUD';
 // % protected region % [Add any extra imports here] end
 
 export interface MyProfilePageProps extends RouteComponentProps {
