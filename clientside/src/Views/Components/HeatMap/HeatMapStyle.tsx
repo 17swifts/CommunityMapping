@@ -14,7 +14,6 @@ export const DataLayer = {
                 [60000, '#fdae61'],
                 [70000, '#f46d43'],
                 [80000, '#d53e4f'],
-                
             ]
         }
     }

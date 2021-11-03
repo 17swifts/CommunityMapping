@@ -24,6 +24,7 @@ import Footer from 'Views/Components/Footer/Footer';
 
 // % protected region % [Add any extra imports here] off begin
 import HeatMap from 'Views/Components/HeatMap/HeatMap';
+import HeatMapLegend from 'Views/Components/HeatMap/HeatMapLegend';
 // % protected region % [Add any extra imports here] end
 
 export interface ServiceProfilePageProps extends RouteComponentProps {
@@ -68,13 +69,16 @@ class ServiceProfilePage extends React.Component<ServiceProfilePageProps> {
 						</div>
 						<div className="layout__paragraph">
 							<p>
-								Like the SEIFA map, the community services map visualises which Australian regional areas 
-								need more funding and services. A gap score is calculated based on the current support 
+								Like the SEIFA map, the community services map visualises which Australian regional areas
+								need more funding and services. A gap score is calculated based on the current support
 								the region is receiving against the required support the population needs. The higher the score, 
 								the more services/ funding is needed. For a further breakdown of how the gap score is calculated for 
-								each region, see <a href="/servicedashboard">Analytics Dashboard</a>. 
+								each region, see <a href="/servicedashboard">Analytics Dashboard</a>.
 							</p>
 							<div className="map-wrapper">
+								<div className="legend-wrapper">
+									<HeatMapLegend></HeatMapLegend>
+								</div>
 								<HeatMap></HeatMap>
 							</div>
 						</div>
