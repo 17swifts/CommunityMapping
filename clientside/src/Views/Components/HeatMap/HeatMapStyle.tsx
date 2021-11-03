@@ -21,7 +21,7 @@ export const DataLayer = {
 }
 
 export const HeatLayer = {
-    id: 'seifa',
+    id: 'data',
     type: 'fill' as 'fill',
     paint: {
         "fill-color": {

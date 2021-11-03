@@ -2,7 +2,7 @@ import useWindowDimensions from 'Hooks/useWindowDimensions';
 import mapboxgl from 'mapbox-gl';
 import { useState, useEffect, useCallback } from 'react';
 import MapGL, { Source, Layer } from 'react-map-gl';
-import { DataLayer, LineLayer, HeatLayer } from './HeatMapStyle';
+import { HeatLayer } from './HeatMapStyle';
 
 // Access token for MapBox API
 const MAPBOX_TOKEN = "pk.eyJ1IjoiamFtZXN0a2VsbHkiLCJhIjoiY2tzOGU4ejl1MG9icjJ1bzJ2MzV6d2xldSJ9.vFX3vaZcZjWnXnqOoMn2Vg";
@@ -33,14 +33,14 @@ export default function HeatMap() {
         pitch: 30
     });
 
-    const [data, setData] = useState<any | null>(null); // Data set and get object
+    const [data, setAllData] = useState<any | null>(null); // Data set and get object
     const [hoverInfo, setHoverInfo] = useState<any | null>(null); // Hover info object
 
     // Fetch the data globally
     useEffect(() => {
         fetch('https://raw.githubusercontent.com/jamestkelly/CommunityMappingData/main/data/geo-numeric.json')
             .then(resp => resp.json())
-            .then(json => setData(json))
+            .then(json => setAllData(json))
     });
 
     const onHover = useCallback(event => {
@@ -70,7 +70,7 @@ export default function HeatMap() {
             mapStyle={ MAP_STYLE }
             onViewportChange={ setViewport }
             mapboxApiAccessToken={ MAPBOX_TOKEN }
-            interactiveLayerIds={ [data] }
+            interactiveLayerIds={ ['data'] }
             onHover={ onHover }
         >
             <Source type="geojson" data={ data }>
@@ -81,7 +81,7 @@ export default function HeatMap() {
                     <div>SA2 Name: { hoverInfo.feature.properties.sa2Name }</div>
                     <div>SA3 Name: { hoverInfo.feature.properties.sa3Name }</div>
                     <div>State: { hoverInfo.feature.properties.stateName }</div>
-                    <div>Gap Score: { round(hoverInfo.feature.properties.gapScore) }</div>
+                    <div>Gap Score: { hoverInfo.feature.properties.gapScore }</div>
                 </div>
             )}
         </MapGL>
