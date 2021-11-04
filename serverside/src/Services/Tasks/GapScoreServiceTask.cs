@@ -60,12 +60,13 @@ namespace Cis.Services.Tasks
 
             var population = Convert.ToDouble(regionalArea.Indigenous + regionalArea.Nonindigenous);
             var services = regionalArea.Servicess.Where(service => service.Active == true);
-            var servicesGroupedByCategory = services.GroupBy(service => service.Category);
             
             // Aboriginal 
-            gapScore += CalculateSingleServiceGap(services, Categories.ABORIGINAL_SERVICE, needForAboriginalServiceByPop, Convert.ToDouble(regionalArea.Indigenous));
+            gapScore += CalculateSingleServiceGap(services, Categories.ABORIGINAL_SERVICE, 
+                needForAboriginalServiceByPop, Convert.ToDouble(regionalArea.Indigenous));
             // Accomodation
-            gapScore += CalculateSingleServiceGap(services, Categories.ACCOMMODATION_SERVICE, riskOfHomelessness, population);
+            gapScore += CalculateSingleServiceGap(services, Categories.ACCOMMODATION_SERVICE, 
+                riskOfHomelessness, population);
             // Advocacy  
             gapScore += CalculateSingleServiceGap(services, Categories.ADVOCACY_SERVICE, needForAdvocacyService, population);
             // Alcohol and Drug
